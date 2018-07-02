@@ -6,13 +6,23 @@ cc.Class({
             default: null,
             type: cc.Label
         },
-        // defaults, set visually when attaching this script to the Canvas
-        text: 'Hello, World!'
+      
+    },
+
+     //无尽模式
+    goGame:function() {
+        
+        cc.director.loadScene('game');    
+    },
+
+    //进入关卡选择界面
+    goCheckpoint:function() {
+        cc.director.loadScene('checkpoint');    
     },
 
     // use this for initialization
     onLoad: function () {
-        this.label.string = this.text;
+       
     },
 
     // called every frame
