@@ -17,8 +17,8 @@ cc.Class({
 
         //与其麻烦的使用全局变量不如用这个API 
 
-        c.sys.localStorage.setItem('currentCheckpoint', eventData);
-        
+        cc.sys.localStorage.setItem('currentCheckpoint', eventData);
+
 
     },
 
