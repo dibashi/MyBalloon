@@ -13,6 +13,7 @@ cc.Class({
        //初始化要根据checkpoint来读取相应的关卡数据
        
        //1读取 数据 还是加载场景？ wtf
+       cc.log("game scenen!");
     },
 
     // called every frame

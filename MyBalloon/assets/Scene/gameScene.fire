@@ -62,17 +62,17 @@
         "__id__": 6
       },
       {
-        "__id__": 11
+        "__id__": 15
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 12
+        "__id__": 16
       },
       {
-        "__id__": 13
+        "__id__": 17
       }
     ],
     "_prefab": null,
@@ -221,7 +221,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "game",
+    "_name": "gameLayer",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -231,12 +231,16 @@
         "__id__": 7
       },
       {
-        "__id__": 9
+        "__id__": 11
       }
     ],
     "_tag": -1,
     "_active": true,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 14
+      }
+    ],
     "_prefab": null,
     "_id": "5aPEt7vABAwLaRhpLSb+Oe",
     "_opacity": 255,
@@ -255,8 +259,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
+      "width": 720,
+      "height": 1280
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -287,6 +291,12 @@
     "_components": [
       {
         "__id__": 8
+      },
+      {
+        "__id__": 9
+      },
+      {
+        "__id__": 10
       }
     ],
     "_prefab": null,
@@ -353,6 +363,31 @@
     "_atlas": null
   },
   {
+    "__type__": "cc.CircleCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 7
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_radius": 33
+  },
+  {
+    "__type__": "b2ac6qhHMdDGb8kHptSiXJ2",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 7
+    },
+    "_enabled": true
+  },
+  {
     "__type__": "cc.Node",
     "_name": "balloon",
     "_objFlags": 0,
@@ -364,7 +399,10 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 10
+        "__id__": 12
+      },
+      {
+        "__id__": 13
       }
     ],
     "_prefab": null,
@@ -409,7 +447,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 9
+      "__id__": 11
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -429,6 +467,35 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": null
+  },
+  {
+    "__type__": "cc.CircleCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 11
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_radius": 33
+  },
+  {
+    "__type__": "a25a80VfcVDT5BjLw6qc6L/",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 6
+    },
+    "_enabled": true,
+    "guard": {
+      "__id__": 7
+    },
+    "singleTouchID": -1
   },
   {
     "__type__": "cc.Node",
@@ -495,14 +562,12 @@
     "_fitHeight": true
   },
   {
-    "__type__": "280c3rsZJJKnZ9RqbALVwtK",
+    "__type__": "f37d962FrxD477VSd9cPJLV",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 2
     },
-    "_enabled": true,
-    "label": null,
-    "text": "Hello, World!"
+    "_enabled": true
   }
 ]
