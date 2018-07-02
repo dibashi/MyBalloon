@@ -18,7 +18,7 @@ cc.Class({
         //与其麻烦的使用全局变量不如用这个API 
 
         cc.sys.localStorage.setItem('currentCheckpoint', eventData);
-        cc.director.loadScene('game');    
+        cc.director.loadScene('gameScene');    
     },
 
     // use this for initialization
