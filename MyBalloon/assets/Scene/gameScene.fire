@@ -317,8 +317,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75,
-      "height": 75
+      "width": 89,
+      "height": 89
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -345,7 +345,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "e0d2c9b2-1886-49e3-a744-ebf8b799f45f"
+      "__uuid__": "c8dae492-584d-41ad-9452-4cce702bffc7"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -423,8 +423,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 75,
-      "height": 75
+      "width": 121,
+      "height": 155
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -451,7 +451,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "dffcc436-0ed3-4b67-8f14-5c06606086b6"
+      "__uuid__": "bc56b3d3-47f7-4c6a-b91a-829bc49a6e1d"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -495,7 +495,9 @@
     "guard": {
       "__id__": 7
     },
-    "singleTouchID": -1
+    "singleTouchID": -1,
+    "guardHalfWidth": 0,
+    "guardHalfHeight": 0
   },
   {
     "__type__": "cc.Node",
