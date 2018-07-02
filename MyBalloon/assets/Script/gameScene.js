@@ -19,7 +19,7 @@ cc.Class({
        //这个prefab中 会有敌人和奖品（金币）还会有一些障碍物（黑色的墙）
        let currentCheckpoint = cc.sys.localStorage.getItem('currentCheckpoint');
 
-        let pathOfPrefab = "../Prefab/checkpoint"+currentCheckpoint;
+        let pathOfPrefab = "Prefab/checkpoint"+currentCheckpoint;
         cc.log(pathOfPrefab);
        
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
