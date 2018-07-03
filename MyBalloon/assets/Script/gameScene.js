@@ -10,7 +10,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一起都没有任何效果
+        cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
 
         // cc.director.getPhysicsManager().debugDrawFlags = cc.PhysicsManager.DrawBits.e_aabbBit |
         // cc.PhysicsManager.DrawBits.e_pairBit |
@@ -29,19 +29,16 @@ cc.Class({
 
         //1读取 数据 还是加载场景？ wtf
         cc.log("game scenen!");
+        
         //读取prefab 然后放入到 gameLayer中，让 卫士，气球，敌人，奖励品，墙之间去交互
         //这个prefab中 会有敌人和奖品（金币）还会有一些障碍物（黑色的墙）
-        let currentCheckpoint = cc.sys.localStorage.getItem('currentCheckpoint');
 
-        let pathOfPrefab = "Prefab/checkpoint" + currentCheckpoint;
-     //   cc.log(pathOfPrefab);
-
-        cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
-        //    cc.log(prefab);
-         //   cc.log(self.node.getChildByName("gameLayer"));
-            let newNode = cc.instantiate(prefab);
-            self.node.getChildByName("gameLayer").addChild(newNode);
-        });
+        // let currentCheckpoint = cc.sys.localStorage.getItem('currentCheckpoint');
+        // let pathOfPrefab = "Prefab/checkpoint" + currentCheckpoint;
+        // cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
+        //     let newNode = cc.instantiate(prefab);
+        //     self.node.getChildByName("gameLayer").addChild(newNode);
+        // });
     },
 
     // called every frame

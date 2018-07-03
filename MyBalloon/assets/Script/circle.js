@@ -59,28 +59,6 @@ cc.Class({
     },
 
 
-    //当碰撞产生时调用
-
-    // onCollisionEnter: function (other, self) {
-
-    //     cc.log("圆形碰撞enter");
-
-    // },
-
-    // //在碰撞产生后，在碰撞结束前，每次计算完碰撞结果后调用
-
-    // onCollisionStay: function (other, self) {
-    //     cc.log("圆形碰撞Stay");
-
-    // },
-
-    // //当碰撞结束后调用
-
-    // onCollisionExit: function (other, self) {
-    //     cc.log("圆形碰撞Exit");
-
-    // },
-
 
 
 
