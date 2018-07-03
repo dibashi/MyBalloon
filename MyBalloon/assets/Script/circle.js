@@ -40,22 +40,28 @@ cc.Class({
 
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
+        
         cc.log("onBeginContact");
+        cc.log(contact);
+        cc.log(selfCollider);
+        cc.log(otherCollider.body);
+       // otherCollider.body.linearVelocity = cc.v2(100,100);
+
     },
 
     // 只在两个碰撞体结束接触时被调用一次
     onEndContact: function (contact, selfCollider, otherCollider) {
-        cc.log("onEndContact");
+       // cc.log("onEndContact");
     },
 
     // 每次将要处理碰撞体接触逻辑时被调用
     onPreSolve: function (contact, selfCollider, otherCollider) {
-        cc.log("onPreSolve");
+     //   cc.log("onPreSolve");
     },
 
     // 每次处理完碰撞体接触逻辑时被调用
     onPostSolve: function (contact, selfCollider, otherCollider) {
-        cc.log("onPostSolve");
+       // cc.log("onPostSolve");
     },
 
 
@@ -63,5 +69,10 @@ cc.Class({
 
 
 
-    // update (dt) {},
+     update (dt) {
+         if(this.node.getPosition().y<-1000) {
+             this.node.setPosition(0,500);
+             this.node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0,0);
+         }
+     },
 });
