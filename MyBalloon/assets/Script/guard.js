@@ -23,7 +23,7 @@ cc.Class({
     },
 
     setImpulseVector(x, y) {
-        this.impulseVector = cc.v2(x*1000, y*1000);
+        this.impulseVector = cc.v2(x*500, y*500);
         cc.log(this.impulseVector);
     },
 
