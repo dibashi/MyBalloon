@@ -33,23 +33,13 @@ cc.Class({
     },
 
     dragStart: function (event) {
-        // cc.log("touch begin  "+ this.singleTouchID);
-        // if (this.singleTouchID == -1) {
-        //     this.singleTouchID = event.getID();
-        // } else {
-        //     //已经被触摸设置了，那就不处理
-        //     return;
-        // }
+       
         this.touchBeginPoint = event.getLocation();
     },
 
     dragMove: function (event) {
 
-        // cc.log("touch move  "+ this.singleTouchID);
-
-        // if (event.getID() != this.singleTouchID) {
-        //     return;
-        // }
+       
 
         this.touchMovePoint = event.getLocation();
         let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
@@ -81,13 +71,16 @@ cc.Class({
         this.guard.setPosition(location);
 
         this.touchBeginPoint = this.touchMovePoint;
+
+       // this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(dx,dy);
+       // cc.log("dx,dy  "+ dx+"  " +dy);
+
+      // this.guard.getComponent("guard").setImpulseVector(dx,dy);
     },
 
     drageEnd: function (event) {
-        cc.log("touch end 执行了！");
-        // if (event.getID() == this.singleTouchID) {
-        //     this.singleTouchID = -1;//-1标记可以再触摸
-        // }
+        this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(0,0);
+        //this.guard.getComponent("guard").setImpulseVector(0,0);
     },
 
     // called every frame

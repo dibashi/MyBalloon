@@ -36,6 +36,26 @@ cc.Class({
     start () {
 
     },
+    onBeginContact: function (contact, selfCollider, otherCollider) {
+        
+        cc.log("气球被击中 begin");
+
+    },
+
+     // 只在两个碰撞体结束接触时被调用一次
+     onEndContact: function (contact, selfCollider, otherCollider) {
+        cc.log("气球被击中 ennd");
+     },
+ 
+     // 每次将要处理碰撞体接触逻辑时被调用
+     onPreSolve: function (contact, selfCollider, otherCollider) {
+      //   cc.log("onPreSolve");
+     },
+ 
+     // 每次处理完碰撞体接触逻辑时被调用
+     onPostSolve: function (contact, selfCollider, otherCollider) {
+        // cc.log("onPostSolve");
+     },
 
     // update (dt) {},
 });

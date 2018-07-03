@@ -27,15 +27,50 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+        //impulseVector: null,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+       // this.impulseVector = cc.v2(0.0, 0.0);
+    },
 
-    start () {
+    // setImpulseVector(x, y) {
+    //     this.impulseVector = cc.v2(x*100, y*100);
+    //     cc.log(this.impulseVector);
+    // },
+
+
+    onBeginContact: function (contact, selfCollider, otherCollider) {
+        cc.log("guard onBeginContact");
+        
+       // otherCollider.body.applyLinearImpulse(this.impulseVector,otherCollider.body.getWorldCenter(),true);
 
     },
+
+  
+
+     // 只在两个碰撞体结束接触时被调用一次
+     onEndContact: function (contact, selfCollider, otherCollider) {
+        
+     },
+ 
+     // 每次将要处理碰撞体接触逻辑时被调用
+     onPreSolve: function (contact, selfCollider, otherCollider) {
+      //   cc.log("onPreSolve");
+     },
+ 
+     // 每次处理完碰撞体接触逻辑时被调用
+     onPostSolve: function (contact, selfCollider, otherCollider) {
+        // cc.log("onPostSolve");
+     },
+
+    start() {
+
+    },
+
+
 
     // update (dt) {},
 });
