@@ -33,13 +33,13 @@ cc.Class({
     },
 
     dragStart: function (event) {
-       
+
         this.touchBeginPoint = event.getLocation();
     },
 
     dragMove: function (event) {
 
-       
+
 
         this.touchMovePoint = event.getLocation();
         let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
@@ -69,17 +69,13 @@ cc.Class({
         }
 
         this.guard.setPosition(location);
-
+        this.guard.getComponent("guard").setImpulseVector(dx, dy);
         this.touchBeginPoint = this.touchMovePoint;
-
-       // this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(dx,dy);
-       // cc.log("dx,dy  "+ dx+"  " +dy);
-
-      // this.guard.getComponent("guard").setImpulseVector(dx,dy);
+        // this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(dx,dy);
     },
 
     drageEnd: function (event) {
-        this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(0,0);
+        this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);
         //this.guard.getComponent("guard").setImpulseVector(0,0);
     },
 

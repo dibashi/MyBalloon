@@ -3,7 +3,11 @@ cc.Class({
 
     properties: {
 
+        testDragonBones: {
+            default: null,
+            type: cc.Node,
 
+        },
     },
 
 
@@ -39,6 +43,11 @@ cc.Class({
         //     let newNode = cc.instantiate(prefab);
         //     self.node.getChildByName("gameLayer").addChild(newNode);
         // });
+
+        //this.testDragonBones;
+        let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
+
+        armatureDisplay.playAnimation("time");
     },
 
     // called every frame

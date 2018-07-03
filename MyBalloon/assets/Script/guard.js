@@ -12,40 +12,26 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
-        //impulseVector: null,
+       
+        impulseVector: null,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-       // this.impulseVector = cc.v2(0.0, 0.0);
+       this.impulseVector = cc.v2(0.0, 0.0);
     },
 
-    // setImpulseVector(x, y) {
-    //     this.impulseVector = cc.v2(x*100, y*100);
-    //     cc.log(this.impulseVector);
-    // },
+    setImpulseVector(x, y) {
+        this.impulseVector = cc.v2(x*1000, y*1000);
+        cc.log(this.impulseVector);
+    },
 
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
         cc.log("guard onBeginContact");
         
-       // otherCollider.body.applyLinearImpulse(this.impulseVector,otherCollider.body.getWorldCenter(),true);
+        otherCollider.body.applyLinearImpulse(this.impulseVector,otherCollider.body.getWorldCenter(),true);
 
     },
 
