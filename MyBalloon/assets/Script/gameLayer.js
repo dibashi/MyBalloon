@@ -38,9 +38,6 @@ cc.Class({
     },
 
     dragMove: function (event) {
-
-
-
         this.touchMovePoint = event.getLocation();
         let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
         let dy = this.touchMovePoint.y - this.touchBeginPoint.y;
