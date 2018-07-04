@@ -29,4 +29,9 @@ cc.Class({
     update: function (dt) {
 
     },
+
+    goMainLayer:function() {
+        cc.log("goMainLayer");
+        cc.director.loadScene('start');  
+    },
 });
