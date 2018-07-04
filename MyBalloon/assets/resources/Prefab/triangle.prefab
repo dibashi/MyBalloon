@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wall",
+    "_name": "triangle",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -47,8 +47,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 104,
-      "height": 515
+      "width": 141,
+      "height": 129
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -56,8 +56,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -289,
-      "y": 361
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -75,7 +75,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "62388e71-5721-42fd-bba2-f05225f917f6"
+      "__uuid__": "00589144-c4df-470d-8fce-d56704069009"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -118,7 +118,7 @@
     "bullet": false
   },
   {
-    "__type__": "cc.PhysicsBoxCollider",
+    "__type__": "cc.PhysicsPolygonCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -136,11 +136,23 @@
       "x": 0,
       "y": 0
     },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 104,
-      "height": 515
-    }
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -1.5,
+        "y": 64.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -70.5,
+        "y": -64.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 70.5,
+        "y": -64.5
+      }
+    ]
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -148,7 +160,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "e9e8dd62-c90c-4add-a833-ebbde3d292d6"
+      "__uuid__": "14bf48ed-87ab-484b-b2d7-be902bb6ad50"
     },
     "fileId": "c64gMRiVlDS73w9WIonn26",
     "sync": false

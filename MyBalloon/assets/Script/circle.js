@@ -66,9 +66,9 @@ cc.Class({
 
 
     update(dt) {
-        if (this.node.getPosition().y < -1000) {
-            this.node.setPosition(0, 500);
-            this.node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);
-        }
+        // if (this.node.getPosition().y < -1000) {
+        //     this.node.setPosition(0, 500);
+        //     this.node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);
+        // }
     },
 });

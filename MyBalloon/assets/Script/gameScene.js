@@ -24,10 +24,6 @@ cc.Class({
         //cc.director.getPhysicsManager().debugDrawFlags = 0; 设置为0则关闭调试
         cc.director.getPhysicsManager().gravity = cc.v2(0, -320);//-320像素/秒的平方，这个是默认值，为了以后调试先放在这
 
-       // var manager = cc.director.getCollisionManager(); //碰撞接口
-      //  manager.enabled = true;
-      //  manager.enabledDebugDraw = true; //显示碰撞边框
-
         var self = this;
         //初始化要根据checkpoint来读取相应的关卡数据
 
@@ -45,6 +41,11 @@ cc.Class({
         //this.testDragonBones;
         let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
         armatureDisplay.playAnimation("time");
+    },
+
+    gameOver:function() {
+        cc.log("gameover~!!");
+        cc.director.loadScene('selectCheckpoint');  
     },
 
     // called every frame
