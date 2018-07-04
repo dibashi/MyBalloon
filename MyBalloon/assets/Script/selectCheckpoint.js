@@ -6,7 +6,7 @@ cc.Class({
             default: null,
             type: cc.Label
         },
-     
+        
     },
 
     goCheckpoint:function(event,eventData) {
@@ -16,7 +16,6 @@ cc.Class({
         cc.log(eventData);  //从1开始 1 2 3 4  //0表示无尽模式
 
         //与其麻烦的使用全局变量不如用这个API 
-
         cc.sys.localStorage.setItem('currentCheckpoint', eventData);
         cc.director.loadScene('gameScene');    
     },

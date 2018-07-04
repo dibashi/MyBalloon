@@ -479,7 +479,7 @@
       "__id__": 2
     },
     "component": "start",
-    "handler": "goCheckpoint",
+    "handler": "goSelectCheckpoint",
     "customEventData": ""
   },
   {

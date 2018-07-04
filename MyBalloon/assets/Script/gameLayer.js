@@ -50,7 +50,7 @@ cc.Class({
         location.x += dx;
         location.y += dy;
 
-        //飞机不移出屏幕 
+        //卫士不移出屏幕 
         let minX = this.guardHalfWidth - this.node.width / 2;
         let maxX = -minX;
         let minY = this.guardHalfHeight - this.node.height / 2;

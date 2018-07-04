@@ -361,7 +361,7 @@
     "target": {
       "__id__": 2
     },
-    "component": "checkpoint",
+    "component": "selectCheckpoint",
     "handler": "goCheckpoint",
     "customEventData": "1"
   },
@@ -507,7 +507,7 @@
     "target": {
       "__id__": 2
     },
-    "component": "checkpoint",
+    "component": "selectCheckpoint",
     "handler": "goCheckpoint",
     "customEventData": "2"
   },
@@ -528,7 +528,7 @@
     "_fitHeight": true
   },
   {
-    "__type__": "db76cG0mbNJeb7/Y6Og6iJn",
+    "__type__": "9e2c3qXsn1BMZXo9CPxJkUU",
     "_name": "",
     "_objFlags": 0,
     "node": {

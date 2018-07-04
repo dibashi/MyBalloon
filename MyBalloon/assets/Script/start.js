@@ -16,8 +16,8 @@ cc.Class({
     },
 
     //进入关卡选择界面
-    goCheckpoint:function() {
-        cc.director.loadScene('checkpoint');    
+    goSelectCheckpoint:function() {
+        cc.director.loadScene('selectCheckpoint');    
     },
 
     // use this for initialization
