@@ -21,6 +21,8 @@ cc.Class({
 
         },
 
+       
+
         yun1: {
             default: null,
             type: cc.Node,
@@ -44,6 +46,8 @@ cc.Class({
         h:0,//关卡长度
         bgMinY:0,//下限 超过这个值 背景挪上去
         bgSpeed:2,//背景的移动速度
+
+        guanKa:0,//0代表无尽模式
     },
 
 
@@ -80,14 +84,14 @@ cc.Class({
         //读取prefab 然后放入到 gameLayer中，让 卫士，气球，敌人，奖励品，墙之间去交互
         //这个prefab中 会有敌人和奖品（金币）还会有一些障碍物（黑色的墙）
         
-        let currentGuanKa = cc.sys.localStorage.getItem('currentCheckpoint');
-        if(currentGuanKa != 0) {
+        this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
+        if(this.guanKa != 0) {
             let pathOfPrefab = "Prefab/checkpoint" + currentCheckpoint;
             cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
                 let newNode = cc.instantiate(prefab);
                 self.node.getChildByName("gameLayer").addChild(newNode);
             });
-        } else if(currentGuanKa == 0) { //无尽模式
+        } else if(this.guanKa == 0) { //无尽模式
             //随机选择一关 便于调试 现在只有四关
            
             //let cps_index = Math.floor(Math.random()*4);
@@ -156,6 +160,12 @@ cc.Class({
 
         if(bg1Y<=this.bgMinY) {
             this.currentCheckpointNode.setPosition(this.currentCheckpointNode.getPosition().x,bg2Y+this.h-this.bgSpeed*dt*60);
+
+            if(this.guanKa == 0) {
+                //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
+                this.generateCheckpointByIndex(3,this.currentCheckpointNode);
+            }
+            
         }else {
             bg1Y -= this.bgSpeed*dt*60;
             this.currentCheckpointNode.setPosition(this.currentCheckpointNode.getPosition().x,bg1Y);
@@ -163,6 +173,11 @@ cc.Class({
 
         if(bg2Y<=this.bgMinY) {
             this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x,bg1Y+this.h);
+
+            if(this.guanKa == 0) {
+                //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
+                this.generateCheckpointByIndex(2,this.nextCheckpointNode);
+            }
         }else {
             bg2Y -= this.bgSpeed*dt*60;
             this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x,bg2Y);

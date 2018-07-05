@@ -66,6 +66,7 @@ cc.Class({
 
 
     update(dt) {
+        cc.log("circle  " +this.node.getPosition());
         // if (this.node.getPosition().y < -1000) {
         //     this.node.setPosition(0, 500);
         //     this.node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);
