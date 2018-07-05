@@ -68,7 +68,7 @@ cc.Class({
 
 
     update(dt) {
-      //  cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition().x);
+        cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition().x);
 
         if(this.rigidBodyOfNode.getWorldPosition().x<-200 || this.rigidBodyOfNode.getWorldPosition().x>200 || this.rigidBodyOfNode.getWorldPosition().y<-200) {
             this.node.destroy();
