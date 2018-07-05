@@ -41,7 +41,7 @@ cc.Class({
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
 
-        cc.log("circle onBeginContact");
+      //  cc.log("circle onBeginContact");
         // cc.log(contact);
         // cc.log(selfCollider);
         // cc.log(otherCollider.body);

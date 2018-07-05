@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "triangle",
+    "_name": "bigCircle",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -47,8 +47,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 141,
-      "height": 129
+      "width": 450,
+      "height": 450
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -57,7 +57,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": 400
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -75,10 +75,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "00589144-c4df-470d-8fce-d56704069009"
+      "__uuid__": "1f62eeab-bc8f-4cbc-a96a-94155e6c1479"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -103,8 +103,8 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
-    "_gravityScale": 0,
+    "_allowSleep": true,
+    "_gravityScale": 1,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
@@ -113,12 +113,12 @@
       "y": 0
     },
     "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": false
+    "bullet": true
   },
   {
-    "__type__": "cc.PhysicsPolygonCollider",
+    "__type__": "cc.PhysicsCircleCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -136,23 +136,7 @@
       "x": 0,
       "y": 0
     },
-    "points": [
-      {
-        "__type__": "cc.Vec2",
-        "x": -1.5,
-        "y": 64.5
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -70.5,
-        "y": -64.5
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 70.5,
-        "y": -64.5
-      }
-    ]
+    "_radius": 225
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -160,9 +144,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "14bf48ed-87ab-484b-b2d7-be902bb6ad50"
+      "__uuid__": "48f2af87-9ed6-4d89-a03d-a96ffb1bb937"
     },
-    "fileId": "c64gMRiVlDS73w9WIonn26",
+    "fileId": "1ewpMEBL1DurnA0OnU7Bqj",
     "sync": false
   }
 ]

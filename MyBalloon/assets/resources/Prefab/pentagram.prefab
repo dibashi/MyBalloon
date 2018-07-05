@@ -64,7 +64,7 @@
     "_localZOrder": 0,
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
-    "groupIndex": 4
+    "groupIndex": 2
   },
   {
     "__type__": "cc.Sprite",
@@ -102,7 +102,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_type": 0,
+    "_type": 2,
     "_allowSleep": false,
     "_gravityScale": 0,
     "_linearDamping": 0,
