@@ -57,10 +57,11 @@ cc.Class({
         this.bgMinY = this.currentCheckpointNode.getPosition().y - this.h;
 
         this.cps = new Array();
-        this.cps[0] = 2;
-        this.cps[1] = 11;
-        this.cps[2] = 15;
-        this.cps[3] = 19;
+        this.cps[0] = 1;
+        this.cps[1] = 2;
+        this.cps[2] = 11;
+        this.cps[3] = 15;
+        this.cps[4] = 19;
 
         cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
 
@@ -89,8 +90,8 @@ cc.Class({
         } else if(currentGuanKa == 0) { //无尽模式
             //随机选择一关 便于调试 现在只有四关
            
-           // let cps_index = Math.floor(Math.random()*4);
-           let cps_index = 3;
+            //let cps_index = Math.floor(Math.random()*4);
+            let cps_index = 0;
             this.generateCheckpointByIndex(cps_index,this.currentCheckpointNode);
           //  let next_cps_index = 3;
           //  let next_cps_index = Math.floor(Math.random()*4);
@@ -120,10 +121,9 @@ cc.Class({
         let newNode = cc.instantiate(prefab);
        newNode.setPosition(cc.v2(newNode.getContentSize().width*0.5,newNode.getContentSize().height*0.5));
         checkpointNode.addChild(newNode);
-        cc.log(newNode.getContentSize());
-        
-        
-       
+
+        //给子节点下的所有子节点以刚体速度
+       // this.giveRigidBodyVelocity(newNode,this.bgSpeed*60);
     },
 
     //传入两关，来完美的生成背景图并且滚动，

@@ -48,8 +48,8 @@ cc.Class({
         // let hy = cc.director.getVisibleSize().height;
        let hy =1920;
       
-        this.node.setPosition(0, 0);//初始化关卡位置
-        this.thresholdOfCommotion = hy - 1200;//初始化阀值
+      
+        this.thresholdOfCommotion = -1000;//初始化阀值
 
         this.operationalSetOfGravity = new Array();//后续的操作集合
 
