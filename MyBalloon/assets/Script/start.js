@@ -11,8 +11,8 @@ cc.Class({
 
      //无尽模式
     goGame:function() {
-        
-        cc.director.loadScene('game');    
+        cc.sys.localStorage.setItem('currentCheckpoint', 0);
+        cc.director.loadScene('gameScene');    
     },
 
     //进入关卡选择界面

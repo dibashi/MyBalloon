@@ -39,15 +39,14 @@ cc.Class({
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
 
-        cc.log("墙体碰撞 begin");
+      
 
 
     },
 
     // 只在两个碰撞体结束接触时被调用一次
     onEndContact: function (contact, selfCollider, otherCollider) {
-        cc.log("墙体碰撞 end");
-        cc.log(otherCollider);
+       
     },
 
     // 每次将要处理碰撞体接触逻辑时被调用

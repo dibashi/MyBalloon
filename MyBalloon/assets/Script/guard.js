@@ -28,10 +28,7 @@ cc.Class({
 
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        cc.log("guard onBeginContact");
-
         otherCollider.body.applyLinearImpulse(this.impulseVector, otherCollider.body.getWorldCenter(), true);
-
     },
 
     // 只在两个碰撞体结束接触时被调用一次
