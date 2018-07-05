@@ -21,7 +21,7 @@ cc.Class({
         cc.PhysicsManager.DrawBits.e_centerOfMassBit |
         cc.PhysicsManager.DrawBits.e_jointBit |
         cc.PhysicsManager.DrawBits.e_shapeBit; //开启物理调试信息
-        //cc.director.getPhysicsManager().debugDrawFlags = 0; 设置为0则关闭调试
+        cc.director.getPhysicsManager().debugDrawFlags = 0; //设置为0则关闭调试
         cc.director.getPhysicsManager().gravity = cc.v2(0, -320);//-320像素/秒的平方，这个是默认值，为了以后调试先放在这
 
         var self = this;

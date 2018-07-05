@@ -467,7 +467,7 @@
       "__id__": 9
     },
     "_enabled": true,
-    "_type": 2,
+    "_type": 3,
     "_allowSleep": false,
     "_gravityScale": 0,
     "_linearDamping": 0,
