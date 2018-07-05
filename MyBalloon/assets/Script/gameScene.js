@@ -91,7 +91,7 @@ cc.Class({
             //随机选择一关 便于调试 现在只有四关
            
             //let cps_index = Math.floor(Math.random()*4);
-            let cps_index = 0;
+            let cps_index = 3;
             this.generateCheckpointByIndex(cps_index,this.currentCheckpointNode);
           //  let next_cps_index = 3;
           //  let next_cps_index = Math.floor(Math.random()*4);
@@ -122,8 +122,18 @@ cc.Class({
        newNode.setPosition(cc.v2(newNode.getContentSize().width*0.5,newNode.getContentSize().height*0.5));
         checkpointNode.addChild(newNode);
 
-        //给子节点下的所有子节点以刚体速度
-       // this.giveRigidBodyVelocity(newNode,this.bgSpeed*60);
+        //递归：给子节点下的所有子节点以刚体速度
+        this.giveRigidBodyVelocity(newNode,-this.bgSpeed*60);
+    },
+
+    giveRigidBodyVelocity:function(node,speed) {
+        let children = node.children;
+        for(let i = 0; i<children.length;i++) {
+            this.giveRigidBodyVelocity(children[i],speed);
+        }
+        if(node.getComponent(cc.RigidBody)!=null) {
+            node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0,speed);
+        }
     },
 
     //传入两关，来完美的生成背景图并且滚动，
