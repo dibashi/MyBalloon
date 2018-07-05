@@ -115,7 +115,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": false
+    "bullet": true
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
