@@ -89,10 +89,12 @@ cc.Class({
         } else if(currentGuanKa == 0) { //无尽模式
             //随机选择一关 便于调试 现在只有四关
            
-            let cps_index = Math.floor(Math.random()*4);
+           // let cps_index = Math.floor(Math.random()*4);
+           let cps_index = 3;
             this.generateCheckpointByIndex(cps_index,this.currentCheckpointNode);
-            let next_cps_index = Math.floor(Math.random()*4);
-            this.generateCheckpointByIndex(next_cps_index,this.nextCheckpointNode);
+          //  let next_cps_index = 3;
+          //  let next_cps_index = Math.floor(Math.random()*4);
+           // this.generateCheckpointByIndex(next_cps_index,this.nextCheckpointNode);
 
             
             //this.generateBG(cps_index,next_cps_index);
@@ -110,9 +112,18 @@ cc.Class({
        
         let pathOfPrefab = "Prefab/checkpoint" + this.cps[index];
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
-            let newNode = cc.instantiate(prefab);
-            checkpointNode.addChild(newNode);
+           self.checkPointLoadSuccess(prefab,checkpointNode);
         });
+    },
+
+    checkPointLoadSuccess:function(prefab,checkpointNode) {
+        let newNode = cc.instantiate(prefab);
+       newNode.setPosition(cc.v2(newNode.getContentSize().width*0.5,newNode.getContentSize().height*0.5));
+        checkpointNode.addChild(newNode);
+        cc.log(newNode.getContentSize());
+        
+        
+       
     },
 
     //传入两关，来完美的生成背景图并且滚动，

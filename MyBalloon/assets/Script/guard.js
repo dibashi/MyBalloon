@@ -29,6 +29,11 @@ cc.Class({
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
         otherCollider.body.applyLinearImpulse(this.impulseVector, otherCollider.body.getWorldCenter(), true);
+
+        // let children = cc.find("Canvas").getComponent("gameScene").currentCheckpointNode.children;
+        // for(let i = 0; i<children.length;i++) {
+        //     cc.log("guard   " +children[i].getPosition());
+        // }
     },
 
     // 只在两个碰撞体结束接触时被调用一次
