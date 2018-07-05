@@ -27,6 +27,8 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
+
+        rigidBodyOfNode:null,//此node的刚体组件
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -34,7 +36,7 @@ cc.Class({
     // onLoad () {},
 
     start() {
-
+        this.rigidBodyOfNode = this.node.getComponent(cc.RigidBody);
     },
 
 
@@ -66,7 +68,11 @@ cc.Class({
 
 
     update(dt) {
-        cc.log("circle  " +this.node.getPosition());
+      //  cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition().x);
+
+        if(this.rigidBodyOfNode.getWorldPosition().x<-200 || this.rigidBodyOfNode.getWorldPosition().x>200 || this.rigidBodyOfNode.getWorldPosition().y<-200) {
+            this.node.destroy();
+        }
         // if (this.node.getPosition().y < -1000) {
         //     this.node.setPosition(0, 500);
         //     this.node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);

@@ -95,7 +95,7 @@ cc.Class({
             //随机选择一关 便于调试 现在只有四关
            
             //let cps_index = Math.floor(Math.random()*4);
-            let cps_index = 3;
+            let cps_index = 0;
             this.generateCheckpointByIndex(cps_index,this.currentCheckpointNode);
           //  let next_cps_index = 3;
           //  let next_cps_index = Math.floor(Math.random()*4);
