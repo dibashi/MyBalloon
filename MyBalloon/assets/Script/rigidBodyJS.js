@@ -68,9 +68,13 @@ cc.Class({
 
 
     update(dt) {
-        cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition().x);
+        cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition());
 
-        if(this.rigidBodyOfNode.getWorldPosition().x<-200 || this.rigidBodyOfNode.getWorldPosition().x>200 || this.rigidBodyOfNode.getWorldPosition().y<-200) {
+        if(this.rigidBodyOfNode.getWorldPosition().x<-200 || this.rigidBodyOfNode.getWorldPosition().x>2120 || this.rigidBodyOfNode.getWorldPosition().y<-200||this.rigidBodyOfNode.getWorldPosition().y>2880) {
+            
+            cc.log("删除刚体！！");
+            cc.log(this.node);
+           
             this.node.destroy();
         }
         // if (this.node.getPosition().y < -1000) {

@@ -38,29 +38,36 @@ cc.Class({
     //此脚本是一个关卡的公共逻辑，在onLoad中要做的就是对整个关卡数据进行位置初始化
     //如何才能具有统一的位置初始化？1，内部的对象摆好内部的位置（在prefab中）
     //2，整体的位置在onload中进行整体的平移摆放即可
+    //这个脚本 除wall之外 都在某个阀值给予了重力加速度
     onLoad() {
-       
-    },
-
-
-    start() {
-       // let wx = cc.director.getVisibleSize().width;
-        // let hy = cc.director.getVisibleSize().height;
-       let hy =1920;
-      
-      
-        this.thresholdOfCommotion = -1000;//初始化阀值
-
+        this.thresholdOfCommotion = 1920 - 300;//初始化阀值
         this.operationalSetOfGravity = new Array();//后续的操作集合
 
         //获得内部刚体的集合（除了墙体） 接下来对这个集合进行操作
         //判断集合内哪些刚体超过了阀值，直接给予重力加速度，并从集合中删除
-        let children = this.node.children;
-        let cc = this.node.childrenCount;
-        for (let i = 0; i < cc; i++) {
-            if (children[i].group != 'wall') {//过滤墙体，将其他的刚体加入操作集合中
-                this.operationalSetOfGravity.push(children[i]);
-            }
+
+        //以递归的方式 给集合中 所有刚体  除 墙体外  加入 操作集合 后续进行重力加速度赋予
+        this.addRigidBodyToOperationalSet(this.node);
+
+        cc.log(this.operationalSetOfGravity);
+    },
+
+
+    start: function () {
+       
+    },
+
+    addRigidBodyToOperationalSet: function (node) {
+        let children = node.children;
+       
+        for (let i = 0; i < children.length; i++) {
+           
+            this.addRigidBodyToOperationalSet(children[i]);
+        }
+        if (node.getComponent(cc.RigidBody) != null && node.group != "wall") {
+            // cc.log("加入操作集合的node ");
+            // cc.log(node);
+            this.operationalSetOfGravity.push(node);
         }
     },
 
@@ -70,15 +77,19 @@ cc.Class({
     update(dt) {
         //this.node.y-= checkpointSpeed;//这种写法。。如果有一帧用户手机较卡，耗时较长，物体的移动速度就会明显变慢
 
-        
+
         if (this.operationalSetOfGravity.length != 0) {
             //1，敌人们开始表演
 
             //2,下次循环还会进来，怎么办？ 而且也不一定光在这里表演，可能再下落点继续表演？
             //如何写出一个通用的敌人表演方法？思路：要定义一个下落点数组，每个索引值有相应的表演函数来处理
 
-            for (let i = 0; i < this.operationalSetOfGravity.length; i++) {
-                if (this.operationalSetOfGravity[i].y < this.thresholdOfCommotion) {//过滤墙体，将其他的刚体加入操作集合中
+            for (let i = 0; i < this.operationalSetOfGravity.length; i++) {//万一 那边因为超出边界 被删除了呢？ 要判断
+                cc.log("为什么报错！");
+                cc.log(this.operationalSetOfGravity[i]);
+                if (this.operationalSetOfGravity[i] == null) {
+                    this.operationalSetOfGravity.splice(i, 1);
+                } else if (this.operationalSetOfGravity[i].y < this.thresholdOfCommotion) {
                     this.operationalSetOfGravity[i].getComponent(cc.RigidBody).gravityScale = 1;
                     this.operationalSetOfGravity.splice(i, 1);
                 }
@@ -87,7 +98,7 @@ cc.Class({
 
         //化为泡影，刚体根本就不管父节点是否移动。。
         //this.node.y -= this.checkpointSpeed * dt * 60;//dt*60约等于1，如果某一帧耗时很多，超过预期，则让其移动的多一点
-       // cc.log(this.node.y);
-       // cc.log(this.node);
+        // cc.log(this.node.y);
+        // cc.log(this.node);
     },
 });
