@@ -275,7 +275,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -318,7 +318,8 @@
       "__id__": 3
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -431,7 +432,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -474,7 +475,8 @@
       "__id__": 9
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -587,7 +589,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -630,7 +632,8 @@
       "__id__": 15
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -743,7 +746,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -786,7 +789,8 @@
       "__id__": 21
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -899,7 +903,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -942,7 +946,8 @@
       "__id__": 27
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1055,7 +1060,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -1098,7 +1103,8 @@
       "__id__": 33
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1211,7 +1217,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -1254,7 +1260,8 @@
       "__id__": 39
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1367,7 +1374,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -1410,7 +1417,8 @@
       "__id__": 45
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1523,7 +1531,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -1566,7 +1574,8 @@
       "__id__": 51
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1679,7 +1688,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -1722,7 +1731,8 @@
       "__id__": 57
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1835,7 +1845,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -1878,7 +1888,8 @@
       "__id__": 63
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1991,7 +2002,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -2034,7 +2045,8 @@
       "__id__": 69
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2147,7 +2159,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -2190,7 +2202,8 @@
       "__id__": 75
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2303,7 +2316,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -2346,7 +2359,8 @@
       "__id__": 81
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2459,7 +2473,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -2502,7 +2516,8 @@
       "__id__": 87
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2615,7 +2630,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -2658,7 +2673,8 @@
       "__id__": 93
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2814,7 +2830,8 @@
       "__id__": 99
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3040,7 +3057,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -3083,7 +3100,8 @@
       "__id__": 107
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3196,7 +3214,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -3239,7 +3257,8 @@
       "__id__": 113
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3352,7 +3371,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -3395,7 +3414,8 @@
       "__id__": 119
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3508,7 +3528,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -3551,7 +3571,8 @@
       "__id__": 125
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3664,7 +3685,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -3707,7 +3728,8 @@
       "__id__": 131
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3820,7 +3842,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -3863,7 +3885,8 @@
       "__id__": 137
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3976,7 +3999,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4019,7 +4042,8 @@
       "__id__": 143
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4132,7 +4156,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4175,7 +4199,8 @@
       "__id__": 149
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4288,7 +4313,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4331,7 +4356,8 @@
       "__id__": 155
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4444,7 +4470,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4487,7 +4513,8 @@
       "__id__": 161
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4600,7 +4627,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4643,7 +4670,8 @@
       "__id__": 167
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4756,7 +4784,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4799,7 +4827,8 @@
       "__id__": 173
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4912,7 +4941,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -4955,7 +4984,8 @@
       "__id__": 179
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5068,7 +5098,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -5111,7 +5141,8 @@
       "__id__": 185
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5224,7 +5255,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -5267,7 +5298,8 @@
       "__id__": 191
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5380,7 +5412,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -5423,7 +5455,8 @@
       "__id__": 197
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5579,7 +5612,8 @@
       "__id__": 203
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5784,7 +5818,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -5831,7 +5865,8 @@
       "__id__": 211
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5944,7 +5979,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -5991,7 +6026,8 @@
       "__id__": 217
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6104,7 +6140,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -6151,7 +6187,8 @@
       "__id__": 223
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6264,7 +6301,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -6311,7 +6348,8 @@
       "__id__": 229
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6424,7 +6462,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -6471,7 +6509,8 @@
       "__id__": 235
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6584,7 +6623,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -6631,7 +6670,8 @@
       "__id__": 241
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6744,7 +6784,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -6791,7 +6831,8 @@
       "__id__": 247
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6904,7 +6945,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -6951,7 +6992,8 @@
       "__id__": 253
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7064,7 +7106,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -7111,7 +7153,8 @@
       "__id__": 259
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7224,7 +7267,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -7271,7 +7314,8 @@
       "__id__": 265
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7476,7 +7520,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -7523,7 +7567,8 @@
       "__id__": 273
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7636,7 +7681,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -7683,7 +7728,8 @@
       "__id__": 279
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7796,7 +7842,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -7843,7 +7889,8 @@
       "__id__": 285
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7956,7 +8003,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8003,7 +8050,8 @@
       "__id__": 291
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8116,7 +8164,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8163,7 +8211,8 @@
       "__id__": 297
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8276,7 +8325,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8323,7 +8372,8 @@
       "__id__": 303
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8436,7 +8486,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8483,7 +8533,8 @@
       "__id__": 309
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8596,7 +8647,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8643,7 +8694,8 @@
       "__id__": 315
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8756,7 +8808,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8803,7 +8855,8 @@
       "__id__": 321
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8916,7 +8969,7 @@
     },
     "_enabled": true,
     "_type": 2,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -8963,7 +9016,8 @@
       "__id__": 327
     },
     "_enabled": true,
-    "rigidBodyOfNode": null
+    "rigidBodyOfNode": null,
+    "flag": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -9000,7 +9054,7 @@
       "__id__": 99
     },
     "bigCircle2": {
-      "__id__": 99
+      "__id__": 203
     },
     "wx": 0,
     "hy": 0,

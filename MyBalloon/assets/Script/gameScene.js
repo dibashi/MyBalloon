@@ -109,12 +109,12 @@ cc.Class({
         } else if(this.guanKa == 0) { //无尽模式
             //随机选择一关 便于调试 现在只有四关
            
-           // let cps_index = Math.floor(Math.random()*4);
-            let cps_index = 1;
-            this.generateCheckpointByIndex(cps_index,this.panel1);
-            let next_cps_index = 2;
-           // let next_cps_index = Math.floor(Math.random()*4);
-            this.generateCheckpointByIndex(next_cps_index,this.panel2);
+            
+            //let cps_index = 1;
+            this.generateCheckpointByIndex(2,this.panel1);
+          //  let next_cps_index = 2;
+           
+            this.generateCheckpointByIndex(this.getGuanKa(),this.panel2);
 
             
             //this.generateBG(cps_index,next_cps_index);
@@ -124,6 +124,10 @@ cc.Class({
         
         // let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
         // armatureDisplay.playAnimation("time");
+    },
+
+    getGuanKa:function() {
+        return Math.floor(Math.random()*4);
     },
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
@@ -178,7 +182,10 @@ cc.Class({
             this.panel1.setPosition(this.currentCheckpointNode.getPosition());
             if(this.guanKa == 0) {
                 //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
-                this.generateCheckpointByIndex(3,this.panel1);
+                this.panel1.removeAllChildren();
+                this.generateCheckpointByIndex(this.getGuanKa(),this.panel1);
+
+               
             }
             
         }else {
@@ -194,8 +201,8 @@ cc.Class({
             this.panel2.setPosition(this.nextCheckpointNode.getPosition());
             if(this.guanKa == 0) {
                 //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
-                
-                this.generateCheckpointByIndex(2,this.panel2);
+                this.panel2.removeAllChildren();
+                this.generateCheckpointByIndex(this.getGuanKa(),this.panel2);
             }
         }else {
             bg2Y -= this.bgSpeed*dt*60;

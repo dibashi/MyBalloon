@@ -37,6 +37,8 @@ cc.Class({
         bigCircle2Body: null,
         bigCircle1RunFlag: false,
         bigCircle2RunFlag: false,
+
+       // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
     },
 
    
@@ -55,8 +57,41 @@ cc.Class({
 
         this.bigCircle1Body = this.bigCircle1.getComponent(cc.RigidBody);
         this.bigCircle2Body = this.bigCircle2.getComponent(cc.RigidBody);
+
+       // this.schedule(this.clean, 3);
     },
 
+   
+
+    // clean:function() {
+
+    //     this.rigidBodyCountArray = new Array();
+    //     this.hasRigidBody(this.node);
+    //     cc.log("第11关还剩下刚体数量： " +this.rigidBodyCountArray.length);
+    //     if(this.rigidBodyCountArray.length == 0) {
+    //         cc.log("清楚第11关！");
+    //         this.node.removeFromParent();
+    //         this.node.destroy();
+    //     }
+    // },
+
+    // hasRigidBody:function(node) {
+
+    //     let children = node.children;
+       
+    //     for (let i = 0; i < children.length; i++) {
+           
+    //         this.hasRigidBody(children[i]);
+    //     }
+    //     if (node.getComponent(cc.RigidBody) != null) {
+           
+    //         this.rigidBodyCountArray.push(node);
+    //     }
+    // },
+
+
+
+   
     //dt就是这帧与上一帧的时间差，这个函数在绘制之前调用的，改变此节点的属性，然后绘制。
     //有一个问题需要考虑，每个人的手机不一样，这个dt就是不一样的，如何统一？先不管了
     //这里做的主要逻辑是让整个node下落，以后和背景图的速度一致！
@@ -67,19 +102,19 @@ cc.Class({
 
             if (this.bigCircle1RunFlag == false && big1Hy < this.hy - 150) {
                 this.bigCircle1RunFlag = true;
-                this.bigCircle1Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+                this.bigCircle1Body.applyLinearImpulse(cc.v2(-10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
             }
         }
        
        
         
-        if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
+        if(this.bigCircle2!=null && this.bigCircle2.parent != null) {
             let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
 
 
             if (this.bigCircle2RunFlag == false && big2Hy < this.hy - 150) {
                 this.bigCircle2RunFlag = true;
-                this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+                this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle2Body.getWorldCenter(),true);
             }
         }
        

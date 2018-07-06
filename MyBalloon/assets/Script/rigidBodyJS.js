@@ -70,21 +70,14 @@ cc.Class({
 
 
     update(dt) {
-       // cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition());
-
-        if(this.rigidBodyOfNode.getWorldPosition().x<-300 || this.rigidBodyOfNode.getWorldPosition().x>2220 || this.rigidBodyOfNode.getWorldPosition().y<-200) {
-          //  ||this.rigidBodyOfNode.getWorldPosition().y>2880
-            // cc.log("删除刚体！！");
-            // cc.log(this.node);
-           
-            // this.node.removeComponent(cc.RigidBody);
-            // this.node.destroy();
+        //下面说的都是废话 这个问题 我解决不；了！
+    //!!这里的高度判定很复杂，约定 预制内 所有刚体的放入2580~300内！！！！！！！！！！！！！300往下不要方东西 不然会被碰到，最好是400以下不要方东西
+        if(this.rigidBodyOfNode.getWorldPosition().x<-100 || this.rigidBodyOfNode.getWorldPosition().x>2020|| this.rigidBodyOfNode.getWorldPosition().y<-200 ) {
+         
+          //||this.rigidBodyOfNode.getWorldPosition().y>2220
             this.node.removeFromParent();
-            // this.node = null;
+           
         }
-        // if (this.node.getPosition().y < -1000) {
-        //     this.node.setPosition(0, 500);
-        //     this.node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);
-        // }
+      
     },
 });

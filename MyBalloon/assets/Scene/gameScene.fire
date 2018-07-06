@@ -865,7 +865,7 @@
     },
     "_enabled": true,
     "_type": 0,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,

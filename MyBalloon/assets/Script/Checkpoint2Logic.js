@@ -66,22 +66,22 @@ cc.Class({
         cc.log(this.balloonPos);
         
        
-        this.schedule(this.clean, 3);
+     // this.schedule(this.clean, 3);
     },
 
-    clean:function() {
-        if(!this.hasRigidBody(this.node)) {
-            cc.log("清楚关卡2");
-            this.node.removeFromParent();
-            this.node.destroy();
-        }
-    },
+    // clean:function() {
+    //     if(!this.hasRigidBody(this.node)) {
+    //         cc.log("清楚关卡2");
+    //         this.node.removeFromParent();
+    //         this.node.destroy();
+    //     }
+    // },
 
-    hasRigidBody:function() {
-        cc.log("this.stripes.children.length");
-        cc.log(this.stripes.children.length);
-        return this.stripes.children.length != 0;
-    },
+    // hasRigidBody:function() {
+    //     cc.log("this.stripes.children.length");
+    //     cc.log(this.stripes.children.length);
+    //     return this.stripes.children.length != 0;
+    // },
 
     //dt就是这帧与上一帧的时间差，这个函数在绘制之前调用的，改变此节点的属性，然后绘制。
     //有一个问题需要考虑，每个人的手机不一样，这个dt就是不一样的，如何统一？先不管了
@@ -101,7 +101,7 @@ cc.Class({
                         
                         let vec = cc.v2((this.balloonPos.x - aa.x) * 4, (this.balloonPos.y - aa.y) *4);
                         cc.log(vec);
-                        this.operationalSetOfGravity[i].getComponent(cc.RigidBody).applyLinearImpulse(vec, rr.getWorldCenter(), true);
+                        rr.applyLinearImpulse(vec, rr.getWorldCenter(), true);
                         
                         this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag = true;//之后不再给予冲量
                     }

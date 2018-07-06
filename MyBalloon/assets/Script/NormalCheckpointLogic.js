@@ -33,6 +33,10 @@ cc.Class({
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
         operationalSetOfGravity: null,
+
+        howManyMetersDown:300,
+
+       // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
     },
 
     //此脚本是一个关卡的公共逻辑，在onLoad中要做的就是对整个关卡数据进行位置初始化
@@ -40,7 +44,8 @@ cc.Class({
     //2，整体的位置在onload中进行整体的平移摆放即可
     //这个脚本 除wall之外 都在某个阀值给予了重力加速度
     onLoad() {
-        this.thresholdOfCommotion = 1920 - 300;//初始化阀值
+        
+        this.thresholdOfCommotion = 1920 - this.howManyMetersDown;//初始化阀值
         this.operationalSetOfGravity = new Array();//后续的操作集合
 
         //获得内部刚体的集合（除了墙体） 接下来对这个集合进行操作
@@ -49,13 +54,38 @@ cc.Class({
         //以递归的方式 给集合中 所有刚体  除 墙体外  加入 操作集合 后续进行重力加速度赋予
         this.addRigidBodyToOperationalSet(this.node);
 
-        cc.log(this.operationalSetOfGravity);
+            
     },
 
 
-    start: function () {
+    // start: function () {
+    //     this.schedule(this.clean, 3);
+    // },
+
+    // clean:function() {
+
+    //     this.rigidBodyCountArray = new Array();
+    //     this.hasRigidBody(this.node);
+    //     if(this.rigidBodyCountArray.length == 0) {
+    //         cc.log("清楚普通关卡！");
+    //         this.node.removeFromParent();
+    //         this.node.destroy();
+    //     }
+    // },
+
+    // hasRigidBody:function(node) {
+
+    //     let children = node.children;
        
-    },
+    //     for (let i = 0; i < children.length; i++) {
+           
+    //         this.hasRigidBody(children[i]);
+    //     }
+    //     if (node.getComponent(cc.RigidBody) != null) {
+           
+    //         this.rigidBodyCountArray.push(node);
+    //     }
+    // },
 
     addRigidBodyToOperationalSet: function (node) {
         let children = node.children;
@@ -83,17 +113,27 @@ cc.Class({
             //如何写出一个通用的敌人表演方法？思路：要定义一个下落点数组，每个索引值有相应的表演函数来处理
 
             for (let i = 0; i < this.operationalSetOfGravity.length; i++) {//万一 那边因为超出边界 被删除了呢？ 要判断
-                // cc.log("为什么报错！");
-                // cc.log(this.operationalSetOfGravity[i]);
-                if (this.operationalSetOfGravity[i] == null) {
-                    this.operationalSetOfGravity.splice(i, 1);
-                } else if (this.operationalSetOfGravity[i].y < this.thresholdOfCommotion) {
-                    this.operationalSetOfGravity[i].getComponent(cc.RigidBody).gravityScale = 1;
-                    this.operationalSetOfGravity.splice(i, 1);
+               
+
+                if (this.operationalSetOfGravity[i] != null && this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag == false) {
+              
+                    if (this.operationalSetOfGravity[i].parent != null) {
+                     
+                        let rr = this.operationalSetOfGravity[i].getComponent(cc.RigidBody);
+                        let aa = rr.getWorldPosition();
+                        if (aa.y < this.hy - this.howManyMetersDown) {
+                            rr.gravityScale = 1;
+                            
+                            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag = true;//之后不再给予重力
+                        }
+                    }
                 }
+
+                
+
             }
         }
 
-      
+
     },
 });
