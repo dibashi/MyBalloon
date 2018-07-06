@@ -93,13 +93,13 @@ cc.Class({
             if (this.operationalSetOfGravity[i] != null && this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag == false) {
               
                 if (this.operationalSetOfGravity[i].parent != null) {
-                  //  cc.log(this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag);
+                 
                     let rr = this.operationalSetOfGravity[i].getComponent(cc.RigidBody);
                     let aa = rr.getWorldPosition();
                     if (aa.y < this.hy - this.howManyMetersDown) {
                          cc.log("给上速度了！");
                         
-                        let vec = cc.v2((this.balloonPos.x - aa.x) * 0.3, (this.balloonPos.y - aa.y) * 0.3);
+                        let vec = cc.v2((this.balloonPos.x - aa.x) * 4, (this.balloonPos.y - aa.y) *4);
                         cc.log(vec);
                         this.operationalSetOfGravity[i].getComponent(cc.RigidBody).applyLinearImpulse(vec, rr.getWorldCenter(), true);
                         
