@@ -8,6 +8,11 @@ cc.Class({
             type: cc.Node,
         },
 
+        balloon:{
+            default:null,
+            type:cc.Node,
+        },
+
         singleTouchID: -1,//一个锁，如果被一个指头触摸，则不处理其他指头的触摸事件
 
         //卫士的宽度一半 高度一半  为了性能 放在成员变量中
@@ -30,6 +35,9 @@ cc.Class({
         this.node.on('touchstart', this.dragStart, this);
         this.node.on('touchmove', this.dragMove, this);
         this.node.on('touchend', this.drageEnd, this);
+
+        this.guard.setLocalZOrder(100);
+        this.balloon.setLocalZOrder(100);
     },
 
     dragStart: function (event) {

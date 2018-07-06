@@ -11,7 +11,7 @@ cc.Class({
 
      //无尽模式
     goGame:function() {
-        cc.sys.localStorage.setItem('currentCheckpoint', 0);
+        cc.sys.localStorage.setItem('currentCheckpoint', -1);//-1无尽模式
         cc.director.loadScene('gameScene');    
     },
 
