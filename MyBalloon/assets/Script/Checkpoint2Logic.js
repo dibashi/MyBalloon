@@ -15,7 +15,7 @@ cc.Class({
 
     properties: {
 
-     
+
 
         //  thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
         operationalSetOfGravity: null,
@@ -25,42 +25,62 @@ cc.Class({
             type: cc.Node,
         },
 
-       
+
 
         // wx: 0,
         // hy: 0,
 
-        // bigCircle1Body: null,
-        // bigCircle2Body: null,
-        // bigCircle1RunFlag: false,
-        // bigCircle2RunFlag: false,
+        
+        operationalSetOfGravity: null,
+       
+      
+
+        hy: 0,
+        balloonPos: null,
+
+        howManyMetersDown:300,//定义 下降多少距离 开始表演
+        
     },
 
-   
-    onLoad() {
-        this.operationalSetOfGravity = new Array();
-        let cd = this.stripes.children;
 
-        for(let i = 0; cd.length;i++) {
-            this.operationalSetOfGravity.push({"node" : cd[i],"flag" : false});
-        }
-        cc.log(this.operationalSetOfGravity);
+    onLoad() {
+
     },
 
 
     start() {
 
        
-        // cc.log(this.operationalSetOfGravity);
 
-        // this.bigCircle1RunFlag = false;
-        // this.bigCircle2RunFlag = false;
+       
+        
+        this.operationalSetOfGravity = this.stripes.children;
+        for(let i =0;i<this.operationalSetOfGravity.length;i++) {
+            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag = false;
+        }
+        this.hy = cc.director.getVisibleSize().height;
 
-        // this.wx = cc.director.getVisibleSize().width;
-        // this.hy = cc.director.getVisibleSize().height;
+        let balloon = cc.find("Canvas/gameLayer/balloon");
 
-        // this.bigCircle1Body = this.bigCircle1.getComponent(cc.RigidBody);
-        // this.bigCircle2Body = this.bigCircle2.getComponent(cc.RigidBody);
+        this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
+        cc.log(this.balloonPos);
+        
+       
+        this.schedule(this.clean, 3);
+    },
+
+    clean:function() {
+        if(!this.hasRigidBody(this.node)) {
+            cc.log("清楚关卡2");
+            this.node.removeFromParent();
+            this.node.destroy();
+        }
+    },
+
+    hasRigidBody:function() {
+        cc.log("this.stripes.children.length");
+        cc.log(this.stripes.children.length);
+        return this.stripes.children.length != 0;
     },
 
     //dt就是这帧与上一帧的时间差，这个函数在绘制之前调用的，改变此节点的属性，然后绘制。
@@ -68,28 +88,26 @@ cc.Class({
     //这里做的主要逻辑是让整个node下落，以后和背景图的速度一致！
     update(dt) {
 
-        // if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
-        //     let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
-
-        //     if (this.bigCircle1RunFlag == false && big1Hy < this.hy - 150) {
-        //         this.bigCircle1RunFlag = true;
-        //         this.bigCircle1Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
-        //     }
-        // }
-       
-       
-        
-        // if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
-        //     let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
-
-
-        //     if (this.bigCircle2RunFlag == false && big2Hy < this.hy - 150) {
-        //         this.bigCircle2RunFlag = true;
-        //         this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
-        //     }
-        // }
-       
-      
+        for (let i = 0; i < this.operationalSetOfGravity.length; i++) {
+            
+            if (this.operationalSetOfGravity[i] != null && this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag == false) {
+              
+                if (this.operationalSetOfGravity[i].parent != null) {
+                  //  cc.log(this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag);
+                    let rr = this.operationalSetOfGravity[i].getComponent(cc.RigidBody);
+                    let aa = rr.getWorldPosition();
+                    if (aa.y < this.hy - this.howManyMetersDown) {
+                         cc.log("给上速度了！");
+                        
+                        let vec = cc.v2((this.balloonPos.x - aa.x) * 0.3, (this.balloonPos.y - aa.y) * 0.3);
+                        cc.log(vec);
+                        this.operationalSetOfGravity[i].getComponent(cc.RigidBody).applyLinearImpulse(vec, rr.getWorldCenter(), true);
+                        
+                        this.operationalSetOfGravity[i].getComponent("rigidBodyJS").flag = true;//之后不再给予冲量
+                    }
+                }
+            }
+        }
 
     },
 });

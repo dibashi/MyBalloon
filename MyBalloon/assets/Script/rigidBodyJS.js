@@ -29,6 +29,8 @@ cc.Class({
         // },
 
         rigidBodyOfNode:null,//此node的刚体组件
+
+        flag:false,//每个刚体 都有一个内部的flag，用于其关卡内的操作
     },
 
     // LIFE-CYCLE CALLBACKS:
