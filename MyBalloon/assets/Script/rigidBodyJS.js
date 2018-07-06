@@ -72,7 +72,7 @@ cc.Class({
     update(dt) {
         //下面说的都是废话 这个问题 我解决不；了！
     //!!这里的高度判定很复杂，约定 预制内 所有刚体的放入2580~300内！！！！！！！！！！！！！300往下不要方东西 不然会被碰到，最好是400以下不要方东西
-        if(this.rigidBodyOfNode.getWorldPosition().x<-100 || this.rigidBodyOfNode.getWorldPosition().x>2020|| this.rigidBodyOfNode.getWorldPosition().y<-200 ) {
+        if(this.rigidBodyOfNode.getWorldPosition().x<-100 || this.rigidBodyOfNode.getWorldPosition().x>1180|| this.rigidBodyOfNode.getWorldPosition().y<-200 ) {
          
           //||this.rigidBodyOfNode.getWorldPosition().y>2220
             this.node.removeFromParent();

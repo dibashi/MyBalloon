@@ -101,20 +101,16 @@ cc.Class({
         
         this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
         if(this.guanKa != 0) {
-            let pathOfPrefab = "Prefab/checkpoint" + currentCheckpoint;
-            cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
-                let newNode = cc.instantiate(prefab);
-                self.node.getChildByName("gameLayer").addChild(newNode);
-            });
+           this.generateCheckpointByID(this.guanKa,this.panel1);
         } else if(this.guanKa == 0) { //无尽模式
             //随机选择一关 便于调试 现在只有四关
            
             
             //let cps_index = 1;
-            this.generateCheckpointByIndex(2,this.panel1);
+            this.generateCheckpointByIndex(0,this.panel1);
           //  let next_cps_index = 2;
            
-            this.generateCheckpointByIndex(this.getGuanKa(),this.panel2);
+            this.generateCheckpointByIndex(2,this.panel2);
 
             
             //this.generateBG(cps_index,next_cps_index);
@@ -128,6 +124,16 @@ cc.Class({
 
     getGuanKa:function() {
         return Math.floor(Math.random()*4);
+    },
+
+    //直接传入关卡ID
+    generateCheckpointByID:function(ID,checkpointNode) {
+        let self = this;
+       
+        let pathOfPrefab = "Prefab/checkpoint" + ID;
+        cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
+           self.checkPointLoadSuccess(prefab,checkpointNode);
+        });
     },
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
@@ -186,6 +192,8 @@ cc.Class({
                 this.generateCheckpointByIndex(this.getGuanKa(),this.panel1);
 
                
+            } else {
+                
             }
             
         }else {
