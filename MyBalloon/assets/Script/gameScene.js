@@ -21,6 +21,18 @@ cc.Class({
 
         },
 
+        panel1: {
+            default: null,
+            type: cc.Node,
+
+        },
+
+        panel2: {
+            default: null,
+            type: cc.Node,
+
+        },
+
        
 
         yun1: {
@@ -48,13 +60,16 @@ cc.Class({
         bgSpeed:2,//背景的移动速度
 
         guanKa:0,//0代表无尽模式
+
+      //  heightOfGenerateBody:0, //生成下一波关卡的高度
     },
 
 
 
     // use this for initialization
     onLoad: function () {
-
+       
+      //  this.heightOfGenerateBody =   cc.find("Canvas").getContentSize().height;
         //一个关卡的长度
         this.h = this.currentCheckpointNode.getContentSize().height;
         //下限 超过这个值 背景挪上去
@@ -94,12 +109,12 @@ cc.Class({
         } else if(this.guanKa == 0) { //无尽模式
             //随机选择一关 便于调试 现在只有四关
            
-            //let cps_index = Math.floor(Math.random()*4);
-            let cps_index = 0;
-            this.generateCheckpointByIndex(cps_index,this.currentCheckpointNode);
-          //  let next_cps_index = 3;
-          //  let next_cps_index = Math.floor(Math.random()*4);
-           // this.generateCheckpointByIndex(next_cps_index,this.nextCheckpointNode);
+           // let cps_index = Math.floor(Math.random()*4);
+            let cps_index = 1;
+            this.generateCheckpointByIndex(cps_index,this.panel1);
+            let next_cps_index = 2;
+           // let next_cps_index = Math.floor(Math.random()*4);
+            this.generateCheckpointByIndex(next_cps_index,this.panel2);
 
             
             //this.generateBG(cps_index,next_cps_index);
@@ -160,28 +175,35 @@ cc.Class({
 
         if(bg1Y<=this.bgMinY) {
             this.currentCheckpointNode.setPosition(this.currentCheckpointNode.getPosition().x,bg2Y+this.h-this.bgSpeed*dt*60);
-
+            this.panel1.setPosition(this.currentCheckpointNode.getPosition());
             if(this.guanKa == 0) {
                 //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
-                this.generateCheckpointByIndex(3,this.currentCheckpointNode);
+                this.generateCheckpointByIndex(3,this.panel1);
             }
             
         }else {
             bg1Y -= this.bgSpeed*dt*60;
             this.currentCheckpointNode.setPosition(this.currentCheckpointNode.getPosition().x,bg1Y);
+            this.panel1.setPosition(this.currentCheckpointNode.getPosition());
         }
+       
+
 
         if(bg2Y<=this.bgMinY) {
             this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x,bg1Y+this.h);
-
+            this.panel2.setPosition(this.nextCheckpointNode.getPosition());
             if(this.guanKa == 0) {
                 //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
-                this.generateCheckpointByIndex(2,this.nextCheckpointNode);
+                
+                this.generateCheckpointByIndex(2,this.panel2);
             }
         }else {
             bg2Y -= this.bgSpeed*dt*60;
             this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x,bg2Y);
+            this.panel2.setPosition(this.nextCheckpointNode.getPosition());
         }
+
+        
     },
 
 

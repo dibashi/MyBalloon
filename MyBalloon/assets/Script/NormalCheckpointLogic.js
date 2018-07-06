@@ -29,7 +29,7 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-        checkpointSpeed: 2,//用来决定下落的速度
+     
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
         operationalSetOfGravity: null,
@@ -75,8 +75,6 @@ cc.Class({
     //有一个问题需要考虑，每个人的手机不一样，这个dt就是不一样的，如何统一？先不管了
     //这里做的主要逻辑是让整个node下落，以后和背景图的速度一致！
     update(dt) {
-        //this.node.y-= checkpointSpeed;//这种写法。。如果有一帧用户手机较卡，耗时较长，物体的移动速度就会明显变慢
-
 
         if (this.operationalSetOfGravity.length != 0) {
             //1，敌人们开始表演
@@ -85,8 +83,8 @@ cc.Class({
             //如何写出一个通用的敌人表演方法？思路：要定义一个下落点数组，每个索引值有相应的表演函数来处理
 
             for (let i = 0; i < this.operationalSetOfGravity.length; i++) {//万一 那边因为超出边界 被删除了呢？ 要判断
-                cc.log("为什么报错！");
-                cc.log(this.operationalSetOfGravity[i]);
+                // cc.log("为什么报错！");
+                // cc.log(this.operationalSetOfGravity[i]);
                 if (this.operationalSetOfGravity[i] == null) {
                     this.operationalSetOfGravity.splice(i, 1);
                 } else if (this.operationalSetOfGravity[i].y < this.thresholdOfCommotion) {
@@ -96,9 +94,6 @@ cc.Class({
             }
         }
 
-        //化为泡影，刚体根本就不管父节点是否移动。。
-        //this.node.y -= this.checkpointSpeed * dt * 60;//dt*60约等于1，如果某一帧耗时很多，超过预期，则让其移动的多一点
-        // cc.log(this.node.y);
-        // cc.log(this.node);
+      
     },
 });

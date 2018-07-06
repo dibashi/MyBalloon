@@ -51,31 +51,34 @@ cc.Class({
 
     },
 
-    // 只在两个碰撞体结束接触时被调用一次
-    onEndContact: function (contact, selfCollider, otherCollider) {
-        // cc.log("onEndContact");
-    },
+    // // 只在两个碰撞体结束接触时被调用一次
+    // onEndContact: function (contact, selfCollider, otherCollider) {
+    //     // cc.log("onEndContact");
+    // },
 
-    // 每次将要处理碰撞体接触逻辑时被调用
-    onPreSolve: function (contact, selfCollider, otherCollider) {
-        //   cc.log("onPreSolve");
-    },
+    // // 每次将要处理碰撞体接触逻辑时被调用
+    // onPreSolve: function (contact, selfCollider, otherCollider) {
+    //     //   cc.log("onPreSolve");
+    // },
 
-    // 每次处理完碰撞体接触逻辑时被调用
-    onPostSolve: function (contact, selfCollider, otherCollider) {
-        // cc.log("onPostSolve");
-    },
+    // // 每次处理完碰撞体接触逻辑时被调用
+    // onPostSolve: function (contact, selfCollider, otherCollider) {
+    //     // cc.log("onPostSolve");
+    // },
 
 
     update(dt) {
-        cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition());
+       // cc.log(this.node.name+"   " +this.rigidBodyOfNode.getWorldPosition());
 
-        if(this.rigidBodyOfNode.getWorldPosition().x<-200 || this.rigidBodyOfNode.getWorldPosition().x>2120 || this.rigidBodyOfNode.getWorldPosition().y<-200||this.rigidBodyOfNode.getWorldPosition().y>2880) {
-            
-            cc.log("删除刚体！！");
-            cc.log(this.node);
+        if(this.rigidBodyOfNode.getWorldPosition().x<-300 || this.rigidBodyOfNode.getWorldPosition().x>2220 || this.rigidBodyOfNode.getWorldPosition().y<-200) {
+          //  ||this.rigidBodyOfNode.getWorldPosition().y>2880
+            // cc.log("删除刚体！！");
+            // cc.log(this.node);
            
-            this.node.destroy();
+            // this.node.removeComponent(cc.RigidBody);
+            // this.node.destroy();
+            this.node.removeFromParent();
+            // this.node = null;
         }
         // if (this.node.getPosition().y < -1000) {
         //     this.node.setPosition(0, 500);

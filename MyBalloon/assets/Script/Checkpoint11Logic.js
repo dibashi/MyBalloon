@@ -15,7 +15,7 @@ cc.Class({
 
     properties: {
 
-        checkpointSpeed: 2,//用来决定下落的速度
+     
 
         //  thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
         operationalSetOfGravity: null,
@@ -62,18 +62,28 @@ cc.Class({
     //这里做的主要逻辑是让整个node下落，以后和背景图的速度一致！
     update(dt) {
 
-        let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
-       
-        if (this.bigCircle1RunFlag == false && big1Hy < this.hy - 150) {
-            this.bigCircle1RunFlag = true;
-            this.bigCircle1Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
-        }
+        if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
+            let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
 
-        let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
-        if (this.bigCircle2RunFlag == false && big2Hy < this.hy - 150) {
-            this.bigCircle2RunFlag = true;
-            this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+            if (this.bigCircle1RunFlag == false && big1Hy < this.hy - 150) {
+                this.bigCircle1RunFlag = true;
+                this.bigCircle1Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+            }
         }
+       
+       
+        
+        if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
+            let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
+
+
+            if (this.bigCircle2RunFlag == false && big2Hy < this.hy - 150) {
+                this.bigCircle2RunFlag = true;
+                this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+            }
+        }
+       
+      
 
     },
 });
