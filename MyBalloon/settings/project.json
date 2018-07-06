@@ -22,6 +22,7 @@
       true,
       true,
       true,
+      true,
       true
     ],
     [
@@ -37,6 +38,14 @@
       true,
       false,
       false
+    ],
+    [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
     ]
   ],
   "design-resolution-height": 640,
@@ -49,7 +58,8 @@
     "guard",
     "enemy",
     "balloon",
-    "wall"
+    "wall",
+    "yun"
   ],
   "simulator-orientation": false,
   "simulator-resolution": {
@@ -57,6 +67,5 @@
     "width": 960
   },
   "use-customize-simulator": false,
-  "use-project-simulator-setting": false,
-  "start-scene": "current"
+  "use-project-simulator-setting": false
 }
