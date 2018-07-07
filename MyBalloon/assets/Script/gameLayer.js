@@ -20,8 +20,8 @@ cc.Class({
         //卫士的宽度一半 高度一半  为了性能 放在成员变量中
         guardHalfWidth: 0.0,
         guardHalfHeight: 0.0,
-        // currentFingerPosition: null,
-        // nextFingerPosition: null,
+        
+        currentNode:null,//当前关卡的node
     },
 
 
@@ -120,6 +120,10 @@ cc.Class({
         //     this.touchBeginPoint = this.touchMovePoint;
         // }
 
+        
+        if (this.currentNode.y <= -2880) {
+            
+        }
         
 
     },

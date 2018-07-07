@@ -68,6 +68,8 @@ cc.Class({
         guanKa: 0,//0代表无尽模式
 
         //  heightOfGenerateBody:0, //生成下一波关卡的高度
+
+       
     },
 
 
@@ -75,7 +77,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
 
-
+        
 
         cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
 
@@ -138,12 +140,14 @@ cc.Class({
 
     //关卡数据读取成功的回调函数，在这里将关卡加入scene
     checkPointLoadSuccess: function (prefab) {
-        let newNode = cc.instantiate(prefab);
-        newNode.setPosition(0, 960);
-        this.gameLayer.addChild(newNode);
+        let currentNode = cc.instantiate(prefab);
+        currentNode.setPosition(0, 960);
+        this.gameLayer.addChild(currentNode);
+
+        this.gameLayer.currentNode = currentNode;
 
         //递归：给子节点下的所有子节点以刚体速度
-      //  this.giveRigidBodyVelocity(newNode, -this.bgSpeed * 60);
+        this.giveRigidBodyVelocity(newNode, -this.bgSpeed * 60);
     },
 
     giveRigidBodyVelocity: function (node, speed) {
@@ -208,6 +212,8 @@ cc.Class({
         //     this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x, bg2Y);
         //     this.panel2.setPosition(this.nextCheckpointNode.getPosition());
         // }
+
+       
 
 
     },
