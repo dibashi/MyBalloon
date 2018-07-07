@@ -28,7 +28,7 @@ cc.Class({
 
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        otherCollider.body.applyLinearImpulse(this.impulseVector, otherCollider.body.getWorldCenter(), true);
+       // otherCollider.body.applyLinearImpulse(this.impulseVector, otherCollider.body.getWorldCenter(), true);
 
         // let children = cc.find("Canvas").getComponent("gameScene").currentCheckpointNode.children;
         // for(let i = 0; i<children.length;i++) {

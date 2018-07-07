@@ -282,7 +282,7 @@
     "_enabled": true,
     "_type": 0,
     "_allowSleep": true,
-    "_gravityScale": 1,
+    "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
@@ -304,9 +304,9 @@
     },
     "_enabled": true,
     "tag": 0,
-    "_density": 1,
+    "_density": 0,
     "_sensor": false,
-    "_friction": 0.2,
+    "_friction": 0,
     "_restitution": 0,
     "body": null,
     "_offset": {
@@ -397,7 +397,7 @@
     },
     "_enabled": true,
     "_type": 0,
-    "_allowSleep": false,
+    "_allowSleep": true,
     "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
@@ -420,9 +420,9 @@
     },
     "_enabled": true,
     "tag": 0,
-    "_density": 1,
+    "_density": 0,
     "_sensor": false,
-    "_friction": 0.2,
+    "_friction": 0,
     "_restitution": 0,
     "body": null,
     "_offset": {
@@ -439,7 +439,8 @@
     "node": {
       "__id__": 10
     },
-    "_enabled": true
+    "_enabled": true,
+    "fixedPositon": null
   },
   {
     "__type__": "cc.Sprite",
@@ -487,12 +488,15 @@
     "guard": {
       "__id__": 4
     },
+    "guardRigidBody": null,
     "balloon": {
       "__id__": 10
     },
     "singleTouchID": -1,
     "guardHalfWidth": 0,
-    "guardHalfHeight": 0
+    "guardHalfHeight": 0,
+    "currentFingerPosition": null,
+    "nextFingerPosition": null
   },
   {
     "__type__": "cc.Widget",

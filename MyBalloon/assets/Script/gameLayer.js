@@ -8,9 +8,11 @@ cc.Class({
             type: cc.Node,
         },
 
-        balloon:{
-            default:null,
-            type:cc.Node,
+        guardRigidBody: null,//guard 的刚体组件
+
+        balloon: {
+            default: null,
+            type: cc.Node,
         },
 
         singleTouchID: -1,//一个锁，如果被一个指头触摸，则不处理其他指头的触摸事件
@@ -18,6 +20,8 @@ cc.Class({
         //卫士的宽度一半 高度一半  为了性能 放在成员变量中
         guardHalfWidth: 0.0,
         guardHalfHeight: 0.0,
+        // currentFingerPosition: null,
+        // nextFingerPosition: null,
     },
 
 
@@ -38,14 +42,27 @@ cc.Class({
 
         this.guard.setLocalZOrder(100);
         this.balloon.setLocalZOrder(100);
+
+        this.guardRigidBody = this.guard.getComponent(cc.RigidBody);
+        this.touchBeginPoint = cc.v2(0.0,0.0);
+        this.touchMovePoint = cc.v2(0.0,0.0);
+        // this.currentFingerPosition = null;
+        // this.lastFingerPosition = null;
     },
 
     dragStart: function (event) {
 
-        this.touchBeginPoint = event.getLocation();
+         this.touchBeginPoint = event.getLocation();
+
+        // this.currentFingerPosition = event.getLocation();
+        // this.lastFingerPosition = this.currentFingerPosition;
     },
 
     dragMove: function (event) {
+       // this.lastFingerPosition = this.currentFingerPosition;
+      //  this.currentFingerPosition = event.getLocation();
+
+      //  cc.log(this.currentFingerPosition);
         this.touchMovePoint = event.getLocation();
         let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
         let dy = this.touchMovePoint.y - this.touchBeginPoint.y;
@@ -73,19 +90,37 @@ cc.Class({
             location.y = maxY;
         }
 
-        this.guard.setPosition(location);
-        this.guard.getComponent("guard").setImpulseVector(dx, dy);
-        this.touchBeginPoint = this.touchMovePoint;
-        // this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(dx,dy);
+         this.guard.setPosition(location);
+         this.guardRigidBody.linearVelocity = cc.v2(dx*60,dy*60);//距离除以时间 时间为1/60
+         this.touchBeginPoint = this.touchMovePoint;
     },
 
     drageEnd: function (event) {
-        this.guard.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, 0);
-        //this.guard.getComponent("guard").setImpulseVector(0,0);
+        this.guardRigidBody.linearVelocity = cc.v2(0, 0);
+
     },
 
     // called every frame
     update: function (dt) {
+        
+       
+        // if(this.currentFingerPosition!=null && this.lastFingerPosition != null) {
+        //     let dx = this.currentFingerPosition.x - this.lastFingerPosition.x;
+        //     let dy = this.currentFingerPosition.y - this.lastFingerPosition.y;
+        //     this.guardRigidBody.linearVelocity = cc.v2(dx / dt, dy / dt);
+            
+        //     this.lastFingerPosition = this.currentFingerPosition;
+        // }
+       
+
+        // if(this.touchBeginPoint!=null && this.touchMovePoint != null) {
+        //     let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
+        //     let dy = this.touchMovePoint.y - this.touchBeginPoint.y;
+        //     this.guardRigidBody.linearVelocity = cc.v2(dx/dt,dy/dt);
+        //     this.touchBeginPoint = this.touchMovePoint;
+        // }
+
+        
 
     },
 
