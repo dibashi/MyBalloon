@@ -17,7 +17,7 @@ cc.Class({
 
      
 
-        //  thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
+        thresholdOfCommotion: 1700,//规定了整个关卡给予刚体重力的位置阀值
         operationalSetOfGravity: null,
 
         bigCircle1: {
@@ -30,9 +30,6 @@ cc.Class({
             type: cc.Node,
         },
 
-        wx: 0,
-        hy: 0,
-
         bigCircle1Body: null,
         bigCircle2Body: null,
         bigCircle1RunFlag: false,
@@ -43,25 +40,31 @@ cc.Class({
 
    
     onLoad() {
-
-    },
-
-
-    start() {
+        this.operationalSetOfGravity = new Array();
+        this.addRigidBodyToOperationalSet(this.node);
+        for(let i = 0;i <this.operationalSetOfGravity.length;i++) {
+            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
+            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfHit = true;
+        }
 
         this.bigCircle1RunFlag = false;
         this.bigCircle2RunFlag = false;
-
-        this.wx = cc.director.getVisibleSize().width;
-        this.hy = cc.director.getVisibleSize().height;
-
         this.bigCircle1Body = this.bigCircle1.getComponent(cc.RigidBody);
         this.bigCircle2Body = this.bigCircle2.getComponent(cc.RigidBody);
-
-       // this.schedule(this.clean, 3);
     },
 
-   
+
+    addRigidBodyToOperationalSet: function (node) {
+        let children = node.children;
+       
+        for (let i = 0; i < children.length; i++) {
+            this.addRigidBodyToOperationalSet(children[i]);
+        }
+        if (node.getComponent(cc.RigidBody) != null) {
+            this.operationalSetOfGravity.push(node);
+        }
+    },
+
 
     // clean:function() {
 
@@ -100,25 +103,22 @@ cc.Class({
         if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
             let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
 
-            if (this.bigCircle1RunFlag == false && big1Hy < this.hy - 150) {
+            if (this.bigCircle1RunFlag == false && big1Hy < 1920 - 150) {
                 this.bigCircle1RunFlag = true;
                 this.bigCircle1Body.applyLinearImpulse(cc.v2(-10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
             }
         }
        
        
-        
         if(this.bigCircle2!=null && this.bigCircle2.parent != null) {
             let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
 
 
-            if (this.bigCircle2RunFlag == false && big2Hy < this.hy - 150) {
+            if (this.bigCircle2RunFlag == false && big2Hy < 1920 - 150) {
                 this.bigCircle2RunFlag = true;
                 this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle2Body.getWorldCenter(),true);
             }
         }
-       
-      
 
     },
 });

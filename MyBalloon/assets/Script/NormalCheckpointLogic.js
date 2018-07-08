@@ -44,15 +44,8 @@ cc.Class({
     //2，整体的位置在onload中进行整体的平移摆放即可
     //这个脚本 除wall之外 都在某个阀值给予了重力加速度
     onLoad() {
-       
-
-        
-        this.operationalSetOfGravity = new Array();//后续的操作集合
-        //获得内部刚体的集合（除了墙体） 接下来对这个集合进行操作
-        //判断集合内哪些刚体超过了阀值，直接给予重力加速度，并从集合中删除
-        //以递归的方式 给集合中 所有刚体  加入 操作集合 后续进行重力加速度赋予
+        this.operationalSetOfGravity = new Array();
         this.addRigidBodyToOperationalSet(this.node);
-
         for(let i = 0;i <this.operationalSetOfGravity.length;i++) {
             this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
             this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfHit = false;
