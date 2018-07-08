@@ -112,7 +112,7 @@ cc.Class({
 
         this.h = 3840;
         this.bgMinY = -2880;
-        this.bgSpeed = 8;
+        this.bgSpeed = 4;
        // this.ctx.strokeColor = cc.hexToColor('#495069');
        this.colorIndex = [
            {bgColor:'#5ac2de',yun3Color:'#84cade',yun2Color:'#add7e6'},
@@ -144,6 +144,8 @@ cc.Class({
         
         ];
 
+        this.cps = [1,2,15,11,10];
+
         this.initBGColor();
 
         cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
@@ -156,17 +158,16 @@ cc.Class({
         cc.director.getPhysicsManager().debugDrawFlags = 0; //-设置为0则关闭调试
         cc.director.getPhysicsManager().gravity = cc.v2(0, -320);//-320像素/秒的平方，这个是默认值，为了以后调试先放在这
 
-        // var self = this;
+        var self = this;
 
-        // //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
-        // this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
-        // if (this.guanKa != -1) {
-        //     this.addCheckPointToScene(this.guanKa);
-        // } else if (this.guanKa == -1) { //无尽模式
-        //     this.generateCheckpointByIndex(0, this.panel1);
-        //     this.generateCheckpointByIndex(2, this.panel2);
-        // }
-        // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
+        //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
+        this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
+        if (this.guanKa != -1) {
+            this.addCheckPointToScene(this.guanKa);
+        } else if (this.guanKa == -1) { //无尽模式
+            this.generateCheckpointByIndex(2, this.bg1.position);
+        }
+       // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
 
 
         // let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
@@ -206,20 +207,20 @@ cc.Class({
     },
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
-    generateCheckpointByIndex: function (index, checkpointNode) {
+    generateCheckpointByIndex: function (index, position) {
         let self = this;
 
         let pathOfPrefab = "Prefab/checkpoint" + this.cps[index];
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
-            self.checkPointLoadSuccess(prefab, checkpointNode);
+            self.checkPointLoadSuccess(prefab, position);
         });
     },
 
     //关卡数据读取成功的回调函数，在这里将关卡加入scene
-    checkPointLoadSuccess: function (prefab) {
+    checkPointLoadSuccess: function (prefab,position) {
         //生成关卡的NODE 将其加入gameLayer
         let currentNode = cc.instantiate(prefab);
-        currentNode.setPosition(0, 960);
+        currentNode.setPosition(position);
         this.gameLayer.addChild(currentNode);
 
         this.gameLayer.getComponent("gameLayer").currentNode = currentNode;
@@ -234,17 +235,11 @@ cc.Class({
         for (let i = 0; i < children.length; i++) {
             this.giveRigidBodyVelocity(children[i], speed);
         }
-        if (node.getComponent(cc.RigidBody) != null && node.group != "yun" ){
+        if (node.getComponent(cc.RigidBody) != null){
             node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, speed);
         }
     },
 
-    //传入两关，来完美的生成背景图并且滚动，
-    //若curIndex = -1,则在其后添加nextIndex背景
-    //若nextIndex = -1,则在当前背景后面添加结束背景。
-    generateBG: function (curIndex, nextIndex) {
-
-    },
 
     gameOver: function () {
         cc.log("gameover~!!");

@@ -120,13 +120,13 @@ cc.Class({
         //     this.guardRigidBody.linearVelocity = cc.v2(dx/dt,dy/dt);
         //     this.touchBeginPoint = this.touchMovePoint;
         // }
-        if (this.currentNode!=null ) {
-            cc.log(this.currentNode.y);    
-        }
+        // if (this.currentNode!=null ) {
+        //     cc.log(this.currentNode.y);    
+        // }
         
-        if (this.currentNode!=null  && this.currentNode.y >= -2880) {
-            this.currentNode.y -= this.bgSpeed *dt*60;    //speed为负数 所以相加
-        }
+        // if (this.currentNode!=null  && this.currentNode.y >= -2880) {
+        //     this.currentNode.y -= this.bgSpeed *dt*60;    //speed为负数 所以相加
+        // }
         
 
     },

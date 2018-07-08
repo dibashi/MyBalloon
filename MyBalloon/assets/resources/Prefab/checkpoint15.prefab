@@ -123,8 +123,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -306,
-      "y": 546
+      "x": -366,
+      "y": 846
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -169,7 +169,7 @@
     "_enabled": true,
     "_type": 2,
     "_allowSleep": false,
-    "_gravityScale": 1,
+    "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
@@ -210,7 +210,13 @@
     "node": {
       "__id__": 2
     },
-    "_enabled": true
+    "_enabled": true,
+    "rigidBodyOfNode": null,
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -232,7 +238,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 9
@@ -367,7 +373,13 @@
     "node": {
       "__id__": 8
     },
-    "_enabled": true
+    "_enabled": true,
+    "rigidBodyOfNode": null,
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -389,7 +401,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": true,
+    "_active": false,
     "_components": [
       {
         "__id__": 15
@@ -479,7 +491,7 @@
     "_enabled": true,
     "_type": 2,
     "_allowSleep": true,
-    "_gravityScale": 1,
+    "_gravityScale": 0,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
@@ -524,7 +536,13 @@
     "node": {
       "__id__": 14
     },
-    "_enabled": true
+    "_enabled": true,
+    "rigidBodyOfNode": null,
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -545,7 +563,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "checkpointSpeed": 2,
     "thresholdOfCommotion": 0,
     "operationalSetOfGravity": null
   },

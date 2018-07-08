@@ -92,9 +92,7 @@ cc.Class({
 
     // 每次处理完碰撞体接触逻辑时被调用
     onPostSolve: function (contact, selfCollider, otherCollider) {
-         cc.log("balloon onPostSolve");
-        cc.log(this.fixedPositon);
-        this.node.position = this.fixedPositon;
+        
     },
 
     // update (dt) {},
