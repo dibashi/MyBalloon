@@ -103,6 +103,8 @@ cc.Class({
 
         bg1ColorIndex:0,
         bg2ColorIndex:0,//初始化两个背景的 颜色索引
+
+        isLoadNextCheckPoint:false,//是否已经加载下一关的标记
     },
 
 
@@ -144,7 +146,7 @@ cc.Class({
         
         ];
 
-        this.cps = [1,2,15,11,10];
+        this.cps = [1,2,11,15,19];
 
         this.initBGColor();
 
@@ -165,7 +167,7 @@ cc.Class({
         if (this.guanKa != -1) {
             this.addCheckPointToScene(this.guanKa);
         } else if (this.guanKa == -1) { //无尽模式
-            this.generateCheckpointByIndex(2, this.bg1.position);
+            this.generateCheckpointByIndex(3, this.bg1.position);
         }
        // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
 
@@ -269,6 +271,7 @@ cc.Class({
 
         if(this.yuns.y <=(-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
             this.yuns.y = (this.bg1.y+this.bg2.y) *0.5;//放在两个背景的中间
+            this.isLoadNextCheckPoint = false;//未加载下一关
             //云2 云3的颜色 则根据下方的bg来设置
             if(this.bg1.y<this.bg2.y) {
                 this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
@@ -280,6 +283,16 @@ cc.Class({
            
         } else {
             this.yuns.y -= this.bgSpeed*dt*60;
+             //如果未加载下一关，且云已经出现且是无尽模式
+            if(this.isLoadNextCheckPoint == false && this.yuns.y < 1920 && this.guanKa == -1) {
+                //判断加载哪个背景上，谁在上面就加到那个
+                if(this.bg1.y>this.bg2.y) {
+                    this.generateCheckpointByIndex(2, this.bg1.position);
+                } else {
+                    this.generateCheckpointByIndex(2, this.bg2.position);
+                }
+                this.isLoadNextCheckPoint = true;
+            }
         }
 
 
