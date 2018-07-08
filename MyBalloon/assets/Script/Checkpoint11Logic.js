@@ -40,19 +40,51 @@ cc.Class({
 
    
     onLoad() {
-        this.operationalSetOfGravity = new Array();
-        this.addRigidBodyToOperationalSet(this.node);
-        for(let i = 0;i <this.operationalSetOfGravity.length;i++) {
-            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
-            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfHit = true;
-        }
+        this.addGravityProperties(this.node);
 
         this.bigCircle1RunFlag = false;
         this.bigCircle2RunFlag = false;
         this.bigCircle1Body = this.bigCircle1.getComponent(cc.RigidBody);
         this.bigCircle2Body = this.bigCircle2.getComponent(cc.RigidBody);
+        
+        this.schedule(this.removeThis,5);
     },
 
+     //初始化刚体节点的重力属性 如 碰撞后 给予重力，过阀值后给予重力。
+     addGravityProperties: function (node) {
+        let children = node.children;
+       
+        for (let i = 0; i < children.length; i++) {
+            this.addGravityProperties(children[i]);
+        }
+        if (node.getComponent(cc.RigidBody) != null) {
+            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
+            node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+        }
+    },
+
+    removeThis:function() {
+        cc.log("关卡11 检测是否有刚体！");
+        if(this.hasRigidBody(this.node) == false) {
+            cc.log("没有刚体了！");
+            this.node.destroy();
+        }
+    },
+
+    hasRigidBody:function(node){
+        let cr = node.children;
+        let hasFlag = false; //是否有刚体 false 没有刚体 true 有刚体
+        for(let i = 0; i<cr.length;i++) {
+            if(this.hasRigidBody(cr[i]) == true){
+                hasFlag = true;
+                break;
+            }
+        }
+        if(hasFlag == false && node.getComponent(cc.RigidBody) == null) {
+            return false;
+        }
+        return true;
+    },
 
     addRigidBodyToOperationalSet: function (node) {
         let children = node.children;

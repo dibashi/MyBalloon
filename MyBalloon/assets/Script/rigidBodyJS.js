@@ -59,7 +59,6 @@ cc.Class({
 
     update(dt) {
         let thisPosition = this.node.parent.convertToWorldSpaceAR(this.node.position);
-        cc.log(thisPosition);
         let thisNodePosX = thisPosition.x;
         let thisNodePosY = thisPosition.y;
 
