@@ -59,17 +59,50 @@ cc.Class({
 
         },
 
+        bg1: {
+            default: null,
+            type: cc.Node,
+
+        },
+
+        bg2: {
+            default: null,
+            type: cc.Node,
+
+        },
+
+        yun2: {
+            default: null,
+            type: cc.Node,
+
+        },
+
+        yun3: {
+            default: null,
+            type: cc.Node,
+
+        },
+
+        yuns: {
+            default: null,
+            type: cc.Node,
+
+        },
+
 
         cps: null,//关卡索引数组
-        h: 0,//关卡长度
-        bgMinY: 0,//下限 超过这个值 背景挪上去
-        bgSpeed: 2,//背景的移动速度
+        h: 3840,//关卡长度
+        bgMinY: -2880,//下限 超过这个值 背景挪上去
+        bgSpeed: 8,//背景的移动速度
 
         guanKa: 0,//0代表无尽模式
 
         //  heightOfGenerateBody:0, //生成下一波关卡的高度
 
+        colorIndex:null,
 
+        bg1ColorIndex:0,
+        bg2ColorIndex:0,//初始化两个背景的 颜色索引
     },
 
 
@@ -77,7 +110,27 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
 
+        this.h = 3840;
+        this.bgMinY = -2880;
+        this.bgSpeed = 8;
+       // this.ctx.strokeColor = cc.hexToColor('#495069');
+       this.colorIndex = [
+           {bgColor:'#5ac2de',yun3Color:'#84cade',yun2Color:'#add7e6'},
+           {bgColor:'#0092ce',yun3Color:'#42aad6',yun2Color:'#8cc2de'},
 
+           {bgColor:'#10aa10',yun3Color:'#52ba52',yun2Color:'#94ce92'},
+           {bgColor:'#7bc242',yun3Color:'#9cca73',yun2Color:'#bdd7a4'},
+
+           {bgColor:'#00cea4',yun3Color:'#42d7bd',yun2Color:'#8cdfce'},
+           {bgColor:'#94a2ff',yun3Color:'#adb3f7',yun2Color:'#c5c9ef'},
+
+           {bgColor:'#520c4a',yun3Color:'#7b4d7b',yun2Color:'#ad8ead'},
+           {bgColor:'#3a457b',yun3Color:'#7886cb',yun2Color:'#b5c2fe'},
+        
+        
+        ];
+
+        this.initBGColor();
 
         cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
 
@@ -89,30 +142,38 @@ cc.Class({
         cc.director.getPhysicsManager().debugDrawFlags = 0; //-设置为0则关闭调试
         cc.director.getPhysicsManager().gravity = cc.v2(0, -320);//-320像素/秒的平方，这个是默认值，为了以后调试先放在这
 
-        var self = this;
+        // var self = this;
 
-        //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
-        this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
-        if (this.guanKa != -1) {
-            this.addCheckPointToScene(this.guanKa);
-        } else if (this.guanKa == -1) { //无尽模式
-            //随机选择一关 便于调试 现在只有四关
-
-
-            //let cps_index = 1;
-            this.generateCheckpointByIndex(0, this.panel1);
-            //  let next_cps_index = 2;
-
-            this.generateCheckpointByIndex(2, this.panel2);
+        // //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
+        // this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
+        // if (this.guanKa != -1) {
+        //     this.addCheckPointToScene(this.guanKa);
+        // } else if (this.guanKa == -1) { //无尽模式
+        //     this.generateCheckpointByIndex(0, this.panel1);
+        //     this.generateCheckpointByIndex(2, this.panel2);
+        // }
+        // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
 
 
-            //this.generateBG(cps_index,next_cps_index);
-        }
-
-        
-        this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
         // let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
         // armatureDisplay.playAnimation("time");
+    },
+
+    //背景和云2 云3 的颜色 初始化
+    initBGColor:function(){
+       this.bg1ColorIndex = Math.floor(Math.random()*this.colorIndex.length);
+
+       if(this.bg1ColorIndex+1>=this.colorIndex.length) {
+           this.bg2ColorIndex = 0;
+       } else {
+           this.bg2ColorIndex = this.bg1ColorIndex+1;
+       }
+
+       this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
+       this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
+
+       this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
+       this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
     },
 
     getGuanKa: function () {
@@ -179,44 +240,38 @@ cc.Class({
     // called every frame
     update: function (dt) {
 
-        // let bg1Y = this.currentCheckpointNode.getPosition().y;
-        // let bg2Y = this.nextCheckpointNode.getPosition().y;
+        if (this.bg1.y <= this.bgMinY) {
+            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60;
 
-        // if (bg1Y <= this.bgMinY) {
-        //     this.currentCheckpointNode.setPosition(this.currentCheckpointNode.getPosition().x, bg2Y + this.h - this.bgSpeed * dt * 60);
-        //     this.panel1.setPosition(this.currentCheckpointNode.getPosition());
-        //     if (this.guanKa == 0) {
-        //         //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
-        //         this.panel1.removeAllChildren();
-        //         this.generateCheckpointByIndex(this.getGuanKa(), this.panel1);
+            this.bg1ColorIndex = Math.floor(Math.random()*this.colorIndex.length);
+            this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
+        } else {
+            this.bg1.y -= this.bgSpeed * dt * 60;
+        }
 
+        if (this.bg2.y <= this.bgMinY) {
+            this.bg2.y = this.bg1.y+this.h;
 
-        //     } else {
+            this.bg2ColorIndex = Math.floor(Math.random()*this.colorIndex.length);
+            this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
+        } else {
+            this.bg2.y -= this.bgSpeed * dt * 60;
+        }
 
-        //     }
-
-        // } else {
-        //     bg1Y -= this.bgSpeed * dt * 60;
-        //     this.currentCheckpointNode.setPosition(this.currentCheckpointNode.getPosition().x, bg1Y);
-        //     this.panel1.setPosition(this.currentCheckpointNode.getPosition());
-        // }
-
-
-
-        // if (bg2Y <= this.bgMinY) {
-        //     this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x, bg1Y + this.h);
-        //     this.panel2.setPosition(this.nextCheckpointNode.getPosition());
-        //     if (this.guanKa == 0) {
-        //         //似乎不用移除这个容器下的所有节点，因为那是刚体，刚体不会改变速度 让他们自己往下跑，超过某个位置 删除
-        //         this.panel2.removeAllChildren();
-        //         this.generateCheckpointByIndex(this.getGuanKa(), this.panel2);
-        //     }
-        // } else {
-        //     bg2Y -= this.bgSpeed * dt * 60;
-        //     this.nextCheckpointNode.setPosition(this.nextCheckpointNode.getPosition().x, bg2Y);
-        //     this.panel2.setPosition(this.nextCheckpointNode.getPosition());
-        // }
-
+        if(this.yuns.y <=(-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
+            this.yuns.y = (this.bg1.y+this.bg2.y) *0.5;//放在两个背景的中间
+            //云2 云3的颜色 则根据下方的bg来设置
+            if(this.bg1.y<this.bg2.y) {
+                this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
+                this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
+            } else {
+                this.yun3.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun3Color);
+                this.yun2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun2Color);
+            }
+           
+        } else {
+            this.yuns.y -= this.bgSpeed*dt*60;
+        }
 
 
 
