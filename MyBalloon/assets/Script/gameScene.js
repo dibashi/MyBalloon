@@ -69,7 +69,7 @@ cc.Class({
 
         //  heightOfGenerateBody:0, //生成下一波关卡的高度
 
-       
+
     },
 
 
@@ -77,7 +77,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
 
-        
+
 
         cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
 
@@ -109,8 +109,8 @@ cc.Class({
             //this.generateBG(cps_index,next_cps_index);
         }
 
-
-
+        
+        this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
         // let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
         // armatureDisplay.playAnimation("time");
     },
@@ -119,7 +119,9 @@ cc.Class({
         return Math.floor(Math.random() * 4);
     },
 
-    //直接传入关卡ID  根据ID 加入关卡
+
+
+    //异步加载资源 直接传入关卡ID  根据ID 加入关卡
     addCheckPointToScene: function (ID) {
         let self = this;
         let pathOfPrefab = "Prefab/checkpoint" + ID;
@@ -140,22 +142,24 @@ cc.Class({
 
     //关卡数据读取成功的回调函数，在这里将关卡加入scene
     checkPointLoadSuccess: function (prefab) {
+        //生成关卡的NODE 将其加入gameLayer
         let currentNode = cc.instantiate(prefab);
         currentNode.setPosition(0, 960);
         this.gameLayer.addChild(currentNode);
 
-        this.gameLayer.currentNode = currentNode;
-
+        this.gameLayer.getComponent("gameLayer").currentNode = currentNode;
+       
         //递归：给子节点下的所有子节点以刚体速度
-        this.giveRigidBodyVelocity(newNode, -this.bgSpeed * 60);
+        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 60);
     },
 
+    //给关卡中的所有刚体 一个速度 让其和背景一起下落
     giveRigidBodyVelocity: function (node, speed) {
         let children = node.children;
         for (let i = 0; i < children.length; i++) {
             this.giveRigidBodyVelocity(children[i], speed);
         }
-        if (node.getComponent(cc.RigidBody) != null) {
+        if (node.getComponent(cc.RigidBody) != null && node.group != "yun" ){
             node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, speed);
         }
     },
@@ -213,7 +217,7 @@ cc.Class({
         //     this.panel2.setPosition(this.nextCheckpointNode.getPosition());
         // }
 
-       
+
 
 
     },

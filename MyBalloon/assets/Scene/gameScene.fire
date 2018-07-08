@@ -495,8 +495,7 @@
     "singleTouchID": -1,
     "guardHalfWidth": 0,
     "guardHalfHeight": 0,
-    "currentFingerPosition": null,
-    "nextFingerPosition": null
+    "currentNode": null
   },
   {
     "__type__": "cc.Widget",
