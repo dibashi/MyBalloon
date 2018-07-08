@@ -127,6 +127,20 @@ cc.Class({
            {bgColor:'#520c4a',yun3Color:'#7b4d7b',yun2Color:'#ad8ead'},
            {bgColor:'#3a457b',yun3Color:'#7886cb',yun2Color:'#b5c2fe'},
         
+
+           {bgColor:'#002431',yun3Color:'#53869f',yun2Color:'#89c3d7'},
+           {bgColor:'#424542',yun3Color:'#959595',yun2Color:'#c6c6c6'},
+
+           {bgColor:'#f7d731',yun3Color:'#efdb6b',yun2Color:'#efdf9c'},
+           {bgColor:'#d6ce00',yun3Color:'#d6d742',yun2Color:'#dedb8c'},
+
+           {bgColor:'#ef9e31',yun3Color:'#efb26b',yun2Color:'#efca9c'},
+           {bgColor:'#f77531',yun3Color:'#ef966b',yun2Color:'#ef6a9c'},
+
+           {bgColor:'#ce4100',yun3Color:'#d67142',yun2Color:'#dea28c'},
+           {bgColor:'#ef4131',yun3Color:'#ef716b',yun2Color:'#efa29c'},
+
+           {bgColor:'#ef3584',yun3Color:'#ef69a4',yun2Color:'#ef9ebd'},
         
         ];
 
