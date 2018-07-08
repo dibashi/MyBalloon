@@ -286,12 +286,12 @@ cc.Class({
              //如果未加载下一关，且云已经出现且是无尽模式
             if(this.isLoadNextCheckPoint == false && this.yuns.y < 1920 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
-                if(this.bg1.y>this.bg2.y) {
-                    this.generateCheckpointByIndex(2, this.bg1.position);
-                } else {
-                    this.generateCheckpointByIndex(2, this.bg2.position);
-                }
-                this.isLoadNextCheckPoint = true;
+                // if(this.bg1.y>this.bg2.y) {
+                //     this.generateCheckpointByIndex(2, this.bg1.position);
+                // } else {
+                //     this.generateCheckpointByIndex(2, this.bg2.position);
+                // }
+                // this.isLoadNextCheckPoint = true;
             }
         }
 

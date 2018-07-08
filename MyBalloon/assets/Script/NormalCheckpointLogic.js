@@ -42,13 +42,13 @@ cc.Class({
     //此脚本是一个关卡的公共逻辑，在onLoad中要做的就是对整个关卡数据进行位置初始化
     //如何才能具有统一的位置初始化？1，内部的对象摆好内部的位置（在prefab中）
     //2，整体的位置在onload中进行整体的平移摆放即可
-    //这个脚本 除wall之外 都在某个阀值给予了重力加速度
+    //这个脚本 除wall之外 都在某个阀值给予了重力加速度 或刚体被碰撞就给予重力
     onLoad() {
         this.operationalSetOfGravity = new Array();
         this.addRigidBodyToOperationalSet(this.node);
         for(let i = 0;i <this.operationalSetOfGravity.length;i++) {
             this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
-            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfHit = false;
+            this.operationalSetOfGravity[i].getComponent("rigidBodyJS").gravityFlagOfHit = true;
         }    
     },
 

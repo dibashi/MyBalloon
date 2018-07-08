@@ -58,7 +58,10 @@ cc.Class({
     },
 
     update(dt) {
-        let thisNodePosY = this.node.parent.convertToWorldSpaceAR(this.node.position).y;
+        let thisPosition = this.node.parent.convertToWorldSpaceAR(this.node.position);
+        cc.log(thisPosition);
+        let thisNodePosX = thisPosition.x;
+        let thisNodePosY = thisPosition.y;
 
         if (this.gravityHasBeenGiven == false) { //没给过重力
             if (this.gravityFlagOfThreshold == true) { //根据阀值给重力
@@ -68,10 +71,9 @@ cc.Class({
                 }
             }
         }
-
-        if (thisNodePosY < -250) {
+        //!不要删上面，不然新加的关卡也会被删除，各个关卡宽边 不要超出屏幕420像素!!
+        if (thisNodePosY < -250 ||thisNodePosX >1500 ||thisNodePosX<-420 ) {
             this.node.removeFromParent();
-
             //应该再向其父结点发送已删除，让其查询其是否还有刚体子节点，若没有，则删除自己，不然那个脚本还在运行
         }
     },
