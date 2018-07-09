@@ -13,13 +13,13 @@ cc.Class({
 
     properties: {
 
-        impulseVector: null,
+      
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.impulseVector = cc.v2(0.0, 0.0);
+        
     },
 
     

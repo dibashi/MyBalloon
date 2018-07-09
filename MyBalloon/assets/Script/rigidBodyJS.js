@@ -29,7 +29,6 @@ cc.Class({
         // },
 
         rigidBodyOfNode: null,//此node的刚体组件
-        thresholdOfGravity: 0,//初始化给予重力阀值
         flag: false,//每个刚体 都有一个内部的flag，用于其关卡内的操作
 
         gravityHasBeenGiven: false,//用于标记重力是否给过 
@@ -40,7 +39,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.thresholdOfGravity = 1600;
+        this.thresholdOfGravity = 1350;
     },
 
     start() {

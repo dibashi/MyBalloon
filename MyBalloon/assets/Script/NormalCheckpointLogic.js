@@ -31,7 +31,7 @@ cc.Class({
         // },
      
 
-        thresholdOfCommotion: 1600,//规定了整个关卡给予刚体重力的位置阀值
+        thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
         operationalSetOfGravity: null,
 
        

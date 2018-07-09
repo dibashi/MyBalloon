@@ -86,41 +86,6 @@ cc.Class({
         return true;
     },
 
-   
-
-
-    // clean:function() {
-
-    //     this.rigidBodyCountArray = new Array();
-    //     this.hasRigidBody(this.node);
-    //     cc.log("第11关还剩下刚体数量： " +this.rigidBodyCountArray.length);
-    //     if(this.rigidBodyCountArray.length == 0) {
-    //         cc.log("清楚第11关！");
-    //         this.node.removeFromParent();
-    //         this.node.destroy();
-    //     }
-    // },
-
-    // hasRigidBody:function(node) {
-
-    //     let children = node.children;
-       
-    //     for (let i = 0; i < children.length; i++) {
-           
-    //         this.hasRigidBody(children[i]);
-    //     }
-    //     if (node.getComponent(cc.RigidBody) != null) {
-           
-    //         this.rigidBodyCountArray.push(node);
-    //     }
-    // },
-
-
-
-   
-    //dt就是这帧与上一帧的时间差，这个函数在绘制之前调用的，改变此节点的属性，然后绘制。
-    //有一个问题需要考虑，每个人的手机不一样，这个dt就是不一样的，如何统一？先不管了
-    //这里做的主要逻辑是让整个node下落，以后和背景图的速度一致！
     update(dt) {
 
         if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
