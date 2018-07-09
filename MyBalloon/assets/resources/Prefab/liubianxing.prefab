@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "triangle",
+    "_name": "liubianxing",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -50,8 +50,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 141,
-      "height": 129
+      "width": 158,
+      "height": 135
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -59,8 +59,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": -289,
+      "y": 361
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -78,7 +78,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "00589144-c4df-470d-8fce-d56704069009"
+      "__uuid__": "af290ab3-eb3d-4adf-a04f-56aefd8c76cd"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -121,6 +121,21 @@
     "bullet": true
   },
   {
+    "__type__": "07970FZ9VpKr4VeDBBUzDzH",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "rigidBodyOfNode": null,
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
+  },
+  {
     "__type__": "cc.PhysicsPolygonCollider",
     "_name": "",
     "_objFlags": 0,
@@ -142,35 +157,35 @@
     "points": [
       {
         "__type__": "cc.Vec2",
-        "x": -0.54,
-        "y": 64.5
+        "x": -39,
+        "y": 67.5
       },
       {
         "__type__": "cc.Vec2",
-        "x": -70.5,
-        "y": -64.5
+        "x": -79,
+        "y": 2.5
       },
       {
         "__type__": "cc.Vec2",
-        "x": 70.5,
-        "y": -64.5
+        "x": -39,
+        "y": -67.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 39,
+        "y": -67.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 79,
+        "y": -1.5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 41,
+        "y": 67.5
       }
     ]
-  },
-  {
-    "__type__": "07970FZ9VpKr4VeDBBUzDzH",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
-    "flag": false,
-    "gravityHasBeenGiven": false,
-    "gravityFlagOfThreshold": false,
-    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -178,7 +193,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "14bf48ed-87ab-484b-b2d7-be902bb6ad50"
+      "__uuid__": "e743379c-60b9-4432-9686-21706ada8729"
     },
     "fileId": "c64gMRiVlDS73w9WIonn26",
     "sync": false
