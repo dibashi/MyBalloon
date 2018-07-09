@@ -346,7 +346,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -749
+      "y": -807
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -440,7 +440,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -510,8 +509,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -749
+      "x": -248,
+      "y": -807
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -605,7 +604,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -676,7 +674,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -697
+      "y": -753
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -770,7 +768,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -840,8 +837,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -697
+      "x": -248,
+      "y": -753
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -935,7 +932,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1006,7 +1002,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -648
+      "y": -699
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1100,7 +1096,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1170,8 +1165,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -648
+      "x": -248,
+      "y": -699
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1265,7 +1260,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1336,7 +1330,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -597
+      "y": -645
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1430,7 +1424,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1500,8 +1493,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -597
+      "x": -248,
+      "y": -645
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1595,7 +1588,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1666,7 +1658,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -548
+      "y": -592
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1760,7 +1752,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1830,8 +1821,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -548
+      "x": -248,
+      "y": -592
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1925,7 +1916,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -1996,7 +1986,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -497
+      "y": -539
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2090,7 +2080,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -2160,8 +2149,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -497
+      "x": -248,
+      "y": -539
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2255,7 +2244,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -2326,7 +2314,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -446
+      "y": -486
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2420,7 +2408,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -2490,8 +2477,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -446
+      "x": -248,
+      "y": -486
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2585,7 +2572,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -2656,7 +2642,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -394
+      "y": -432
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2750,7 +2736,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -2820,8 +2805,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -394
+      "x": -248,
+      "y": -432
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -2915,7 +2900,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -2986,7 +2970,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -342
+      "y": -379
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3080,7 +3064,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -3150,8 +3133,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -342
+      "x": -248,
+      "y": -379
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3245,7 +3228,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -3316,7 +3298,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -293
+      "y": -326
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3410,7 +3392,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -3480,8 +3461,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -293
+      "x": -248,
+      "y": -326
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3575,7 +3556,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -3646,7 +3626,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -242
+      "y": -273
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3740,7 +3720,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -3810,8 +3789,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -242
+      "x": -248,
+      "y": -273
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3905,7 +3884,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -3976,7 +3954,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -193
+      "y": -220
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4070,7 +4048,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -4140,8 +4117,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -193
+      "x": -248,
+      "y": -220
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4235,7 +4212,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -4306,7 +4282,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -142
+      "y": -167
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4400,7 +4376,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -4470,8 +4445,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -142
+      "x": -248,
+      "y": -167
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4565,7 +4540,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -4636,7 +4610,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -91
+      "y": -113
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4730,7 +4704,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -4800,8 +4773,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -91
+      "x": -248,
+      "y": -113
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -4895,7 +4868,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -4966,7 +4938,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": -40
+      "y": -61
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5060,7 +5032,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -5130,8 +5101,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": -40
+      "x": -248,
+      "y": -61
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5225,7 +5196,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -5296,7 +5266,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 12
+      "y": -7
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5390,7 +5360,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -5460,8 +5429,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 12
+      "x": -248,
+      "y": -7
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5555,7 +5524,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -5626,7 +5594,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 61
+      "y": 46
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5720,7 +5688,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -5790,8 +5757,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 61
+      "x": -248,
+      "y": 46
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5885,7 +5852,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -5956,7 +5922,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 112
+      "y": 99
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6050,7 +6016,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -6120,8 +6085,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 112
+      "x": -248,
+      "y": 99
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6215,7 +6180,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -6286,7 +6250,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 161
+      "y": 152
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6380,7 +6344,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -6450,8 +6413,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 161
+      "x": -248,
+      "y": 152
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6545,7 +6508,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -6616,7 +6578,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 212
+      "y": 205
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6710,7 +6672,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -6780,8 +6741,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 212
+      "x": -248,
+      "y": 205
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -6875,7 +6836,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -6946,7 +6906,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 263
+      "y": 258
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7040,7 +7000,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -7110,8 +7069,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 263
+      "x": -248,
+      "y": 258
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7205,7 +7164,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -7276,7 +7234,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 315
+      "y": 311
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7370,7 +7328,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -7440,8 +7397,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 315
+      "x": -248,
+      "y": 311
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7535,7 +7492,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -7606,7 +7562,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 367
+      "y": 364
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7700,7 +7656,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -7770,8 +7725,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 367
+      "x": -248,
+      "y": 364
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7865,7 +7820,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -7936,7 +7890,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 416
+      "y": 417
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8030,7 +7984,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -8100,8 +8053,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 416
+      "x": -248,
+      "y": 417
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8195,7 +8148,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -8266,7 +8218,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 467
+      "y": 470
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8360,7 +8312,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -8430,8 +8381,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 467
+      "x": -248,
+      "y": 470
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8525,7 +8476,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -8596,7 +8546,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 516
+      "y": 523
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8690,7 +8640,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -8760,8 +8709,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 516
+      "x": -248,
+      "y": 523
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -8855,7 +8804,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -8926,7 +8874,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 567
+      "y": 576
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9020,7 +8968,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -9090,8 +9037,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 567
+      "x": -248,
+      "y": 576
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9185,7 +9132,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -9256,7 +9202,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": -352,
-      "y": 618
+      "y": 629
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9350,7 +9296,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -9420,8 +9365,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -250,
-      "y": 618
+      "x": -248,
+      "y": 629
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9515,7 +9460,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -9815,8 +9759,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -748
+      "x": -355,
+      "y": -805
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -9910,7 +9854,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -9980,8 +9923,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -749
+      "x": -46,
+      "y": -805
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10075,7 +10018,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -10145,8 +10087,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -696
+      "x": -355,
+      "y": -751
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10240,7 +10182,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -10310,8 +10251,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -697
+      "x": -46,
+      "y": -751
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10405,7 +10346,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -10475,8 +10415,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -647
+      "x": -355,
+      "y": -697
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10570,7 +10510,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -10640,8 +10579,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -648
+      "x": -46,
+      "y": -697
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10735,7 +10674,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -10805,8 +10743,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -596
+      "x": -355,
+      "y": -643
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -10900,7 +10838,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -10970,8 +10907,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -597
+      "x": -46,
+      "y": -643
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11065,7 +11002,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -11135,8 +11071,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -547
+      "x": -355,
+      "y": -590
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11230,7 +11166,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -11300,8 +11235,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -548
+      "x": -46,
+      "y": -590
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11395,7 +11330,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -11465,8 +11399,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -496
+      "x": -355,
+      "y": -537
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11560,7 +11494,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -11630,8 +11563,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -497
+      "x": -46,
+      "y": -537
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11725,7 +11658,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -11795,8 +11727,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -445
+      "x": -355,
+      "y": -484
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -11890,7 +11822,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -11960,8 +11891,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -446
+      "x": -46,
+      "y": -484
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -12055,7 +11986,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -12125,8 +12055,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -393
+      "x": -355,
+      "y": -430
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -12220,7 +12150,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -12290,8 +12219,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -394
+      "x": -46,
+      "y": -430
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -12385,7 +12314,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -12455,8 +12383,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -341
+      "x": -355,
+      "y": -377
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -12550,7 +12478,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -12620,8 +12547,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -342
+      "x": -46,
+      "y": -377
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -12715,7 +12642,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -12785,8 +12711,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -292
+      "x": -355,
+      "y": -324
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -12880,7 +12806,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -12950,8 +12875,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -293
+      "x": -46,
+      "y": -324
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -13045,7 +12970,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -13115,8 +13039,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -241
+      "x": -355,
+      "y": -271
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -13210,7 +13134,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -13280,8 +13203,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -242
+      "x": -46,
+      "y": -271
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -13375,7 +13298,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -13445,8 +13367,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -192
+      "x": -355,
+      "y": -218
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -13540,7 +13462,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -13610,8 +13531,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -193
+      "x": -46,
+      "y": -218
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -13705,7 +13626,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -13775,8 +13695,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -141
+      "x": -355,
+      "y": -165
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -13870,7 +13790,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -13940,8 +13859,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -142
+      "x": -46,
+      "y": -165
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -14035,7 +13954,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -14105,8 +14023,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -90
+      "x": -355,
+      "y": -111
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -14200,7 +14118,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -14270,8 +14187,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -91
+      "x": -46,
+      "y": -111
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -14365,7 +14282,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -14435,8 +14351,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -39
+      "x": -355,
+      "y": -59
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -14530,7 +14446,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -14600,8 +14515,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": -40
+      "x": -46,
+      "y": -59
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -14695,7 +14610,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -14765,8 +14679,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 13
+      "x": -355,
+      "y": -5
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -14860,7 +14774,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -14930,8 +14843,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 12
+      "x": -46,
+      "y": -5
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -15025,7 +14938,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -15095,8 +15007,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 62
+      "x": -355,
+      "y": 48
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -15190,7 +15102,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -15260,8 +15171,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 61
+      "x": -46,
+      "y": 48
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -15355,7 +15266,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -15425,8 +15335,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 113
+      "x": -355,
+      "y": 101
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -15520,7 +15430,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -15590,8 +15499,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 112
+      "x": -46,
+      "y": 101
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -15685,7 +15594,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -15755,8 +15663,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 162
+      "x": -355,
+      "y": 154
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -15850,7 +15758,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -15920,8 +15827,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 161
+      "x": -46,
+      "y": 154
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -16015,7 +15922,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -16085,8 +15991,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 213
+      "x": -355,
+      "y": 207
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -16180,7 +16086,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -16250,8 +16155,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 212
+      "x": -46,
+      "y": 207
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -16345,7 +16250,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -16415,8 +16319,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 264
+      "x": -355,
+      "y": 260
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -16510,7 +16414,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -16580,8 +16483,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 263
+      "x": -46,
+      "y": 260
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -16675,7 +16578,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -16745,8 +16647,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 316
+      "x": -355,
+      "y": 313
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -16840,7 +16742,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -16910,8 +16811,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 315
+      "x": -46,
+      "y": 313
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17005,7 +16906,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -17075,8 +16975,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 368
+      "x": -355,
+      "y": 366
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17170,7 +17070,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -17240,8 +17139,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 367
+      "x": -46,
+      "y": 366
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17335,7 +17234,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -17405,8 +17303,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 417
+      "x": -355,
+      "y": 419
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17500,7 +17398,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -17570,8 +17467,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 416
+      "x": -46,
+      "y": 419
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17665,7 +17562,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -17735,8 +17631,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 468
+      "x": -355,
+      "y": 472
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17830,7 +17726,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -17900,8 +17795,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 467
+      "x": -46,
+      "y": 472
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -17995,7 +17890,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -18065,8 +17959,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 517
+      "x": -355,
+      "y": 525
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -18160,7 +18054,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -18230,8 +18123,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 516
+      "x": -46,
+      "y": 525
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -18325,7 +18218,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -18395,8 +18287,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 568
+      "x": -355,
+      "y": 578
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -18490,7 +18382,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -18560,8 +18451,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 567
+      "x": -46,
+      "y": 578
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -18655,7 +18546,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -18725,8 +18615,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 619
+      "x": -355,
+      "y": 631
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -18820,7 +18710,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -18890,8 +18779,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -50,
-      "y": 621
+      "x": -46,
+      "y": 631
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -18985,7 +18874,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -19285,8 +19173,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -749
+      "x": -355,
+      "y": -805
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -19380,7 +19268,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -19450,8 +19337,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -748
+      "x": 160,
+      "y": -805
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -19545,7 +19432,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -19615,8 +19501,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -696
+      "x": -355,
+      "y": -751
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -19710,7 +19596,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -19780,8 +19665,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -696
+      "x": 160,
+      "y": -751
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -19875,7 +19760,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -19945,8 +19829,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -647
+      "x": -355,
+      "y": -697
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -20040,7 +19924,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -20110,8 +19993,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -647
+      "x": 160,
+      "y": -697
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -20205,7 +20088,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -20275,8 +20157,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -596
+      "x": -355,
+      "y": -643
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -20370,7 +20252,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -20440,8 +20321,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -596
+      "x": 160,
+      "y": -643
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -20535,7 +20416,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -20605,8 +20485,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -547
+      "x": -355,
+      "y": -590
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -20700,7 +20580,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -20770,8 +20649,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -547
+      "x": 160,
+      "y": -590
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -20865,7 +20744,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -20935,8 +20813,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -496
+      "x": -355,
+      "y": -537
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -21030,7 +20908,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -21100,8 +20977,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -496
+      "x": 160,
+      "y": -537
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -21195,7 +21072,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -21265,8 +21141,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -445
+      "x": -355,
+      "y": -484
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -21360,7 +21236,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -21430,8 +21305,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -445
+      "x": 160,
+      "y": -484
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -21525,7 +21400,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -21595,8 +21469,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -393
+      "x": -355,
+      "y": -430
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -21690,7 +21564,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -21760,8 +21633,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -393
+      "x": 160,
+      "y": -430
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -21855,7 +21728,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -21925,8 +21797,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -341
+      "x": -355,
+      "y": -377
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -22020,7 +21892,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -22090,8 +21961,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -341
+      "x": 160,
+      "y": -377
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -22185,7 +22056,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -22255,8 +22125,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -292
+      "x": -355,
+      "y": -324
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -22350,7 +22220,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -22420,8 +22289,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -292
+      "x": 160,
+      "y": -324
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -22515,7 +22384,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -22585,8 +22453,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -241
+      "x": -355,
+      "y": -271
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -22680,7 +22548,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -22750,8 +22617,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -241
+      "x": 160,
+      "y": -271
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -22845,7 +22712,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -22915,8 +22781,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -192
+      "x": -355,
+      "y": -218
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -23010,7 +22876,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -23080,8 +22945,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -192
+      "x": 160,
+      "y": -218
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -23175,7 +23040,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -23245,8 +23109,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -141
+      "x": -355,
+      "y": -165
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -23340,7 +23204,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -23410,8 +23273,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -141
+      "x": 160,
+      "y": -165
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -23505,7 +23368,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -23575,8 +23437,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -90
+      "x": -355,
+      "y": -111
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -23670,7 +23532,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -23740,8 +23601,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -90
+      "x": 160,
+      "y": -111
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -23835,7 +23696,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -23905,8 +23765,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -39
+      "x": -355,
+      "y": -59
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24000,7 +23860,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -24070,8 +23929,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": -39
+      "x": 160,
+      "y": -59
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24165,7 +24024,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -24235,8 +24093,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 13
+      "x": -355,
+      "y": -5
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24330,7 +24188,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -24400,8 +24257,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 13
+      "x": 160,
+      "y": -5
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24495,7 +24352,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -24565,8 +24421,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 62
+      "x": -355,
+      "y": 48
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24660,7 +24516,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -24730,8 +24585,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 62
+      "x": 160,
+      "y": 48
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24825,7 +24680,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -24895,8 +24749,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 113
+      "x": -355,
+      "y": 101
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -24990,7 +24844,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -25060,8 +24913,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 113
+      "x": 160,
+      "y": 101
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -25155,7 +25008,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -25225,8 +25077,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 162
+      "x": -355,
+      "y": 154
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -25320,7 +25172,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -25390,8 +25241,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 162
+      "x": 160,
+      "y": 154
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -25485,7 +25336,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -25555,8 +25405,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 213
+      "x": -355,
+      "y": 207
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -25650,7 +25500,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -25720,8 +25569,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 213
+      "x": 160,
+      "y": 207
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -25815,7 +25664,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -25885,8 +25733,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 264
+      "x": -355,
+      "y": 260
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -25980,7 +25828,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -26050,8 +25897,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 264
+      "x": 160,
+      "y": 260
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26145,7 +25992,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -26215,8 +26061,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 316
+      "x": -355,
+      "y": 313
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26310,7 +26156,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -26380,8 +26225,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 316
+      "x": 160,
+      "y": 313
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26475,7 +26320,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -26545,8 +26389,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 368
+      "x": -355,
+      "y": 366
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26640,7 +26484,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -26710,8 +26553,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 368
+      "x": 160,
+      "y": 366
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26805,7 +26648,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -26875,8 +26717,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 417
+      "x": -355,
+      "y": 419
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -26970,7 +26812,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -27040,8 +26881,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 417
+      "x": 160,
+      "y": 419
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -27135,7 +26976,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -27205,8 +27045,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 468
+      "x": -355,
+      "y": 472
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -27300,7 +27140,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -27370,8 +27209,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 468
+      "x": 160,
+      "y": 472
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -27465,7 +27304,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -27535,8 +27373,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 517
+      "x": -355,
+      "y": 525
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -27630,7 +27468,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -27700,8 +27537,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 517
+      "x": 160,
+      "y": 525
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -27795,7 +27632,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -27865,8 +27701,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 568
+      "x": -355,
+      "y": 578
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -27960,7 +27796,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -28030,8 +27865,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 568
+      "x": 160,
+      "y": 578
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -28125,7 +27960,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -28195,8 +28029,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 619
+      "x": -355,
+      "y": 631
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -28290,7 +28124,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -28360,8 +28193,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 156,
-      "y": 619
+      "x": 160,
+      "y": 631
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -28455,7 +28288,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -28755,8 +28587,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -749
+      "x": -354,
+      "y": -806
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -28850,7 +28682,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -28920,8 +28751,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -749
+      "x": 367,
+      "y": -806
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -29015,7 +28846,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -29085,8 +28915,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -697
+      "x": -354,
+      "y": -752
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -29180,7 +29010,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -29250,8 +29079,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -697
+      "x": 367,
+      "y": -752
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -29345,7 +29174,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -29415,8 +29243,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -648
+      "x": -354,
+      "y": -698
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -29510,7 +29338,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -29580,8 +29407,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -648
+      "x": 367,
+      "y": -698
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -29675,7 +29502,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -29745,8 +29571,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -597
+      "x": -354,
+      "y": -644
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -29840,7 +29666,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -29910,8 +29735,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -597
+      "x": 367,
+      "y": -644
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30005,7 +29830,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -30075,8 +29899,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -548
+      "x": -354,
+      "y": -591
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30170,7 +29994,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -30240,8 +30063,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -548
+      "x": 367,
+      "y": -591
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30335,7 +30158,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -30405,8 +30227,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -497
+      "x": -354,
+      "y": -538
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30500,7 +30322,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -30570,8 +30391,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -497
+      "x": 367,
+      "y": -538
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30665,7 +30486,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -30735,8 +30555,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -446
+      "x": -354,
+      "y": -485
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30830,7 +30650,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -30900,8 +30719,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -446
+      "x": 367,
+      "y": -485
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -30995,7 +30814,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -31065,8 +30883,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -394
+      "x": -354,
+      "y": -431
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -31160,7 +30978,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -31230,8 +31047,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -394
+      "x": 367,
+      "y": -431
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -31325,7 +31142,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -31395,8 +31211,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -342
+      "x": -354,
+      "y": -378
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -31490,7 +31306,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -31560,8 +31375,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -342
+      "x": 367,
+      "y": -378
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -31655,7 +31470,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -31725,8 +31539,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -293
+      "x": -354,
+      "y": -325
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -31820,7 +31634,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -31890,8 +31703,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -293
+      "x": 367,
+      "y": -325
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -31985,7 +31798,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -32055,8 +31867,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -242
+      "x": -354,
+      "y": -272
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -32150,7 +31962,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -32220,8 +32031,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -242
+      "x": 367,
+      "y": -272
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -32315,7 +32126,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -32385,8 +32195,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -193
+      "x": -354,
+      "y": -219
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -32480,7 +32290,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -32550,8 +32359,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -193
+      "x": 367,
+      "y": -219
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -32645,7 +32454,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -32715,8 +32523,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -142
+      "x": -354,
+      "y": -166
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -32810,7 +32618,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -32880,8 +32687,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -142
+      "x": 367,
+      "y": -166
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -32975,7 +32782,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -33045,8 +32851,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -91
+      "x": -354,
+      "y": -112
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -33140,7 +32946,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -33210,8 +33015,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -91
+      "x": 367,
+      "y": -112
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -33305,7 +33110,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -33375,8 +33179,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": -40
+      "x": -354,
+      "y": -60
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -33470,7 +33274,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -33540,8 +33343,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": -40
+      "x": 367,
+      "y": -60
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -33635,7 +33438,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -33705,8 +33507,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 12
+      "x": -354,
+      "y": -6
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -33800,7 +33602,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -33870,8 +33671,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 12
+      "x": 367,
+      "y": -6
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -33965,7 +33766,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -34035,8 +33835,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 61
+      "x": -354,
+      "y": 47
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -34130,7 +33930,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -34200,8 +33999,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 61
+      "x": 367,
+      "y": 47
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -34295,7 +34094,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -34365,8 +34163,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 112
+      "x": -354,
+      "y": 100
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -34460,7 +34258,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -34530,8 +34327,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 112
+      "x": 367,
+      "y": 100
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -34625,7 +34422,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -34695,8 +34491,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 161
+      "x": -354,
+      "y": 153
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -34790,7 +34586,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -34860,8 +34655,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 161
+      "x": 367,
+      "y": 153
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -34955,7 +34750,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -35025,8 +34819,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 212
+      "x": -354,
+      "y": 206
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -35120,7 +34914,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -35190,8 +34983,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 212
+      "x": 367,
+      "y": 206
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -35285,7 +35078,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -35355,8 +35147,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 263
+      "x": -354,
+      "y": 259
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -35450,7 +35242,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -35520,8 +35311,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 263
+      "x": 367,
+      "y": 259
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -35615,7 +35406,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -35685,8 +35475,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 315
+      "x": -354,
+      "y": 312
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -35780,7 +35570,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -35850,8 +35639,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 315
+      "x": 367,
+      "y": 312
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -35945,7 +35734,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -36015,8 +35803,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 367
+      "x": -354,
+      "y": 365
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -36110,7 +35898,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -36180,8 +35967,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 367
+      "x": 367,
+      "y": 365
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -36275,7 +36062,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -36345,8 +36131,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 416
+      "x": -354,
+      "y": 418
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -36440,7 +36226,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -36510,8 +36295,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 416
+      "x": 367,
+      "y": 418
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -36605,7 +36390,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -36675,8 +36459,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 467
+      "x": -354,
+      "y": 471
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -36770,7 +36554,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -36840,8 +36623,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 467
+      "x": 367,
+      "y": 471
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -36935,7 +36718,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37005,8 +36787,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 516
+      "x": -354,
+      "y": 524
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -37100,7 +36882,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37170,8 +36951,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 516
+      "x": 367,
+      "y": 524
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -37265,7 +37046,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37335,8 +37115,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 567
+      "x": -354,
+      "y": 577
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -37430,7 +37210,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37500,8 +37279,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 567
+      "x": 367,
+      "y": 577
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -37595,7 +37374,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37665,8 +37443,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -352,
-      "y": 618
+      "x": -354,
+      "y": 630
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -37760,7 +37538,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37830,8 +37607,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 356,
-      "y": 618
+      "x": 367,
+      "y": 630
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -37925,7 +37702,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -37961,7 +37737,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfGravity": 1350,
     "bodys1": {
       "__id__": 1016
     },
