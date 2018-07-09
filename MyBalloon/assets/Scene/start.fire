@@ -980,7 +980,7 @@
       "__id__": 2
     },
     "component": "start",
-    "handler": "goGame",
+    "handler": "goStore",
     "customEventData": ""
   },
   {

@@ -20,6 +20,10 @@ cc.Class({
         cc.director.loadScene('selectCheckpoint');    
     },
 
+    goStore:function() {
+        cc.director.loadScene('store');    
+    },
+
     // use this for initialization
     onLoad: function () {
         let isloaded = cc.sys.localStorage.getItem("isLoaded");
