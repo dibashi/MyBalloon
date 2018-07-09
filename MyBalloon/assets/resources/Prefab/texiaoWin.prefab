@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "texiaoBaoZha",
+    "_name": "texiaoWin",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -68,8 +68,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "_armatureName": "boom",
-    "_animationName": "boom",
+    "_armatureName": "win",
+    "_animationName": "win",
     "playTimes": 1,
     "_N$dragonAsset": {
       "__uuid__": "bdef6ebb-0762-43fc-8779-4e2d2550a8f0"
@@ -77,7 +77,7 @@
     "_N$dragonAtlasAsset": {
       "__uuid__": "d213921d-1608-4a39-9073-1db1a3f44496"
     },
-    "_N$_defaultArmatureIndex": 3,
+    "_N$_defaultArmatureIndex": 2,
     "_N$_animationIndex": 1,
     "_N$timeScale": 1,
     "_N$debugBones": false
@@ -88,7 +88,7 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "9786ff4f-a438-49ba-8488-384fa44c47d8"
+      "__uuid__": "d6d3d298-f6e2-422f-bdc9-0175c6ccd53d"
     },
     "fileId": "f72rr/nGdPebSjRPcOLcWo",
     "sync": false

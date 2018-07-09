@@ -89,6 +89,16 @@ cc.Class({
 
         },
 
+        teXiaoWin: {
+            default: null,
+            type: cc.Prefab,
+        },
+
+        balloon:{
+            default:null,
+            type:cc.Node,
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
@@ -278,7 +288,15 @@ cc.Class({
             }
 
             if(this.guanKa!=-1) {
-                cc.director.loadScene("selectCheckpoint");
+                //胜利，先播放胜利动画，然后去关卡选择界面
+                this.balloon.opacity = 0;
+                let aniWin = cc.instantiate(this.teXiaoWin);
+                let armatureDisplay = aniWin.getComponent(dragonBones.ArmatureDisplay);
+                armatureDisplay.playAnimation("win");
+                this.node.addChild(aniWin);
+                aniWin.setPosition(this.balloon.position);
+                //aniWin.setPosition(0,0);
+                armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
            
         } else {
@@ -294,5 +312,9 @@ cc.Class({
                 this.isLoadNextCheckPoint = true;
             }
         }
+    },
+
+    winOver:function() {
+        cc.director.loadScene("selectCheckpoint");
     },
 });

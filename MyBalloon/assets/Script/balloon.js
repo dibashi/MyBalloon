@@ -34,10 +34,7 @@ cc.Class({
             type: cc.Prefab,
         },
 
-        teXiaoWin: {
-            default: null,
-            type: cc.Prefab,
-        },
+     
 
 
         fixedPositon: null,
@@ -64,7 +61,7 @@ cc.Class({
         //需要一个标记位，用来记录
         cc.log(otherCollider);
         if (otherCollider.node.group === "enemy" && this.isDeadFlag == false) {
-            this.isDeadFlag = true
+            this.isDeadFlag = true;
             this.dead();
             //先用这个，将来用上面那个
             // cc.find("Canvas").getComponent("gameScene").gameOver();

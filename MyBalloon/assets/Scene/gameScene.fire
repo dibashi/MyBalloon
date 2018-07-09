@@ -990,8 +990,8 @@
     "teXiaoBoom": {
       "__uuid__": "9786ff4f-a438-49ba-8488-384fa44c47d8"
     },
-    "teXiaoWin": null,
-    "fixedPositon": null
+    "fixedPositon": null,
+    "isDeadFlag": false
   },
   {
     "__type__": "cc.Sprite",
@@ -1173,6 +1173,12 @@
     },
     "yuns": {
       "__id__": 7
+    },
+    "teXiaoWin": {
+      "__uuid__": "d6d3d298-f6e2-422f-bdc9-0175c6ccd53d"
+    },
+    "balloon": {
+      "__id__": 21
     },
     "cps": null,
     "h": 3840,
