@@ -61,7 +61,10 @@ cc.Class({
         }
 
         let balloon = cc.find("Canvas/gameLayer/balloon");
-        this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
+        if(balloon != null) { //balloon有可能在前面已经被碰到被删除了
+            this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
+        }
+      
         this.schedule(this.removeThis, 5);
     },
 

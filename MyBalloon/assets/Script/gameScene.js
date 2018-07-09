@@ -174,7 +174,7 @@ cc.Class({
 
         ];
 
-        this.cps = [1, 2, 3, 11, 15, 19];
+        this.cps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
         this.initBGColor();
 
@@ -198,7 +198,7 @@ cc.Class({
             this.scoreNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
             let goNewBalloonFlag = cc.sys.localStorage.getItem("goNewBalloon-flag");
-            cc.log("!!!!!!!---> " +goNewBalloonFlag);
+            cc.log("!!!!!!!---> " + goNewBalloonFlag);
             if (goNewBalloonFlag != "1") {
                 this.defen = 0;
             } else {
@@ -207,7 +207,7 @@ cc.Class({
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
-            this.generateCheckpointByIndex(2, this.bg1.position);
+            this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
             this.schedule(this.addScore, 0.5);
         }
     },
@@ -235,7 +235,7 @@ cc.Class({
     },
 
     getGuanKa: function () {
-        return Math.floor(Math.random() * 4);
+        return Math.floor(Math.random() * this.cps.length);
     },
 
     //异步加载资源 直接传入关卡ID  根据ID 加入关卡
@@ -358,9 +358,9 @@ cc.Class({
             if (this.isLoadNextCheckPoint == false && this.yuns.y < 960 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
                 if (this.bg1.y > this.bg2.y) {
-                    this.generateCheckpointByIndex(2, this.bg1.position);
+                    this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
                 } else {
-                    this.generateCheckpointByIndex(2, this.bg2.position);
+                    this.generateCheckpointByIndex(this.getGuanKa(), this.bg2.position);
                 }
                 this.isLoadNextCheckPoint = true;
             }
