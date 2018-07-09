@@ -146,7 +146,7 @@ cc.Class({
         
         ];
 
-        this.cps = [1,2,11,15,19];
+        this.cps = [1,2,3,11,15,19];
 
         this.initBGColor();
 
@@ -167,7 +167,7 @@ cc.Class({
         if (this.guanKa != -1) {
             this.generateCheckpointByID(this.guanKa,this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
-            this.generateCheckpointByIndex(3, this.bg1.position);
+            this.generateCheckpointByIndex(2, this.bg1.position);
         }
        // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
 

@@ -62,11 +62,13 @@ cc.Class({
         let thisNodePosX = thisPosition.x;
         let thisNodePosY = thisPosition.y;
 
+        cc.log("阀值： "  + this.thresholdOfGravity + "   y值： " + thisNodePosY);
         if (this.gravityHasBeenGiven == false) { //没给过重力
             if (this.gravityFlagOfThreshold == true) { //根据阀值给重力
                 if (thisNodePosY < this.thresholdOfGravity) { //到达阀值
                     this.node.getComponent(cc.RigidBody).gravityScale = 1;
                     this.gravityHasBeenGiven = true;
+                    cc.log("给上重力");
                 }
             }
         }

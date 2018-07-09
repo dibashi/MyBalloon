@@ -50,7 +50,7 @@ cc.Class({
         //需要一个标记位，用来记录
         cc.log(otherCollider);
        if (otherCollider.node.group === "enemy") {
-           // this.dead();
+            //this.dead();
            //先用这个，将来用上面那个
            cc.find("Canvas").getComponent("gameScene").gameOver();
         }
@@ -61,7 +61,7 @@ cc.Class({
     },
 
     boomAni: function () {
-        cc.audioEngine.playEffect(this.boomAudio, false);
+       // cc.audioEngine.playEffect(this.boomAudio, false);
         this.node.group = "default";
         this.unscheduleAllCallbacks();
         this.scheduleOnce(this.baozhaOver, 0.7);

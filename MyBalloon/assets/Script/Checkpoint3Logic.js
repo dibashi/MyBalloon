@@ -17,37 +17,56 @@ cc.Class({
 
      
 
-        thresholdOfCommotion: 1600,//规定了整个关卡给予刚体重力的位置阀值
-      
+        thresholdOfGravity: 1350,//规定了整个关卡给予刚体重力的位置阀值
+       
 
-        bigCircle1: {
+        bodys1: {
             default: null,
             type: cc.Node,
         },
 
-        bigCircle2: {
+        bodys2: {
             default: null,
             type: cc.Node,
         },
 
-        bigCircle1Body: null,
-        bigCircle2Body: null,
-        bigCircle1RunFlag: false,
-        bigCircle2RunFlag: false,
+        bodys3: {
+            default: null,
+            type: cc.Node,
+        },
 
+        bodys4: {
+            default: null,
+            type: cc.Node,
+        },
+
+       
        // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
     },
 
    
     onLoad() {
         this.addGravityProperties(this.node);
-
-        this.bigCircle1RunFlag = false;
-        this.bigCircle2RunFlag = false;
-        this.bigCircle1Body = this.bigCircle1.getComponent(cc.RigidBody);
-        this.bigCircle2Body = this.bigCircle2.getComponent(cc.RigidBody);
         
         this.schedule(this.removeThis,5);
+    },
+
+    start() {
+        for(let i = 0; i<this.bodys1.children.length; i++) {
+            this.bodys1.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 20;
+        }
+
+        for(let i = 0; i<this.bodys2.children.length; i++) {
+            this.bodys2.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 10;
+        }
+
+        for(let i = 0; i<this.bodys3.children.length; i++) {
+            this.bodys3.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 0;
+        }
+
+        for(let i = 0; i<this.bodys4.children.length; i++) {
+            this.bodys4.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity - 10;
+        }
     },
 
      //初始化刚体节点的重力属性 如 碰撞后 给予重力，过阀值后给予重力。
@@ -58,7 +77,7 @@ cc.Class({
             this.addGravityProperties(children[i]);
         }
         if (node.getComponent(cc.RigidBody) != null) {
-            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
+            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
             node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
         }
     },
@@ -123,25 +142,7 @@ cc.Class({
     //这里做的主要逻辑是让整个node下落，以后和背景图的速度一致！
     update(dt) {
 
-        if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
-            let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
-
-            if (this.bigCircle1RunFlag == false && big1Hy < 1920 - 150) {
-                this.bigCircle1RunFlag = true;
-                this.bigCircle1Body.applyLinearImpulse(cc.v2(-10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
-            }
-        }
-       
-       
-        if(this.bigCircle2!=null && this.bigCircle2.parent != null) {
-            let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
-
-
-            if (this.bigCircle2RunFlag == false && big2Hy < 1920 - 150) {
-                this.bigCircle2RunFlag = true;
-                this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle2Body.getWorldCenter(),true);
-            }
-        }
+      
 
     },
 });
