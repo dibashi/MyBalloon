@@ -165,8 +165,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 616
+      "x": -11,
+      "y": -31
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -319,7 +319,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -476,7 +480,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -633,7 +641,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -790,7 +802,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -947,7 +963,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1104,7 +1124,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1261,7 +1285,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1418,7 +1446,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1575,7 +1607,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1732,7 +1768,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1889,7 +1929,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2046,7 +2090,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2203,7 +2251,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2360,7 +2412,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2517,7 +2573,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2674,7 +2734,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2831,7 +2895,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -2947,8 +3015,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -176
+      "x": -11,
+      "y": -823
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3101,7 +3169,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3258,7 +3330,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3415,7 +3491,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3572,7 +3652,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3729,7 +3813,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3886,7 +3974,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4043,7 +4135,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4200,7 +4296,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4357,7 +4457,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4514,7 +4618,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4671,7 +4779,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4828,7 +4940,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4985,7 +5101,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5142,7 +5262,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5299,7 +5423,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5456,7 +5584,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5592,7 +5724,7 @@
     },
     "_enabled": true,
     "tag": 0,
-    "_density": 1,
+    "_density": 100,
     "_sensor": false,
     "_friction": 0.2,
     "_restitution": 1,
@@ -5613,7 +5745,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5708,8 +5844,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -176
+      "x": -11,
+      "y": -823
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -5844,7 +5980,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -5866,7 +6002,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6005,7 +6145,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6027,7 +6167,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6166,7 +6310,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6188,7 +6332,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6327,7 +6475,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6349,7 +6497,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6488,7 +6640,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6510,7 +6662,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6649,7 +6805,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6671,7 +6827,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6810,7 +6970,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6832,7 +6992,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -6971,7 +7135,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -6993,7 +7157,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7132,7 +7300,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -7154,7 +7322,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7293,7 +7465,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -7315,7 +7487,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7410,8 +7586,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": -175
+      "x": -11,
+      "y": -822
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -7546,7 +7722,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -7568,7 +7744,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7707,7 +7887,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -7729,7 +7909,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -7868,7 +8052,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -7890,7 +8074,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8029,7 +8217,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -8051,7 +8239,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8190,7 +8382,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -8212,7 +8404,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8351,7 +8547,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -8373,7 +8569,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8512,7 +8712,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -8534,7 +8734,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8673,7 +8877,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -8695,7 +8899,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8834,7 +9042,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -8856,7 +9064,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -8995,7 +9207,7 @@
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0,
+    "_restitution": 1,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -9017,7 +9229,11 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "flag": false
+    "thresholdOfGravity": 0,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -9049,6 +9265,7 @@
       "__id__": 1
     },
     "_enabled": true,
+    "thresholdOfCommotion": 1700,
     "operationalSetOfGravity": null,
     "bigCircle1": {
       "__id__": 99
@@ -9056,8 +9273,6 @@
     "bigCircle2": {
       "__id__": 203
     },
-    "wx": 0,
-    "hy": 0,
     "bigCircle1Body": null,
     "bigCircle2Body": null,
     "bigCircle1RunFlag": false,

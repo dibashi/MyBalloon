@@ -1087,6 +1087,7 @@
     "guanKa": 0,
     "colorIndex": null,
     "bg1ColorIndex": 0,
-    "bg2ColorIndex": 0
+    "bg2ColorIndex": 0,
+    "isLoadNextCheckPoint": false
   }
 ]

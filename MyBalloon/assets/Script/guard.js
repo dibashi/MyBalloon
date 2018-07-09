@@ -22,10 +22,7 @@ cc.Class({
         this.impulseVector = cc.v2(0.0, 0.0);
     },
 
-    setImpulseVector(x, y) {
-        this.impulseVector = cc.v2(x * 32, y * 32);
-    },
-
+    
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
        // otherCollider.body.applyLinearImpulse(this.impulseVector, otherCollider.body.getWorldCenter(), true);

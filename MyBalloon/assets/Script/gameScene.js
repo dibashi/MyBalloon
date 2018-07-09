@@ -137,7 +137,7 @@ cc.Class({
            {bgColor:'#d6ce00',yun3Color:'#d6d742',yun2Color:'#dedb8c'},
 
            {bgColor:'#ef9e31',yun3Color:'#efb26b',yun2Color:'#efca9c'},
-           {bgColor:'#f77531',yun3Color:'#ef966b',yun2Color:'#ef6a9c'},
+           {bgColor:'#f77531',yun3Color:'#ef966b',yun2Color:'#efba9c'},
 
            {bgColor:'#ce4100',yun3Color:'#d67142',yun2Color:'#dea28c'},
            {bgColor:'#ef4131',yun3Color:'#ef716b',yun2Color:'#efa29c'},
@@ -165,7 +165,7 @@ cc.Class({
         //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
         this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
         if (this.guanKa != -1) {
-            this.addCheckPointToScene(this.guanKa);
+            this.generateCheckpointByID(this.guanKa,this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
             this.generateCheckpointByIndex(3, this.bg1.position);
         }
@@ -200,11 +200,11 @@ cc.Class({
 
 
     //异步加载资源 直接传入关卡ID  根据ID 加入关卡
-    addCheckPointToScene: function (ID) {
+    generateCheckpointByID: function (ID,position) {
         let self = this;
         let pathOfPrefab = "Prefab/checkpoint" + ID;
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
-            self.checkPointLoadSuccess(prefab);
+            self.checkPointLoadSuccess(prefab,position);
         });
     },
 
@@ -280,11 +280,15 @@ cc.Class({
                 this.yun3.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun3Color);
                 this.yun2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun2Color);
             }
+
+            if(this.guanKa!=-1) {
+                cc.director.loadScene("selectCheckpoint");
+            }
            
         } else {
             this.yuns.y -= this.bgSpeed*dt*60;
              //如果未加载下一关，且云已经出现且是无尽模式
-            if(this.isLoadNextCheckPoint == false && this.yuns.y < 1920 && this.guanKa == -1) {
+            if(this.isLoadNextCheckPoint == false && this.yuns.y < 960 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
                 if(this.bg1.y>this.bg2.y) {
                     this.generateCheckpointByIndex(2, this.bg1.position);

@@ -92,7 +92,7 @@ cc.Class({
         }
 
          this.guard.setPosition(location);
-         this.guardRigidBody.linearVelocity = cc.v2(dx*60,dy*60);//距离除以时间 时间为1/60
+         this.guardRigidBody.linearVelocity = cc.v2(dx*15,dy*15);//距离除以时间 时间为1/60
          this.touchBeginPoint = this.touchMovePoint;
     },
 
