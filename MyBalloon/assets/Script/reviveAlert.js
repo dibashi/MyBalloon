@@ -32,12 +32,10 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-
-
         this.startFadeIn();
         this.reNewBtn.active = false;
         this.scheduleOnce(this.enableReNewBtn, 2);
-        this.scheduleOnce(this.onCancelClick, 7);
+        this.scheduleOnce(this.cancel, 7);
     },
 
     enableReNewBtn: function () {
@@ -65,7 +63,7 @@ cc.Class({
         // cc.sys.localStorage.setItem("GuangGaoFuhuoFlag",0);
         // cc.audioEngine.playEffect(this.buttonAudio, false);
         cc.eventManager.pauseTarget(this.node, true);
-        this.onWho.getComponent("game").goNewBalloon();
+        this.onWho.getComponent("gameScene").goNewBalloon();
 
         let cbFadeOut = cc.callFunc(this.onFadeOutFinish, this);
         let actionFadeOut = cc.sequence(cc.spawn(cc.fadeTo(0.3, 0), cc.scaleTo(0.3, 2.0)), cbFadeOut);
@@ -74,7 +72,7 @@ cc.Class({
 
     onReNewClick: function () {
         cc.log("on renew btn click!");
-        cc.director.loadScene("game");
+        cc.director.loadScene("gameScene");
     },
 
     onFadeOutFinish: function () {
@@ -82,17 +80,10 @@ cc.Class({
         this.node.destroy();
     },
 
-
-    onCancelClick: function () {
-        cc.log("onCancelClick");
-        // cc.audioEngine.playEffect(this.buttonAudio, false);
-        cc.eventManager.pauseTarget(this.node, true);
-
+    cancel: function () {
+        cc.log("cancel~!");
         cc.director.loadScene('start');
     },
-
-
-
 });
 
 
