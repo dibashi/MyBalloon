@@ -41,6 +41,8 @@ cc.Class({
 
 
         fixedPositon: null,
+
+        isDeadFlag:false,//用于标记是否阵亡，否则会多次播放爆炸动画
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -61,7 +63,8 @@ cc.Class({
         //再判断结束前，要先播放爆炸动画，动画回调中结束，如果这时候又有敌人触摸到气球 如何判断？
         //需要一个标记位，用来记录
         cc.log(otherCollider);
-        if (otherCollider.node.group === "enemy") {
+        if (otherCollider.node.group === "enemy" && this.isDeadFlag == false) {
+            this.isDeadFlag = true
             this.dead();
             //先用这个，将来用上面那个
             // cc.find("Canvas").getComponent("gameScene").gameOver();
