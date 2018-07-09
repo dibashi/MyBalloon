@@ -51,7 +51,7 @@ cc.Class({
 
     start() {
 
-        this.thresholdOfGravity = 1350,//定义 下降多少距离 开始表演
+        this.thresholdOfGravity = 1650,//定义 下降多少距离 开始表演
         this.addGravityProperties(this.node);
         
 
@@ -115,7 +115,7 @@ cc.Class({
                 let aa = rr.getWorldPosition();
                 if (aa.y < this.thresholdOfGravity) {
                     cc.log("给上速度了！");
-                    let vec = cc.v2((this.balloonPos.x - aa.x) * 6, (this.balloonPos.y - aa.y) * 6);
+                    let vec = cc.v2((this.balloonPos.x - aa.x) * 0.6, (this.balloonPos.y - aa.y) * 0.6);
                     rr.linearVelocity = vec;
                     this.hasGivenVArray[i] = true;//之后不再给予速度
                 }
