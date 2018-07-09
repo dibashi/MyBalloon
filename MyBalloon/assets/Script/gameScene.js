@@ -99,6 +99,22 @@ cc.Class({
             type:cc.Node,
         },
 
+        scoreNode:{
+            default:null,
+            type:cc.Node,
+        },
+
+
+        scoreLabel:{
+            default:null,
+            type:cc.Node,
+        },
+
+        reviveAlert:{
+            default:null,
+            type:cc.Prefab,
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
@@ -125,7 +141,9 @@ cc.Class({
         this.h = 3840;
         this.bgMinY = -2880;
         this.bgSpeed = 4;
-       // this.ctx.strokeColor = cc.hexToColor('#495069');
+       
+        this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
+
        this.colorIndex = [
            {bgColor:'#5ac2de',yun3Color:'#84cade',yun2Color:'#add7e6'},
            {bgColor:'#0092ce',yun3Color:'#42aad6',yun2Color:'#8cc2de'},
@@ -177,13 +195,17 @@ cc.Class({
         if (this.guanKa != -1) {
             this.generateCheckpointByID(this.guanKa,this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
+            this.scoreNode.active = true;
+            this.defen = 0;
+            this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.generateCheckpointByIndex(2, this.bg1.position);
+            this.schedule(this.addScore,0.5);
         }
-       // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
+    },
 
-
-        // let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
-        // armatureDisplay.playAnimation("time");
+    addScore:function() {
+        this.defen++;
+        this.scoreLabel.getComponent(cc.Label).string = this.defen;
     },
 
     //背景和云2 云3 的颜色 初始化
@@ -251,8 +273,22 @@ cc.Class({
     },
 
     gameOver: function () {
-        cc.log("gameover~!!");
-        cc.director.loadScene('selectCheckpoint');
+        if (this.guanKa == -1) {
+            this.unschedule(this.addScore,this);
+            let bestScore = parseInt(cc.sys.localStorage.getItem("bestScore"));
+            if(this.defen> bestScore) {
+                cc.sys.localStorage.setItem("bestScore",this.defen);
+            }
+            //“弹出”结束界面
+            let ss = cc.instantiate(this.reviveAlert);
+            ss.setLocalZOrder(1000);
+            ss.getComponent("reviveAlert").onWho = this.node;
+            this.node.addChild(ss);
+        } else {
+            cc.director.loadScene('selectCheckpoint');
+        }
+
+        
     },
 
     // called every frame
