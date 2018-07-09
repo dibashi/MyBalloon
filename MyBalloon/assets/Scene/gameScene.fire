@@ -726,8 +726,7 @@
     "node": {
       "__id__": 15
     },
-    "_enabled": true,
-    "impulseVector": null
+    "_enabled": true
   },
   {
     "__type__": "cc.RigidBody",
@@ -988,6 +987,10 @@
       "__id__": 21
     },
     "_enabled": true,
+    "teXiaoBoom": {
+      "__uuid__": "9786ff4f-a438-49ba-8488-384fa44c47d8"
+    },
+    "teXiaoWin": null,
     "fixedPositon": null
   },
   {
