@@ -83,7 +83,7 @@ cc.Class({
     },
 
     removeThis:function() {
-        cc.log("关卡11 检测是否有刚体！");
+        cc.log("关卡3 检测是否有刚体！");
         if(this.hasRigidBody(this.node) == false) {
             cc.log("没有刚体了！");
             this.node.destroy();

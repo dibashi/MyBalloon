@@ -251,7 +251,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": {
       "__id__": 339
@@ -9721,7 +9721,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": {
       "__id__": 677
@@ -19191,7 +19191,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": {
       "__id__": 1015
@@ -37961,7 +37961,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfGravity": 1600,
+    "thresholdOfGravity": 1350,
     "bodys1": {
       "__id__": 1016
     },
