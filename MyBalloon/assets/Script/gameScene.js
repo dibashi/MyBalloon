@@ -197,8 +197,6 @@ cc.Class({
         return Math.floor(Math.random() * 4);
     },
 
-
-
     //异步加载资源 直接传入关卡ID  根据ID 加入关卡
     generateCheckpointByID: function (ID,position) {
         let self = this;
@@ -242,7 +240,6 @@ cc.Class({
         }
     },
 
-
     gameOver: function () {
         cc.log("gameover~!!");
         cc.director.loadScene('selectCheckpoint');
@@ -250,7 +247,6 @@ cc.Class({
 
     // called every frame
     update: function (dt) {
-
         if (this.bg1.y <= this.bgMinY) {
             this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60;
 
@@ -298,10 +294,5 @@ cc.Class({
                 this.isLoadNextCheckPoint = true;
             }
         }
-
-
-
     },
-
-
 });
