@@ -236,7 +236,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": true,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -319,7 +319,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -391,13 +390,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 104,
-      "height": 515
+      "width": 200,
+      "height": 1400
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 2,
-    "_scaleY": 2.8,
+    "_scaleX": 1,
+    "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
       "x": -470,
@@ -422,7 +421,7 @@
       "__uuid__": "4d10b7ee-c91d-400a-a085-f119f1b0d49b"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -480,8 +479,8 @@
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 104,
-      "height": 515
+      "width": 200,
+      "height": 1400
     }
   },
   {
@@ -493,7 +492,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
@@ -554,13 +552,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 104,
-      "height": 515
+      "width": 200,
+      "height": 1400
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 2,
-    "_scaleY": 2.8,
+    "_scaleX": 1,
+    "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
       "x": 470,
@@ -585,7 +583,7 @@
       "__uuid__": "4d10b7ee-c91d-400a-a085-f119f1b0d49b"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -643,8 +641,8 @@
     },
     "_size": {
       "__type__": "cc.Size",
-      "width": 104,
-      "height": 515
+      "width": 200,
+      "height": 1400
     }
   },
   {
@@ -656,7 +654,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
