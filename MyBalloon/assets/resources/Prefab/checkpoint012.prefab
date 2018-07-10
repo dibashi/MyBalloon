@@ -8903,8 +8903,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": -1000,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": false
   },
@@ -9114,8 +9114,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 800,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": false
   },
@@ -9325,8 +9325,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 600,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": false
   },
