@@ -33,18 +33,29 @@ cc.Class({
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
        
-
+        pentagramRigidBodys:{
+            default: null,
+            type: cc.Node,
+        },
        
+        hasGivenVArray:null,
 
        // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
     },
 
-    //此脚本是一个关卡的公共逻辑，在onLoad中要做的就是对整个关卡数据进行位置初始化
-    //如何才能具有统一的位置初始化？1，内部的对象摆好内部的位置（在prefab中）
-    //2，整体的位置在onload中进行整体的平移摆放即可
-    //这个脚本 除wall之外 都在某个阀值给予了重力加速度 或刚体被碰撞就给予重力
+   
     onLoad() {
         this.addGravityProperties(this.node);
+        this.thresholdOfGravity = 1500;
+        this.hasGivenVArray = new Array();
+        for (let i = 0; i < this.pentagramRigidBodys.children.length; i++) {
+            this.hasGivenVArray[i] = false;
+        }
+
+        let balloon = cc.find("Canvas/gameLayer/balloon");
+        if (balloon != null) { //balloon有可能在前面已经被碰到被删除了
+            this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
+        }
         
         //5秒一轮询，看其内部是否还有刚体，若没有则删除该结点
         this.schedule(this.removeThis,5);
@@ -83,6 +94,23 @@ cc.Class({
         if (node.getComponent(cc.RigidBody) != null) {
             node.getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
             node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+        }
+    },
+
+    update(dt) {
+        let children = this.pentagramRigidBodys.children;
+        let childCount = children.length;
+        for (let i = 0; i < childCount; i++) {
+            if (children[i] != null && this.hasGivenVArray[i] == false) {
+                let rr = children[i].getComponent(cc.RigidBody);
+                let aa = rr.getWorldPosition();
+                if (aa.y < this.thresholdOfGravity) {
+                    let vec = cc.v2(this.balloonPos.x - aa.x, this.balloonPos.y - aa.y);
+                    rr.gravityScale = 1;
+                    rr.linearVelocity = vec;
+                    this.hasGivenVArray[i] = true;//之后不再给予速度
+                }
+            }
         }
     },
 
