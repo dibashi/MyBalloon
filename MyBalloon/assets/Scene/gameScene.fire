@@ -405,9 +405,9 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
+    "_isTrimmedMode": false,
+    "_srcBlendFactor": 1,
+    "_dstBlendFactor": 769,
     "_atlas": null
   },
   {
@@ -483,8 +483,8 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
+    "_isTrimmedMode": false,
+    "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_atlas": null
   },
@@ -531,7 +531,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": -135
+      "y": -154.4
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -553,7 +553,7 @@
     },
     "_type": 0,
     "_sizeMode": 1,
-    "_fillType": 0,
+    "_fillType": 1,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -561,8 +561,8 @@
     },
     "_fillStart": 0,
     "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
+    "_isTrimmedMode": false,
+    "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_atlas": null
   },

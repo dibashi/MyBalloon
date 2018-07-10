@@ -896,7 +896,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "2"
+    "customEventData": "002"
   },
   {
     "__type__": "cc.Node",
@@ -1518,7 +1518,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "4"
+    "customEventData": "004"
   },
   {
     "__type__": "cc.Node",
@@ -1829,7 +1829,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "5"
+    "customEventData": "005"
   },
   {
     "__type__": "cc.Node",
@@ -2140,7 +2140,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "6"
+    "customEventData": "006"
   },
   {
     "__type__": "cc.Node",
@@ -2451,7 +2451,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "7"
+    "customEventData": "007"
   },
   {
     "__type__": "cc.Node",
@@ -2762,7 +2762,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "8"
+    "customEventData": "008"
   },
   {
     "__type__": "cc.Node",
@@ -3073,7 +3073,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "9"
+    "customEventData": "009"
   },
   {
     "__type__": "cc.Node",
@@ -3384,7 +3384,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "10"
+    "customEventData": "010"
   },
   {
     "__type__": "cc.Node",
@@ -3695,7 +3695,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "11"
+    "customEventData": "011"
   },
   {
     "__type__": "cc.Node",
@@ -4006,7 +4006,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "12"
+    "customEventData": "012"
   },
   {
     "__type__": "cc.Node",
@@ -4317,7 +4317,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "13"
+    "customEventData": "013"
   },
   {
     "__type__": "cc.Node",
@@ -4628,7 +4628,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "14"
+    "customEventData": "014"
   },
   {
     "__type__": "cc.Node",
@@ -4939,7 +4939,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "15"
+    "customEventData": "015"
   },
   {
     "__type__": "cc.Node",
@@ -5250,7 +5250,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "16"
+    "customEventData": "016"
   },
   {
     "__type__": "cc.Node",
@@ -5561,7 +5561,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "17"
+    "customEventData": "017"
   },
   {
     "__type__": "cc.Node",
@@ -5872,7 +5872,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "18"
+    "customEventData": "018"
   },
   {
     "__type__": "cc.Node",
@@ -6183,7 +6183,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "19"
+    "customEventData": "019"
   },
   {
     "__type__": "cc.Node",
@@ -6494,7 +6494,7 @@
     },
     "component": "selectCheckpoint",
     "handler": "goCheckpoint",
-    "customEventData": "20"
+    "customEventData": "020"
   },
   {
     "__type__": "cc.Canvas",

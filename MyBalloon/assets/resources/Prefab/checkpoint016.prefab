@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "checkpoint16",
+    "_name": "checkpoint016",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -678,8 +678,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 0,
-    "operationalSetOfGravity": null
+    "thresholdOfCommotion": 0
   },
   {
     "__type__": "cc.PrefabInfo",
