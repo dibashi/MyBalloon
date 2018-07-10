@@ -29,7 +29,6 @@ cc.Class({
         // },
 
         rigidBodyOfNode: null,//此node的刚体组件
-        thresholdOfGravity: 0,//初始化给予重力阀值
         flag: false,//每个刚体 都有一个内部的flag，用于其关卡内的操作
 
         gravityHasBeenGiven: false,//用于标记重力是否给过 
@@ -40,7 +39,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.thresholdOfGravity = 1600;
+        this.thresholdOfGravity = 1350;
     },
 
     start() {
@@ -50,6 +49,8 @@ cc.Class({
     onBeginContact: function (contact, selfCollider, otherCollider) {
         if (this.gravityHasBeenGiven == false) { //没给过重力
             if (this.gravityFlagOfHit == true) { //根据阀值给重力
+
+                cc.log("碰撞： 给到重力！");
                 this.node.getComponent(cc.RigidBody).gravityScale = 1;
                 this.gravityHasBeenGiven = true;
             }
@@ -62,16 +63,19 @@ cc.Class({
         let thisNodePosX = thisPosition.x;
         let thisNodePosY = thisPosition.y;
 
+       // cc.log("阀值： "  + this.thresholdOfGravity + "   y值： " + thisNodePosY);
         if (this.gravityHasBeenGiven == false) { //没给过重力
+            //cc.log("没有给重力！");
             if (this.gravityFlagOfThreshold == true) { //根据阀值给重力
                 if (thisNodePosY < this.thresholdOfGravity) { //到达阀值
                     this.node.getComponent(cc.RigidBody).gravityScale = 1;
                     this.gravityHasBeenGiven = true;
+                    cc.log("阀值：给上重力");
                 }
             }
         }
         //!不要删上面，不然新加的关卡也会被删除，各个关卡宽边 不要超出屏幕420像素!!
-        if (thisNodePosY < -250 ||thisNodePosX >1500 ||thisNodePosX<-420 ) {
+        if (thisNodePosY < -700 ||thisNodePosX >1500 ||thisNodePosX<-420 ) {
             this.node.removeFromParent();
             //应该再向其父结点发送已删除，让其查询其是否还有刚体子节点，若没有，则删除自己，不然那个脚本还在运行
         }

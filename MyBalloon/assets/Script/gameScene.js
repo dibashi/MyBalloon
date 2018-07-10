@@ -89,6 +89,32 @@ cc.Class({
 
         },
 
+        teXiaoWin: {
+            default: null,
+            type: cc.Prefab,
+        },
+
+        balloon: {
+            default: null,
+            type: cc.Node,
+        },
+
+        scoreNode: {
+            default: null,
+            type: cc.Node,
+        },
+
+
+        scoreLabel: {
+            default: null,
+            type: cc.Node,
+        },
+
+        reviveAlert: {
+            default: null,
+            type: cc.Prefab,
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
@@ -99,12 +125,12 @@ cc.Class({
 
         //  heightOfGenerateBody:0, //生成下一波关卡的高度
 
-        colorIndex:null,
+        colorIndex: null,
 
-        bg1ColorIndex:0,
-        bg2ColorIndex:0,//初始化两个背景的 颜色索引
+        bg1ColorIndex: 0,
+        bg2ColorIndex: 0,//初始化两个背景的 颜色索引
 
-        isLoadNextCheckPoint:false,//是否已经加载下一关的标记
+        isLoadNextCheckPoint: false,//是否已经加载下一关的标记
     },
 
 
@@ -115,38 +141,40 @@ cc.Class({
         this.h = 3840;
         this.bgMinY = -2880;
         this.bgSpeed = 4;
-       // this.ctx.strokeColor = cc.hexToColor('#495069');
-       this.colorIndex = [
-           {bgColor:'#5ac2de',yun3Color:'#84cade',yun2Color:'#add7e6'},
-           {bgColor:'#0092ce',yun3Color:'#42aad6',yun2Color:'#8cc2de'},
 
-           {bgColor:'#10aa10',yun3Color:'#52ba52',yun2Color:'#94ce92'},
-           {bgColor:'#7bc242',yun3Color:'#9cca73',yun2Color:'#bdd7a4'},
+        this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
 
-           {bgColor:'#00cea4',yun3Color:'#42d7bd',yun2Color:'#8cdfce'},
-           {bgColor:'#94a2ff',yun3Color:'#adb3f7',yun2Color:'#c5c9ef'},
+        this.colorIndex = [
+            { bgColor: '#5ac2de', yun3Color: '#84cade', yun2Color: '#add7e6' },
+            { bgColor: '#0092ce', yun3Color: '#42aad6', yun2Color: '#8cc2de' },
 
-           {bgColor:'#520c4a',yun3Color:'#7b4d7b',yun2Color:'#ad8ead'},
-           {bgColor:'#3a457b',yun3Color:'#7886cb',yun2Color:'#b5c2fe'},
-        
+            { bgColor: '#10aa10', yun3Color: '#52ba52', yun2Color: '#94ce92' },
+            { bgColor: '#7bc242', yun3Color: '#9cca73', yun2Color: '#bdd7a4' },
 
-           {bgColor:'#002431',yun3Color:'#53869f',yun2Color:'#89c3d7'},
-           {bgColor:'#424542',yun3Color:'#959595',yun2Color:'#c6c6c6'},
+            { bgColor: '#00cea4', yun3Color: '#42d7bd', yun2Color: '#8cdfce' },
+            { bgColor: '#94a2ff', yun3Color: '#adb3f7', yun2Color: '#c5c9ef' },
 
-           {bgColor:'#f7d731',yun3Color:'#efdb6b',yun2Color:'#efdf9c'},
-           {bgColor:'#d6ce00',yun3Color:'#d6d742',yun2Color:'#dedb8c'},
+            { bgColor: '#520c4a', yun3Color: '#7b4d7b', yun2Color: '#ad8ead' },
+            { bgColor: '#3a457b', yun3Color: '#7886cb', yun2Color: '#b5c2fe' },
 
-           {bgColor:'#ef9e31',yun3Color:'#efb26b',yun2Color:'#efca9c'},
-           {bgColor:'#f77531',yun3Color:'#ef966b',yun2Color:'#efba9c'},
 
-           {bgColor:'#ce4100',yun3Color:'#d67142',yun2Color:'#dea28c'},
-           {bgColor:'#ef4131',yun3Color:'#ef716b',yun2Color:'#efa29c'},
+            { bgColor: '#002431', yun3Color: '#53869f', yun2Color: '#89c3d7' },
+            { bgColor: '#424542', yun3Color: '#959595', yun2Color: '#c6c6c6' },
 
-           {bgColor:'#ef3584',yun3Color:'#ef69a4',yun2Color:'#ef9ebd'},
-        
+            { bgColor: '#f7d731', yun3Color: '#efdb6b', yun2Color: '#efdf9c' },
+            { bgColor: '#d6ce00', yun3Color: '#d6d742', yun2Color: '#dedb8c' },
+
+            { bgColor: '#ef9e31', yun3Color: '#efb26b', yun2Color: '#efca9c' },
+            { bgColor: '#f77531', yun3Color: '#ef966b', yun2Color: '#efba9c' },
+
+            { bgColor: '#ce4100', yun3Color: '#d67142', yun2Color: '#dea28c' },
+            { bgColor: '#ef4131', yun3Color: '#ef716b', yun2Color: '#efa29c' },
+
+            { bgColor: '#ef3584', yun3Color: '#ef69a4', yun2Color: '#ef9ebd' },
+
         ];
 
-        this.cps = [1,2,11,15,19];
+        this.cps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 
         this.initBGColor();
 
@@ -165,44 +193,57 @@ cc.Class({
         //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
         this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
         if (this.guanKa != -1) {
-            this.generateCheckpointByID(this.guanKa,this.bg1.position);
+            this.generateCheckpointByID(this.guanKa, this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
-            this.generateCheckpointByIndex(3, this.bg1.position);
+            this.scoreNode.active = true;
+            //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
+            let goNewBalloonFlag = cc.sys.localStorage.getItem("goNewBalloon-flag");
+            cc.log("!!!!!!!---> " + goNewBalloonFlag);
+            if (goNewBalloonFlag != "1") {
+                this.defen = 0;
+            } else {
+                cc.log("执行到了！");
+                this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
+                cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
+            }
+            this.scoreLabel.getComponent(cc.Label).string = this.defen;
+            this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
+            this.schedule(this.addScore, 0.5);
         }
-       // this.gameLayer.getComponent("gameLayer").bgSpeed = this.bgSpeed;
+    },
 
-
-        // let armatureDisplay = this.testDragonBones.getComponent(dragonBones.ArmatureDisplay);
-        // armatureDisplay.playAnimation("time");
+    addScore: function () {
+        this.defen++;
+        this.scoreLabel.getComponent(cc.Label).string = this.defen;
     },
 
     //背景和云2 云3 的颜色 初始化
-    initBGColor:function(){
-       this.bg1ColorIndex = Math.floor(Math.random()*this.colorIndex.length);
+    initBGColor: function () {
+        this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
 
-       if(this.bg1ColorIndex+1>=this.colorIndex.length) {
-           this.bg2ColorIndex = 0;
-       } else {
-           this.bg2ColorIndex = this.bg1ColorIndex+1;
-       }
+        if (this.bg1ColorIndex + 1 >= this.colorIndex.length) {
+            this.bg2ColorIndex = 0;
+        } else {
+            this.bg2ColorIndex = this.bg1ColorIndex + 1;
+        }
 
-       this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
-       this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
+        this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
+        this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
 
-       this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
-       this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
+        this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
+        this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
     },
 
     getGuanKa: function () {
-        return Math.floor(Math.random() * 4);
+        return Math.floor(Math.random() * this.cps.length);
     },
 
     //异步加载资源 直接传入关卡ID  根据ID 加入关卡
-    generateCheckpointByID: function (ID,position) {
+    generateCheckpointByID: function (ID, position) {
         let self = this;
         let pathOfPrefab = "Prefab/checkpoint" + ID;
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
-            self.checkPointLoadSuccess(prefab,position);
+            self.checkPointLoadSuccess(prefab, position);
         });
     },
 
@@ -217,14 +258,14 @@ cc.Class({
     },
 
     //关卡数据读取成功的回调函数，在这里将关卡加入scene
-    checkPointLoadSuccess: function (prefab,position) {
+    checkPointLoadSuccess: function (prefab, position) {
         //生成关卡的NODE 将其加入gameLayer
         let currentNode = cc.instantiate(prefab);
         currentNode.setPosition(position);
         this.gameLayer.addChild(currentNode);
 
         this.gameLayer.getComponent("gameLayer").currentNode = currentNode;
-       
+
         //递归：给子节点下的所有子节点以刚体速度
         this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 60);
     },
@@ -235,14 +276,36 @@ cc.Class({
         for (let i = 0; i < children.length; i++) {
             this.giveRigidBodyVelocity(children[i], speed);
         }
-        if (node.getComponent(cc.RigidBody) != null){
+        if (node.getComponent(cc.RigidBody) != null) {
             node.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, speed);
         }
     },
 
     gameOver: function () {
-        cc.log("gameover~!!");
-        cc.director.loadScene('selectCheckpoint');
+        if (this.guanKa == -1) {
+            this.unschedule(this.addScore, this);
+            let bestScore = parseInt(cc.sys.localStorage.getItem("bestScore"));
+            if (this.defen > bestScore) {
+                cc.sys.localStorage.setItem("bestScore", this.defen);
+            }
+            //“弹出”结束界面
+            cc.eventManager.pauseTarget(this.node, true);
+            let ss = cc.instantiate(this.reviveAlert);
+            ss.setLocalZOrder(1000);
+            ss.getComponent("reviveAlert").onWho = this.node;
+            this.node.addChild(ss);
+        } else {
+            cc.director.loadScene('selectCheckpoint');
+        }
+
+
+    },
+
+    goNewBalloon: function () {
+        cc.log("goNewBalloon");
+        cc.sys.localStorage.setItem("goNewBalloon-defen", this.defen);
+        cc.sys.localStorage.setItem("goNewBalloon-flag", "1");
+        cc.director.loadScene("gameScene");
     },
 
     // called every frame
@@ -250,26 +313,26 @@ cc.Class({
         if (this.bg1.y <= this.bgMinY) {
             this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60;
 
-            this.bg1ColorIndex = Math.floor(Math.random()*this.colorIndex.length);
+            this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
         } else {
             this.bg1.y -= this.bgSpeed * dt * 60;
         }
 
         if (this.bg2.y <= this.bgMinY) {
-            this.bg2.y = this.bg1.y+this.h;
+            this.bg2.y = this.bg1.y + this.h;
 
-            this.bg2ColorIndex = Math.floor(Math.random()*this.colorIndex.length);
+            this.bg2ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
         } else {
             this.bg2.y -= this.bgSpeed * dt * 60;
         }
 
-        if(this.yuns.y <=(-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
-            this.yuns.y = (this.bg1.y+this.bg2.y) *0.5;//放在两个背景的中间
+        if (this.yuns.y <= (-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
+            this.yuns.y = (this.bg1.y + this.bg2.y) * 0.5;//放在两个背景的中间
             this.isLoadNextCheckPoint = false;//未加载下一关
             //云2 云3的颜色 则根据下方的bg来设置
-            if(this.bg1.y<this.bg2.y) {
+            if (this.bg1.y < this.bg2.y) {
                 this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
                 this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
             } else {
@@ -277,22 +340,34 @@ cc.Class({
                 this.yun2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun2Color);
             }
 
-            if(this.guanKa!=-1) {
-                cc.director.loadScene("selectCheckpoint");
+            if (this.guanKa != -1) {
+                //胜利，先播放胜利动画，然后去关卡选择界面
+                this.balloon.opacity = 0;
+                let aniWin = cc.instantiate(this.teXiaoWin);
+                let armatureDisplay = aniWin.getComponent(dragonBones.ArmatureDisplay);
+                armatureDisplay.playAnimation("win");
+                this.node.addChild(aniWin);
+                aniWin.setPosition(this.balloon.position);
+                //aniWin.setPosition(0,0);
+                armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
-           
+
         } else {
-            this.yuns.y -= this.bgSpeed*dt*60;
-             //如果未加载下一关，且云已经出现且是无尽模式
-            if(this.isLoadNextCheckPoint == false && this.yuns.y < 960 && this.guanKa == -1) {
+            this.yuns.y -= this.bgSpeed * dt * 60;
+            //如果未加载下一关，且云已经出现且是无尽模式
+            if (this.isLoadNextCheckPoint == false && this.yuns.y < 960 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
-                if(this.bg1.y>this.bg2.y) {
-                    this.generateCheckpointByIndex(2, this.bg1.position);
+                if (this.bg1.y > this.bg2.y) {
+                    this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
                 } else {
-                    this.generateCheckpointByIndex(2, this.bg2.position);
+                    this.generateCheckpointByIndex(this.getGuanKa(), this.bg2.position);
                 }
                 this.isLoadNextCheckPoint = true;
             }
         }
+    },
+
+    winOver: function () {
+        cc.director.loadScene("selectCheckpoint");
     },
 });

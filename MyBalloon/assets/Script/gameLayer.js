@@ -98,7 +98,6 @@ cc.Class({
 
     drageEnd: function (event) {
         this.guardRigidBody.linearVelocity = cc.v2(0, 0);
-
     },
 
     // called every frame
