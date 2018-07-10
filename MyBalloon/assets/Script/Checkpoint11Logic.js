@@ -41,7 +41,7 @@ cc.Class({
    
     onLoad() {
         this.addGravityProperties(this.node);
-
+        this.thresholdOfGravity = 1800
         this.bigCircle1RunFlag = false;
         this.bigCircle2RunFlag = false;
         this.bigCircle1Body = this.bigCircle1.getComponent(cc.RigidBody);
@@ -86,25 +86,29 @@ cc.Class({
         return true;
     },
 
-    update(dt) {
+    update(dt) {    
 
         if(this.bigCircle1!=null && this.bigCircle1.parent != null) {
-            let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
-
-            if (this.bigCircle1RunFlag == false && big1Hy < 1920 - 150) {
+            //let big1Hy = this.bigCircle1.parent.convertToWorldSpaceAR(this.bigCircle1.getPosition()).y;
+            let big1Hy = this.bigCircle1Body.getWorldPosition().y;
+            if (this.bigCircle1RunFlag == false && big1Hy < this.thresholdOfGravity) {
                 this.bigCircle1RunFlag = true;
-                this.bigCircle1Body.applyLinearImpulse(cc.v2(-10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+                //this.bigCircle1Body.applyLinearImpulse(cc.v2(-10000, -20000),this.bigCircle1Body.getWorldCenter(),true);
+                this.bigCircle1Body.linearVelocity = cc.v2(100,-300);
+                this.bigCircle1Body.gravityScale = 1;
             }
         }
        
        
         if(this.bigCircle2!=null && this.bigCircle2.parent != null) {
-            let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
+            //let big2Hy = this.bigCircle2.parent.convertToWorldSpaceAR(this.bigCircle2.getPosition()).y;
+            let big2Hy = this.bigCircle2Body.getWorldPosition().y;
 
-
-            if (this.bigCircle2RunFlag == false && big2Hy < 1920 - 150) {
+            if (this.bigCircle2RunFlag == false && big2Hy < this.thresholdOfGravity) {
                 this.bigCircle2RunFlag = true;
-                this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle2Body.getWorldCenter(),true);
+                //this.bigCircle2Body.applyLinearImpulse(cc.v2(10000, -20000),this.bigCircle2Body.getWorldCenter(),true);
+                this.bigCircle2Body.linearVelocity = cc.v2(-100,-300);
+                this.bigCircle2Body.gravityScale = 1;
             }
         }
 
