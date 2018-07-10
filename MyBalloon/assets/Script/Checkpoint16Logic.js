@@ -33,10 +33,7 @@ cc.Class({
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
        
-        emitPentagramRigidBodys:{
-            default: null,
-            type: cc.Node,
-        },
+      
 
         positionRigidBody:{
             default: null,
@@ -45,7 +42,7 @@ cc.Class({
        
         hasEmit:false,//是否已经开启发射模式
         
-        emitIndex:0,//从0到length-1 标记着当前发射到哪个
+        generateCount:12,//发射多少个五角星
     },
 
    
@@ -54,11 +51,7 @@ cc.Class({
         this.thresholdOfGravity = 1850;
         
        
-
-        let balloon = cc.find("Canvas/gameLayer/balloon");
-        if (balloon != null) { //balloon有可能在前面已经被碰到被删除了
-            this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
-        }
+        this.emitIndex = 0;
         
         //5秒一轮询，看其内部是否还有刚体，若没有则删除该结点
         this.schedule(this.removeThis,5);
@@ -103,15 +96,23 @@ cc.Class({
     update(dt) {
         if(this.hasEmit == false && this.positionRigidBody.getComponent(cc.RigidBody).getWorldPosition().y<this.thresholdOfGravity) {
             this.hasEmit = true;
-            this.schedule(this.emit,0.2,this.emitPentagramRigidBodys.children.childCount);
+            
+            for(let i = 0; i<this.generateCount;i++) {
+                this.node.runAction(cc.sequence(cc.delayTime(0.15*(i)), cc.callFunc(this.emit,this)));
+            }
         }
     },
 
     emit:function() {
-        let hudu = 2*Math.PI*this.emitIndex/this.emitPentagramRigidBodys.children.childCount;
-
+        let hudu = (2*Math.PI*this.emitIndex/this.generateCount) * 4; //弧度*2 扩大
+        let cloneNode = cc.instantiate(this.positionRigidBody);
+        cloneNode.parent = this.positionRigidBody.parent;
+       
+        cloneNode.setPosition(cloneNode.x + 150*Math.cos(hudu),cloneNode.y + 150*Math.sin(hudu));
+        //cloneNode.setPosition(cloneNode.x +50 ,cloneNode.y+50 );
         cc.log("emit~~~  " +this.emitIndex);
-        this.emitPentagramRigidBodys.children[this.emitIndex].getComponent(cc.RigidBody).linearVelocity = cc.v2(100*Math.cos(hudu),100*Math.sin(hudu));
+        
+        cloneNode.getComponent(cc.RigidBody).linearVelocity = cc.v2(300*Math.cos(hudu),300*Math.sin(hudu));
         this.emitIndex++;
     },
         
