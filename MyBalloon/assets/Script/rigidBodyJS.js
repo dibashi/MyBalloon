@@ -50,7 +50,7 @@ cc.Class({
         if (this.gravityHasBeenGiven == false) { //没给过重力
             if (this.gravityFlagOfHit == true) { //根据阀值给重力
 
-                //cc.log("碰撞： 给到重力！");
+                cc.log("碰撞： 给到重力！");
                 this.node.getComponent(cc.RigidBody).gravityScale = 1;
                 this.gravityHasBeenGiven = true;
             }
