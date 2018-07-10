@@ -26,13 +26,9 @@
     ],
     "_tag": -1,
     "_active": true,
-    "_components": [
-      {
-        "__id__": 22
-      }
-    ],
+    "_components": [],
     "_prefab": {
-      "__id__": 23
+      "__id__": 22
     },
     "_id": "",
     "_opacity": 255,
@@ -669,16 +665,6 @@
     },
     "fileId": "83qMH3UadE9rkVQqIGy7KF",
     "sync": false
-  },
-  {
-    "__type__": "a249aClETFBhZz6D5j/Y1vm",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "thresholdOfCommotion": 0
   },
   {
     "__type__": "cc.PrefabInfo",
