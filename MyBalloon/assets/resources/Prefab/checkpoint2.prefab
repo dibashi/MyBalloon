@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "checkpoint002",
+    "_name": "checkpoint2",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -467,7 +467,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 565,
-      "y": 1126
+      "y": 1161
     },
     "_skewX": 0,
     "_skewY": 0,
