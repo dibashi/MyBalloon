@@ -10146,8 +10146,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 1700,
-    "operationalSetOfGravity": null
+    "thresholdOfCommotion": 1700
   },
   {
     "__type__": "cc.PrefabInfo",

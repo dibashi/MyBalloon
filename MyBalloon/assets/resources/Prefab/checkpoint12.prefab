@@ -29,10 +29,13 @@
     "_components": [
       {
         "__id__": 338
+      },
+      {
+        "__id__": 339
       }
     ],
     "_prefab": {
-      "__id__": 339
+      "__id__": 340
     },
     "_id": "",
     "_opacity": 255,
@@ -8903,8 +8906,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": false
   },
@@ -9114,8 +9117,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": false
   },
@@ -9325,8 +9328,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": false
   },
@@ -9446,8 +9449,21 @@
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 1700,
-    "operationalSetOfGravity": null
+    "thresholdOfCommotion": 1700
+  },
+  {
+    "__type__": "f6b93jZ1lZGsp+rT1sw9m1V",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "thresholdOfCommotion": 0,
+    "pentagramRigidBodys": {
+      "__id__": 318
+    },
+    "hasGivenVArray": null
   },
   {
     "__type__": "cc.PrefabInfo",
