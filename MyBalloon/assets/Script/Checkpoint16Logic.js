@@ -33,24 +33,27 @@ cc.Class({
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
        
-        pentagramRigidBodys:{
+        emitPentagramRigidBodys:{
+            default: null,
+            type: cc.Node,
+        },
+
+        positionRigidBody:{
             default: null,
             type: cc.Node,
         },
        
-        hasGivenVArray:null,
-
-       // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
+        hasEmit:false,//是否已经开启发射模式
+        
+        emitIndex:0,//从0到length-1 标记着当前发射到哪个
     },
 
    
     onLoad() {
         this.addGravityProperties(this.node);
-        this.thresholdOfGravity = 1800;
-        this.hasGivenVArray = new Array();
-        for (let i = 0; i < this.pentagramRigidBodys.children.length; i++) {
-            this.hasGivenVArray[i] = false;
-        }
+        this.thresholdOfGravity = 1850;
+        
+       
 
         let balloon = cc.find("Canvas/gameLayer/balloon");
         if (balloon != null) { //balloon有可能在前面已经被碰到被删除了
@@ -98,21 +101,18 @@ cc.Class({
     },
 
     update(dt) {
-        let children = this.pentagramRigidBodys.children;
-        let childCount = children.length;
-        for (let i = 0; i < childCount; i++) {
-            if (children[i] != null && this.hasGivenVArray[i] == false) {
-                let rr = children[i].getComponent(cc.RigidBody);
-                let aa = rr.getWorldPosition();
-                if (aa.y < this.thresholdOfGravity) {
-                    let vec = cc.v2(this.balloonPos.x - aa.x, this.balloonPos.y - aa.y);
-                    rr.gravityScale = 1;
-                    rr.linearVelocity = vec;
-                    this.hasGivenVArray[i] = true;//之后不再给予速度
-                }
-            }
+        if(this.hasEmit == false && this.positionRigidBody.getComponent(cc.RigidBody).getWorldPosition().y<this.thresholdOfGravity) {
+            this.hasEmit = true;
+            this.schedule(this.emit,0.2,this.emitPentagramRigidBodys.children.childCount);
         }
     },
 
-    
+    emit:function() {
+        let hudu = 2*Math.PI*this.emitIndex/this.emitPentagramRigidBodys.children.childCount;
+
+        cc.log("emit~~~  " +this.emitIndex);
+        this.emitPentagramRigidBodys.children[this.emitIndex].getComponent(cc.RigidBody).linearVelocity = cc.v2(100*Math.cos(hudu),100*Math.sin(hudu));
+        this.emitIndex++;
+    },
+        
 });

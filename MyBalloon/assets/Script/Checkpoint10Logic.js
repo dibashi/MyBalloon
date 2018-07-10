@@ -29,21 +29,21 @@ cc.Class({
         //         this._bar = value;
         //     }
         // },
-     
+
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
-       
-        pentagramRigidBodys:{
+
+        pentagramRigidBodys: {
             default: null,
             type: cc.Node,
         },
-       
-        hasGivenVArray:null,
 
-       // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
+        hasGivenVArray: null,
+
+        // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
     },
 
-   
+
     onLoad() {
         this.addGravityProperties(this.node);
         this.thresholdOfGravity = 1800;
@@ -56,29 +56,29 @@ cc.Class({
         if (balloon != null) { //balloon有可能在前面已经被碰到被删除了
             this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
         }
-        
+
         //5秒一轮询，看其内部是否还有刚体，若没有则删除该结点
-        this.schedule(this.removeThis,5);
+        this.schedule(this.removeThis, 5);
     },
 
-    removeThis:function() {
+    removeThis: function () {
         //cc.log("普通关卡 检测是否有刚体！");
-        if(this.hasRigidBody(this.node) == false) {
-           // cc.log("没有刚体了！");
+        if (this.hasRigidBody(this.node) == false) {
+            // cc.log("没有刚体了！");
             this.node.destroy();
         }
     },
 
-    hasRigidBody:function(node){
+    hasRigidBody: function (node) {
         let cr = node.children;
         let hasFlag = false; //是否有刚体 false 没有刚体 true 有刚体
-        for(let i = 0; i<cr.length;i++) {
-            if(this.hasRigidBody(cr[i]) == true){
+        for (let i = 0; i < cr.length; i++) {
+            if (this.hasRigidBody(cr[i]) == true) {
                 hasFlag = true;
                 break;
             }
         }
-        if(hasFlag == false && node.getComponent(cc.RigidBody) == null) {
+        if (hasFlag == false && node.getComponent(cc.RigidBody) == null) {
             return false;
         }
         return true;
@@ -87,7 +87,7 @@ cc.Class({
     //初始化刚体节点的重力属性 如 碰撞后 给予重力，过阀值后给予重力。
     addGravityProperties: function (node) {
         let children = node.children;
-       
+
         for (let i = 0; i < children.length; i++) {
             this.addGravityProperties(children[i]);
         }
@@ -105,7 +105,9 @@ cc.Class({
                 let rr = children[i].getComponent(cc.RigidBody);
                 let aa = rr.getWorldPosition();
                 if (aa.y < this.thresholdOfGravity) {
-                    let vec = cc.v2(this.balloonPos.x - aa.x, this.balloonPos.y - aa.y);
+                    //let vec = cc.v2(this.balloonPos.x - aa.x, this.balloonPos.y - aa.y);
+                    let rNumber = Math.random() > 0.5 ? 1 : -1;
+                    let vec = cc.v2(500 * rNumber, -500);
                     rr.gravityScale = 1;
                     rr.linearVelocity = vec;
                     this.hasGivenVArray[i] = true;//之后不再给予速度
@@ -114,5 +116,5 @@ cc.Class({
         }
     },
 
-    
+
 });
