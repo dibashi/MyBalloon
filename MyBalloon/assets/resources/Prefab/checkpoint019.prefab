@@ -41,10 +41,13 @@
     "_components": [
       {
         "__id__": 142
+      },
+      {
+        "__id__": 143
       }
     ],
     "_prefab": {
-      "__id__": 143
+      "__id__": 144
     },
     "_id": "",
     "_opacity": 255,
@@ -4338,6 +4341,16 @@
     },
     "_enabled": true,
     "thresholdOfCommotion": 1700
+  },
+  {
+    "__type__": "a249aClETFBhZz6D5j/Y1vm",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "thresholdOfCommotion": 0
   },
   {
     "__type__": "cc.PrefabInfo",
