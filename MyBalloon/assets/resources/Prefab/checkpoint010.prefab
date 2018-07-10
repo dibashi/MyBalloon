@@ -5042,8 +5042,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": true
   },
@@ -5253,8 +5253,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": true
   },
@@ -5464,8 +5464,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": true
   },
@@ -5675,8 +5675,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
+    "_angularVelocity": 500,
+    "_fixedRotation": false,
     "enabledContactListener": true,
     "bullet": true
   },
@@ -5789,14 +5789,18 @@
     "sync": false
   },
   {
-    "__type__": "a249aClETFBhZz6D5j/Y1vm",
+    "__type__": "e162cp0FntLmI8nLFuABB1F",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 0
+    "thresholdOfCommotion": 0,
+    "pentagramRigidBodys": {
+      "__id__": 174
+    },
+    "hasGivenVArray": null
   },
   {
     "__type__": "cc.PrefabInfo",
