@@ -47,7 +47,8 @@ cc.Class({
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        if (this.gravityHasBeenGiven == false) { //没给过重力
+       
+        if (this.gravityHasBeenGiven == false && otherCollider.node.group != "wall") { //没给过重力
             if (this.gravityFlagOfHit == true) { //根据阀值给重力
 
                 cc.log("碰撞： 给到重力！");
