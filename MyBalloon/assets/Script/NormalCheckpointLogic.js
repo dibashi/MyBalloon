@@ -32,7 +32,7 @@ cc.Class({
      
 
         thresholdOfCommotion: 0,//规定了整个关卡给予刚体重力的位置阀值
-       
+        operationalSetOfGravity: null,
 
        
 
@@ -51,9 +51,9 @@ cc.Class({
     },
 
     removeThis:function() {
-        //cc.log("普通关卡 检测是否有刚体！");
+        cc.log("普通关卡 检测是否有刚体！");
         if(this.hasRigidBody(this.node) == false) {
-           // cc.log("没有刚体了！");
+            cc.log("没有刚体了！");
             this.node.destroy();
         }
     },

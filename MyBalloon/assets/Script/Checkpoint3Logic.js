@@ -54,19 +54,19 @@ cc.Class({
 
     start() {
         for(let i = 0; i<this.bodys1.children.length; i++) {
-            this.bodys1.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity - 10;
+            this.bodys1.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 20;
         }
 
         for(let i = 0; i<this.bodys2.children.length; i++) {
-            this.bodys2.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 0;
+            this.bodys2.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 10;
         }
 
         for(let i = 0; i<this.bodys3.children.length; i++) {
-            this.bodys3.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 10;
+            this.bodys3.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 0;
         }
 
         for(let i = 0; i<this.bodys4.children.length; i++) {
-            this.bodys4.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity + 20;
+            this.bodys4.children[i].getComponent("rigidBodyJS").thresholdOfGravity = this.thresholdOfGravity - 10;
         }
     },
 
@@ -84,9 +84,9 @@ cc.Class({
     },
 
     removeThis:function() {
-        //cc.log("关卡3 检测是否有刚体！");
+        cc.log("关卡3 检测是否有刚体！");
         if(this.hasRigidBody(this.node) == false) {
-           // cc.log("没有刚体了！");
+            cc.log("没有刚体了！");
             this.node.destroy();
         }
     },

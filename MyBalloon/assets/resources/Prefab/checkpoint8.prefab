@@ -4107,8 +4107,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 500,
-    "_fixedRotation": false,
+    "_angularVelocity": 0,
+    "_fixedRotation": true,
     "enabledContactListener": true,
     "bullet": true
   },
@@ -4293,8 +4293,8 @@
       "x": 0,
       "y": 0
     },
-    "_angularVelocity": 500,
-    "_fixedRotation": false,
+    "_angularVelocity": 0,
+    "_fixedRotation": true,
     "enabledContactListener": true,
     "bullet": true
   },
@@ -8750,17 +8750,18 @@
     "sync": false
   },
   {
-    "__type__": "f6b93jZ1lZGsp+rT1sw9m1V",
+    "__type__": "45b5012MFFC75VQocf6Wxxy",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 0,
-    "pentagramRigidBodys": {
-      "__id__": 130
-    }
+    "operationalSetOfGravity": null,
+    "stripes": null,
+    "hy": 0,
+    "balloonPos": null,
+    "hasGivenVArray": null
   },
   {
     "__type__": "cc.PrefabInfo",
