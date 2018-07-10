@@ -46,7 +46,7 @@ cc.Class({
    
     onLoad() {
         this.addGravityProperties(this.node);
-        this.thresholdOfGravity = 1500;
+        this.thresholdOfGravity = 1800;
         this.hasGivenVArray = new Array();
         for (let i = 0; i < this.pentagramRigidBodys.children.length; i++) {
             this.hasGivenVArray[i] = false;
