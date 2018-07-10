@@ -75,7 +75,7 @@ cc.Class({
             }
         }
         //!不要删上面，不然新加的关卡也会被删除，各个关卡宽边 不要超出屏幕420像素!!
-        if (thisNodePosY < -700 ||thisNodePosX >1500 ||thisNodePosX<-420 ) {
+        if (thisNodePosY < -1000 ||thisNodePosX >1500 ||thisNodePosX<-420 ) {
             this.node.removeFromParent();
             //应该再向其父结点发送已删除，让其查询其是否还有刚体子节点，若没有，则删除自己，不然那个脚本还在运行
         }
