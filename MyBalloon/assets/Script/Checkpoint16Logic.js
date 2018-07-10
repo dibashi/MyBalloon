@@ -112,7 +112,7 @@ cc.Class({
         //cloneNode.setPosition(cloneNode.x +50 ,cloneNode.y+50 );
         cc.log("emit~~~  " +this.emitIndex);
         
-        cloneNode.getComponent(cc.RigidBody).linearVelocity = cc.v2(1000*Math.cos(hudu),1000*Math.sin(hudu));
+        cloneNode.getComponent(cc.RigidBody).linearVelocity = cc.v2(300*Math.cos(hudu),300*Math.sin(hudu));
         this.emitIndex++;
     },
         
