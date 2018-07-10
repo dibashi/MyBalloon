@@ -6992,18 +6992,15 @@
     "sync": false
   },
   {
-    "__type__": "45b5012MFFC75VQocf6Wxxy",
+    "__type__": "a249aClETFBhZz6D5j/Y1vm",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "operationalSetOfGravity": null,
-    "stripes": null,
-    "hy": 0,
-    "balloonPos": null,
-    "hasGivenVArray": null
+    "thresholdOfCommotion": 0,
+    "operationalSetOfGravity": null
   },
   {
     "__type__": "cc.PrefabInfo",
