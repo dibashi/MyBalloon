@@ -10,7 +10,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wall",
+    "_name": "pentagram",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -199,7 +199,12 @@
     "node": {
       "__id__": 1
     },
-    "_enabled": true
+    "_enabled": true,
+    "rigidBodyOfNode": null,
+    "flag": false,
+    "gravityHasBeenGiven": false,
+    "gravityFlagOfThreshold": false,
+    "gravityFlagOfHit": false
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -55,10 +55,6 @@ cc.Class({
         
        
 
-        let balloon = cc.find("Canvas/gameLayer/balloon");
-        if (balloon != null) { //balloon有可能在前面已经被碰到被删除了
-            this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
-        }
         
         //5秒一轮询，看其内部是否还有刚体，若没有则删除该结点
         this.schedule(this.removeThis,5);
@@ -103,14 +99,18 @@ cc.Class({
     update(dt) {
         if(this.hasEmit == false && this.positionRigidBody.getComponent(cc.RigidBody).getWorldPosition().y<this.thresholdOfGravity) {
             this.hasEmit = true;
-            this.schedule(this.emit,0.2,this.emitPentagramRigidBodys.children.childCount);
+            
+            for(let i = 0; i<this.emitPentagramRigidBodys.children.length;i++) {
+                this.node.runAction(cc.sequence(cc.delayTime(0.2*(i)), cc.callFunc(this.emit,this)));
+            }
         }
     },
 
     emit:function() {
-        let hudu = 2*Math.PI*this.emitIndex/this.emitPentagramRigidBodys.children.childCount;
+        let hudu = 2*Math.PI*this.emitIndex/this.emitPentagramRigidBodys.children.length;
 
         cc.log("emit~~~  " +this.emitIndex);
+        this.emitPentagramRigidBodys.children[this.emitIndex].active = true;
         this.emitPentagramRigidBodys.children[this.emitIndex].getComponent(cc.RigidBody).linearVelocity = cc.v2(100*Math.cos(hudu),100*Math.sin(hudu));
         this.emitIndex++;
     },
