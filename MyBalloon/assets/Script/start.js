@@ -27,6 +27,10 @@ cc.Class({
         cc.director.loadScene('gameScene');    
     },
 
+    goRankingView:function() {
+        cc.director.loadScene('RankingView');   
+    },
+
     //进入关卡选择界面
     goSelectCheckpoint:function() {
         cc.director.loadScene('selectCheckpoint');    
