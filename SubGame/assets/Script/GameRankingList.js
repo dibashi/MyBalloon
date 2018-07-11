@@ -110,8 +110,8 @@ cc.Class({
                                 var playerInfo = data[i];
                                 var item = cc.instantiate(this.prefabRankItem);
                                 item.getComponent('RankItem').init(i, playerInfo);
-                                this.scrollViewContent.addChild(item);
-                                if (data[i].avatarUrl == userData.avatarUrl) {
+                                this.scrollViewContent.addChild(item);//其实这里已经加过玩家自己的item了
+                                if (data[i].avatarUrl == userData.avatarUrl) {//在下方继续再加一遍。。
                                     let userItem = cc.instantiate(this.prefabRankItem);
                                     userItem.getComponent('RankItem').init(i, playerInfo);
                                     userItem.y = -354;

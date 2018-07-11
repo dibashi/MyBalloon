@@ -18,8 +18,8 @@ cc.Class({
         if (CC_WECHATGAME) {
             window.wx.showShareMenu({withShareTicket: true});//设置分享按钮，方便获取群id展示群排行榜
             this.tex = new cc.Texture2D();
-            window.sharedCanvas.width = 720;
-            window.sharedCanvas.height = 1280;
+            window.sharedCanvas.width = 1080;
+            window.sharedCanvas.height = 1920;
             window.wx.postMessage({
                 messageType: 1,
                 MAIN_MENU_NUM: "x1"
