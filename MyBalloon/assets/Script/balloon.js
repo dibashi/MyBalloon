@@ -35,7 +35,10 @@ cc.Class({
         },
 
      
-
+        boomAudio: {
+            default: null,
+            url: cc.AudioClip
+        },
 
         fixedPositon: null,
 
@@ -73,7 +76,10 @@ cc.Class({
     },
 
     boomAni: function () {
-        // cc.audioEngine.playEffect(this.boomAudio, false);
+        let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
+        if (gameSoundBG == 1) {
+            cc.audioEngine.playEffect(this.boomAudio, false);
+        }
         this.node.group = "default";
         //this.node.active = false;
         this.node.opacity = 0;

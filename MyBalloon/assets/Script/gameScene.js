@@ -116,6 +116,14 @@ cc.Class({
         },
 
 
+      
+
+        gameAudio: {
+            default: null,
+            url: cc.AudioClip
+        },
+
+
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
         bgMinY: -2880,//下限 超过这个值 背景挪上去
@@ -137,6 +145,10 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
+        if (gameSoundBG == 1) {
+            cc.audioEngine.playMusic(this.gameAudio,true);
+        }
 
         this.h = 3840;
         this.bgMinY = -2880;
@@ -282,6 +294,7 @@ cc.Class({
     },
 
     gameOver: function () {
+
         if (this.guanKa == -1) {
             this.unschedule(this.addScore, this);
             let bestScore = parseInt(cc.sys.localStorage.getItem("bestScore"));
@@ -297,8 +310,6 @@ cc.Class({
         } else {
             cc.director.loadScene('selectCheckpoint');
         }
-
-
     },
 
     goNewBalloon: function () {

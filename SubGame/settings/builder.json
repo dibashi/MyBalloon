@@ -1,7 +1,7 @@
 {
   "appKey": "",
   "appSecret": "",
-  "encryptJs": false,
+  "encryptJs": true,
   "excludeScenes": [],
   "fb-instant-games": {},
   "includeAnySDK": false,
@@ -9,33 +9,33 @@
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
   "jailbreakPlatform": false,
-  "md5Cache": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "oauthLoginServer": "",
   "optimizeHotUpdate": false,
   "orientation": {
-    "landscapeLeft": false,
-    "landscapeRight": false,
-    "portrait": true,
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
     "upsideDown": false
   },
-  "packageName": "org.cocos2d.BPW",
+  "packageName": "org.cocos2d.helloworld",
   "privateKey": "",
   "qqplay": {
     "REMOTE_SERVER_ROOT": "",
     "orientation": "portrait"
   },
   "renderMode": "0",
-  "startScene": "b1ac405b-82ae-40ff-b338-3599c4302775",
-  "title": "BPW",
+  "startScene": "4310f31a-7e48-409a-999c-178cc5fca562",
+  "title": "SubGame",
   "webOrientation": "auto",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
-    "appid": "wxd0195d90f49b3a3f",
-    "isSubdomain": false,
+    "appid": "wx6ac3f5090a6b99c5",
+    "isSubdomain": true,
     "orientation": "portrait",
-    "subContext": "SubGame"
+    "subContext": ""
   },
-  "xxteaKey": "a6ea08dd-6688-44",
+  "xxteaKey": "abe6d1b8-33e8-4e",
   "zipCompressJs": true
 }
