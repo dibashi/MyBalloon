@@ -3626,7 +3626,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wall",
+    "_name": "wall1",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -3788,7 +3788,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "wall",
+    "_name": "wall2",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
@@ -3949,14 +3949,21 @@
     "sync": false
   },
   {
-    "__type__": "a249aClETFBhZz6D5j/Y1vm",
+    "__type__": "e1c6cU0jEVPL5Ieoi+3mASp",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 0
+    "thresholdOfCommotion": 0,
+    "wall1": {
+      "__id__": 112
+    },
+    "wall2": {
+      "__id__": 118
+    },
+    "hasGivenVArray": null
   },
   {
     "__type__": "cc.PrefabInfo",

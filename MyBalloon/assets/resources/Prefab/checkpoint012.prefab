@@ -9439,14 +9439,18 @@
     "sync": false
   },
   {
-    "__type__": "a249aClETFBhZz6D5j/Y1vm",
+    "__type__": "f6b93jZ1lZGsp+rT1sw9m1V",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 1700
+    "thresholdOfCommotion": 0,
+    "pentagramRigidBodys": {
+      "__id__": 318
+    },
+    "hasGivenVArray": null
   },
   {
     "__type__": "cc.PrefabInfo",
