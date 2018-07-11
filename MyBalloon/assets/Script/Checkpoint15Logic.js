@@ -42,9 +42,20 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+
+        dot1:{
+            default:null,
+            type: cc.Node,
+        },
+
+        dot2:{
+            default:null,
+            type: cc.Node,
+        },
        
        
-        hasGivenVArray:null,
+        hasGivenV1:false,
+        hasGivenV2:false,
 
        // rigidBodyCountArray:null,//判断此集合里是否有刚体，没有就删除本节点
     },
@@ -52,16 +63,8 @@ cc.Class({
    
     onLoad() {
         this.addGravityProperties(this.node);
-        this.thresholdOfGravity = 1800;
-        this.hasGivenVArray = new Array();
-        for (let i = 0; i < this.pentagramRigidBodys.children.length; i++) {
-            this.hasGivenVArray[i] = false;
-        }
-
-        let balloon = cc.find("Canvas/gameLayer/balloon");
-        if (balloon != null) { //balloon有可能在前面已经被碰到被删除了
-            this.balloonPos = balloon.getComponent(cc.RigidBody).getWorldPosition();
-        }
+        this.thresholdOfGravity = 1700;
+       
         
         //5秒一轮询，看其内部是否还有刚体，若没有则删除该结点
         this.schedule(this.removeThis,5);
@@ -98,24 +101,44 @@ cc.Class({
             this.addGravityProperties(children[i]);
         }
         if (node.getComponent(cc.RigidBody) != null) {
-            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
+            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
             node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
         }
     },
 
     update(dt) {
-        let children = this.pentagramRigidBodys.children;
-        let childCount = children.length;
-        for (let i = 0; i < childCount; i++) {
-            if (children[i] != null && this.hasGivenVArray[i] == false) {
-                let rr = children[i].getComponent(cc.RigidBody);
-                let aa = rr.getWorldPosition();
-                if (aa.y < this.thresholdOfGravity) {
-                    let vec = cc.v2(this.balloonPos.x - aa.x, this.balloonPos.y - aa.y);
-                    rr.gravityScale = 1;
-                    rr.linearVelocity = vec;
-                    this.hasGivenVArray[i] = true;//之后不再给予速度
-                }
+        // let children = this.pentagramRigidBodys.children;
+        // let childCount = children.length;
+        // for (let i = 0; i < childCount; i++) {
+        //     if (children[i] != null && this.hasGivenVArray[i] == false) {
+        //         let rr = children[i].getComponent(cc.RigidBody);
+        //         let aa = rr.getWorldPosition();
+        //         if (aa.y < this.thresholdOfGravity) {
+        //             let vec = cc.v2(this.balloonPos.x - aa.x, this.balloonPos.y - aa.y);
+        //             rr.gravityScale = 1;
+        //             rr.linearVelocity = vec;
+        //             this.hasGivenVArray[i] = true;//之后不再给予速度
+        //         }
+        //     }
+        // }
+   
+        if(this.hasGivenV1 == false && this.dot1.getComponent(cc.RigidBody).getWorldPosition().y < this.thresholdOfGravity) {
+            cc.log("进入！！");
+            this.hasGivenV1 = true;
+            for(let i = 0; i<this.smallCircle1.children.length; i++) {
+                let tempDotPos =  this.dot1.getComponent(cc.RigidBody).getWorldPosition();
+                let tempRigidPos = this.smallCircle1.children[i].getComponent(cc.RigidBody).getWorldPosition();
+                this.smallCircle1.children[i].getComponent(cc.RigidBody).linearVelocity = cc.v2(tempDotPos.x- tempRigidPos.x, tempDotPos.y - tempRigidPos.y);
+            }
+        }
+
+        if(this.hasGivenV2 == false && this.dot2.getComponent(cc.RigidBody).getWorldPosition().y < this.thresholdOfGravity) {
+            cc.log("进入！！");
+            this.hasGivenV2 = true;
+            for(let i = 0; i<this.smallCircle2.children.length; i++) {
+                let tempDotPos =  this.dot2.getComponent(cc.RigidBody).getWorldPosition();
+                let tempRigidPos = this.smallCircle2.children[i].getComponent(cc.RigidBody).getWorldPosition();
+                this.smallCircle2.children[i].getComponent(cc.RigidBody).linearVelocity = cc.v2(tempDotPos.x- tempRigidPos.x, tempDotPos.y - tempRigidPos.y);
             }
         }
     },

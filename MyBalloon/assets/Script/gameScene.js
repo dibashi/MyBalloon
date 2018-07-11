@@ -317,8 +317,6 @@ cc.Class({
         } else {
             cc.director.loadScene('selectCheckpoint');
         }
-
-
     },
 
     goNewBalloon: function () {
