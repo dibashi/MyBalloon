@@ -4386,14 +4386,21 @@
     "sync": false
   },
   {
-    "__type__": "a249aClETFBhZz6D5j/Y1vm",
+    "__type__": "68cfcKmn2xIpppJSz9FjToo",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "thresholdOfCommotion": 0
+    "thresholdOfCommotion": 0,
+    "smallCircle1": {
+      "__id__": 2
+    },
+    "smallCircle2": {
+      "__id__": 76
+    },
+    "hasGivenVArray": null
   },
   {
     "__type__": "cc.PrefabInfo",

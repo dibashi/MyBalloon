@@ -348,7 +348,7 @@ cc.Class({
                 this.armatureDisplayWinpro.playAnimation("winpro");
                 this.node.addChild(aniWin);
                 //aniWin.setPosition(this.balloon.position);
-                aniWin.setPosition(0,0);
+                aniWin.setPosition(0,960);
                 this.scheduleOnce(this.winProOver,3.0);
                // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
