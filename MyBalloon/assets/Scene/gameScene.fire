@@ -1493,6 +1493,12 @@
     "reviveAlert": {
       "__uuid__": "b168c85d-7f5b-420a-acc9-1a2389031157"
     },
+    "boomAudio": {
+      "__uuid__": "8c2531cb-41c5-423e-b018-444247a14c0f"
+    },
+    "gameAudio": {
+      "__uuid__": "2424b843-e797-4130-bf2b-9b0f13cac581"
+    },
     "cps": null,
     "h": 3840,
     "bgMinY": -2880,
