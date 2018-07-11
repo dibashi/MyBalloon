@@ -123,7 +123,7 @@ cc.Class({
         // }
    
         if(this.hasGivenV1 == false && this.dot1.getComponent(cc.RigidBody).getWorldPosition().y < this.thresholdOfGravity) {
-            cc.log("进入！！");
+           // cc.log("进入！！");
             this.hasGivenV1 = true;
             for(let i = 0; i<this.smallCircle1.children.length; i++) {
                 let tempDotPos =  this.dot1.getComponent(cc.RigidBody).getWorldPosition();
@@ -133,7 +133,7 @@ cc.Class({
         }
 
         if(this.hasGivenV2 == false && this.dot2.getComponent(cc.RigidBody).getWorldPosition().y < this.thresholdOfGravity) {
-            cc.log("进入！！");
+           // cc.log("进入！！");
             this.hasGivenV2 = true;
             for(let i = 0; i<this.smallCircle2.children.length; i++) {
                 let tempDotPos =  this.dot2.getComponent(cc.RigidBody).getWorldPosition();
