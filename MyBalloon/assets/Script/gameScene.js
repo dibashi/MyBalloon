@@ -116,10 +116,7 @@ cc.Class({
         },
 
 
-        boomAudio: {
-            default: null,
-            url: cc.AudioClip
-        },
+      
 
         gameAudio: {
             default: null,
@@ -297,10 +294,6 @@ cc.Class({
     },
 
     gameOver: function () {
-        let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
-        if (gameSoundBG == 1) {
-            cc.audioEngine.playEffect(this.boomAudio, false);
-        }
 
         if (this.guanKa == -1) {
             this.unschedule(this.addScore, this);
