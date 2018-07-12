@@ -798,6 +798,9 @@
     },
     "loadingLabel": {
       "__id__": 18
+    },
+    "beyondFriendNode": {
+      "__id__": 21
     }
   },
   {
@@ -945,7 +948,9 @@
       "__id__": 22
     },
     "_enabled": true,
-    "_defaultClip": null,
+    "_defaultClip": {
+      "__uuid__": "3f745730-0e8a-4029-a13a-f1d6bfe26d04"
+    },
     "_clips": [
       {
         "__uuid__": "3f745730-0e8a-4029-a13a-f1d6bfe26d04"

@@ -8,6 +8,7 @@ cc.Class({
     },
 
     start() {
+        console.log("运行到 好友超越！！");
         this.removeChild();
         this.waitingForBeyondFriends = null;
         window.wx.onMessage(data => {
@@ -19,7 +20,7 @@ cc.Class({
             }
         });
     },
-
+ 
     removeChild() {
         this.gameRankingList.active = false;
     },
@@ -28,6 +29,9 @@ cc.Class({
         if (this.waitingForBeyondFriends == null || this.waitingForBeyondFriends.length == 0) {
             return;
         }
+
+        console.log("看下待超越的数据组");
+        console.log(this.waitingForBeyondFriends);
 
         let beyondIndex = -1;
         for (let i = this.waitingForBeyondFriends.length - 1; i >= 0; i--) {//这个数据源是已经排好序的，但是是倒序从大到小
@@ -43,8 +47,10 @@ cc.Class({
 
     initSprite: function (beyondData) {
         let avatarUrl = beyondData.avatarUrl;
+        // console.log("看下 头像 URL");
+        // console.log(avatarUrl);
         this.createImage(avatarUrl);
-        var anim =  this.headImageNode.getComponent(cc.Animation);
+        let anim =  this.headImageNode.getComponent(cc.Animation);
         anim.play();
     },
 
@@ -104,6 +110,11 @@ cc.Class({
 
                             data.splice(waitingForDelete, 1);
                             this.waitingForBeyondFriends = data;
+                            console.log("这里 这里！");
+                            for(let j =0; j<this.waitingForBeyondFriends.length;j++) {
+                                console.log(this.waitingForBeyondFriends[j]);
+                            }
+                           
                         },
                         fail: res => {
                             console.log("wx.getFriendCloudStorage fail", res);

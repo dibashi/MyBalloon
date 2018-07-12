@@ -8,9 +8,13 @@ cc.Class({
         prefabGameOverRank: cc.Prefab,
         gameOverRankLayout: cc.Node,
         loadingLabel: cc.Node,//加载文字
+
+        beyondFriendNode:cc.Node,
     },
 
     start() {
+        console.log("运行到 排行list！！！！");
+       // this.beyondFriendNode.active = false;
         this.removeChild();
         if (CC_WECHATGAME) {
             window.wx.onMessage(data => {
