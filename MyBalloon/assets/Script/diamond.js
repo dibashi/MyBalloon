@@ -49,7 +49,7 @@ cc.Class({
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
         cc.log(" 钻石被碰撞");
-        if (this.gravityHasBeenGiven == false && otherCollider.node.group != "wall") { //没给过重力
+        if (otherCollider.node.group != "wall") { //没给过重力
             if (this.gravityFlagOfHit == true) { //根据碰撞给重力
                 cc.log(" 钻石被碰撞");
                 if(otherCollider.node.group == "guard" || otherCollider.node.group == "balloon") {
@@ -58,7 +58,6 @@ cc.Class({
                     this.node.removeFromParent();
                 } else {
                     this.node.getComponent(cc.RigidBody).gravityScale = 1;
-                    this.gravityHasBeenGiven = true;
                 }
                 
             }
