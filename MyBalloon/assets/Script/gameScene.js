@@ -110,13 +110,21 @@ cc.Class({
             type: cc.Node,
         },
 
+        diamondNode: {
+            default: null,
+            type: cc.Node,
+        },
+
+
+        diamondLabel: {
+            default: null,
+            type: cc.Node,
+        },
+
         reviveAlert: {
             default: null,
             type: cc.Prefab,
         },
-
-
-      
 
         gameAudio: {
             default: null,
@@ -155,6 +163,7 @@ cc.Class({
         this.bgSpeed = 4;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
+        this.diamondNode.active = false;//同上
 
         this.colorIndex = [
             { bgColor: '#5ac2de', yun3Color: '#84cade', yun2Color: '#add7e6' },
@@ -208,6 +217,7 @@ cc.Class({
             this.generateCheckpointByID(this.guanKa, this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
             this.scoreNode.active = true;
+            this.diamondNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
             let goNewBalloonFlag = cc.sys.localStorage.getItem("goNewBalloon-flag");
             cc.log("!!!!!!!---> " + goNewBalloonFlag);
@@ -218,7 +228,10 @@ cc.Class({
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
+            //获得的钻石 复活后 还是从0显示；
+            this.diamondCount = 0;
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
+            this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
             this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
             this.schedule(this.addScore, 0.5);
         }
@@ -293,6 +306,11 @@ cc.Class({
         }
     },
 
+    addDiamond:function(value) {
+        this.diamondCount += value;
+        this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
+    },
+
     gameOver: function () {
 
         if (this.guanKa == -1) {
@@ -301,6 +319,9 @@ cc.Class({
             if (this.defen > bestScore) {
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
+
+            let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
+            cc.sys.localStorage.setItem("diamondCount",newDiamondCount);
             //“弹出”结束界面
             cc.eventManager.pauseTarget(this.node, true);
             let ss = cc.instantiate(this.reviveAlert);

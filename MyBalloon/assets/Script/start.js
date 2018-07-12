@@ -65,6 +65,7 @@ cc.Class({
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
             cc.sys.localStorage.setItem('gameSoundBG', 1);
+            cc.sys.localStorage.setItem('diamondCount', 0);
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
