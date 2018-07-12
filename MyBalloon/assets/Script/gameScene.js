@@ -232,8 +232,8 @@ cc.Class({
             this.diamondCount = 0;
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
-            this.generateCheckpointByIndex(0, this.bg1.position);
-            this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
+        
+            this.generateCheckpointByIndex(17, this.bg1.position);
             this.schedule(this.addScore, 0.5);
         }
     },
