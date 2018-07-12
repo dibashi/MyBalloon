@@ -147,6 +147,11 @@ cc.Class({
         bg2ColorIndex: 0,//初始化两个背景的 颜色索引
 
         isLoadNextCheckPoint: false,//是否已经加载下一关的标记
+
+        beyondFriendView: {
+            default: null,
+            type: cc.Sprite,
+        },
     },
 
 
@@ -155,7 +160,7 @@ cc.Class({
     onLoad: function () {
         let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
         if (gameSoundBG == 1) {
-            cc.audioEngine.playMusic(this.gameAudio,true);
+            cc.audioEngine.playMusic(this.gameAudio, true);
         }
 
         this.h = 3840;
@@ -216,6 +221,10 @@ cc.Class({
         if (this.guanKa != -1) {
             this.generateCheckpointByID(this.guanKa, this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
+
+            //向子域发送请求，获得所有的好友数据
+            this.sendMessageToSubdomainGetFriendDatas();
+
             this.scoreNode.active = true;
             this.diamondNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
@@ -232,10 +241,30 @@ cc.Class({
             this.diamondCount = 0;
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
-        
+
             this.generateCheckpointByIndex(17, this.bg1.position);
             this.schedule(this.addScore, 0.5);
+            //2秒钟，查看一次是否超越好友，如果超越，则显示好友的头像动画 注：时间设置的越长性能越好，越短则越精确。
+            this.schedule(this.seeHasBeyond,2);
         }
+    },
+
+    seeHasBeyond:function() {
+        let self = this;
+        window.wx.postMessage({
+            messageType: 7,
+            currentScore: self.defen,
+        });
+    },
+
+    sendMessageToSubdomainGetFriendDatas: function () {
+        this.tex = new cc.Texture2D();
+        window.sharedCanvas.width = 1080;
+        window.sharedCanvas.height = 1920;
+        window.wx.postMessage({
+            messageType: 6,
+            MAIN_MENU_NUM: "user_best_score"
+        });
     },
 
     addScore: function () {
@@ -308,7 +337,7 @@ cc.Class({
         }
     },
 
-    addDiamond:function(value) {
+    addDiamond: function (value) {
         cc.log("~~! add diamond!");
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
@@ -331,8 +360,8 @@ cc.Class({
                 score: self.defen,
             });
 
-            let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
-            cc.sys.localStorage.setItem("diamondCount",newDiamondCount);
+            let newDiamondCount = parseInt(cc.sys.localStorage.getItem("diamondCount")) + this.diamondCount;
+            cc.sys.localStorage.setItem("diamondCount", newDiamondCount);
             cc.log("game over  --->" + newDiamondCount);
             //“弹出”结束界面
             cc.eventManager.pauseTarget(this.node, true);
@@ -392,9 +421,9 @@ cc.Class({
                 this.armatureDisplayWinpro.playAnimation("winpro");
                 this.node.addChild(aniWin);
                 //aniWin.setPosition(this.balloon.position);
-                aniWin.setPosition(0,0);
-                this.scheduleOnce(this.winProOver,3.0);
-               // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
+                aniWin.setPosition(0, 0);
+                this.scheduleOnce(this.winProOver, 3.0);
+                // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
 
         } else {
@@ -410,10 +439,24 @@ cc.Class({
                 this.isLoadNextCheckPoint = true;
             }
         }
+        if(this.guanKa == -1) {
+            this._updateSubDomainCanvas();
+        }
+       
     },
-    
-    winProOver:function() {
-    	cc.director.loadScene("selectCheckpoint");
+
+    // 刷新子域的纹理
+    _updateSubDomainCanvas() {
+        if (window.sharedCanvas != undefined) {
+            this.tex.initWithElement(window.sharedCanvas);
+            this.tex.handleLoadedTexture();
+            this.beyondFriendView.spriteFrame = new cc.SpriteFrame(this.tex);
+        }
+    },
+   
+
+    winProOver: function () {
+        cc.director.loadScene("selectCheckpoint");
     },
 
     winOver: function () {

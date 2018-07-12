@@ -25,7 +25,7 @@ cc.Class({
                     this.gameOverRank(data.MAIN_MENU_NUM);
                 } else if (data.messageType == 5) {//获取群排行榜
                     this.fetchGroupFriendData(data.MAIN_MENU_NUM, data.shareTicket);
-                }
+                } 
             });
         } else {
             this.fetchFriendData(1000);
@@ -133,6 +133,9 @@ cc.Class({
             });
         }
     },
+
+   
+
     fetchGroupFriendData(MAIN_MENU_NUM, shareTicket) {
         this.removeChild();
         this.rankingScrollView.node.active = true;
