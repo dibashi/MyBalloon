@@ -64,6 +64,13 @@ cc.Class({
         if (isloaded == 0 || isloaded == null) {
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
+
+            window.wx.postMessage({
+                messageType: 3,
+                MAIN_MENU_NUM: "user_best_score",
+                score: 0,
+            });
+
             cc.sys.localStorage.setItem('gameSoundBG', 1);
             cc.sys.localStorage.setItem('diamondCount', 0);
         } else {

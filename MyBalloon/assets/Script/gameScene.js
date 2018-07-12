@@ -319,9 +319,17 @@ cc.Class({
         if (this.guanKa == -1) {
             this.unschedule(this.addScore, this);
             let bestScore = parseInt(cc.sys.localStorage.getItem("bestScore"));
+            let self = this;
             if (this.defen > bestScore) {
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
+
+            //没在上面的判断内调用，是因为子域那边做了判断
+            window.wx.postMessage({
+                messageType: 3,
+                MAIN_MENU_NUM: "user_best_score",
+                score: self.defen,
+            });
 
             let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
             cc.sys.localStorage.setItem("diamondCount",newDiamondCount);

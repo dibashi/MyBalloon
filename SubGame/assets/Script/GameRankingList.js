@@ -40,13 +40,13 @@ cc.Class({
                 success: function (getres) {
                     console.log('getUserCloudStorage', 'success', getres)
                     if (getres.KVDataList.length != 0) {
-                        if (getres.KVDataList[0].value > score) {
+                        if (getres.KVDataList[0].value > score) {//这里比较了是否超过了服务器的数据，若没超过则不上传
                             return;
                         }
                     }
                     // 对用户托管数据进行写数据操作
                     window.wx.setUserCloudStorage({
-                        KVDataList: [{key: MAIN_MENU_NUM, value: "" + score}],
+                        KVDataList: [{ key: MAIN_MENU_NUM, value: "" + score }],
                         success: function (res) {
                             console.log('setUserCloudStorage', 'success', res)
                         },
@@ -107,10 +107,12 @@ cc.Class({
                                 return b.KVDataList[0].value - a.KVDataList[0].value;
                             });
                             for (let i = 0; i < data.length; i++) {
-                                var playerInfo = data[i];
-                                var item = cc.instantiate(this.prefabRankItem);
-                                item.getComponent('RankItem').init(i, playerInfo);
-                                this.scrollViewContent.addChild(item);//其实这里已经加过玩家自己的item了
+                                if(i<=8) {//先最多显示9条吧。以后再说
+                                    var playerInfo = data[i];
+                                    var item = cc.instantiate(this.prefabRankItem);
+                                    item.getComponent('RankItem').init(i, playerInfo);
+                                    this.scrollViewContent.addChild(item);//其实这里已经加过玩家自己的item了
+                                }
                                 if (data[i].avatarUrl == userData.avatarUrl) {//在下方继续再加一遍。。
                                     let userItem = cc.instantiate(this.prefabRankItem);
                                     userItem.getComponent('RankItem').init(i, playerInfo);
