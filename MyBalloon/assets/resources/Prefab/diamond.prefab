@@ -59,15 +59,15 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -289,
-      "y": 361
+      "x": 0,
+      "y": 0
     },
     "_skewX": 0,
     "_skewY": 0,
     "_localZOrder": 0,
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
-    "groupIndex": 2
+    "groupIndex": 6
   },
   {
     "__type__": "cc.Sprite",
@@ -146,7 +146,7 @@
     }
   },
   {
-    "__type__": "07970FZ9VpKr4VeDBBUzDzH",
+    "__type__": "9aaa8L8+ZBCwKZXH/BpkCK3",
     "_name": "",
     "_objFlags": 0,
     "node": {

@@ -81,8 +81,14 @@ cc.Class({
             this.addGravityProperties(children[i]);
         }
         if (node.getComponent(cc.RigidBody) != null) {
-            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
-            node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+            if(node.getComponent("rigidBodyJS")!= null) {
+                node.getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
+                node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+            } else if(node.getComponent("diamond")!= null) { //是钻石
+                node.getComponent("diamond").gravityFlagOfThreshold = true;
+                node.getComponent("diamond").gravityFlagOfHit = true;
+            }
+           
         }
     },
 

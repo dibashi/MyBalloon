@@ -163,7 +163,7 @@ cc.Class({
         this.bgSpeed = 4;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
-        this.diamondNode.active = false;//同上
+        //this.diamondNode.active = false;//同上
 
         this.colorIndex = [
             { bgColor: '#5ac2de', yun3Color: '#84cade', yun2Color: '#add7e6' },
@@ -232,6 +232,7 @@ cc.Class({
             this.diamondCount = 0;
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
+            this.generateCheckpointByIndex(0, this.bg1.position);
             this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
             this.schedule(this.addScore, 0.5);
         }
@@ -274,9 +275,10 @@ cc.Class({
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
     generateCheckpointByIndex: function (index, position) {
+        cc.log("执行一次！");
         let self = this;
 
-        let pathOfPrefab = "Prefab/checkpoint" + this.cps[index];
+        let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
@@ -307,6 +309,7 @@ cc.Class({
     },
 
     addDiamond:function(value) {
+        cc.log("~~! add diamond!");
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
     },
@@ -322,6 +325,7 @@ cc.Class({
 
             let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
             cc.sys.localStorage.setItem("diamondCount",newDiamondCount);
+            cc.log("game over  --->" + newDiamondCount);
             //“弹出”结束界面
             cc.eventManager.pauseTarget(this.node, true);
             let ss = cc.instantiate(this.reviveAlert);
