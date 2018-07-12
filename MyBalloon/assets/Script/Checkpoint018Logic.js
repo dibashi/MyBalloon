@@ -88,13 +88,19 @@ cc.Class({
     //初始化刚体节点的重力属性 如 碰撞后 给予重力，过阀值后给予重力。
     addGravityProperties: function (node) {
         let children = node.children;
-
+       
         for (let i = 0; i < children.length; i++) {
             this.addGravityProperties(children[i]);
         }
         if (node.getComponent(cc.RigidBody) != null) {
-            node.getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
-            node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+            if(node.getComponent("rigidBodyJS")!= null) {
+                node.getComponent("rigidBodyJS").gravityFlagOfThreshold = false;
+                node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+            } else if(node.getComponent("diamond")!= null) { //是钻石
+                node.getComponent("diamond").gravityFlagOfThreshold = true;
+                node.getComponent("diamond").gravityFlagOfHit = true;
+            }
+           
         }
     },
 
