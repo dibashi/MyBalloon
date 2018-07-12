@@ -114,7 +114,7 @@ cc.Class({
                                 if (data[i].avatarUrl == userData.avatarUrl) {//在下方继续再加一遍。。
                                     let userItem = cc.instantiate(this.prefabRankItem);
                                     userItem.getComponent('RankItem').init(i, playerInfo);
-                                    userItem.y = -354;
+                                    userItem.y = -215;
                                     this.node.addChild(userItem, 1, 1000);
                                 }
                             }
