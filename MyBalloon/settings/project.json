@@ -85,5 +85,6 @@
   },
   "start-scene": "b1ac405b-82ae-40ff-b338-3599c4302775",
   "use-customize-simulator": false,
-  "use-project-simulator-setting": false
+  "use-project-simulator-setting": false,
+  "start-scene": "current"
 }
