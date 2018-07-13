@@ -8,15 +8,16 @@ cc.Class({
         rankingScrollView: cc.Sprite,//显示排行榜
     },
     onLoad() {
+        this.timer = 0;
     },
 
-    goStart:function() {
-        cc.director.loadScene('start');    
+    goStart: function () {
+        cc.director.loadScene('start');
     },
 
     start() {
         if (CC_WECHATGAME) {
-            window.wx.showShareMenu({withShareTicket: true});//设置分享按钮，方便获取群id展示群排行榜
+            window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
             this.tex = new cc.Texture2D();
             window.sharedCanvas.width = 1080;
             window.sharedCanvas.height = 1920;
@@ -24,6 +25,9 @@ cc.Class({
                 messageType: 1,
                 MAIN_MENU_NUM: "user_best_score"
             });
+
+
+            this.scheduleOnce(this._updateSubDomainCanvas,3.0);
         }
     },
     friendButtonFunc(event) {
@@ -66,7 +70,7 @@ cc.Class({
             cc.log("获取横向展示排行榜数据。x1");
         }
     },
-    
+
 
     // submitScoreButtonFunc(){
     //     let score = 123;
@@ -89,7 +93,13 @@ cc.Class({
             this.rankingScrollView.spriteFrame = new cc.SpriteFrame(this.tex);
         }
     },
-    update() {
-        this._updateSubDomainCanvas();
+    update(dt) {
+        //this._updateSubDomainCanvas();
+        // this.timer += dt;
+        // if (this.timer > 2) {
+        //     this._updateSubDomainCanvas();
+        //     this.timer = 0;
+        // }
+
     },
 });
