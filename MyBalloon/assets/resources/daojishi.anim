@@ -3,10 +3,10 @@
   "_name": "daojishi",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 4,
+  "_duration": 10,
   "sample": 60,
   "speed": 1,
-  "wrapMode": 1,
+  "wrapMode": "0",
   "curveData": {
     "paths": {
       "mask1/time": {
@@ -17,7 +17,7 @@
               "value": 0
             },
             {
-              "frame": 2,
+              "frame": 5,
               "value": 180
             }
           ]
@@ -27,11 +27,11 @@
         "props": {
           "rotation": [
             {
-              "frame": 2,
+              "frame": 5,
               "value": 0
             },
             {
-              "frame": 4,
+              "frame": 10,
               "value": 180
             }
           ]
@@ -46,12 +46,44 @@
                 "value": "10"
               },
               {
-                "frame": 0.6666666666666666,
+                "frame": 1,
                 "value": "9"
               },
               {
-                "frame": 1.3333333333333333,
+                "frame": 2,
                 "value": "8"
+              },
+              {
+                "frame": 3,
+                "value": "7"
+              },
+              {
+                "frame": 4,
+                "value": "6"
+              },
+              {
+                "frame": 5,
+                "value": "5"
+              },
+              {
+                "frame": 6,
+                "value": "4"
+              },
+              {
+                "frame": 7,
+                "value": "3"
+              },
+              {
+                "frame": 8,
+                "value": "2"
+              },
+              {
+                "frame": 9,
+                "value": "1"
+              },
+              {
+                "frame": 10,
+                "value": ""
               }
             ]
           }
