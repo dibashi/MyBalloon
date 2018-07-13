@@ -30,7 +30,7 @@
   "title": "BPW",
   "webOrientation": "auto",
   "wechatgame": {
-    "REMOTE_SERVER_ROOT": "",
+    "REMOTE_SERVER_ROOT": "http://www.youngwingtec.com/VRContent/bowuguan/MyBalloon",
     "appid": "wxd0195d90f49b3a3f",
     "isSubdomain": false,
     "orientation": "portrait",
