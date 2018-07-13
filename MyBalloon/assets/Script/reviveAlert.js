@@ -35,7 +35,7 @@ cc.Class({
         this.startFadeIn();
         this.reNewBtn.active = false;
         this.scheduleOnce(this.enableReNewBtn, 2);
-        this.scheduleOnce(this.cancel, 7);
+        this.scheduleOnce(this.cancel, 10);
     },
 
     enableReNewBtn: function () {
