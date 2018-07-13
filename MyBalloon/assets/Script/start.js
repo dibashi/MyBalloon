@@ -41,7 +41,10 @@ cc.Class({
     },
 
     goShare: function () {
-
+        wx.shareAppMessage({
+            title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
+            imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg", query: "begin_share"
+        });
     },
 
     settingClick: function () {
@@ -55,10 +58,38 @@ cc.Class({
         this.refreshSetting();
     },
 
+
+
     // use this for initialization
     onLoad: function () {
 
         cc.audioEngine.stopMusic();
+        let self = this;
+        this.userData = null;
+        // wx.getUserInfo({
+        //     openIdList: ['selfOpenId'],
+        //     success: (userRes) => {
+        //         self.userData = userRes.data[0];
+        //         console.log('玩家自己信息：--->', this.userData);
+        //     }
+        // });
+
+        wx.login({
+            success: (res) => {
+                let codeInfo = res.code;
+                console.log('start场景，codeInfo：--->', codeInfo);
+            }
+        });
+        
+        // wx.onshow(res => {
+        //     if(res.scene === 1044){
+        //         if(res.query.from){
+        //             // show pk UI
+        //         }else{
+        //             // todo nothing
+        //         }
+        //     }
+        // });
 
         let isloaded = cc.sys.localStorage.getItem("isLoaded");
         if (isloaded == 0 || isloaded == null) {
