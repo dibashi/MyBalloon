@@ -74,13 +74,8 @@ cc.Class({
         //     }
         // });
 
-        wx.login({
-            success: (res) => {
-                let codeInfo = res.code;
-                console.log('start场景，codeInfo：--->', codeInfo);
-            }
-        });
-        
+
+
         // wx.onshow(res => {
         //     if(res.scene === 1044){
         //         if(res.query.from){
@@ -90,6 +85,32 @@ cc.Class({
         //         }
         //     }
         // });
+        wx.login({
+            success: (res) => {
+                let codeInfo = res.code;
+                console.log('start场景，codeInfo：--->', codeInfo);
+                if (res.code) {
+                    //发起网络请求
+                    wx.request({
+                        url: 'https://bpw.blyule.com/public/index.php/index/index/getopenid?code=' + res.code,
+                        data: {
+                            code: res.code
+                        },
+                        success: (data, statusCode, header) => {
+                            console.log("服务器返回的数据！！--> " + data);
+                            console.log(data);
+                            console.log(data.openid);
+                            cc.sys.localStorage.setItem("openid", data.openid);
+                        },
+                    });
+                }
+            }
+        });
+
+
+
+
+
 
         let isloaded = cc.sys.localStorage.getItem("isLoaded");
         if (isloaded == 0 || isloaded == null) {
@@ -101,6 +122,8 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score",
                 score: 0,
             });
+            cc.sys.localStorage.setItem("openid", 0);
+            this.getUerOpenID();
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
             cc.sys.localStorage.setItem('diamondCount', 0);
@@ -109,6 +132,57 @@ cc.Class({
         }
 
         this.refreshSetting();
+    },
+
+    getUerOpenID: function () {
+
+        wx.login({
+            //     success: (res) => {
+            //         let codeInfo = res.code;
+            //         console.log('start场景，codeInfo：--->', codeInfo);
+            //         if (res.code) {
+            //             //发起网络请求
+            //             wx.request({
+            //               url: 'https://bpw.blyule.com/public/index.php/index/index/getopenid?code=' + res.code,
+            //               data: {
+            //                 code: res.code
+            //               },
+            //               success:(data,statusCode,header) =>{
+            //                 console.log("服务器返回的数据！！--> " +data);
+            //                 console.log(data);
+            //                 console.log(data.openid);
+            //                 cc.sys.localStorage.setItem("openid",data.openid);
+            //               },
+            //             });
+            //           } 
+            //     }
+            // });
+
+
+            // success: (res) => {
+            //     let codeInfo = res.code;
+            //     console.log('start场景，codeInfo：--->', codeInfo);
+            //     if (res.code) {
+            //         //发起网络请求
+            //         wx.request({
+            //           url: 'https://bpw.blyule.com/public/index.php/index/index/getopenid',
+            //           data: {
+            //             code: res.code
+            //           },
+            //           success:(data,statusCode,header) =>{
+            //             console.log("服务器返回的数据！！--> " +data);
+            //             console.log(data);
+            //             console.log(data.openid);
+            //             cc.sys.localStorage.setItem("openid",data.openid);
+            //           },
+            //         });
+            //       } 
+            // }
+        });
+
+
+
+
     },
 
     start() {
