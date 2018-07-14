@@ -19,6 +19,12 @@ cc.Class({
             type: cc.Node,
         },
 
+        recommendedLabel: {
+            default: null,
+            type: cc.Node,
+        },
+
+
     },
 
     //无尽模式
@@ -29,7 +35,7 @@ cc.Class({
 
     goShare: function () {
         let query_string = cc.sys.localStorage.getItem("openid");
-        console("准备发送请求的 query " + query_string);
+        console.log("准备发送请求的 query " + query_string);
 
         wx.shareAppMessage({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
@@ -109,60 +115,37 @@ cc.Class({
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
-        //先判断用户是否在本地服务器注册 1.若注册，判断是否本地存储他的openid，若没有就存储。
-        // wx.request({
-        //     url: 'https://bpw.blyule.com/public/index.php/index/index/isexit?userid=',
-        //     success: (data, statusCode, header) => {
-        //         console.log("用户是否在服务器注册 返回的数据！！--> " + data);
-        //         console.log(data);
-
-        //         //下面是伪代码 data.code目前是不存在的，是我自己假想的！！！因为牛龙飞现在不在。
-        //         if(data.code == 1) { //有此用户
-        //             self.getUerOpenID(); //其内部会判断是否本地存储他的openid，若没有会从服务器请求。
-        //         } else { //没有此用户，那么用户进入游戏分两种情况，1，是被分享进入的。2，自己找地方下载的。
-        //             wx.onShow(res => {
-        //                 console.log("这是微信onShow返回的数据--->  ");
-        //                 console.log(res);
-        //                 if(res.query != null && res.query != undefined) { //query存在，表示是被分享进入的
-        //                     //这里要给予分享人奖励， 需要自己的openid 和对方的openid   
-        //                     wx.request({
-        //                         url: 'https://bpw.blyule.com/public/index.php/index/index/add?code=' + res.code,
-        //                         data: {
-        //                             code: res.code
-        //                         },
-        //                         success: (data, statusCode, header) => {
-        //                             console.log("服务器返回的数据！！--> " + data);
-        //                             console.log(data);
-        //                             console.log(data.openid);
-        //                             cc.sys.localStorage.setItem("openid", data.openid);
-        //                         },
-        //                     });
-        //                 } else { //用户是自己进入的，没有人分享
-        //                     self.getUerOpenID();
-        //                 }
-        //             });
-        //         }
-
-        //     },
-        // });
-
-
-        // var launchOption = wx.getLaunchOptionsSync();
-        // console.log(launchOption);
-        // if ((LaunchOption.scene == 1007 || LaunchOption.scene == 1008) && LaunchOption.query.type == "heart") {
-        //     self.m_gameEngine.reward();
-        //     cc.sys.localStorage.setItem("bReward", 1)
-        // }
-
-
-
+        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
         this.getUerOpenID();
         this.refreshSetting();
+
+        this.schedule(this.refreshrecommended,4);
     },
 
-    queryUserRewards:function() {
-        console.log("查询用户目前奖励！");
-    },
+    //从服务器获得用户的推荐奖励，并刷新在界面上
+    refreshrecommended:function() {
+        let self = this;
+        let openid =cc.sys.localStorage.getItem("openid");
+        if(openid == "0") {
+            return;
+        }
+        wx.request({
+            url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
+            data: {
+                userid: openid,
+            },
+            success: (obj, statusCode, header) => {
+                console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
+                console.log(obj);
+                if(obj.data.code>0) {
+                    let rc = parseInt( cc.sys.localStorage.getItem('recommendedCurrency') ) + obj.data.code;
+                    cc.sys.localStorage.setItem('recommendedCurrency',rc);
+                    self.recommendedLabel.getComponent(cc.Label).string = rc;
+                }
+            },
+        });
+    },  
+
 
     getUerOpenID: function () {
         console.log("getUserOpenID!");
@@ -227,15 +210,17 @@ cc.Class({
         // let bs = cc.sys.localStorage.getItem('bestScore');
         // this.setBestScore(parseInt(bs));
 
-        // wx.showShareMenu();
-        // wx.onShareAppMessage(function () {
-        //     // 用户点击了“转发”按钮
-        //     return {
-        //         title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
-        //         imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
+        wx.showShareMenu();
 
-        //     }
-        // });
+
+        wx.onShareAppMessage(function () {
+            // 用户点击了“转发”按钮
+            return {
+                title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
+                imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
+
+            }
+        });
 
 
     },
