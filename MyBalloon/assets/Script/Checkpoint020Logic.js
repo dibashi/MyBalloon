@@ -41,9 +41,29 @@ cc.Class({
 
     onLoad() {
         
-        
+        this.addGravityProperties(this.node);
+        this.thresholdOfGravity = 1920;
         //5秒一轮询，看其内部是否还有刚体，若没有则删除该结点
         this.schedule(this.removeThis,5);
+    },
+
+    //初始化刚体节点的重力属性 如 碰撞后 给予重力，过阀值后给予重力。
+    addGravityProperties: function (node) {
+        let children = node.children;
+       
+        for (let i = 0; i < children.length; i++) {
+            this.addGravityProperties(children[i]);
+        }
+        if (node.getComponent(cc.RigidBody) != null) {
+            if(node.getComponent("rigidBodyJS")!= null) {
+                node.getComponent("rigidBodyJS").gravityFlagOfThreshold = true;
+                node.getComponent("rigidBodyJS").gravityFlagOfHit = true;
+            } else if(node.getComponent("diamond")!= null) { //是钻石
+                node.getComponent("diamond").gravityFlagOfThreshold = true;
+                node.getComponent("diamond").gravityFlagOfHit = true;
+            }
+           
+        }
     },
 
     removeThis:function() {
