@@ -101,7 +101,7 @@ cc.Class({
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
-            cc.sys.localStorage.setItem('diamondCount', 0);
+            cc.sys.localStorage.setItem('diamondCount', 10000);
             cc.sys.localStorage.setItem('recommendedCurrency', 0);
 
             //拥有的皮肤数据存储，以及当前的皮肤数据存储
