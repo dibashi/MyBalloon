@@ -163,7 +163,7 @@ cc.Class({
         this.bgSpeed = 4;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
-        //this.diamondNode.active = false;//同上
+        this.diamondNode.active = false;//同上
 
         this.colorIndex = [
             { bgColor: '#5ac2de', yun3Color: '#84cade', yun2Color: '#add7e6' },
