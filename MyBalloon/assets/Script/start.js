@@ -93,11 +93,11 @@ cc.Class({
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
 
-            // window.wx.postMessage({
-            //     messageType: 3,
-            //     MAIN_MENU_NUM: "user_best_score",
-            //     score: 0,
-            // });
+            window.wx.postMessage({
+                messageType: 3,
+                MAIN_MENU_NUM: "user_best_score",
+                score: 0,
+            });
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
@@ -120,14 +120,14 @@ cc.Class({
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
-        //this.getUerOpenID();
+        this.getUerOpenID();
         this.refreshSetting();
         this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
         this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
-        //this.schedule(this.refreshrecommended,4);
+        this.schedule(this.refreshrecommended,4);
     },
 
     loadQQAndTail: function () {
@@ -261,15 +261,15 @@ cc.Class({
     },
 
     start() {
-        // wx.showShareMenu();
-        // wx.onShareAppMessage(function () {
-        //     // 用户点击了“转发”按钮
-        //     return {
-        //         title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
-        //         imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
+        wx.showShareMenu();
+        wx.onShareAppMessage(function () {
+            // 用户点击了“转发”按钮
+            return {
+                title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
+                imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
 
-        //     }
-        // });
+            }
+        });
     },
 
     refreshSetting: function () {
