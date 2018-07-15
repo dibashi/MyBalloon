@@ -24,7 +24,15 @@ cc.Class({
             type: cc.Node,
         },
 
+        scoreLabel:{
+            default: null,
+            type: cc.Node,
+        },
 
+        diamondLabel:{
+            default: null,
+            type: cc.Node,
+        },
     },
 
     //无尽模式
@@ -118,6 +126,9 @@ cc.Class({
         this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
         this.getUerOpenID();
         this.refreshSetting();
+
+        this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
+        this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
         this.schedule(this.refreshrecommended,4);
     },

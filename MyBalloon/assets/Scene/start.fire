@@ -1394,7 +1394,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "coinLabel",
+    "_name": "diamondLabel",
     "_objFlags": 0,
     "_parent": {
       "__id__": 35
@@ -2172,6 +2172,12 @@
     },
     "recommendedLabel": {
       "__id__": 49
+    },
+    "scoreLabel": {
+      "__id__": 43
+    },
+    "diamondLabel": {
+      "__id__": 36
     }
   }
 ]
