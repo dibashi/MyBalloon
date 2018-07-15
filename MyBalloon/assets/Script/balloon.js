@@ -34,7 +34,12 @@ cc.Class({
             type: cc.Prefab,
         },
 
-     
+        tail: {
+            default: null,
+            type: cc.Node,
+        },
+
+
         boomAudio: {
             default: null,
             url: cc.AudioClip
@@ -42,12 +47,54 @@ cc.Class({
 
         fixedPositon: null,
 
-        isDeadFlag:false,//用于标记是否阵亡，否则会多次播放爆炸动画
+        isDeadFlag: false,//用于标记是否阵亡，否则会多次播放爆炸动画
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        let qqCurrentID = cc.sys.localStorage.getItem("currentSkinID");//获得当前气球索引，然后加载他的图片，设置相应的尾巴颜色
+        let addres = "qqTex/QQ";
+        //预留， 这里根据索引修改尾巴颜色！！！！！
+        switch (qqCurrentID) {
+            case "01":
+                this.tail.color = cc.hexToColor("#FFFFFF");
+                break;
+            case "02":
+                this.tail.color = cc.hexToColor("#EEEEEE");
+                break;
+            case "03":
+                this.tail.color = cc.hexToColor("#DDDDDD");
+                break;
+            case "04":
+                this.tail.color = cc.hexToColor("#CCCCCC");
+                break;
+            case "05":
+                this.tail.color = cc.hexToColor("#BBBBBB");
+                break;
+            case "06":
+                this.tail.color = cc.hexToColor("#AAAAAA");
+                break;
+            case "07":
+                this.tail.color = cc.hexToColor("#999999");
+                break;
+            case "08":
+                this.tail.color = cc.hexToColor("#888888");
+                break;
+            case "09":
+                this.tail.color = cc.hexToColor("#777777");
+                break;
+            case "10":
+                this.tail.color = cc.hexToColor("#666666");
+                break;
+        }
+
+        cc.log("addres --->" + addres);
+        let self = this;
+        cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
+            self.node.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
+        });
+    },
 
     start() {
         this.fixedPositon = this.node.position;

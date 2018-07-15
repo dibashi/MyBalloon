@@ -1057,6 +1057,9 @@
     "teXiaoBoom": {
       "__uuid__": "9786ff4f-a438-49ba-8488-384fa44c47d8"
     },
+    "tail": {
+      "__id__": 24
+    },
     "boomAudio": {
       "__uuid__": "8c2531cb-41c5-423e-b018-444247a14c0f"
     },
