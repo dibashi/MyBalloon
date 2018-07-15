@@ -207,12 +207,7 @@ cc.Class({
     },
 
     start() {
-        // let bs = cc.sys.localStorage.getItem('bestScore');
-        // this.setBestScore(parseInt(bs));
-
         wx.showShareMenu();
-
-
         wx.onShareAppMessage(function () {
             // 用户点击了“转发”按钮
             return {
@@ -221,8 +216,6 @@ cc.Class({
 
             }
         });
-
-
     },
 
     refreshSetting: function () {
