@@ -7536,6 +7536,9 @@
     "_enabled": true,
     "panels": {
       "__id__": 9
+    },
+    "diamondLabel": {
+      "__id__": 185
     }
   }
 ]

@@ -10,6 +10,11 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+
+        diamondLabel:{
+            default:null,
+            type: cc.Node,
+        },
     },
 
 
@@ -41,6 +46,9 @@ cc.Class({
 
             this._refreshSingleBtn(panel, suffix, currentQQID, isHasQQSkin);
         }
+
+        //刷新钻石显示
+        this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('diamondCount');
     },
 
 
