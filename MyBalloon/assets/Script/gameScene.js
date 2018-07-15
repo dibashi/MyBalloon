@@ -229,7 +229,7 @@ cc.Class({
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
             //获得的钻石 复活后 还是从现在拥有的 显示；
-            this.diamondCount = cc.sys.localStorage.getItem('diamondCount');;
+            this.diamondCount = parseInt( cc.sys.localStorage.getItem('diamondCount'));
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
 

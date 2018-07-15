@@ -24,12 +24,17 @@ cc.Class({
             type: cc.Node,
         },
 
-        scoreLabel:{
+        scoreLabel: {
             default: null,
             type: cc.Node,
         },
 
-        diamondLabel:{
+        diamondLabel: {
+            default: null,
+            type: cc.Node,
+        },
+
+        qqNode: {
             default: null,
             type: cc.Node,
         },
@@ -47,7 +52,7 @@ cc.Class({
 
         wx.shareAppMessage({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-            imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg", query:{otherID:query_string}
+            imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg", query: { otherID: query_string }
         });
     },
 
@@ -81,63 +86,101 @@ cc.Class({
     onLoad: function () {
 
         cc.audioEngine.stopMusic();
-        let self = this;
         this.userData = null;
-        // wx.getUserInfo({
-        //     openIdList: ['selfOpenId'],
-        //     success: (userRes) => {
-        //         self.userData = userRes.data[0];
-        //         console.log('玩家自己信息：--->', this.userData);
-        //     }
-        // });
-
-
-
-        // wx.onshow(res => {
-        //     if(res.scene === 1044){
-        //         if(res.query.from){
-        //             // show pk UI
-        //         }else{
-        //             // todo nothing
-        //         }
-        //     }
-        // });
-
 
         let isloaded = cc.sys.localStorage.getItem("isLoaded");
         if (isloaded == 0 || isloaded == null) {
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
 
-            window.wx.postMessage({
-                messageType: 3,
-                MAIN_MENU_NUM: "user_best_score",
-                score: 0,
-            });
+            // window.wx.postMessage({
+            //     messageType: 3,
+            //     MAIN_MENU_NUM: "user_best_score",
+            //     score: 0,
+            // });
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
             cc.sys.localStorage.setItem('diamondCount', 0);
-
             cc.sys.localStorage.setItem('recommendedCurrency', 0);
+
+            //拥有的皮肤数据存储，以及当前的皮肤数据存储
+            cc.sys.localStorage.setItem('qq01', 1);//默认拥有
+
+            cc.sys.localStorage.setItem('qq02', 0);
+            cc.sys.localStorage.setItem('qq03', 0);
+            cc.sys.localStorage.setItem('qq04', 0);
+            cc.sys.localStorage.setItem('qq05', 0);
+            cc.sys.localStorage.setItem('qq06', 0);
+            cc.sys.localStorage.setItem('qq07', 0);
+            cc.sys.localStorage.setItem('qq08', 0);
+            cc.sys.localStorage.setItem('qq09', 0);
+            cc.sys.localStorage.setItem('qq10', 0);
+            cc.sys.localStorage.setItem('currentSkinID', "01"); //当前使用的皮肤ID
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
-        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
-        this.getUerOpenID();
+        //this.getUerOpenID();
         this.refreshSetting();
-
+        this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
+        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
-        this.schedule(this.refreshrecommended,4);
+        //this.schedule(this.refreshrecommended,4);
     },
 
-    //从服务器获得用户的推荐奖励，并刷新在界面上
-    refreshrecommended:function() {
+    loadQQAndTail: function () {
+        let qqCurrentID = cc.sys.localStorage.getItem("currentSkinID");//获得当前气球索引，然后加载他的图片，设置相应的尾巴颜色
+        let addres = "qqTex/QQ";
+        //预留， 这里根据索引修改尾巴颜色！！！！！
+        switch (qqCurrentID) {
+            case "01":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFFFFF");
+                break;
+            case "02":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#EEEEEE");
+                break;
+            case "03":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#DDDDDD");
+                break;
+            case "04":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#CCCCCC");
+                break;
+            case "05":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#BBBBBB");
+                break;
+            case "06":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#AAAAAA");
+                break;
+            case "07":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#999999");
+                break;
+            case "08":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#888888");
+                break;
+            case "09":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#777777");
+                break;
+            case "10":
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#666666");
+                break;
+        }
+
+        cc.log("addres --->" + addres);
         let self = this;
-        let openid =cc.sys.localStorage.getItem("openid");
-        if(openid == "0") {
+        cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
+            self.qqNode.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
+        });
+    },
+
+
+
+    //从服务器获得用户的推荐奖励，并刷新在界面上
+    refreshrecommended: function () {
+        let self = this;
+        let openid = cc.sys.localStorage.getItem("openid");
+        if (openid == "0") {
             return;
         }
         wx.request({
@@ -148,14 +191,14 @@ cc.Class({
             success: (obj, statusCode, header) => {
                 console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
                 console.log(obj);
-                if(obj.data.code>0) {
-                    let rc = parseInt( cc.sys.localStorage.getItem('recommendedCurrency') ) + obj.data.code;
-                    cc.sys.localStorage.setItem('recommendedCurrency',rc);
+                if (obj.data.code > 0) {
+                    let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
+                    cc.sys.localStorage.setItem('recommendedCurrency', rc);
                     self.recommendedLabel.getComponent(cc.Label).string = rc;
                 }
             },
         });
-    },  
+    },
 
 
     getUerOpenID: function () {
@@ -218,15 +261,15 @@ cc.Class({
     },
 
     start() {
-        wx.showShareMenu();
-        wx.onShareAppMessage(function () {
-            // 用户点击了“转发”按钮
-            return {
-                title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
-                imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
+        // wx.showShareMenu();
+        // wx.onShareAppMessage(function () {
+        //     // 用户点击了“转发”按钮
+        //     return {
+        //         title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
+        //         imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
 
-            }
-        });
+        //     }
+        // });
     },
 
     refreshSetting: function () {

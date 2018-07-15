@@ -2117,9 +2117,7 @@
       "__id__": 51
     },
     "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "a9026201-30c1-43de-9cfc-ed7ca29f3fe1"
-    },
+    "_spriteFrame": null,
     "_type": 0,
     "_sizeMode": 1,
     "_fillType": 0,
@@ -2133,9 +2131,7 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": {
-      "__uuid__": "d692ad23-7666-49e8-8922-c2f2ad4cb0bc"
-    }
+    "_atlas": null
   },
   {
     "__type__": "cc.Canvas",
@@ -2178,6 +2174,9 @@
     },
     "diamondLabel": {
       "__id__": 36
+    },
+    "qqNode": {
+      "__id__": 51
     }
   }
 ]
