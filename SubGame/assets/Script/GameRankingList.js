@@ -15,6 +15,9 @@ cc.Class({
 
         headImageNode: cc.Node,
         waitingForBeyondFriends: null,
+
+        nameLabel:cc.Label,
+        scoreLabel:cc.Label,
     },
 
 
@@ -23,8 +26,8 @@ cc.Class({
         if (this.waitingForBeyondFriends == null || this.waitingForBeyondFriends.length == 0) {
             return;
         }
-      //  console.log(this.waitingForBeyondFriends.length);
-      //  console.log("看下待超越的数据组");
+        //  console.log(this.waitingForBeyondFriends.length);
+        //  console.log("看下待超越的数据组");
         // for (let j = 0; j < this.waitingForBeyondFriends.length; j++) {
         //     console.log(this.waitingForBeyondFriends[j]);
         // }
@@ -38,16 +41,51 @@ cc.Class({
                 break;
             }
         }
-        if(beyondIndex != -1) {
+        if (beyondIndex != -1) {
             this.beyondFriendNode.active = true;
             //splice 返回的是一个数组。一定要加索引来访问
             let beyondData = this.waitingForBeyondFriends.splice(beyondIndex, 1);
             // console.log("看下超越的玩家数据");
             // console.log(beyondData[0]);
-    
+
             this.initSprite(beyondData[0]);
         }
-       
+
+    },
+
+    nextBeyond: function (currentScore) {
+        if (this.waitingForBeyondFriends == null || this.waitingForBeyondFriends.length == 0) {
+            return;
+        }
+        //  console.log(this.waitingForBeyondFriends.length);
+        //  console.log("看下待超越的数据组");
+        // for (let j = 0; j < this.waitingForBeyondFriends.length; j++) {
+        //     console.log(this.waitingForBeyondFriends[j]);
+        // }
+
+
+        let nextBeyondIndex = -1;
+        for (let i = this.waitingForBeyondFriends.length - 1; i >= 0; i--) {//这个数据源是已经排好序的，但是是倒序从大到小
+            let otherScore = this.waitingForBeyondFriends[i].KVDataList.length != 0 ? this.waitingForBeyondFriends[i].KVDataList[0].value : 0;
+            if (currentScore < otherScore) {
+                nextBeyondIndex = i;
+                break;
+            }
+        }
+        if (nextBeyondIndex != -1) {
+            this.beyondFriendNode.active = true;
+            //splice 返回的是一个数组。一定要加索引来访问
+            //let beyondData = this.waitingForBeyondFriends.splice(beyondIndex, 1);
+            // console.log("看下超越的玩家数据");
+            // console.log(beyondData[0]);
+
+            this.initSprite(this.waitingForBeyondFriends[nextBeyondIndex]);
+            this.nameLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].nickname;
+            this.scoreLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].KVDataList[0].value;
+        } else {
+            this.beyondFriendNode.active = false;
+        }
+
     },
 
     initSprite: function (beyondData) {
@@ -57,9 +95,9 @@ cc.Class({
         //  console.log(this.headImageNode);
         //  console.log(this.headImageNode.getComponent(cc.Animation));
         this.createImage(avatarUrl);
-         let anim = this.headImageNode.getComponent(cc.Animation);
-         anim.play();
-       // this.headImageNode.runAction(cc.moveTo(5.0,cc.v2(200,200)));
+       // let anim = this.headImageNode.getComponent(cc.Animation);
+        //anim.play();
+        // this.headImageNode.runAction(cc.moveTo(5.0,cc.v2(200,200)));
     },
 
     createImage(avatarUrl) {
@@ -173,6 +211,8 @@ cc.Class({
                     this.fetchFriendDataToBeyond(data.MAIN_MENU_NUM);
                 } else if (data.messageType == 7) { //用于查询给的分数是否超过当前数据源中的分数，超过谁就显示谁，然后删除掉
                     this.isBeyond(data.currentScore);
+                } else if (data.messageType == 8) { //显示下个即将超越的好友
+                    this.nextBeyond(data.currentScore);
                 }
             });
         } else {
@@ -199,18 +239,18 @@ cc.Class({
                             //console.log('setUserCloudStorage', 'success', res)
                         },
                         fail: function (res) {
-                           // console.log('setUserCloudStorage', 'fail')
+                            // console.log('setUserCloudStorage', 'fail')
                         },
                         complete: function (res) {
-                          //  console.log('setUserCloudStorage', 'ok')
+                            //  console.log('setUserCloudStorage', 'ok')
                         }
                     });
                 },
                 fail: function (res) {
-                   // console.log('getUserCloudStorage', 'fail')
+                    // console.log('getUserCloudStorage', 'fail')
                 },
                 complete: function (res) {
-                   // console.log('getUserCloudStorage', 'ok')
+                    // console.log('getUserCloudStorage', 'ok')
                 }
             });
         } else {
@@ -236,13 +276,13 @@ cc.Class({
                 openIdList: ['selfOpenId'],
                 success: (userRes) => {
                     this.loadingLabel.active = false;
-                   // console.log('success', userRes.data)
+                    // console.log('success', userRes.data)
                     let userData = userRes.data[0];
                     //取出所有好友数据
                     wx.getFriendCloudStorage({
                         keyList: [MAIN_MENU_NUM],
                         success: res => {
-                          //  console.log("wx.getFriendCloudStorage success", res);
+                            //  console.log("wx.getFriendCloudStorage success", res);
                             let data = res.data;
                             data.sort((a, b) => {
                                 if (a.KVDataList.length == 0 && b.KVDataList.length == 0) {
@@ -272,7 +312,7 @@ cc.Class({
                             }
                         },
                         fail: res => {
-                          //  console.log("wx.getFriendCloudStorage fail", res);
+                            //  console.log("wx.getFriendCloudStorage fail", res);
                             this.loadingLabel.getComponent(cc.Label).string = "数据加载失败，请检测网络，谢谢。";
                         },
                     });
@@ -293,14 +333,14 @@ cc.Class({
             wx.getUserInfo({
                 openIdList: ['selfOpenId'],
                 success: (userRes) => {
-                  //  console.log('success', userRes.data)
+                    //  console.log('success', userRes.data)
                     let userData = userRes.data[0];
                     //取出所有好友数据
                     wx.getGroupCloudStorage({
                         shareTicket: shareTicket,
                         keyList: [MAIN_MENU_NUM],
                         success: res => {
-                          //  console.log("wx.getGroupCloudStorage success", res);
+                            //  console.log("wx.getGroupCloudStorage success", res);
                             this.loadingLabel.active = false;
                             let data = res.data;
                             data.sort((a, b) => {
@@ -329,7 +369,7 @@ cc.Class({
                             }
                         },
                         fail: res => {
-                           // console.log("wx.getFriendCloudStorage fail", res);
+                            // console.log("wx.getFriendCloudStorage fail", res);
                             this.loadingLabel.getComponent(cc.Label).string = "数据加载失败，请检测网络，谢谢。";
                         },
                     });
@@ -404,7 +444,7 @@ cc.Class({
                             }
                         },
                         fail: res => {
-                           // console.log("wx.getFriendCloudStorage fail", res);
+                            // console.log("wx.getFriendCloudStorage fail", res);
                             this.loadingLabel.getComponent(cc.Label).string = "数据加载失败，请检测网络，谢谢。";
                         },
                     });
