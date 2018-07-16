@@ -155,7 +155,7 @@ cc.Class({
     onLoad: function () {
         let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
         if (gameSoundBG == 1) {
-            cc.audioEngine.playMusic(this.gameAudio,true);
+            cc.audioEngine.playMusic(this.gameAudio, true);
         }
 
         this.h = 3840;
@@ -163,7 +163,7 @@ cc.Class({
         this.bgSpeed = 4;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
-        //this.diamondNode.active = false;//同上
+        this.diamondNode.active = false;//同上
 
         this.colorIndex = [
             { bgColor: '#5ac2de', yun3Color: '#84cade', yun2Color: '#add7e6' },
@@ -228,12 +228,12 @@ cc.Class({
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
-            //获得的钻石 复活后 还是从0显示；
-            this.diamondCount = 0;
+            //获得的钻石 复活后 还是从现在拥有的 显示；
+            this.diamondCount = parseInt( cc.sys.localStorage.getItem('diamondCount'));
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
-        
-            this.generateCheckpointByIndex(19, this.bg1.position);
+
+            this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
             this.schedule(this.addScore, 0.5);
         }
     },
@@ -279,6 +279,7 @@ cc.Class({
         let self = this;
 
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
+        cc.log(pathOfPrefab);
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
@@ -308,7 +309,7 @@ cc.Class({
         }
     },
 
-    addDiamond:function(value) {
+    addDiamond: function (value) {
         cc.log("~~! add diamond!");
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
@@ -323,9 +324,9 @@ cc.Class({
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
 
-            let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
-            cc.sys.localStorage.setItem("diamondCount",newDiamondCount);
-            cc.log("game over  --->" + newDiamondCount);
+            //   let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
+            cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
+           
             //“弹出”结束界面
             cc.eventManager.pauseTarget(this.node, true);
             let ss = cc.instantiate(this.reviveAlert);
@@ -384,9 +385,9 @@ cc.Class({
                 this.armatureDisplayWinpro.playAnimation("winpro");
                 this.node.addChild(aniWin);
                 //aniWin.setPosition(this.balloon.position);
-                aniWin.setPosition(0,0);
-                this.scheduleOnce(this.winProOver,3.0);
-               // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
+                aniWin.setPosition(0, 0);
+                this.scheduleOnce(this.winProOver, 3.0);
+                // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
 
         } else {
@@ -403,9 +404,9 @@ cc.Class({
             }
         }
     },
-    
-    winProOver:function() {
-    	cc.director.loadScene("selectCheckpoint");
+
+    winProOver: function () {
+        cc.director.loadScene("selectCheckpoint");
     },
 
     winOver: function () {

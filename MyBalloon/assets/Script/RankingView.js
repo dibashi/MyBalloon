@@ -8,22 +8,26 @@ cc.Class({
         rankingScrollView: cc.Sprite,//显示排行榜
     },
     onLoad() {
+        this.timer = 0;
     },
 
-    goStart:function() {
-        cc.director.loadScene('start');    
+    goStart: function () {
+        cc.director.loadScene('start');
     },
 
     start() {
         if (CC_WECHATGAME) {
-            window.wx.showShareMenu({withShareTicket: true});//设置分享按钮，方便获取群id展示群排行榜
+            window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
             this.tex = new cc.Texture2D();
             window.sharedCanvas.width = 1080;
             window.sharedCanvas.height = 1920;
             window.wx.postMessage({
                 messageType: 1,
-                MAIN_MENU_NUM: "x1"
+                MAIN_MENU_NUM: "user_best_score"
             });
+
+
+            this.scheduleOnce(this._updateSubDomainCanvas,3.0);
         }
     },
     friendButtonFunc(event) {
@@ -31,7 +35,7 @@ cc.Class({
             // 发消息给子域
             window.wx.postMessage({
                 messageType: 1,
-                MAIN_MENU_NUM: "x1"
+                MAIN_MENU_NUM: "user_best_score"
             });
         } else {
             cc.log("获取好友排行榜数据。x1");
@@ -45,7 +49,7 @@ cc.Class({
                     if (res.shareTickets != undefined && res.shareTickets.length > 0) {
                         window.wx.postMessage({
                             messageType: 5,
-                            MAIN_MENU_NUM: "x1",
+                            MAIN_MENU_NUM: "user_best_score",
                             shareTicket: res.shareTickets[0]
                         });
                     }
@@ -60,26 +64,26 @@ cc.Class({
         if (CC_WECHATGAME) {
             window.wx.postMessage({// 发消息给子域
                 messageType: 4,
-                MAIN_MENU_NUM: "x1"
+                MAIN_MENU_NUM: "user_best_score"
             });
         } else {
             cc.log("获取横向展示排行榜数据。x1");
         }
     },
-    
 
-    submitScoreButtonFunc(){
-        let score = 123;
-        if (CC_WECHATGAME) {
-            window.wx.postMessage({
-                messageType: 3,
-                MAIN_MENU_NUM: "x1",
-                score: score,
-            });
-        } else {
-            cc.log("提交得分: x1 : " + score)
-        }
-    },
+
+    // submitScoreButtonFunc(){
+    //     let score = 123;
+    //     if (CC_WECHATGAME) {
+    //         window.wx.postMessage({
+    //             messageType: 3,
+    //             MAIN_MENU_NUM: "user_best_score",
+    //             score: score,
+    //         });
+    //     } else {
+    //         cc.log("提交得分: x1 : " + score)
+    //     }
+    // },
 
     // 刷新子域的纹理
     _updateSubDomainCanvas() {
@@ -89,7 +93,13 @@ cc.Class({
             this.rankingScrollView.spriteFrame = new cc.SpriteFrame(this.tex);
         }
     },
-    update() {
-        this._updateSubDomainCanvas();
+    update(dt) {
+        //this._updateSubDomainCanvas();
+        // this.timer += dt;
+        // if (this.timer > 2) {
+        //     this._updateSubDomainCanvas();
+        //     this.timer = 0;
+        // }
+
     },
 });
