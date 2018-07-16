@@ -16,8 +16,8 @@ cc.Class({
         headImageNode: cc.Node,
         waitingForBeyondFriends: null,
 
-        nameLabel:cc.Label,
-        scoreLabel:cc.Label,
+        nameLabel: cc.Label,
+        scoreLabel: cc.Label,
     },
 
 
@@ -72,6 +72,8 @@ cc.Class({
                 break;
             }
         }
+
+        console.log("看下传到子域的当前得分！--》 " + currentScore);
         if (nextBeyondIndex != -1) {
             this.beyondFriendNode.active = true;
             //splice 返回的是一个数组。一定要加索引来访问
@@ -83,6 +85,7 @@ cc.Class({
             this.nameLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].nickname;
             this.scoreLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].KVDataList[0].value;
         } else {
+            console.log("执行到这里，隐藏了下个好友！");
             this.beyondFriendNode.active = false;
         }
 
@@ -95,7 +98,7 @@ cc.Class({
         //  console.log(this.headImageNode);
         //  console.log(this.headImageNode.getComponent(cc.Animation));
         this.createImage(avatarUrl);
-       // let anim = this.headImageNode.getComponent(cc.Animation);
+        // let anim = this.headImageNode.getComponent(cc.Animation);
         //anim.play();
         // this.headImageNode.runAction(cc.moveTo(5.0,cc.v2(200,200)));
     },
@@ -207,11 +210,11 @@ cc.Class({
                 } else if (data.messageType == 6) {//用于游戏内的超越功能的数据源获取
                     this.removeChild();
                     this.loadingLabel.active = false;
-                    // this.beyondFriendNode.active = true;
                     this.fetchFriendDataToBeyond(data.MAIN_MENU_NUM);
                 } else if (data.messageType == 7) { //用于查询给的分数是否超过当前数据源中的分数，超过谁就显示谁，然后删除掉
                     this.isBeyond(data.currentScore);
                 } else if (data.messageType == 8) { //显示下个即将超越的好友
+                    this.beyondFriendNode.active = true;
                     this.nextBeyond(data.currentScore);
                 }
             });
