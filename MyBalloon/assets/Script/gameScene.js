@@ -319,7 +319,7 @@ cc.Class({
 
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
         cc.log(pathOfPrefab);
-        cc.log(pathOfPrefab);
+        console.log(pathOfPrefab);
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
