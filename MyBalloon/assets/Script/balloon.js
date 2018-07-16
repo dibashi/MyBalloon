@@ -61,31 +61,31 @@ cc.Class({
                 this.tail.color = cc.hexToColor("#FFFFFF");
                 break;
             case "02":
-                this.tail.color = cc.hexToColor("#EEEEEE");
+                this.tail.color = cc.hexToColor("#242424");
                 break;
             case "03":
-                this.tail.color = cc.hexToColor("#DDDDDD");
+                this.tail.color = cc.hexToColor("#FFEC0C");
                 break;
             case "04":
-                this.tail.color = cc.hexToColor("#CCCCCC");
+                this.tail.color = cc.hexToColor("#00FF00");
                 break;
             case "05":
-                this.tail.color = cc.hexToColor("#BBBBBB");
+                this.tail.color = cc.hexToColor("#C70000");
                 break;
             case "06":
-                this.tail.color = cc.hexToColor("#AAAAAA");
+                this.tail.color = cc.hexToColor("#61CCFF");
                 break;
             case "07":
-                this.tail.color = cc.hexToColor("#999999");
+                this.tail.color = cc.hexToColor("#F04FFD");
                 break;
             case "08":
-                this.tail.color = cc.hexToColor("#888888");
+                this.tail.color = cc.hexToColor("#FF4700");
                 break;
             case "09":
-                this.tail.color = cc.hexToColor("#777777");
+                this.tail.color = cc.hexToColor("#FFC01D");
                 break;
             case "10":
-                this.tail.color = cc.hexToColor("#666666");
+                this.tail.color = cc.hexToColor("#D6FF8D");
                 break;
         }
 

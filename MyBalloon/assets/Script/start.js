@@ -139,31 +139,31 @@ cc.Class({
                 this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFFFFF");
                 break;
             case "02":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#EEEEEE");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#242424");
                 break;
             case "03":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#DDDDDD");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFEC0C");
                 break;
             case "04":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#CCCCCC");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#00FF00");
                 break;
             case "05":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#BBBBBB");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#C70000");
                 break;
             case "06":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#AAAAAA");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#61CCFF");
                 break;
             case "07":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#999999");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#F04FFD");
                 break;
             case "08":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#888888");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF4700");
                 break;
             case "09":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#777777");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFC01D");
                 break;
             case "10":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#666666");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#D6FF8D");
                 break;
         }
 
