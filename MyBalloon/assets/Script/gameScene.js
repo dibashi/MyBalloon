@@ -234,7 +234,7 @@ cc.Class({
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
 
             this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
-            this.schedule(this.addScore, 0.5);
+            this.schedule(this.addScore, 1);//1秒给1分
         }
     },
 
