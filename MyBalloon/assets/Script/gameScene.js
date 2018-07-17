@@ -337,7 +337,7 @@ cc.Class({
         this.gameLayer.getComponent("gameLayer").currentNode = currentNode;
 
         //递归：给子节点下的所有子节点以刚体速度
-        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 70);
+        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 75);
     },
 
     //给关卡中的所有刚体 一个速度 让其和背景一起下落
