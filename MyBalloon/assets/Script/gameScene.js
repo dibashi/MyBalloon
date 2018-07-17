@@ -246,21 +246,23 @@ cc.Class({
             this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
             this.schedule(this.addScore, 1);//1秒给1分
 
-             //5秒钟，刷新一次下个即将超越的好友头像 注：时间设置的越长性能越好，越短则越精确。
-             this.schedule(this.seeNextBeyondFriend,5);
-             this.tex = new cc.Texture2D();
+            //5秒钟，刷新一次下个即将超越的好友头像 注：时间设置的越长性能越好，越短则越精确。
+            this.schedule(this.seeNextBeyondFriend, 5);
+            this.tex = new cc.Texture2D();
         }
     },
 
     sendMessageToSubdomainGetFriendDatas: function () {
+        window.sharedCanvas.width = 1080;
+        window.sharedCanvas.height = 1920;
         window.wx.postMessage({
             messageType: 6,
             MAIN_MENU_NUM: "user_best_score"
         });
     },
 
-     // 刷新子域的纹理
-     _updateSubDomainCanvas() {
+    // 刷新子域的纹理
+    _updateSubDomainCanvas() {
         if (window.sharedCanvas != undefined) {
             this.tex.initWithElement(window.sharedCanvas);
             this.tex.handleLoadedTexture();
@@ -268,13 +270,13 @@ cc.Class({
         }
     },
 
-    seeNextBeyondFriend:function() {
+    seeNextBeyondFriend: function () {
         let self = this;
         window.wx.postMessage({
             messageType: 8,
             currentScore: self.defen,
         });
-        self.scheduleOnce(this._updateSubDomainCanvas,1);
+        self.scheduleOnce(this._updateSubDomainCanvas, 1);
     },
 
     addScore: function () {

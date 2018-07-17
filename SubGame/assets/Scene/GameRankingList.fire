@@ -63,7 +63,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 25
+        "__id__": 26
       }
     ],
     "_prefab": null,
@@ -128,7 +128,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 24
+        "__id__": 25
       }
     ],
     "_prefab": null,
@@ -491,7 +491,7 @@
     },
     "_children": [],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [
       {
         "__id__": 13
@@ -579,7 +579,11 @@
     ],
     "_tag": -1,
     "_active": true,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 24
+      }
+    ],
     "_prefab": null,
     "_id": "fcuPzXu5pC4L+8mbX64eVl",
     "_opacity": 255,
@@ -598,8 +602,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 687,
-      "height": 849
+      "width": 0,
+      "height": 0
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -607,8 +611,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 240
+      "x": 440,
+      "y": 560
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -650,8 +654,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 60
+      "width": 120,
+      "height": 30
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -659,8 +663,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 158
+      "x": 4,
+      "y": 144
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -678,9 +682,9 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 60,
-    "_fontSize": 60,
-    "_lineHeight": 60,
+    "_actualFontSize": 30,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -727,8 +731,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 255,
-      "height": 255
+      "width": 144,
+      "height": 144
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -736,8 +740,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
+      "x": 3,
+      "y": 54
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -823,8 +827,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
-      "height": 60
+      "width": 120,
+      "height": 30
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -833,7 +837,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 4,
-      "y": -164
+      "y": -39
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -851,9 +855,9 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 60,
-    "_fontSize": 60,
-    "_lineHeight": 60,
+    "_actualFontSize": 30,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -897,8 +901,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 167,
-      "height": 60
+      "width": 83,
+      "height": 30
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -906,8 +910,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 1,
-      "y": -229
+      "x": 0,
+      "y": -71
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -925,9 +929,9 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 60,
-    "_fontSize": 60,
-    "_lineHeight": 60,
+    "_actualFontSize": 30,
+    "_fontSize": 30,
+    "_lineHeight": 30,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -937,6 +941,32 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0
+  },
+  {
+    "__type__": "cc.Widget",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 14
+    },
+    "_enabled": true,
+    "isAlignOnce": true,
+    "_target": null,
+    "_alignFlags": 33,
+    "_left": 0,
+    "_right": 100,
+    "_top": 400,
+    "_bottom": 0,
+    "_verticalCenter": 0,
+    "_horizontalCenter": 0,
+    "_isAbsLeft": true,
+    "_isAbsRight": true,
+    "_isAbsTop": true,
+    "_isAbsBottom": true,
+    "_isAbsHorizontalCenter": true,
+    "_isAbsVerticalCenter": true,
+    "_originalWidth": 0,
+    "_originalHeight": 0
   },
   {
     "__type__": "a0ea2Faum1JDKkSr0Ka631L",
