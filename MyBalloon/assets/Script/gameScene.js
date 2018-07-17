@@ -132,6 +132,12 @@ cc.Class({
         },
 
 
+        nextFriend: {
+            default: null,
+            type: cc.Sprite,
+        },
+
+
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
         bgMinY: -2880,//下限 超过这个值 背景挪上去
@@ -216,6 +222,10 @@ cc.Class({
         if (this.guanKa != -1) {
             this.generateCheckpointByID(this.guanKa, this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
+
+            //向子域发送请求，获得所有的好友数据
+            this.sendMessageToSubdomainGetFriendDatas();
+
             this.scoreNode.active = true;
             this.diamondNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
@@ -229,13 +239,44 @@ cc.Class({
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
             //获得的钻石 复活后 还是从现在拥有的 显示；
-            this.diamondCount = parseInt( cc.sys.localStorage.getItem('diamondCount'));
+            this.diamondCount = parseInt(cc.sys.localStorage.getItem('diamondCount'));
             this.scoreLabel.getComponent(cc.Label).string = this.defen;
             this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
 
             this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
-            this.schedule(this.addScore, 0.5);
+            this.schedule(this.addScore, 1);//1秒给1分
+
+            //5秒钟，刷新一次下个即将超越的好友头像 注：时间设置的越长性能越好，越短则越精确。
+            this.schedule(this.seeNextBeyondFriend, 5);
+            this.tex = new cc.Texture2D();
         }
+    },
+
+    sendMessageToSubdomainGetFriendDatas: function () {
+        window.sharedCanvas.width = 1080;
+        window.sharedCanvas.height = 1920;
+        window.wx.postMessage({
+            messageType: 6,
+            MAIN_MENU_NUM: "user_best_score"
+        });
+    },
+
+    // 刷新子域的纹理
+    _updateSubDomainCanvas() {
+        if (window.sharedCanvas != undefined) {
+            this.tex.initWithElement(window.sharedCanvas);
+            this.tex.handleLoadedTexture();
+            this.nextFriend.spriteFrame = new cc.SpriteFrame(this.tex);
+        }
+    },
+
+    seeNextBeyondFriend: function () {
+        let self = this;
+        window.wx.postMessage({
+            messageType: 8,
+            currentScore: self.defen,
+        });
+        self.scheduleOnce(this._updateSubDomainCanvas, 1);
     },
 
     addScore: function () {
@@ -280,6 +321,7 @@ cc.Class({
 
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
         cc.log(pathOfPrefab);
+        console.log(pathOfPrefab);
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
@@ -295,7 +337,7 @@ cc.Class({
         this.gameLayer.getComponent("gameLayer").currentNode = currentNode;
 
         //递归：给子节点下的所有子节点以刚体速度
-        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 60);
+        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 75);
     },
 
     //给关卡中的所有刚体 一个速度 让其和背景一起下落
@@ -326,7 +368,7 @@ cc.Class({
 
             //   let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
-           
+
             //“弹出”结束界面
             cc.eventManager.pauseTarget(this.node, true);
             let ss = cc.instantiate(this.reviveAlert);

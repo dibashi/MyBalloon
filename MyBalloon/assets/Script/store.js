@@ -11,9 +11,24 @@ cc.Class({
             type: cc.Node,
         },
 
-        diamondLabel:{
-            default:null,
+        diamondLabel: {
+            default: null,
             type: cc.Node,
+        },
+
+        goumaiSprite: {
+            default: null,
+            type: cc.Sprite,
+        },
+
+        selectSprite: {
+            default: null,
+            type: cc.Sprite,
+        },
+
+        selectedSprite: {
+            default: null,
+            type: cc.Sprite,
         },
     },
 
@@ -56,20 +71,22 @@ cc.Class({
         if (isHasQQSkin) { //已拥有
             cc.log("显示使用 隐藏 价格")
             panel.getChildByName("priceNode").active = false;
-            panel.getChildByName("useLabel").active = true;
+            //panel.getChildByName("useLabel").active = true;
+            if (currentQQID == suffix) { //已使用
+                cc.log("当前已使用");
+                panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.selectedSprite.spriteFrame;
+                panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
+            } else {
+                cc.log("当前未使用");
+                panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.selectSprite.spriteFrame;
+                panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+            }
         } else {
             cc.log("显示价格 隐藏 使用")
             panel.getChildByName("priceNode").active = true;
-            panel.getChildByName("useLabel").active = false;
-        }
+            //panel.getChildByName("useLabel").active = false;
 
-        if (currentQQID == suffix) {
-            cc.log("当前已使用");
-            panel.getChildByName("useLabel").getComponent(cc.Label).string = "已使用";
-            panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
-        } else {
-            cc.log("当前未使用");
-            panel.getChildByName("useLabel").getComponent(cc.Label).string = "使用";
+            panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.goumaiSprite.spriteFrame;
             panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
         }
     },
