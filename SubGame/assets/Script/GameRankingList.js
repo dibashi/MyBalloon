@@ -55,6 +55,7 @@ cc.Class({
 
     nextBeyond: function (currentScore) {
         if (this.waitingForBeyondFriends == null || this.waitingForBeyondFriends.length == 0) {
+            this.beyondFriendNode.active = false;
             return;
         }
         //  console.log(this.waitingForBeyondFriends.length);
