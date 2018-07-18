@@ -48,7 +48,7 @@ cc.Class({
 
     goShare: function () {
         let query_string = cc.sys.localStorage.getItem("openid");
-        console.log("准备发送请求的 query " + query_string);
+        //console.log("准备发送请求的 query " + query_string);
 
         wx.shareAppMessage({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
@@ -167,7 +167,7 @@ cc.Class({
                 break;
         }
 
-        cc.log("addres --->" + addres);
+        //cc.log("addres --->" + addres);
         let self = this;
         cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
             self.qqNode.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
@@ -189,8 +189,8 @@ cc.Class({
                 userid: openid,
             },
             success: (obj, statusCode, header) => {
-                console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
-                console.log(obj);
+               // console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
+               // console.log(obj);
                 if (obj.data.code > 0) {
                     let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
                     cc.sys.localStorage.setItem('recommendedCurrency', rc);
@@ -202,15 +202,15 @@ cc.Class({
 
 
     getUerOpenID: function () {
-        console.log("getUserOpenID!");
+       // console.log("getUserOpenID!");
         let self = this;
         self.openid = cc.sys.localStorage.getItem("openid");
         if (self.openid == "0") {//保证用户是第一次进游戏
-            console.log("发送wx.login请求!");
+           // console.log("发送wx.login请求!");
             wx.login({
                 success: (res) => {
                     let codeInfo = res.code;
-                    console.log('start场景，codeInfo：--->', codeInfo);
+                   // console.log('start场景，codeInfo：--->', codeInfo);
                     if (res.code) {
                         //发起网络请求
                         wx.request({
@@ -219,20 +219,20 @@ cc.Class({
                                 code: res.code,
                             },
                             success: (obj, statusCode, header) => {
-                                console.log("请求openid,服务器返回的数据！！--> " + obj);
-                                console.log(obj.data.openid);
+                               // console.log("请求openid,服务器返回的数据！！--> " + obj);
+                               // console.log(obj.data.openid);
 
                                 self.openid = obj.data.openid;
                                 cc.sys.localStorage.setItem("openid", obj.data.openid);//之所以要存，是在分享的时候放入query中
 
                                 var launchOption = wx.getLaunchOptionsSync();
-                                console.log(launchOption);
+                               // console.log(launchOption);
                                 if (launchOption.query.otherID == null || launchOption.query.otherID == undefined) {
                                     launchOption.query.otherID = 0;
                                 }
-                                console.log("看下 自己的openid 和 推荐方的openid");
-                                console.log(self.openid);
-                                console.log(launchOption.query.otherID);
+                              //  console.log("看下 自己的openid 和 推荐方的openid");
+                              //  console.log(self.openid);
+                              //  console.log(launchOption.query.otherID);
                                 wx.request({
                                     url: 'https://bpw.blyule.com/public/index.php/index/index/add?userid=' + self.openid + "&" + "cuid=" + launchOption.query.otherID,
                                     data: {
@@ -240,11 +240,11 @@ cc.Class({
                                         cuid: launchOption.query.otherID,
                                     },
                                     success: (data, statusCode, header) => {
-                                        console.log("添加用户成功！ 服务器返回的数据！！--> ");
-                                        console.log(data);
+                                       // console.log("添加用户成功！ 服务器返回的数据！！--> ");
+                                       // console.log(data);
 
-                                        console.log("看下自己的openid数据！！--> ");
-                                        console.log(self.openid);
+                                       // console.log("看下自己的openid数据！！--> ");
+                                      //  console.log(self.openid);
                                     },
                                 });
 
@@ -275,7 +275,7 @@ cc.Class({
     refreshSetting: function () {
         let gsb = cc.sys.localStorage.getItem("gameSoundBG");
 
-        cc.log(gsb + "  !!");
+       // cc.log(gsb + "  !!");
         if (gsb == 1) {
             this.settingNode.getComponent(cc.Sprite).spriteFrame = this.settingOnImg.getComponent(cc.Sprite).spriteFrame;
         } else {

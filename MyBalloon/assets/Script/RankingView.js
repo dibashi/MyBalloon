@@ -38,7 +38,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-            cc.log("获取好友排行榜数据。x1");
+         
         }
     },
 
@@ -56,7 +56,7 @@ cc.Class({
                 }
             });
         } else {
-            cc.log("获取群排行榜数据。x1");
+           
         }
     },
 
@@ -67,7 +67,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-            cc.log("获取横向展示排行榜数据。x1");
+            
         }
     },
 

@@ -230,11 +230,11 @@ cc.Class({
             this.diamondNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
             let goNewBalloonFlag = cc.sys.localStorage.getItem("goNewBalloon-flag");
-            cc.log("!!!!!!!---> " + goNewBalloonFlag);
+         
             if (goNewBalloonFlag != "1") {
                 this.defen = 0;
             } else {
-                cc.log("执行到了！");
+              
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
@@ -316,12 +316,11 @@ cc.Class({
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
     generateCheckpointByIndex: function (index, position) {
-        cc.log("执行一次！");
+     
         let self = this;
 
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
-        cc.log(pathOfPrefab);
-        console.log(pathOfPrefab);
+      
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
@@ -352,7 +351,7 @@ cc.Class({
     },
 
     addDiamond: function (value) {
-        cc.log("~~! add diamond!");
+     
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
     },
@@ -381,7 +380,7 @@ cc.Class({
     },
 
     goNewBalloon: function () {
-        cc.log("goNewBalloon");
+      
         cc.sys.localStorage.setItem("goNewBalloon-defen", this.defen);
         cc.sys.localStorage.setItem("goNewBalloon-flag", "1");
         cc.director.loadScene("gameScene");
