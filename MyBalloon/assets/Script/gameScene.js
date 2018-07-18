@@ -364,6 +364,12 @@ cc.Class({
             if (this.defen > bestScore) {
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
+            let self = this;
+            window.wx.postMessage({
+                messageType: 3,
+                MAIN_MENU_NUM: "user_best_score",
+                score: self.defen,
+            });
 
             //   let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
