@@ -52,7 +52,7 @@ cc.Class({
 
         wx.shareAppMessage({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-            imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg", query: { otherID: query_string }
+            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: { otherID: query_string }
         });
     },
 
@@ -266,7 +266,7 @@ cc.Class({
             // 用户点击了“转发”按钮
             return {
                 title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
-                imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
+                imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg"
 
             }
         });
