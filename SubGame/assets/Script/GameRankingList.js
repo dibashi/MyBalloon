@@ -113,13 +113,13 @@ cc.Class({
                     texture.handleLoadedTexture();
                     this.headImageNode.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
                 } catch (e) {
-                    cc.log(e);
+                   // cc.log(e);
                     this.headImageNode.active = false;
                 }
             };
             image.src = avatarUrl;
         } catch (e) {
-            cc.log(e);
+           // cc.log(e);
             this.headImageNode.active = false;
         }
     },
@@ -196,7 +196,7 @@ cc.Class({
         this.removeChild();
         if (CC_WECHATGAME) {
             window.wx.onMessage(data => {
-                cc.log("接收主域发来消息：", data)
+              //  cc.log("接收主域发来消息：", data)
                 if (data.messageType == 0) {//移除排行榜
                     this.removeChild();
                 } else if (data.messageType == 1) {//获取好友排行榜
@@ -257,7 +257,7 @@ cc.Class({
                 }
             });
         } else {
-            cc.log("提交得分:" + MAIN_MENU_NUM + " : " + score)
+          //  cc.log("提交得分:" + MAIN_MENU_NUM + " : " + score)
         }
     },
     removeChild() {
@@ -391,13 +391,13 @@ cc.Class({
             wx.getUserInfo({
                 openIdList: ['selfOpenId'],
                 success: (userRes) => {
-                    cc.log('success', userRes.data)
+                //    cc.log('success', userRes.data)
                     let userData = userRes.data[0];
                     //取出所有好友数据
                     wx.getFriendCloudStorage({
                         keyList: [MAIN_MENU_NUM],
                         success: res => {
-                            cc.log("wx.getFriendCloudStorage success", res);
+                     //       cc.log("wx.getFriendCloudStorage success", res);
                             this.loadingLabel.active = false;
                             let data = res.data;
                             data.sort((a, b) => {
