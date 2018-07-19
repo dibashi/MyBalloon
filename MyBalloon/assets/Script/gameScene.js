@@ -141,7 +141,7 @@ cc.Class({
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
         bgMinY: -2880,//下限 超过这个值 背景挪上去
-        bgSpeed: 8,//背景的移动速度
+        bgSpeed: 0,//背景的移动速度
 
         guanKa: 0,//0代表无尽模式
 
@@ -166,7 +166,7 @@ cc.Class({
 
         this.h = 3840;
         this.bgMinY = -2880;
-        this.bgSpeed = 4;
+        this.bgSpeed = 6;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
         this.diamondNode.active = false;//同上
@@ -247,7 +247,9 @@ cc.Class({
             this.schedule(this.addScore, 1);//1秒给1分
 
             //5秒钟，刷新一次下个即将超越的好友头像 注：时间设置的越长性能越好，越短则越精确。
-            this.schedule(this.seeNextBeyondFriend, 5);
+            //废弃，这种方式会使得游戏5秒一卡，在云出现的时候加载试试 放在了 update的判断中
+            //this.schedule(this.seeNextBeyondFriend, 5);
+           
             this.tex = new cc.Texture2D();
         }
     },
@@ -316,9 +318,7 @@ cc.Class({
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
     generateCheckpointByIndex: function (index, position) {
-     
         let self = this;
-
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
       
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
@@ -351,7 +351,6 @@ cc.Class({
     },
 
     addDiamond: function (value) {
-     
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
     },
@@ -371,7 +370,6 @@ cc.Class({
                 score: self.defen,
             });
 
-            //   let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
             //“弹出”结束界面
@@ -431,10 +429,8 @@ cc.Class({
                 this.armatureDisplayWinpro = aniWin.getComponent(dragonBones.ArmatureDisplay);
                 this.armatureDisplayWinpro.playAnimation("winpro");
                 this.node.addChild(aniWin);
-                //aniWin.setPosition(this.balloon.position);
                 aniWin.setPosition(0, 0);
                 this.scheduleOnce(this.winProOver, 3.0);
-                // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
 
         } else {
@@ -448,6 +444,8 @@ cc.Class({
                     this.generateCheckpointByIndex(this.getGuanKa(), this.bg2.position);
                 }
                 this.isLoadNextCheckPoint = true;
+                //云出现，3秒后刷新超越好友
+                this.scheduleOnce(this.seeNextBeyondFriend,3);
             }
         }
     },
