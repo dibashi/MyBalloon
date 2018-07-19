@@ -70,9 +70,9 @@ cc.Class({
         this.node.runAction(actionFadeOut);
     },
 
-    onReNewClick: function () {
+    onCancelClick: function () {
        
-        cc.director.loadScene("gameScene");
+        cc.director.loadScene("end");
     },
 
     onFadeOutFinish: function () {
@@ -82,7 +82,7 @@ cc.Class({
 
     cancel: function () {
        
-        cc.director.loadScene('start');
+        cc.director.loadScene('end');
     },
 });
 
