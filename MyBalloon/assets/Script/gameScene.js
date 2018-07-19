@@ -363,6 +363,8 @@ cc.Class({
             if (this.defen > bestScore) {
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
+            //这个是结束界面要用的本局得分
+            cc.sys.localStorage.setItem("currentScore",this.defen);
             let self = this;
             window.wx.postMessage({
                 messageType: 3,
