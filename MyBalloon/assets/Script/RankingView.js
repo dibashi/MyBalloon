@@ -6,6 +6,7 @@ cc.Class({
         friendButton: cc.Node,
         gameOverButton: cc.Node,
         rankingScrollView: cc.Sprite,//显示排行榜
+        loadLabel:cc.Node,//显示加载中的label
     },
     onLoad() {
         this.timer = 0;
@@ -28,8 +29,14 @@ cc.Class({
 
 
             this.scheduleOnce(this._updateSubDomainCanvas,3.0);
+            this.scheduleOnce(this.closeTips,3.0);
         }
     },
+
+    closeTips:function() {
+        this.loadLabel.active = false;
+    },
+
     friendButtonFunc(event) {
         if (CC_WECHATGAME) {
             // 发消息给子域
