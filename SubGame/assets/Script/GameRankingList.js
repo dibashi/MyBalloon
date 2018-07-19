@@ -114,13 +114,13 @@ cc.Class({
                     texture.handleLoadedTexture();
                     this.headImageNode.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
                 } catch (e) {
-                   // cc.log(e);
+                    // cc.log(e);
                     this.headImageNode.active = false;
                 }
             };
             image.src = avatarUrl;
         } catch (e) {
-           // cc.log(e);
+            // cc.log(e);
             this.headImageNode.active = false;
         }
     },
@@ -195,34 +195,31 @@ cc.Class({
         //console.log("运行到 排行list！！！！");
 
         this.removeChild();
-        if (CC_WECHATGAME) {
-            window.wx.onMessage(data => {
-              //  cc.log("接收主域发来消息：", data)
-                if (data.messageType == 0) {//移除排行榜
-                    this.removeChild();
-                } else if (data.messageType == 1) {//获取好友排行榜
-                    this.fetchFriendData(data.MAIN_MENU_NUM);
-                } else if (data.messageType == 3) {//提交得分
-                    this.submitScore(data.MAIN_MENU_NUM, data.score);
-                } else if (data.messageType == 4) {//获取好友排行榜横向排列展示模式
-                    this.gameOverRank(data.MAIN_MENU_NUM);
-                } else if (data.messageType == 5) {//获取群排行榜
-                    this.fetchGroupFriendData(data.MAIN_MENU_NUM, data.shareTicket);
-                } else if (data.messageType == 6) {//用于游戏内的超越功能的数据源获取
-                    this.removeChild();
-                    this.loadingLabel.active = false;
-                    this.fetchFriendDataToBeyond(data.MAIN_MENU_NUM);
-                } else if (data.messageType == 7) { //用于查询给的分数是否超过当前数据源中的分数，超过谁就显示谁，然后删除掉
-                    this.isBeyond(data.currentScore);
-                } else if (data.messageType == 8) { //显示下个即将超越的好友
-                    this.beyondFriendNode.active = true;
-                    this.nextBeyond(data.currentScore);
-                }
-            });
-        } else {
-            this.fetchFriendData(1000);
-            // this.gameOverRank(1000);
-        }
+
+        window.wx.onMessage(data => {
+            //  cc.log("接收主域发来消息：", data)
+            if (data.messageType == 0) {//移除排行榜
+                this.removeChild();
+            } else if (data.messageType == 1) {//获取好友排行榜
+                this.fetchFriendData(data.MAIN_MENU_NUM);
+            } else if (data.messageType == 3) {//提交得分
+                this.submitScore(data.MAIN_MENU_NUM, data.score);
+            } else if (data.messageType == 4) {//获取好友排行榜横向排列展示模式
+                this.gameOverRank(data.MAIN_MENU_NUM);
+            } else if (data.messageType == 5) {//获取群排行榜
+                this.fetchGroupFriendData(data.MAIN_MENU_NUM, data.shareTicket);
+            } else if (data.messageType == 6) {//用于游戏内的超越功能的数据源获取
+                this.removeChild();
+                this.loadingLabel.active = false;
+                this.fetchFriendDataToBeyond(data.MAIN_MENU_NUM);
+            } else if (data.messageType == 7) { //用于查询给的分数是否超过当前数据源中的分数，超过谁就显示谁，然后删除掉
+                this.isBeyond(data.currentScore);
+            } else if (data.messageType == 8) { //显示下个即将超越的好友
+                this.beyondFriendNode.active = true;
+                this.nextBeyond(data.currentScore);
+            }
+        });
+
     },
     submitScore(MAIN_MENU_NUM, score) { //提交得分
         if (CC_WECHATGAME) {
@@ -258,7 +255,7 @@ cc.Class({
                 }
             });
         } else {
-          //  cc.log("提交得分:" + MAIN_MENU_NUM + " : " + score)
+            //  cc.log("提交得分:" + MAIN_MENU_NUM + " : " + score)
         }
     },
     removeChild() {
@@ -392,13 +389,13 @@ cc.Class({
             wx.getUserInfo({
                 openIdList: ['selfOpenId'],
                 success: (userRes) => {
-                //    cc.log('success', userRes.data)
+                    //    cc.log('success', userRes.data)
                     let userData = userRes.data[0];
                     //取出所有好友数据
                     wx.getFriendCloudStorage({
                         keyList: [MAIN_MENU_NUM],
                         success: res => {
-                     //       cc.log("wx.getFriendCloudStorage success", res);
+                            //       cc.log("wx.getFriendCloudStorage success", res);
                             this.loadingLabel.active = false;
                             let data = res.data;
                             data.sort((a, b) => {
