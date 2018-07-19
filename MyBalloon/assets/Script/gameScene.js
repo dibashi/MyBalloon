@@ -436,7 +436,7 @@ cc.Class({
         } else {
             this.yuns.y -= this.bgSpeed * dt * 60;
             //如果未加载下一关，且云已经出现且是无尽模式
-            if (this.isLoadNextCheckPoint == false && this.yuns.y < 960 && this.guanKa == -1) {
+            if (this.isLoadNextCheckPoint == false && this.yuns.y < 0 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
                 if (this.bg1.y > this.bg2.y) {
                     this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
@@ -445,7 +445,7 @@ cc.Class({
                 }
                 this.isLoadNextCheckPoint = true;
                 //云出现，3秒后刷新超越好友
-                this.scheduleOnce(this.seeNextBeyondFriend,3);
+                this.scheduleOnce(this.seeNextBeyondFriend,1);
             }
         }
     },
