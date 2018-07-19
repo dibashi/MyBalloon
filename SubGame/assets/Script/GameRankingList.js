@@ -265,7 +265,7 @@ cc.Class({
         this.gameOverRankLayout.active = false;
         this.gameOverRankLayout.removeAllChildren();
         this.loadingLabel.getComponent(cc.Label).string = "玩命加载中...";
-        this.loadingLabel.active = true;
+        this.loadingLabel.active = false;
 
         this.beyondFriendNode.active = false;
     },
