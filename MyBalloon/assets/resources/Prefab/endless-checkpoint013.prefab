@@ -578,7 +578,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -738,7 +738,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -898,7 +898,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -1058,7 +1058,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -1218,7 +1218,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -1378,7 +1378,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -1538,7 +1538,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -1698,7 +1698,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -1858,7 +1858,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2018,7 +2018,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2178,7 +2178,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2338,7 +2338,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2498,7 +2498,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2658,7 +2658,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2818,7 +2818,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -2978,7 +2978,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -3138,7 +3138,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -3298,7 +3298,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -3458,7 +3458,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -3618,7 +3618,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -3778,7 +3778,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -3938,7 +3938,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -4098,7 +4098,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -4258,7 +4258,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -4418,7 +4418,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -4578,7 +4578,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -4738,7 +4738,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -4898,7 +4898,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -5058,7 +5058,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -5218,7 +5218,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -5378,7 +5378,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -5538,7 +5538,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -5698,7 +5698,7 @@
     "_density": 2000,
     "_sensor": false,
     "_friction": 0.2,
-    "_restitution": 0.1,
+    "_restitution": 0,
     "body": null,
     "_offset": {
       "__type__": "cc.Vec2",
