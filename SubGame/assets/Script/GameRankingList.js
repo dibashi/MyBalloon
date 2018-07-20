@@ -18,6 +18,8 @@ cc.Class({
 
         nameLabel: cc.Label,
         scoreLabel: cc.Label,
+
+        overNode:cc.Node,
     },
 
 
@@ -262,7 +264,7 @@ cc.Class({
         this.node.removeChildByTag(1000);
         this.rankingScrollView.node.active = false;
         this.scrollViewContent.removeAllChildren();
-        this.gameOverRankLayout.active = false;
+        this.overNode.active = false;
         this.gameOverRankLayout.removeAllChildren();
         this.loadingLabel.getComponent(cc.Label).string = "玩命加载中...";
         this.loadingLabel.active = false;
@@ -384,7 +386,7 @@ cc.Class({
 
     gameOverRank(MAIN_MENU_NUM) {
         this.removeChild();
-        this.gameOverRankLayout.active = true;
+        this.overNode.active = true;
         if (CC_WECHATGAME) {
             wx.getUserInfo({
                 openIdList: ['selfOpenId'],
