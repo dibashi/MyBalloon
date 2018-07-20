@@ -2,12 +2,7 @@
   "appKey": "",
   "appSecret": "",
   "encryptJs": false,
-  "excludeScenes": [
-    "3443c20d-bfea-4b85-b6a8-6501e8cf4c1c",
-    "840dcfe6-9ed3-4321-9eec-3d4dcf41998d",
-    "94e995cd-f890-4ddf-b5a8-b8e83b67c4ca",
-    "6d2429a0-4505-40b8-8099-a4a48d8fd722"
-  ],
+  "excludeScenes": [],
   "fb-instant-games": {},
   "includeAnySDK": false,
   "includeSDKBox": false,
@@ -39,7 +34,7 @@
     "appid": "wx53cdc20078b402a5",
     "isSubdomain": false,
     "orientation": "portrait",
-    "subContext": ""
+    "subContext": "SubGame"
   },
   "xxteaKey": "a6ea08dd-6688-44",
   "zipCompressJs": true
