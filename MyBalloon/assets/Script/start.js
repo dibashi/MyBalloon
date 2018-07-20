@@ -140,31 +140,31 @@ cc.Class({
                 this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFFFFF");
                 break;
             case "02":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#242424");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#B9B9B9");
                 break;
             case "03":
                 this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFEC0C");
                 break;
             case "04":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#00FF00");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#92FF88");
                 break;
             case "05":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#C70000");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF9C9C");
                 break;
             case "06":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#61CCFF");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#77D3FF");
                 break;
             case "07":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#F04FFD");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#F577FF");
                 break;
             case "08":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF4700");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF7575");
                 break;
             case "09":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFC01D");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF8C6E");
                 break;
             case "10":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#D6FF8D");
+                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FAFDAB");
                 break;
         }
 
@@ -220,22 +220,22 @@ cc.Class({
                                 code: res.code,
                             },
                             success: (obj, statusCode, header) => {
-                               // console.log("请求openid,服务器返回的数据！！--> " + obj);
-                               // console.log(obj.data.openid);
+                                // console.log("请求openid,服务器返回的数据！！--> " + obj);
+                                // console.log(obj.data.openid);
 
                                 self.openid = obj.data.openid;
                                 cc.sys.localStorage.setItem("openid", obj.data.openid);//之所以要存，是在分享的时候放入query中
                                 //微信官方文档那里写的调用函数是getLaunchInfoSync，但是根本搜不到这个API，应该是下面这个。
                                 var launchOption = wx.getLaunchOptionsSync();
-                              //  console.log(launchOption);
-                              //  self.otherOpenIDLabel.string = JSON.stringify(launchOption.query) + "query.otherID-->" + launchOption.query.otherID;
+                                //  console.log(launchOption);
+                                //  self.otherOpenIDLabel.string = JSON.stringify(launchOption.query) + "query.otherID-->" + launchOption.query.otherID;
 
                                 if (launchOption.query.otherID == null || launchOption.query.otherID == undefined) {
                                     launchOption.query.otherID = 0;
                                 }
-                               // console.log("看下 自己的openid 和 推荐方的openid");
-                               // console.log(self.openid);
-                               // console.log(launchOption.query.otherID);
+                                // console.log("看下 自己的openid 和 推荐方的openid");
+                                // console.log(self.openid);
+                                // console.log(launchOption.query.otherID);
                                 wx.request({
                                     url: 'https://bpw.blyule.com/public/index.php/index/index/add?userid=' + self.openid + "&" + "cuid=" + launchOption.query.otherID,
                                     data: {
@@ -243,11 +243,11 @@ cc.Class({
                                         cuid: launchOption.query.otherID,
                                     },
                                     success: (data, statusCode, header) => {
-                                      //  console.log("添加用户成功！ 服务器返回的数据！！--> ");
-                                      //  console.log(data);
+                                        //  console.log("添加用户成功！ 服务器返回的数据！！--> ");
+                                        //  console.log(data);
 
-                                      //  console.log("看下自己的openid数据！！--> ");
-                                      //  console.log(self.openid);
+                                        //  console.log("看下自己的openid数据！！--> ");
+                                        //  console.log(self.openid);
                                     },
                                 });
 
