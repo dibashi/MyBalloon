@@ -184,9 +184,9 @@ cc.Class({
 
         this.colorIndex = [
             { bgColor: '#5ac2de', yun3Color: '#84cade', yun2Color: '#add7e6' },
-            { bgColor: '#0092ce', yun3Color: '#42aad6', yun2Color: '#8cc2de' },
+            { bgColor: '#3190b9', yun3Color: '#42aad6', yun2Color: '#8cc2de' },
 
-            { bgColor: '#10aa10', yun3Color: '#52ba52', yun2Color: '#94ce92' },
+            { bgColor: '#38a738', yun3Color: '#52ba52', yun2Color: '#94ce92' },
             { bgColor: '#7bc242', yun3Color: '#9cca73', yun2Color: '#bdd7a4' },
 
             { bgColor: '#00cea4', yun3Color: '#42d7bd', yun2Color: '#8cdfce' },
@@ -199,16 +199,16 @@ cc.Class({
             { bgColor: '#002431', yun3Color: '#53869f', yun2Color: '#89c3d7' },
             { bgColor: '#424542', yun3Color: '#959595', yun2Color: '#c6c6c6' },
 
-            { bgColor: '#f7d731', yun3Color: '#efdb6b', yun2Color: '#efdf9c' },
-            { bgColor: '#d6ce00', yun3Color: '#d6d742', yun2Color: '#dedb8c' },
+            { bgColor: '#d4bf4c', yun3Color: '#efdb6b', yun2Color: '#efdf9c' },
+            { bgColor: '#c1c223', yun3Color: '#d6d742', yun2Color: '#dedb8c' },
 
             { bgColor: '#ef9e31', yun3Color: '#efb26b', yun2Color: '#efca9c' },
             { bgColor: '#f77531', yun3Color: '#ef966b', yun2Color: '#efba9c' },
 
             { bgColor: '#ce4100', yun3Color: '#d67142', yun2Color: '#dea28c' },
-            { bgColor: '#ef4131', yun3Color: '#ef716b', yun2Color: '#efa29c' },
+            { bgColor: '#cc423b', yun3Color: '#ef716b', yun2Color: '#efa29c' },
 
-            { bgColor: '#ef3584', yun3Color: '#ef69a4', yun2Color: '#ef9ebd' },
+            { bgColor: '#d6518b', yun3Color: '#ef69a4', yun2Color: '#ef9ebd' },
 
         ];
 

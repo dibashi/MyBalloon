@@ -389,8 +389,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -377,
-      "y": -488
+      "x": 0,
+      "y": -510
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -528,8 +528,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 100,
-      "height": 40
+      "width": 432,
+      "height": 128
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -537,8 +537,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 31,
-      "y": -466
+      "x": 0,
+      "y": -233
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -556,7 +556,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+      "__uuid__": "90b1dcbc-124f-48de-8e11-93b44328ae21"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -769,7 +769,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0
+      "y": 110
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -833,8 +833,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 40
+      "width": 283,
+      "height": 66
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -842,8 +842,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -13,
-      "y": 815
+      "x": 0,
+      "y": 668
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -853,26 +853,30 @@
     "groupIndex": 0
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 21
     },
     "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 40,
-    "_lineHeight": 40,
-    "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_N$string": "本次得分",
-    "_N$horizontalAlign": 1,
-    "_N$verticalAlign": 1,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
+    "_spriteFrame": {
+      "__uuid__": "c9a91cd7-a66b-41be-bf17-f15d127ac10d"
+    },
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_atlas": null
   },
   {
     "__type__": "cc.Node",
@@ -907,13 +911,13 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 334,
+      "width": 428,
       "height": 200
     },
     "_rotationX": 0,
     "_rotationY": 0,
     "_scaleX": 1,
-    "_scaleY": 1,
+    "_scaleY": 1.2,
     "_position": {
       "__type__": "cc.Vec2",
       "x": -9,
@@ -939,8 +943,10 @@
     "_fontSize": 200,
     "_lineHeight": 200,
     "_enableWrapText": true,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
+    "_N$file": {
+      "__uuid__": "2aec5f15-32f0-479e-ac62-94923ba9952d"
+    },
+    "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_N$string": "999",
     "_N$horizontalAlign": 1,
