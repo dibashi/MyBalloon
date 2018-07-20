@@ -201,8 +201,8 @@ cc.Class({
 
         ];
 
-        //this.cps = ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020"];
-        this.cps = ["001"]
+        this.cps = ["001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011", "012", "013", "014", "015", "016", "017", "018", "019", "020"];
+
         this.initBGColor();
 
         cc.director.getPhysicsManager().enabled = true; //开启物理系统，否则在编辑器里做的一切都没有任何效果
@@ -224,7 +224,7 @@ cc.Class({
         } else if (this.guanKa == -1) { //无尽模式
 
             //向子域发送请求，获得所有的好友数据
-            //this.sendMessageToSubdomainGetFriendDatas();
+            this.sendMessageToSubdomainGetFriendDatas();
 
             this.scoreNode.active = true;
             this.diamondNode.active = true;
@@ -366,11 +366,11 @@ cc.Class({
             //这个是结束界面要用的本局得分
             cc.sys.localStorage.setItem("currentScore",this.defen);
             let self = this;
-            // window.wx.postMessage({
-            //     messageType: 3,
-            //     MAIN_MENU_NUM: "user_best_score",
-            //     score: self.defen,
-            // });
+            window.wx.postMessage({
+                messageType: 3,
+                MAIN_MENU_NUM: "user_best_score",
+                score: self.defen,
+            });
 
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
@@ -447,7 +447,7 @@ cc.Class({
                 }
                 this.isLoadNextCheckPoint = true;
                 //云出现，3秒后刷新超越好友
-                //this.scheduleOnce(this.seeNextBeyondFriend,1);
+                this.scheduleOnce(this.seeNextBeyondFriend,1);
             }
         }
     },
