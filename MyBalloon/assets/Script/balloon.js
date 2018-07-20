@@ -139,7 +139,7 @@ cc.Class({
 
     baozhaOver: function () {
         this.unscheduleAllCallbacks();
-        cc.find("Canvas").getComponent("gameScene").gameOver();
+      //  cc.find("Canvas").getComponent("gameScene").gameOver();
         this.node.destroy();
     },
 
