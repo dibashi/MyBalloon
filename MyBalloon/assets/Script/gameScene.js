@@ -137,6 +137,11 @@ cc.Class({
             type: cc.Sprite,
         },
 
+        splashScreen: {
+            default: null,
+            type: cc.Node,
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
@@ -167,6 +172,7 @@ cc.Class({
         this.h = 3840;
         this.bgMinY = -2880;
         this.bgSpeed = 6;
+        this.bgScale = 1;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
         this.diamondNode.active = false;//同上
@@ -230,11 +236,11 @@ cc.Class({
             this.diamondNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
             let goNewBalloonFlag = cc.sys.localStorage.getItem("goNewBalloon-flag");
-         
+
             if (goNewBalloonFlag != "1") {
                 this.defen = 0;
             } else {
-              
+
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
@@ -249,7 +255,7 @@ cc.Class({
             //5秒钟，刷新一次下个即将超越的好友头像 注：时间设置的越长性能越好，越短则越精确。
             //废弃，这种方式会使得游戏5秒一卡，在云出现的时候加载试试 放在了 update的判断中
             //this.schedule(this.seeNextBeyondFriend, 5);
-           
+
             this.tex = new cc.Texture2D();
         }
     },
@@ -320,7 +326,7 @@ cc.Class({
     generateCheckpointByIndex: function (index, position) {
         let self = this;
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
-      
+
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
@@ -350,6 +356,25 @@ cc.Class({
         }
     },
 
+    slowMotion:function(scaleV) {
+        let splashScreenAni = this.splashScreen.getComponent(cc.Animation);
+        splashScreenAni.play();
+        this.setAllRigidBodyVScale(this.node,scaleV);
+        this.bgScale = scaleV;
+    },
+    //对所有的刚体速度进行放缩，实现慢镜头功能
+    setAllRigidBodyVScale: function (node,scaleV) {
+        let children = node.children;
+        for (let i = 0; i < children.length; i++) {
+            this.setAllRigidBodyVScale(children[i],scaleV);
+        }
+        let nodeRigid = node.getComponent(cc.RigidBody)
+        if (nodeRigid != null) {
+            nodeRigid.linearVelocity = cc.v2(nodeRigid.linearVelocity.x * scaleV, nodeRigid.linearVelocity.y * scaleV);
+            nodeRigid.gravityScale = scaleV;
+        }
+    },
+
     addDiamond: function (value) {
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
@@ -365,7 +390,7 @@ cc.Class({
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
             //这个是结束界面要用的本局得分
-            cc.sys.localStorage.setItem("currentScore",this.defen);
+            cc.sys.localStorage.setItem("currentScore", this.defen);
             let self = this;
             // window.wx.postMessage({
             //     messageType: 3,
@@ -387,7 +412,7 @@ cc.Class({
     },
 
     goNewBalloon: function () {
-      
+
         cc.sys.localStorage.setItem("goNewBalloon-defen", this.defen);
         cc.sys.localStorage.setItem("goNewBalloon-flag", "1");
         cc.director.loadScene("gameScene");
@@ -396,12 +421,12 @@ cc.Class({
     // called every frame
     update: function (dt) {
         if (this.bg1.y <= this.bgMinY) {
-            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60;
+            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60 *this.bgScale;
 
             this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
         } else {
-            this.bg1.y -= this.bgSpeed * dt * 60;
+            this.bg1.y -= this.bgSpeed * dt * 60*this.bgScale;
         }
 
         if (this.bg2.y <= this.bgMinY) {
@@ -410,7 +435,7 @@ cc.Class({
             this.bg2ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
         } else {
-            this.bg2.y -= this.bgSpeed * dt * 60;
+            this.bg2.y -= this.bgSpeed * dt * 60*this.bgScale;
         }
 
         if (this.yuns.y <= (-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
@@ -437,7 +462,7 @@ cc.Class({
             }
 
         } else {
-            this.yuns.y -= this.bgSpeed * dt * 60;
+            this.yuns.y -= this.bgSpeed * dt * 60*this.bgScale;
             //如果未加载下一关，且云已经出现且是无尽模式
             if (this.isLoadNextCheckPoint == false && this.yuns.y < 0 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个

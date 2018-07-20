@@ -115,7 +115,7 @@ cc.Class({
 
     dead: function () {
         cc.director.getScheduler().setTimeScale(0.1);
-
+        cc.find("Canvas").getComponent("gameScene").slowMotion(0.1);    
         this.boomAni();
     },
 
