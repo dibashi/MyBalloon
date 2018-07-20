@@ -142,6 +142,11 @@ cc.Class({
             type: cc.Node,
         },
 
+        guard:{
+            default:null,
+            type:cc.Node,
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
@@ -357,8 +362,12 @@ cc.Class({
     },
 
     slowMotion:function(scaleV) {
+        cc.eventManager.pauseTarget(this.node, true);
+        cc.director.getScheduler().setTimeScale(scaleV);
         let splashScreenAni = this.splashScreen.getComponent(cc.Animation);
         splashScreenAni.play();
+        let guardAni = this.guard.getComponent(cc.Animation);
+        guardAni.play();
         this.setAllRigidBodyVScale(this.node,scaleV);
         this.bgScale = scaleV;
     },
