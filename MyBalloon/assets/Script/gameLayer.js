@@ -47,16 +47,8 @@ cc.Class({
         this.guardRigidBody = this.guard.getComponent(cc.RigidBody);
         this.touchBeginPoint = cc.v2(0.0, 0.0);
         this.touchMovePoint = cc.v2(0.0, 0.0);
-
-        
         // this.currentFingerPosition = null;
         // this.lastFingerPosition = null;
-
-       
-        this.originGuardPosition = this.node.convertToWorldSpaceAR(this.guard.position);
-        this.originFingerPosition = cc.v2(this.originGuardPosition.x,this.originGuardPosition.y);
-        this.offsetPosition = cc.v2(this.originGuardPosition.x - this.originFingerPosition.x, this.originGuardPosition.y - this.originFingerPosition.y);
-        this.currentFingerPosition = this.originFingerPosition;
     },
 
     dragStart: function (event) {
@@ -138,7 +130,7 @@ cc.Class({
             let dx = this.currentFingerPosition.x + this.offsetPosition.x - guardWorldPos.x;
             let dy = this.currentFingerPosition.y + this.offsetPosition.y - guardWorldPos.y;
            
-            this.guardRigidBody.linearVelocity = cc.v2(dx * 80, dy * 80);
+            this.guardRigidBody.linearVelocity = cc.v2(dx * 30, dy * 30);
         }
 
 
