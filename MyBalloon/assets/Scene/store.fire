@@ -1704,9 +1704,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 36,
-      "g": 36,
-      "b": 36,
+      "r": 185,
+      "g": 185,
+      "b": 185,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -2994,9 +2994,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 0,
+      "r": 146,
       "g": 255,
-      "b": 0,
+      "b": 136,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -3639,9 +3639,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 199,
-      "g": 0,
-      "b": 0,
+      "r": 255,
+      "g": 156,
+      "b": 156,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -4284,8 +4284,8 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 97,
-      "g": 204,
+      "r": 32,
+      "g": 183,
       "b": 255,
       "a": 255
     },
@@ -4929,9 +4929,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 240,
-      "g": 79,
-      "b": 253,
+      "r": 245,
+      "g": 119,
+      "b": 255,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -5575,8 +5575,8 @@
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 71,
-      "b": 0,
+      "g": 117,
+      "b": 117,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -6220,8 +6220,8 @@
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
-      "g": 192,
-      "b": 29,
+      "g": 140,
+      "b": 110,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
@@ -6864,9 +6864,9 @@
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
-      "r": 214,
-      "g": 255,
-      "b": 141,
+      "r": 250,
+      "g": 253,
+      "b": 171,
       "a": 255
     },
     "_cascadeOpacityEnabled": true,
