@@ -48,13 +48,13 @@ cc.Class({
                         texture.handleLoadedTexture();
                         this.avatarImgSprite.spriteFrame = new cc.SpriteFrame(texture);
                     } catch (e) {
-                        cc.log(e);
+                     //   cc.log(e);
                         this.avatarImgSprite.node.active = false;
                     }
                 };
                 image.src = avatarUrl;
             }catch (e) {
-                cc.log(e);
+               // cc.log(e);
                 this.avatarImgSprite.node.active = false;
             }
         } else {

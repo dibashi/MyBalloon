@@ -1,0 +1,95 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "daojishi",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 10,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "mask1/time": {
+        "props": {
+          "rotation": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 5,
+              "value": 180
+            }
+          ]
+        }
+      },
+      "mask2/time": {
+        "props": {
+          "rotation": [
+            {
+              "frame": 5,
+              "value": 0
+            },
+            {
+              "frame": 10,
+              "value": 180
+            }
+          ]
+        }
+      },
+      "label": {
+        "comps": {
+          "cc.Label": {
+            "string": [
+              {
+                "frame": 0,
+                "value": "10"
+              },
+              {
+                "frame": 1,
+                "value": "9"
+              },
+              {
+                "frame": 2,
+                "value": "8"
+              },
+              {
+                "frame": 3,
+                "value": "7"
+              },
+              {
+                "frame": 4,
+                "value": "6"
+              },
+              {
+                "frame": 5,
+                "value": "5"
+              },
+              {
+                "frame": 6,
+                "value": "4"
+              },
+              {
+                "frame": 7,
+                "value": "3"
+              },
+              {
+                "frame": 8,
+                "value": "2"
+              },
+              {
+                "frame": 9,
+                "value": "1"
+              },
+              {
+                "frame": 10,
+                "value": ""
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}

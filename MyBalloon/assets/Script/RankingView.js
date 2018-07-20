@@ -6,6 +6,7 @@ cc.Class({
         friendButton: cc.Node,
         gameOverButton: cc.Node,
         rankingScrollView: cc.Sprite,//显示排行榜
+        loadLabel:cc.Node,//显示加载中的label
     },
     onLoad() {
         this.timer = 0;
@@ -28,8 +29,14 @@ cc.Class({
 
 
             this.scheduleOnce(this._updateSubDomainCanvas,3.0);
+            this.scheduleOnce(this.closeTips,3.0);
         }
     },
+
+    closeTips:function() {
+        this.loadLabel.active = false;
+    },
+
     friendButtonFunc(event) {
         if (CC_WECHATGAME) {
             // 发消息给子域
@@ -38,7 +45,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-            cc.log("获取好友排行榜数据。x1");
+         
         }
     },
 
@@ -56,7 +63,7 @@ cc.Class({
                 }
             });
         } else {
-            cc.log("获取群排行榜数据。x1");
+           
         }
     },
 
@@ -67,7 +74,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-            cc.log("获取横向展示排行榜数据。x1");
+            
         }
     },
 

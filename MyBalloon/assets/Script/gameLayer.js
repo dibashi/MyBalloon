@@ -20,9 +20,9 @@ cc.Class({
         //卫士的宽度一半 高度一半  为了性能 放在成员变量中
         guardHalfWidth: 0.0,
         guardHalfHeight: 0.0,
-        
-        currentNode:null,//当前关卡的node
-        bgSpeed:2,
+
+        currentNode: null,//当前关卡的node
+        bgSpeed: 2,
     },
 
 
@@ -45,73 +45,94 @@ cc.Class({
         this.balloon.setLocalZOrder(100);
 
         this.guardRigidBody = this.guard.getComponent(cc.RigidBody);
-        this.touchBeginPoint = cc.v2(0.0,0.0);
-        this.touchMovePoint = cc.v2(0.0,0.0);
+        this.touchBeginPoint = cc.v2(0.0, 0.0);
+        this.touchMovePoint = cc.v2(0.0, 0.0);
         // this.currentFingerPosition = null;
         // this.lastFingerPosition = null;
     },
 
     dragStart: function (event) {
 
-         this.touchBeginPoint = event.getLocation();
+        // this.touchBeginPoint = event.getLocation();
 
+        //this.currentFingerPosition = event.getLocation();
+        // cc.log("这个是原版坐标");
+        // cc.log(event.getLocation());
+        // cc.log("这个是世界坐标");
+        // cc.log(this.node.parent.convertToWorldSpaceAR(event.getLocation()));
+        //this.currentFingerPosition =  this.node.parent.convertToWorldSpaceAR(event.getLocation());
         // this.currentFingerPosition = event.getLocation();
         // this.lastFingerPosition = this.currentFingerPosition;
+
+        this.originFingerPosition = event.getLocation();
+        this.originGuardPosition = this.node.convertToWorldSpaceAR(this.guard.position);
+        this.offsetPosition = cc.v2(this.originGuardPosition.x - this.originFingerPosition.x, this.originGuardPosition.y - this.originFingerPosition.y);
+        this.currentFingerPosition = this.originFingerPosition;
     },
 
     dragMove: function (event) {
-       // this.lastFingerPosition = this.currentFingerPosition;
-      //  this.currentFingerPosition = event.getLocation();
+        //    this.lastFingerPosition = this.currentFingerPosition;
+        this.currentFingerPosition = event.getLocation();
 
-      //  cc.log(this.currentFingerPosition);
-        this.touchMovePoint = event.getLocation();
-        let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
-        let dy = this.touchMovePoint.y - this.touchBeginPoint.y;
 
-        let location = this.guard.getPosition();
+        //  this.currentFingerPosition = this.node.parent.convertToWorldSpaceAR(event.getLocation());
+        //  cc.log(this.currentFingerPosition);
+        // this.touchMovePoint = event.getLocation();
+        // let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
+        // let dy = this.touchMovePoint.y - this.touchBeginPoint.y;
 
-        location.x += dx;
-        location.y += dy;
+        // let location = this.guard.getPosition();
 
-        //卫士不移出屏幕 
-        let minX = this.guardHalfWidth - this.node.width / 2;
-        let maxX = -minX;
-        let minY = this.guardHalfHeight - this.node.height / 2;
-        let maxY = -minY;
-        if (location.x < minX) {
-            location.x = minX;
-        }
-        if (location.x > maxX) {
-            location.x = maxX;
-        }
-        if (location.y < minY) {
-            location.y = minY;
-        }
-        if (location.y > maxY) {
-            location.y = maxY;
-        }
+        // location.x += dx;
+        // location.y += dy;
 
-         this.guard.setPosition(location);
-         this.guardRigidBody.linearVelocity = cc.v2(dx*15,dy*15);//距离除以时间 时间为1/60
-         this.touchBeginPoint = this.touchMovePoint;
+        // //卫士不移出屏幕 
+        // let minX = this.guardHalfWidth - this.node.width / 2;
+        // let maxX = -minX;
+        // let minY = this.guardHalfHeight - this.node.height / 2;
+        // let maxY = -minY;
+        // if (location.x < minX) {
+        //     location.x = minX;
+        // }
+        // if (location.x > maxX) {
+        //     location.x = maxX;
+        // }
+        // if (location.y < minY) {
+        //     location.y = minY;
+        // }
+        // if (location.y > maxY) {
+        //     location.y = maxY;
+        // }
+
+        //  this.guard.setPosition(location);
+        //  this.guardRigidBody.linearVelocity = cc.v2(dx*15,dy*15);//距离除以时间 时间为1/60
+        //  this.touchBeginPoint = this.touchMovePoint;
     },
 
     drageEnd: function (event) {
-        this.guardRigidBody.linearVelocity = cc.v2(0, 0);
+        //this.guardRigidBody.linearVelocity = cc.v2(0, 0);
     },
 
     // called every frame
     update: function (dt) {
-        
-       
-        // if(this.currentFingerPosition!=null && this.lastFingerPosition != null) {
+
+
+        // if (this.currentFingerPosition != null && this.lastFingerPosition != null) {
         //     let dx = this.currentFingerPosition.x - this.lastFingerPosition.x;
         //     let dy = this.currentFingerPosition.y - this.lastFingerPosition.y;
         //     this.guardRigidBody.linearVelocity = cc.v2(dx / dt, dy / dt);
-            
+        //     this.guardRigidBody.linearVelocity = cc.v2(dx / dt, dy / dt);
         //     this.lastFingerPosition = this.currentFingerPosition;
         // }
-       
+
+        if (this.currentFingerPosition != null) {
+            let guardWorldPos = this.node.convertToWorldSpaceAR(this.guard.position);
+            let dx = this.currentFingerPosition.x + this.offsetPosition.x - guardWorldPos.x;
+            let dy = this.currentFingerPosition.y + this.offsetPosition.y - guardWorldPos.y;
+           
+            this.guardRigidBody.linearVelocity = cc.v2(dx * 30, dy * 30);
+        }
+
 
         // if(this.touchBeginPoint!=null && this.touchMovePoint != null) {
         //     let dx = this.touchMovePoint.x - this.touchBeginPoint.x;
@@ -122,11 +143,11 @@ cc.Class({
         // if (this.currentNode!=null ) {
         //     cc.log(this.currentNode.y);    
         // }
-        
+
         // if (this.currentNode!=null  && this.currentNode.y >= -2880) {
         //     this.currentNode.y -= this.bgSpeed *dt*60;    //speed为负数 所以相加
         // }
-        
+
 
     },
 

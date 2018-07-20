@@ -110,7 +110,7 @@ cc.Class({
         // cc.log(this.wall1.width * 0.5 + this.wall2.width * 0.5 + 100 + 50);
         if(this.wall1.getComponent(cc.RigidBody).getWorldPosition().y<this.thresholdOfGravity) {
             if ((this.wall2.x - this.wall1.x) > (this.wall1.width * 0.5 + this.wall2.width * 0.5 + 100 + 50)) {
-                cc.log("~~~~~!~~");
+              
                 // this.wall1.getComponent("rigidBodyJS").linearVelocity = cc.v2(100000,0);
                 // this.wall2.getComponent("rigidBodyJS").linearVelocity = cc.v2(-1000000,0);
                 this.wall1.x = this.wall1.x+1;

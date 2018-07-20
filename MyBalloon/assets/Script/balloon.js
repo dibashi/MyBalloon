@@ -34,7 +34,12 @@ cc.Class({
             type: cc.Prefab,
         },
 
-     
+        tail: {
+            default: null,
+            type: cc.Node,
+        },
+
+
         boomAudio: {
             default: null,
             url: cc.AudioClip
@@ -42,19 +47,57 @@ cc.Class({
 
         fixedPositon: null,
 
-        isDeadFlag:false,//用于标记是否阵亡，否则会多次播放爆炸动画
+        isDeadFlag: false,//用于标记是否阵亡，否则会多次播放爆炸动画
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        let qqCurrentID = cc.sys.localStorage.getItem("currentSkinID");//获得当前气球索引，然后加载他的图片，设置相应的尾巴颜色
+        let addres = "qqTex/QQ";
+        //预留， 这里根据索引修改尾巴颜色！！！！！
+        switch (qqCurrentID) {
+            case "01":
+                this.tail.color = cc.hexToColor("#FFFFFF");
+                break;
+            case "02":
+                this.tail.color = cc.hexToColor("#242424");
+                break;
+            case "03":
+                this.tail.color = cc.hexToColor("#FFEC0C");
+                break;
+            case "04":
+                this.tail.color = cc.hexToColor("#00FF00");
+                break;
+            case "05":
+                this.tail.color = cc.hexToColor("#C70000");
+                break;
+            case "06":
+                this.tail.color = cc.hexToColor("#61CCFF");
+                break;
+            case "07":
+                this.tail.color = cc.hexToColor("#F04FFD");
+                break;
+            case "08":
+                this.tail.color = cc.hexToColor("#FF4700");
+                break;
+            case "09":
+                this.tail.color = cc.hexToColor("#FFC01D");
+                break;
+            case "10":
+                this.tail.color = cc.hexToColor("#D6FF8D");
+                break;
+        }
+        let self = this;
+        cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
+            self.node.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
+        });
+    },
 
     start() {
         this.fixedPositon = this.node.position;
     },
     onBeginContact: function (contact, selfCollider, otherCollider) {
-
-        cc.log("气球被击中 begin");
 
         //这里的处理逻辑还是比较多的
         //第1 要判断是谁击中了气球，必须是enemy才处理。
@@ -62,7 +105,6 @@ cc.Class({
         //估计只有无限模式才复活
         //再判断结束前，要先播放爆炸动画，动画回调中结束，如果这时候又有敌人触摸到气球 如何判断？
         //需要一个标记位，用来记录
-        cc.log(otherCollider);
         if (otherCollider.node.group === "enemy" && this.isDeadFlag == false) {
             this.isDeadFlag = true;
             this.dead();
@@ -72,6 +114,7 @@ cc.Class({
     },
 
     dead: function () {
+        cc.find("Canvas").getComponent("gameScene").slowMotion(0.15);    
         this.boomAni();
     },
 
@@ -94,7 +137,6 @@ cc.Class({
     },
 
     baozhaOver: function () {
-        cc.log("player baozhaover!~");
         this.unscheduleAllCallbacks();
         cc.find("Canvas").getComponent("gameScene").gameOver();
         this.node.destroy();
@@ -102,8 +144,6 @@ cc.Class({
 
     // 只在两个碰撞体结束接触时被调用一次
     onEndContact: function (contact, selfCollider, otherCollider) {
-        cc.log("气球被击中 ennd");
-
 
     },
 

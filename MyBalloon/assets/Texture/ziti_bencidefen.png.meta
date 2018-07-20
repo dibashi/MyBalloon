@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "c8e4171e-9324-48e4-a53e-cf9563959390",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "ziti_bencidefen": {
+      "ver": "1.0.3",
+      "uuid": "c9a91cd7-a66b-41be-bf17-f15d127ac10d",
+      "rawTextureUuid": "c8e4171e-9324-48e4-a53e-cf9563959390",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 283,
+      "height": 66,
+      "rawWidth": 283,
+      "rawHeight": 66,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

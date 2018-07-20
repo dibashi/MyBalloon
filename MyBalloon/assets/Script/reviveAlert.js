@@ -35,7 +35,7 @@ cc.Class({
         this.startFadeIn();
         this.reNewBtn.active = false;
         this.scheduleOnce(this.enableReNewBtn, 2);
-        this.scheduleOnce(this.cancel, 7);
+        this.scheduleOnce(this.cancel, 10);
     },
 
     enableReNewBtn: function () {
@@ -54,12 +54,12 @@ cc.Class({
     },
 
     onFadeInFinish: function () {
-        cc.log(this.node);
+        
         cc.eventManager.resumeTarget(this.node, true);
     },
 
     onGuangGaoClick: function () {
-        cc.log("onGuangGaoClick");
+        
         // cc.sys.localStorage.setItem("GuangGaoFuhuoFlag",0);
         // cc.audioEngine.playEffect(this.buttonAudio, false);
         cc.eventManager.pauseTarget(this.node, true);
@@ -70,9 +70,9 @@ cc.Class({
         this.node.runAction(actionFadeOut);
     },
 
-    onReNewClick: function () {
-        cc.log("on renew btn click!");
-        cc.director.loadScene("gameScene");
+    onCancelClick: function () {
+       
+        cc.director.loadScene("end");
     },
 
     onFadeOutFinish: function () {
@@ -81,8 +81,8 @@ cc.Class({
     },
 
     cancel: function () {
-        cc.log("cancel~!");
-        cc.director.loadScene('start');
+       
+        cc.director.loadScene('end');
     },
 });
 
