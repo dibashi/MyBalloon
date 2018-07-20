@@ -61,31 +61,31 @@ cc.Class({
                 this.tail.color = cc.hexToColor("#FFFFFF");
                 break;
             case "02":
-                this.tail.color = cc.hexToColor("#242424");
+                this.tail.color = cc.hexToColor("#B9B9B9");
                 break;
             case "03":
                 this.tail.color = cc.hexToColor("#FFEC0C");
                 break;
             case "04":
-                this.tail.color = cc.hexToColor("#00FF00");
+                this.tail.color = cc.hexToColor("#92FF88");
                 break;
             case "05":
-                this.tail.color = cc.hexToColor("#C70000");
+                this.tail.color = cc.hexToColor("#FF9C9C");
                 break;
             case "06":
-                this.tail.color = cc.hexToColor("#61CCFF");
+                this.tail.color = cc.hexToColor("#77D3FF");
                 break;
             case "07":
-                this.tail.color = cc.hexToColor("#F04FFD");
+                this.tail.color = cc.hexToColor("#F577FF");
                 break;
             case "08":
-                this.tail.color = cc.hexToColor("#FF4700");
+                this.tail.color = cc.hexToColor("#FF7575");
                 break;
             case "09":
-                this.tail.color = cc.hexToColor("#FFC01D");
+                this.tail.color = cc.hexToColor("#FF8C6E");
                 break;
             case "10":
-                this.tail.color = cc.hexToColor("#D6FF8D");
+                this.tail.color = cc.hexToColor("#FAFDAB");
                 break;
         }
         let self = this;
@@ -114,7 +114,7 @@ cc.Class({
     },
 
     dead: function () {
-        cc.find("Canvas").getComponent("gameScene").slowMotion(0.15);    
+        cc.find("Canvas").getComponent("gameScene").slowMotion(0.15);
         this.boomAni();
     },
 
