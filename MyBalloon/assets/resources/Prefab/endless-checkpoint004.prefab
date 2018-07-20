@@ -482,7 +482,7 @@
     "_angularVelocity": 1000,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -693,7 +693,7 @@
     "_angularVelocity": -800,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -996,7 +996,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -1160,7 +1160,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -1324,7 +1324,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -1488,7 +1488,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -1652,7 +1652,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -1816,7 +1816,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -2701,7 +2701,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsBoxCollider",
@@ -2933,7 +2933,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -3109,7 +3109,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",

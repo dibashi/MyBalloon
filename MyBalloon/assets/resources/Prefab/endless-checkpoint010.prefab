@@ -3715,7 +3715,7 @@
     "_angularVelocity": 500,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -3926,7 +3926,7 @@
     "_angularVelocity": 500,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -4137,7 +4137,7 @@
     "_angularVelocity": 500,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -4348,7 +4348,7 @@
     "_angularVelocity": 500,
     "_fixedRotation": false,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
