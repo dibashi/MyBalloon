@@ -44,7 +44,7 @@ cc.Class({
     },
 
     refreshBtnState: function () {
-        cc.log("刷新 按钮状态！");
+        
         let currentQQID = cc.sys.localStorage.getItem('currentSkinID');
 
         let panelCount = this.panels.children.length;
@@ -55,7 +55,7 @@ cc.Class({
             } else {
                 suffix = "" + (i + 1);
             }
-            cc.log(suffix);
+           
             let panel = this.panels.getChildByName("panel" + suffix);
             let isHasQQSkin = cc.sys.localStorage.getItem('qq' + suffix) == 1 ? true : false;
 
@@ -69,20 +69,20 @@ cc.Class({
 
     _refreshSingleBtn: function (panel, suffix, currentQQID, isHasQQSkin) {
         if (isHasQQSkin) { //已拥有
-            cc.log("显示使用 隐藏 价格")
+            
             panel.getChildByName("priceNode").active = false;
             //panel.getChildByName("useLabel").active = true;
             if (currentQQID == suffix) { //已使用
-                cc.log("当前已使用");
+               
                 panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.selectedSprite.spriteFrame;
                 panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
             } else {
-                cc.log("当前未使用");
+               
                 panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.selectSprite.spriteFrame;
                 panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
             }
         } else {
-            cc.log("显示价格 隐藏 使用")
+            
             panel.getChildByName("priceNode").active = true;
             //panel.getChildByName("useLabel").active = false;
 
@@ -102,7 +102,7 @@ cc.Class({
         let isHasQQSkin = cc.sys.localStorage.getItem('qq' + eventData);
         if (isHasQQSkin == 1) { //拥有该气球
             //判断当前是否使用的是该气球的皮肤
-            cc.log("拥有该气球 " + 'qq' + eventData);
+            
             let currentQQID = cc.sys.localStorage.getItem('currentSkinID');
             if (eventData == currentQQID) {//如果是，则什么也不用做，1不能购买，2不能选择出战
 

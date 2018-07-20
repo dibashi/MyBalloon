@@ -404,8 +404,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 160,
-      "height": 40
+      "width": 120,
+      "height": 60
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -414,7 +414,7 @@
     "_position": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": -393
+      "y": -420
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -432,14 +432,14 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 40,
-    "_lineHeight": 40,
+    "_actualFontSize": 60,
+    "_fontSize": 60,
+    "_lineHeight": 60,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "重新开始",
+    "_N$string": "取消",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -507,7 +507,7 @@
       "__id__": 1
     },
     "component": "reviveAlert",
-    "handler": "onReNewClick",
+    "handler": "onCancelClick",
     "customEventData": ""
   },
   {

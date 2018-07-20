@@ -1,53 +1,50 @@
 cc.Class({
     extends: cc.Component,
-    name: "RankingView",
+
     properties: {
-        groupFriendButton: cc.Node,
-        friendButton: cc.Node,
-        gameOverButton: cc.Node,
-        rankingScrollView: cc.Sprite,//显示排行榜
-        loadLabel:cc.Node,//显示加载中的label
+        diamondLabel: cc.Label,
+        scoreLabel: cc.Label,
+        loadLabel: cc.Node,//要隐藏，用node
+        rankingView: cc.Sprite,//显示排行榜
     },
     onLoad() {
         this.timer = 0;
+
+        this.scoreLabel.string = cc.sys.localStorage.getItem("currentScore");
+        this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
     },
 
     goStart: function () {
         cc.director.loadScene('start');
     },
 
-    start() {
-        if (CC_WECHATGAME) {
-            window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
-            this.tex = new cc.Texture2D();
-            window.sharedCanvas.width = 1080;
-            window.sharedCanvas.height = 1920;
-            window.wx.postMessage({
-                messageType: 1,
-                MAIN_MENU_NUM: "user_best_score"
-            });
-
-
-            this.scheduleOnce(this._updateSubDomainCanvas,3.0);
-            this.scheduleOnce(this.closeTips,3.0);
-        }
+    onReNewClick: function () {
+       
+        cc.director.loadScene("gameScene");
     },
 
-    closeTips:function() {
+    start() {
+
+        //window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
+        this.tex = new cc.Texture2D();
+        window.sharedCanvas.width = 1080;
+        window.sharedCanvas.height = 1920;
+        window.wx.postMessage({
+            messageType: 4,
+            MAIN_MENU_NUM: "user_best_score"
+        });
+
+
+        this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
+        this.scheduleOnce(this.closeTips, 3.0);
+
+    },
+
+    closeTips: function () {
         this.loadLabel.active = false;
     },
 
-    friendButtonFunc(event) {
-        if (CC_WECHATGAME) {
-            // 发消息给子域
-            window.wx.postMessage({
-                messageType: 1,
-                MAIN_MENU_NUM: "user_best_score"
-            });
-        } else {
-         
-        }
-    },
+   
 
     groupFriendButtonFunc: function (event) {
         if (CC_WECHATGAME) {
@@ -63,7 +60,7 @@ cc.Class({
                 }
             });
         } else {
-           
+
         }
     },
 
@@ -74,7 +71,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-            
+
         }
     },
 
@@ -97,7 +94,7 @@ cc.Class({
         if (window.sharedCanvas != undefined) {
             this.tex.initWithElement(window.sharedCanvas);
             this.tex.handleLoadedTexture();
-            this.rankingScrollView.spriteFrame = new cc.SpriteFrame(this.tex);
+            this.rankingView.spriteFrame = new cc.SpriteFrame(this.tex);
         }
     },
     update(dt) {

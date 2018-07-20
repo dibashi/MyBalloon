@@ -88,8 +88,6 @@ cc.Class({
                 this.tail.color = cc.hexToColor("#D6FF8D");
                 break;
         }
-
-        cc.log("addres --->" + addres);
         let self = this;
         cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
             self.node.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
@@ -101,15 +99,12 @@ cc.Class({
     },
     onBeginContact: function (contact, selfCollider, otherCollider) {
 
-        cc.log("气球被击中 begin");
-
         //这里的处理逻辑还是比较多的
         //第1 要判断是谁击中了气球，必须是enemy才处理。
         //如何处理？1 游戏结束，跳转到弹出框，用于表示是否复活？这怎么复活？ 关卡模式可以复活吗？
         //估计只有无限模式才复活
         //再判断结束前，要先播放爆炸动画，动画回调中结束，如果这时候又有敌人触摸到气球 如何判断？
         //需要一个标记位，用来记录
-        cc.log(otherCollider);
         if (otherCollider.node.group === "enemy" && this.isDeadFlag == false) {
             this.isDeadFlag = true;
             this.dead();
@@ -119,6 +114,7 @@ cc.Class({
     },
 
     dead: function () {
+        cc.find("Canvas").getComponent("gameScene").slowMotion(0.15);    
         this.boomAni();
     },
 
@@ -141,7 +137,6 @@ cc.Class({
     },
 
     baozhaOver: function () {
-        cc.log("player baozhaover!~");
         this.unscheduleAllCallbacks();
         cc.find("Canvas").getComponent("gameScene").gameOver();
         this.node.destroy();
@@ -149,8 +144,6 @@ cc.Class({
 
     // 只在两个碰撞体结束接触时被调用一次
     onEndContact: function (contact, selfCollider, otherCollider) {
-        cc.log("气球被击中 ennd");
-
 
     },
 

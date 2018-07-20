@@ -38,6 +38,7 @@ cc.Class({
             default: null,
             type: cc.Node,
         },
+
     },
 
     //无尽模式
@@ -48,11 +49,11 @@ cc.Class({
 
     goShare: function () {
         let query_string = cc.sys.localStorage.getItem("openid");
-        console.log("准备发送请求的 query " + query_string);
+        //console.log("准备发送请求的 query " + query_string);
 
         wx.shareAppMessage({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-            imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg", query: { otherID: query_string }
+            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
         });
     },
 
@@ -127,7 +128,7 @@ cc.Class({
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
-        this.schedule(this.refreshrecommended,4);
+        this.schedule(this.refreshrecommended, 4);
     },
 
     loadQQAndTail: function () {
@@ -167,7 +168,7 @@ cc.Class({
                 break;
         }
 
-        cc.log("addres --->" + addres);
+        //cc.log("addres --->" + addres);
         let self = this;
         cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
             self.qqNode.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
@@ -202,15 +203,15 @@ cc.Class({
 
 
     getUerOpenID: function () {
-        console.log("getUserOpenID!");
+        // console.log("getUserOpenID!");
         let self = this;
         self.openid = cc.sys.localStorage.getItem("openid");
         if (self.openid == "0") {//保证用户是第一次进游戏
-            console.log("发送wx.login请求!");
+            // console.log("发送wx.login请求!");
             wx.login({
                 success: (res) => {
                     let codeInfo = res.code;
-                    console.log('start场景，codeInfo：--->', codeInfo);
+                    //console.log('start场景，codeInfo：--->', codeInfo);
                     if (res.code) {
                         //发起网络请求
                         wx.request({
@@ -219,20 +220,22 @@ cc.Class({
                                 code: res.code,
                             },
                             success: (obj, statusCode, header) => {
-                                console.log("请求openid,服务器返回的数据！！--> " + obj);
-                                console.log(obj.data.openid);
+                               // console.log("请求openid,服务器返回的数据！！--> " + obj);
+                               // console.log(obj.data.openid);
 
                                 self.openid = obj.data.openid;
                                 cc.sys.localStorage.setItem("openid", obj.data.openid);//之所以要存，是在分享的时候放入query中
-
+                                //微信官方文档那里写的调用函数是getLaunchInfoSync，但是根本搜不到这个API，应该是下面这个。
                                 var launchOption = wx.getLaunchOptionsSync();
-                                console.log(launchOption);
+                              //  console.log(launchOption);
+                              //  self.otherOpenIDLabel.string = JSON.stringify(launchOption.query) + "query.otherID-->" + launchOption.query.otherID;
+
                                 if (launchOption.query.otherID == null || launchOption.query.otherID == undefined) {
                                     launchOption.query.otherID = 0;
                                 }
-                                console.log("看下 自己的openid 和 推荐方的openid");
-                                console.log(self.openid);
-                                console.log(launchOption.query.otherID);
+                               // console.log("看下 自己的openid 和 推荐方的openid");
+                               // console.log(self.openid);
+                               // console.log(launchOption.query.otherID);
                                 wx.request({
                                     url: 'https://bpw.blyule.com/public/index.php/index/index/add?userid=' + self.openid + "&" + "cuid=" + launchOption.query.otherID,
                                     data: {
@@ -240,11 +243,11 @@ cc.Class({
                                         cuid: launchOption.query.otherID,
                                     },
                                     success: (data, statusCode, header) => {
-                                        console.log("添加用户成功！ 服务器返回的数据！！--> ");
-                                        console.log(data);
+                                      //  console.log("添加用户成功！ 服务器返回的数据！！--> ");
+                                      //  console.log(data);
 
-                                        console.log("看下自己的openid数据！！--> ");
-                                        console.log(self.openid);
+                                      //  console.log("看下自己的openid数据！！--> ");
+                                      //  console.log(self.openid);
                                     },
                                 });
 
@@ -254,28 +257,29 @@ cc.Class({
                     }
                 }
             });
-        }
+        }//end if
 
 
 
     },
 
     start() {
-        wx.showShareMenu();
-        wx.onShareAppMessage(function () {
-            // 用户点击了“转发”按钮
-            return {
-                title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
-                imageUrl: "http://www.youngwingtec.com/VRContent/bowuguan/res/raw-assets/Texture/shareLogo.5717b.jpg"
+        //这个有问题 因为没有openid 所以。。
+        // wx.showShareMenu();
+        // wx.onShareAppMessage(function () {
+        //     // 用户点击了“转发”按钮
+        //     return {
+        //         title: '我邀请了8个好友一起PK，就差你了，赶紧来！',
+        //         imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg",
 
-            }
-        });
+        //     }
+        // });
     },
 
     refreshSetting: function () {
         let gsb = cc.sys.localStorage.getItem("gameSoundBG");
 
-        cc.log(gsb + "  !!");
+        // cc.log(gsb + "  !!");
         if (gsb == 1) {
             this.settingNode.getComponent(cc.Sprite).spriteFrame = this.settingOnImg.getComponent(cc.Sprite).spriteFrame;
         } else {

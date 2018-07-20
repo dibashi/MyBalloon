@@ -31,7 +31,7 @@
   "webOrientation": "auto",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "https://bpw.blyule.com",
-    "appid": "wxd0195d90f49b3a3f",
+    "appid": "wx53cdc20078b402a5",
     "isSubdomain": false,
     "orientation": "portrait",
     "subContext": "SubGame"

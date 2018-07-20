@@ -40,7 +40,6 @@ cc.Class({
 
     onLoad() {
         this.thresholdOfGravity = 0;
-        cc.log("~~钻石 onload");
     },
 
     start() {
@@ -48,12 +47,12 @@ cc.Class({
     },
 
     onBeginContact: function (contact, selfCollider, otherCollider) {
-        cc.log(" 钻石被碰撞");
+       
         if (otherCollider.node.group != "wall") { //没给过重力
             if (this.gravityFlagOfHit == true) { //根据碰撞给重力
-                cc.log(" 钻石被碰撞");
+                
                 if(otherCollider.node.group == "guard" || otherCollider.node.group == "balloon") {
-                    cc.log(" ~~~ 钻石 碰到 护卫 或者气球了！");
+                  
                     cc.find("Canvas").getComponent("gameScene").addDiamond(1);
                     this.node.removeFromParent();
                 } else {

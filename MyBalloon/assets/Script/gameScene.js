@@ -137,11 +137,21 @@ cc.Class({
             type: cc.Sprite,
         },
 
+        splashScreen: {
+            default: null,
+            type: cc.Node,
+        },
+
+        guard:{
+            default:null,
+            type:cc.Node,
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
         bgMinY: -2880,//下限 超过这个值 背景挪上去
-        bgSpeed: 8,//背景的移动速度
+        bgSpeed: 0,//背景的移动速度
 
         guanKa: 0,//0代表无尽模式
 
@@ -166,7 +176,8 @@ cc.Class({
 
         this.h = 3840;
         this.bgMinY = -2880;
-        this.bgSpeed = 4;
+        this.bgSpeed = 6;
+        this.bgScale = 1;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
         this.diamondNode.active = false;//同上
@@ -230,11 +241,11 @@ cc.Class({
             this.diamondNode.active = true;
             //先判断是否是复活进来的 如果是，则分数继承，如果不是则分数置为0;
             let goNewBalloonFlag = cc.sys.localStorage.getItem("goNewBalloon-flag");
-            cc.log("!!!!!!!---> " + goNewBalloonFlag);
+
             if (goNewBalloonFlag != "1") {
                 this.defen = 0;
             } else {
-                cc.log("执行到了！");
+
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
             }
@@ -247,7 +258,9 @@ cc.Class({
             this.schedule(this.addScore, 1);//1秒给1分
 
             //5秒钟，刷新一次下个即将超越的好友头像 注：时间设置的越长性能越好，越短则越精确。
-            this.schedule(this.seeNextBeyondFriend, 5);
+            //废弃，这种方式会使得游戏5秒一卡，在云出现的时候加载试试 放在了 update的判断中
+            //this.schedule(this.seeNextBeyondFriend, 5);
+
             this.tex = new cc.Texture2D();
         }
     },
@@ -316,12 +329,9 @@ cc.Class({
 
     //根据索引生成关卡 这里是异步生成 node是用于接收的生成关卡节点
     generateCheckpointByIndex: function (index, position) {
-        cc.log("执行一次！");
         let self = this;
-
         let pathOfPrefab = "Prefab/endless-checkpoint" + this.cps[index];
-        cc.log(pathOfPrefab);
-        console.log(pathOfPrefab);
+
         cc.loader.loadRes(pathOfPrefab, function (err, prefab) {
             self.checkPointLoadSuccess(prefab, position);
         });
@@ -351,13 +361,36 @@ cc.Class({
         }
     },
 
+    slowMotion:function(scaleV) {
+        cc.eventManager.pauseTarget(this.node, true);
+        cc.director.getScheduler().setTimeScale(scaleV);
+        let splashScreenAni = this.splashScreen.getComponent(cc.Animation);
+        splashScreenAni.play();
+        let guardAni = this.guard.getComponent(cc.Animation);
+        guardAni.play();
+        this.setAllRigidBodyVScale(this.node,scaleV);
+        this.bgScale = scaleV;
+    },
+    //对所有的刚体速度进行放缩，实现慢镜头功能
+    setAllRigidBodyVScale: function (node,scaleV) {
+        let children = node.children;
+        for (let i = 0; i < children.length; i++) {
+            this.setAllRigidBodyVScale(children[i],scaleV);
+        }
+        let nodeRigid = node.getComponent(cc.RigidBody)
+        if (nodeRigid != null) {
+            nodeRigid.linearVelocity = cc.v2(nodeRigid.linearVelocity.x * scaleV, nodeRigid.linearVelocity.y * scaleV);
+            nodeRigid.gravityScale = scaleV;
+        }
+    },
+
     addDiamond: function (value) {
-        cc.log("~~! add diamond!");
         this.diamondCount += value;
         this.diamondLabel.getComponent(cc.Label).string = this.diamondCount;
     },
 
     gameOver: function () {
+        cc.director.getScheduler().setTimeScale(1.0);
 
         if (this.guanKa == -1) {
             this.unschedule(this.addScore, this);
@@ -365,8 +398,15 @@ cc.Class({
             if (this.defen > bestScore) {
                 cc.sys.localStorage.setItem("bestScore", this.defen);
             }
+            //这个是结束界面要用的本局得分
+            cc.sys.localStorage.setItem("currentScore", this.defen);
+            let self = this;
+            window.wx.postMessage({
+                messageType: 3,
+                MAIN_MENU_NUM: "user_best_score",
+                score: self.defen,
+            });
 
-            //   let newDiamondCount =  parseInt(cc.sys.localStorage.getItem("diamondCount")) +this.diamondCount;
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
             //“弹出”结束界面
@@ -381,7 +421,7 @@ cc.Class({
     },
 
     goNewBalloon: function () {
-        cc.log("goNewBalloon");
+
         cc.sys.localStorage.setItem("goNewBalloon-defen", this.defen);
         cc.sys.localStorage.setItem("goNewBalloon-flag", "1");
         cc.director.loadScene("gameScene");
@@ -390,12 +430,12 @@ cc.Class({
     // called every frame
     update: function (dt) {
         if (this.bg1.y <= this.bgMinY) {
-            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60;
+            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60 *this.bgScale;
 
             this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
         } else {
-            this.bg1.y -= this.bgSpeed * dt * 60;
+            this.bg1.y -= this.bgSpeed * dt * 60*this.bgScale;
         }
 
         if (this.bg2.y <= this.bgMinY) {
@@ -404,7 +444,7 @@ cc.Class({
             this.bg2ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
         } else {
-            this.bg2.y -= this.bgSpeed * dt * 60;
+            this.bg2.y -= this.bgSpeed * dt * 60*this.bgScale;
         }
 
         if (this.yuns.y <= (-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
@@ -426,16 +466,14 @@ cc.Class({
                 this.armatureDisplayWinpro = aniWin.getComponent(dragonBones.ArmatureDisplay);
                 this.armatureDisplayWinpro.playAnimation("winpro");
                 this.node.addChild(aniWin);
-                //aniWin.setPosition(this.balloon.position);
                 aniWin.setPosition(0, 0);
                 this.scheduleOnce(this.winProOver, 3.0);
-                // armatureDisplay.addEventListener(dragonBones.EventObject.LOOP_COMPLETE, this.winOver, this);
             }
 
         } else {
-            this.yuns.y -= this.bgSpeed * dt * 60;
+            this.yuns.y -= this.bgSpeed * dt * 60*this.bgScale;
             //如果未加载下一关，且云已经出现且是无尽模式
-            if (this.isLoadNextCheckPoint == false && this.yuns.y < 960 && this.guanKa == -1) {
+            if (this.isLoadNextCheckPoint == false && this.yuns.y < 0 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
                 if (this.bg1.y > this.bg2.y) {
                     this.generateCheckpointByIndex(this.getGuanKa(), this.bg1.position);
@@ -443,6 +481,8 @@ cc.Class({
                     this.generateCheckpointByIndex(this.getGuanKa(), this.bg2.position);
                 }
                 this.isLoadNextCheckPoint = true;
+                //云出现，3秒后刷新超越好友
+                this.scheduleOnce(this.seeNextBeyondFriend,1);
             }
         }
     },

@@ -88,9 +88,7 @@ cc.Class({
     },
 
     removeThis: function () {
-        cc.log("关卡2 检测是否有刚体！");
         if (this.hasRigidBody(this.node) == false) {
-            cc.log("没有刚体了！");
             this.node.destroy();
         }
     },
@@ -123,7 +121,7 @@ cc.Class({
                 let rr = children[i].getComponent(cc.RigidBody);
                 let aa = rr.getWorldPosition();
                 if (aa.y < this.thresholdOfGravity) {
-                    cc.log("给上速度了！");
+    
                     let vec = cc.v2((this.balloonPos.x - aa.x) * 0.6, (this.balloonPos.y - aa.y) * 0.6);
                     rr.linearVelocity = vec;
                     this.hasGivenVArray[i] = true;//之后不再给予速度
