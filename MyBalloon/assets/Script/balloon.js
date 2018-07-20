@@ -114,6 +114,8 @@ cc.Class({
     },
 
     dead: function () {
+        cc.director.getScheduler().setTimeScale(0.1);
+
         this.boomAni();
     },
 

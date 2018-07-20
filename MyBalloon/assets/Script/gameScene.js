@@ -356,6 +356,7 @@ cc.Class({
     },
 
     gameOver: function () {
+        cc.director.getScheduler().setTimeScale(1.0);
 
         if (this.guanKa == -1) {
             this.unschedule(this.addScore, this);
