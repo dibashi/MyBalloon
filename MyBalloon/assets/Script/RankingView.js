@@ -21,6 +21,8 @@ cc.Class({
     onLoad() {
         this.timer = 0;
         this.isQun = 0;
+
+        this.dataFetchBtn.interactable = false;
     },
 
     goStart: function () {
@@ -28,7 +30,6 @@ cc.Class({
     },
 
     friendAndGroupDatasShift:function() {
-        this.dataFetchBtn.interactable = true;
         if(this.isQun == 0) {
             this.isQun = 1; //如果是好友排行，则切换到群排行
             this.title.spriteFrame = this.groupTitleImg.spriteFrame;
@@ -41,17 +42,19 @@ cc.Class({
     },
 
     dataFetchClick:function(event) {
-        this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
-        this.scheduleOnce(this.closeTips, 3.0);
-        this.scheduleOnce(this.friendAndGroupDatasShift,3.0);
-        this.scheduleOnce(this.openTips,1.0);
-        
         this.dataFetchBtn.interactable = false;
         if(this.isQun == 0) { //如果当前好友排行榜，则获得群排行榜数据
             this.groupFriendButtonFunc(event);
         } else {
             this.friendButtonFunc(event);
         }
+    },
+
+    uiRefresh:function() {
+        this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
+        this.scheduleOnce(this.closeTips, 3.0);
+        this.scheduleOnce(this.friendAndGroupDatasShift,3.0);
+        this.scheduleOnce(this.openTips,1.0);
     },
 
     start() {
@@ -81,6 +84,7 @@ cc.Class({
     },
 
     closeTips: function () {
+        this.dataFetchBtn.interactable = true;
         this.loadLabel.active = false;
     },
 
@@ -91,12 +95,14 @@ cc.Class({
                 messageType: 1,
                 MAIN_MENU_NUM: "user_best_score"
             });
+            this.uiRefresh();
         } else {
 
         }
     },
 
     groupFriendButtonFunc: function (event) {
+        let self = this;
         if (CC_WECHATGAME) {
             window.wx.shareAppMessage({
                 success: (res) => {
@@ -108,6 +114,8 @@ cc.Class({
                             MAIN_MENU_NUM: "user_best_score",
                             shareTicket: res.shareTickets[0]
                         });
+
+                        self.uiRefresh();
                     }
                 }
             });
