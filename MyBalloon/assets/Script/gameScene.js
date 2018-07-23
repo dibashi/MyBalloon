@@ -142,9 +142,9 @@ cc.Class({
             type: cc.Node,
         },
 
-        guard:{
-            default:null,
-            type:cc.Node,
+        guard: {
+            default: null,
+            type: cc.Node,
         },
 
 
@@ -233,7 +233,6 @@ cc.Class({
         if (this.guanKa != -1) {
             this.generateCheckpointByID(this.guanKa, this.bg1.position);
         } else if (this.guanKa == -1) { //无尽模式
-
             //向子域发送请求，获得所有的好友数据
             this.sendMessageToSubdomainGetFriendDatas();
 
@@ -244,6 +243,9 @@ cc.Class({
 
             if (goNewBalloonFlag != "1") {
                 this.defen = 0;
+                //本局广告复活可用一次，复活币复活可用一次
+                cc.sys.localStorage.setItem("adRevive", "1");
+                cc.sys.localStorage.setItem("recommendedRevive", "1");
             } else {
 
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
@@ -361,21 +363,21 @@ cc.Class({
         }
     },
 
-    slowMotion:function(scaleV) {
+    slowMotion: function (scaleV) {
         cc.eventManager.pauseTarget(this.node, true);
         cc.director.getScheduler().setTimeScale(scaleV);
         let splashScreenAni = this.splashScreen.getComponent(cc.Animation);
         splashScreenAni.play();
         let guardAni = this.guard.getComponent(cc.Animation);
         guardAni.play();
-        this.setAllRigidBodyVScale(this.node,scaleV);
+        this.setAllRigidBodyVScale(this.node, scaleV);
         this.bgScale = scaleV;
     },
     //对所有的刚体速度进行放缩，实现慢镜头功能
-    setAllRigidBodyVScale: function (node,scaleV) {
+    setAllRigidBodyVScale: function (node, scaleV) {
         let children = node.children;
         for (let i = 0; i < children.length; i++) {
-            this.setAllRigidBodyVScale(children[i],scaleV);
+            this.setAllRigidBodyVScale(children[i], scaleV);
         }
         let nodeRigid = node.getComponent(cc.RigidBody)
         if (nodeRigid != null) {
@@ -409,12 +411,19 @@ cc.Class({
 
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
-            //“弹出”结束界面
-            cc.eventManager.pauseTarget(this.node, true);
-            let ss = cc.instantiate(this.reviveAlert);
-            ss.setLocalZOrder(1000);
-            ss.getComponent("reviveAlert").onWho = this.node;
-            this.node.addChild(ss);
+            //本局的所有复活已经用完，就直接跳转结束页面
+            if (cc.sys.localStorage.getItem("adRevive") != "1" && cc.sys.localStorage.getItem("recommendedRevive") != "1") {
+                cc.director.loadScene("end");
+            } else { //还有复活可用，则跳转的复活界面
+                //“弹出”结束界面
+                cc.eventManager.pauseTarget(this.node, true);
+                let ss = cc.instantiate(this.reviveAlert);
+                ss.setLocalZOrder(1000);
+                ss.getComponent("reviveAlert").onWho = this.node;
+                this.node.addChild(ss);
+            }
+
+
         } else {
             cc.director.loadScene('selectCheckpoint');
         }
@@ -430,12 +439,12 @@ cc.Class({
     // called every frame
     update: function (dt) {
         if (this.bg1.y <= this.bgMinY) {
-            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60 *this.bgScale;
+            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60 * this.bgScale;
 
             this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
         } else {
-            this.bg1.y -= this.bgSpeed * dt * 60*this.bgScale;
+            this.bg1.y -= this.bgSpeed * dt * 60 * this.bgScale;
         }
 
         if (this.bg2.y <= this.bgMinY) {
@@ -444,7 +453,7 @@ cc.Class({
             this.bg2ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
         } else {
-            this.bg2.y -= this.bgSpeed * dt * 60*this.bgScale;
+            this.bg2.y -= this.bgSpeed * dt * 60 * this.bgScale;
         }
 
         if (this.yuns.y <= (-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
@@ -471,7 +480,7 @@ cc.Class({
             }
 
         } else {
-            this.yuns.y -= this.bgSpeed * dt * 60*this.bgScale;
+            this.yuns.y -= this.bgSpeed * dt * 60 * this.bgScale;
             //如果未加载下一关，且云已经出现且是无尽模式
             if (this.isLoadNextCheckPoint == false && this.yuns.y < 0 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
@@ -482,7 +491,7 @@ cc.Class({
                 }
                 this.isLoadNextCheckPoint = true;
                 //云出现，3秒后刷新超越好友
-                this.scheduleOnce(this.seeNextBeyondFriend,1);
+                this.scheduleOnce(this.seeNextBeyondFriend, 1);
             }
         }
     },

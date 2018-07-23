@@ -118,6 +118,10 @@ cc.Class({
             cc.sys.localStorage.setItem('qq09', 0);
             cc.sys.localStorage.setItem('qq10', 0);
             cc.sys.localStorage.setItem('currentSkinID', "01"); //当前使用的皮肤ID
+
+            //初始化用户的登陆日期
+            cc.sys.localStorage.setItem("lastLoadDate", this.currentYMD());
+            cc.sys.localStorage.setItem("todayAvailableCount", 5);
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
@@ -173,6 +177,16 @@ cc.Class({
         cc.loader.loadRes(addres, cc.SpriteAtlas, function (err, atlas) {
             self.qqNode.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame('qq' + qqCurrentID);
         });
+    },
+
+    //当前年月日
+    currentYMD: function () {
+        let dd = new Date();
+        let y = dd.getFullYear();
+        let m = dd.getMonth();
+        let d = dd.getDate();
+
+        return (y + "" + m + "" + d);
     },
 
 
