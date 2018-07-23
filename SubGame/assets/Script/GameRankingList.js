@@ -19,7 +19,7 @@ cc.Class({
         nameLabel: cc.Label,
         scoreLabel: cc.Label,
 
-        overNode:cc.Node,
+        overNode: cc.Node,
     },
 
 
@@ -359,14 +359,16 @@ cc.Class({
                                 return b.KVDataList[0].value - a.KVDataList[0].value;
                             });
                             for (let i = 0; i < data.length; i++) {
-                                var playerInfo = data[i];
-                                var item = cc.instantiate(this.prefabRankItem);
-                                item.getComponent('RankItem').init(i, playerInfo);
-                                this.scrollViewContent.addChild(item);
+                                if (i <= 8) {//先最多显示9条吧。以后再说
+                                    var playerInfo = data[i];
+                                    var item = cc.instantiate(this.prefabRankItem);
+                                    item.getComponent('RankItem').init(i, playerInfo);
+                                    this.scrollViewContent.addChild(item);
+                                }
                                 if (data[i].avatarUrl == userData.avatarUrl) {
                                     let userItem = cc.instantiate(this.prefabRankItem);
                                     userItem.getComponent('RankItem').init(i, playerInfo);
-                                    userItem.y = -354;
+                                    userItem.y = -215;
                                     this.node.addChild(userItem, 1, 1000);
                                 }
                             }

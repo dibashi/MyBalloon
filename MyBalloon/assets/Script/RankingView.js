@@ -2,23 +2,66 @@ cc.Class({
     extends: cc.Component,
     name: "RankingView",
     properties: {
-        groupFriendButton: cc.Node,
-        friendButton: cc.Node,
+        // groupFriendButton: cc.Node,
+        // friendButton: cc.Node,
         gameOverButton: cc.Node,
         rankingScrollView: cc.Sprite,//显示排行榜
-        loadLabel:cc.Node,//显示加载中的label
+        loadLabel: cc.Node,//显示加载中的label
+
+        isQun:0,//0标记是好友排行榜，1标记是群排行榜
+
+        friendTitleImg:cc.Sprite,
+        groupTitleImg:cc.Sprite,
+        friendBtnImg:cc.Sprite,
+        groupBtnImg:cc.Sprite,
+        title:cc.Sprite, //title的sprite
+        dataFetch:cc.Sprite, //下方按钮请求数据的 sprite
+        dataFetchBtn:cc.Button,
     },
     onLoad() {
         this.timer = 0;
+        this.isQun = 0;
     },
 
     goStart: function () {
         cc.director.loadScene('start');
     },
 
+    friendAndGroupDatasShift:function() {
+        this.dataFetchBtn.interactable = true;
+        if(this.isQun == 0) {
+            this.isQun = 1; //如果是好友排行，则切换到群排行
+            this.title.spriteFrame = this.groupTitleImg.spriteFrame;
+            this.dataFetch.spriteFrame = this.friendBtnImg.spriteFrame;
+        } else {
+            this.isQun = 0;//如果是群排行，则切换到好友排行
+            this.title.spriteFrame = this.friendTitleImg.spriteFrame;
+            this.dataFetch.spriteFrame = this.groupBtnImg.spriteFrame;
+        }
+    },
+
+    dataFetchClick:function(event) {
+        this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
+        this.scheduleOnce(this.closeTips, 3.0);
+        this.scheduleOnce(this.friendAndGroupDatasShift,3.0);
+        this.scheduleOnce(this.openTips,1.0);
+        
+        this.dataFetchBtn.interactable = false;
+        if(this.isQun == 0) { //如果当前好友排行榜，则获得群排行榜数据
+            this.groupFriendButtonFunc(event);
+        } else {
+            this.friendButtonFunc(event);
+        }
+    },
+
     start() {
         if (CC_WECHATGAME) {
-            window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
+            //window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
+            //https://developers.weixin.qq.com/minigame/dev/tutorial/open-ability/share.html?search-key=shareAppMessage
+            wx.updateShareMenu({
+                withShareTicket: true
+            });
+
             this.tex = new cc.Texture2D();
             window.sharedCanvas.width = 1080;
             window.sharedCanvas.height = 1920;
@@ -28,12 +71,16 @@ cc.Class({
             });
 
 
-            this.scheduleOnce(this._updateSubDomainCanvas,3.0);
-            this.scheduleOnce(this.closeTips,3.0);
+            this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
+            this.scheduleOnce(this.closeTips, 3.0);
         }
     },
 
-    closeTips:function() {
+    openTips:function() {
+        this.loadLabel.active = true;
+    },
+
+    closeTips: function () {
         this.loadLabel.active = false;
     },
 
@@ -45,7 +92,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-         
+
         }
     },
 
@@ -53,6 +100,8 @@ cc.Class({
         if (CC_WECHATGAME) {
             window.wx.shareAppMessage({
                 success: (res) => {
+                    console.log("shareTickets  res ---> ");
+                    console.log(res);
                     if (res.shareTickets != undefined && res.shareTickets.length > 0) {
                         window.wx.postMessage({
                             messageType: 5,
@@ -63,7 +112,7 @@ cc.Class({
                 }
             });
         } else {
-           
+
         }
     },
 
@@ -74,7 +123,7 @@ cc.Class({
                 MAIN_MENU_NUM: "user_best_score"
             });
         } else {
-            
+
         }
     },
 
