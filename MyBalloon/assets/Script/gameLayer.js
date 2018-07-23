@@ -130,7 +130,7 @@ cc.Class({
             let dx = this.currentFingerPosition.x + this.offsetPosition.x - guardWorldPos.x;
             let dy = this.currentFingerPosition.y + this.offsetPosition.y - guardWorldPos.y;
            
-            this.guardRigidBody.linearVelocity = cc.v2(dx * 30, dy * 30);
+            this.guardRigidBody.linearVelocity = cc.v2(dx * 80, dy * 80);
         }
 
 
