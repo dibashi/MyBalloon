@@ -126,7 +126,22 @@ cc.Class({
             type: cc.Prefab,
         },
 
-        gameAudio: {
+        gameAudio01: {
+            default: null,
+            url: cc.AudioClip
+        },
+
+        gameAudio02: {
+            default: null,
+            url: cc.AudioClip
+        },
+
+        gameAudio03: {
+            default: null,
+            url: cc.AudioClip
+        },
+
+        gameAudio04: {
             default: null,
             url: cc.AudioClip
         },
@@ -169,9 +184,24 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        //这个功能已经废除了，但这里先不删，防止以后又加上， 注：标记用户是否关闭背景音乐
         let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
         if (gameSoundBG == 1) {
-            cc.audioEngine.playMusic(this.gameAudio, true);
+            let currentMusicID = cc.sys.localStorage.getItem("currentMusicID");
+            switch (currentMusicID) {
+                case "01":
+                    cc.audioEngine.playMusic(this.gameAudio01, true);
+                    break;
+                case "02":
+                    cc.audioEngine.playMusic(this.gameAudio02, true);
+                    break;
+                case "03":
+                    cc.audioEngine.playMusic(this.gameAudio03, true);
+                    break;
+                case "04":
+                    cc.audioEngine.playMusic(this.gameAudio04, true);
+                    break;
+            }
         }
 
         this.h = 3840;

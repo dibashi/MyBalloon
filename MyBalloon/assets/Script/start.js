@@ -70,15 +70,19 @@ cc.Class({
         cc.director.loadScene('store');
     },
 
-    settingClick: function () {
-        let gsb = cc.sys.localStorage.getItem("gameSoundBG");
-        if (gsb == 1) {
-            gsb = 0;
-        } else {
-            gsb = 1;
-        }
-        cc.sys.localStorage.setItem("gameSoundBG", gsb);
-        this.refreshSetting();
+    // settingClick: function () {
+    //     let gsb = cc.sys.localStorage.getItem("gameSoundBG");
+    //     if (gsb == 1) {
+    //         gsb = 0;
+    //     } else {
+    //         gsb = 1;
+    //     }
+    //     cc.sys.localStorage.setItem("gameSoundBG", gsb);
+    //     this.refreshSetting();
+    // },
+
+    musicStoreClick:function() {
+        cc.director.loadScene('music');
     },
 
 
@@ -102,7 +106,7 @@ cc.Class({
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
-            cc.sys.localStorage.setItem('diamondCount', 10000);
+            cc.sys.localStorage.setItem('diamondCount', 0);
             cc.sys.localStorage.setItem('recommendedCurrency', 0);
 
             //拥有的皮肤数据存储，以及当前的皮肤数据存储
@@ -119,6 +123,15 @@ cc.Class({
             cc.sys.localStorage.setItem('qq10', 0);
             cc.sys.localStorage.setItem('currentSkinID', "01"); //当前使用的皮肤ID
 
+
+            //拥有的音乐数据存储，以及当前使用的音乐
+            cc.sys.localStorage.setItem('music01', 1);//默认拥有
+
+            cc.sys.localStorage.setItem('music02', 0);
+            cc.sys.localStorage.setItem('music03', 0);
+            cc.sys.localStorage.setItem('music04', 0);
+            cc.sys.localStorage.setItem('currentMusicID', "01"); //当前使用的音乐ID
+
             //初始化用户的登陆日期
             cc.sys.localStorage.setItem("lastLoadDate", this.currentYMD());
             cc.sys.localStorage.setItem("todayAvailableCount", 5);
@@ -126,7 +139,7 @@ cc.Class({
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
         this.getUerOpenID();
-        this.refreshSetting();
+       // this.refreshSetting();
         this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
         this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
@@ -290,16 +303,16 @@ cc.Class({
         // });
     },
 
-    refreshSetting: function () {
-        let gsb = cc.sys.localStorage.getItem("gameSoundBG");
+    // refreshSetting: function () {
+    //     let gsb = cc.sys.localStorage.getItem("gameSoundBG");
 
-        // cc.log(gsb + "  !!");
-        if (gsb == 1) {
-            this.settingNode.getComponent(cc.Sprite).spriteFrame = this.settingOnImg.getComponent(cc.Sprite).spriteFrame;
-        } else {
-            this.settingNode.getComponent(cc.Sprite).spriteFrame = this.settingOffImg.getComponent(cc.Sprite).spriteFrame;
-        }
-    },
+    //     // cc.log(gsb + "  !!");
+    //     if (gsb == 1) {
+    //         this.settingNode.getComponent(cc.Sprite).spriteFrame = this.settingOnImg.getComponent(cc.Sprite).spriteFrame;
+    //     } else {
+    //         this.settingNode.getComponent(cc.Sprite).spriteFrame = this.settingOffImg.getComponent(cc.Sprite).spriteFrame;
+    //     }
+    // },
 
     // called every frame
     update: function (dt) {

@@ -1250,7 +1250,7 @@
       "__id__": 2
     },
     "component": "start",
-    "handler": "settingClick",
+    "handler": "musicStoreClick",
     "customEventData": ""
   },
   {

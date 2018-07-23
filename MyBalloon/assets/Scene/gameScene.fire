@@ -2214,8 +2214,17 @@
     "reviveAlert": {
       "__uuid__": "b168c85d-7f5b-420a-acc9-1a2389031157"
     },
-    "gameAudio": {
+    "gameAudio01": {
       "__uuid__": "a11e722c-4509-4433-91a5-64935dd9b01d"
+    },
+    "gameAudio02": {
+      "__uuid__": "876556db-c814-448c-84d9-87f491c2a386"
+    },
+    "gameAudio03": {
+      "__uuid__": "b590a27f-c06a-48ea-881c-b18c1f9d4c2c"
+    },
+    "gameAudio04": {
+      "__uuid__": "934784f9-1f73-4fe4-bb9a-e6435afcd12c"
     },
     "nextFriend": {
       "__id__": 50
