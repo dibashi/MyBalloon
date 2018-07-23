@@ -40,6 +40,15 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        this.musicBuyDatas =  [
+            { buyType: 'diamond', price: 60},//如果将来改数值 只需与界面的lable同步
+            { buyType: 'diamond', price: 60},//包括下方的判断
+
+            { buyType: 'diamond', price: 60},
+            { buyType: 'diamond', price: 60},
+        ];
+
+
         this.refreshBtnState();
     },
 
@@ -59,7 +68,7 @@ cc.Class({
             let panel = this.panels.getChildByName("panel" + suffix);
             let isHasMusic = cc.sys.localStorage.getItem('music' + suffix) == 1 ? true : false;
 
-            this._refreshSingleBtn(panel, suffix, currentMusicID, isHasMusic);
+            this._refreshSingleBtn(panel, suffix, currentMusicID, isHasMusic,i);
         }
 
         //刷新钻石显示
@@ -67,7 +76,7 @@ cc.Class({
     },
 
 
-    _refreshSingleBtn: function (panel, suffix, currentMusicID, isHasMusic) {
+    _refreshSingleBtn: function (panel, suffix, currentMusicID, isHasMusic,index) {
         if (isHasMusic) { //已拥有
 
             panel.getChildByName("priceNode").active = false;
@@ -84,12 +93,33 @@ cc.Class({
         } else {
 
             panel.getChildByName("priceNode").active = true;
-            //panel.getChildByName("useLabel").active = false;
 
             panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.goumaiSprite.spriteFrame;
-            panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+
+            if(this.musicBuyDatas[index].buyType == 'diamond') {
+                let diamondCount = parseInt(cc.sys.localStorage.getItem('diamondCount'));
+                if(diamondCount>= this.musicBuyDatas[index].price) {
+                    panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+                    panel.getChildByName("purchaseBtn").opacity = 255;
+                } else {
+                    panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
+                    panel.getChildByName("purchaseBtn").opacity = 100;
+                }
+            } 
+            //音乐目前只能钻石购买，如果要用邀请币购买，只需在本页面加入一个label 添加邀请数量显示
+            // else if(this.musicBuyDatas[index].buyType == 'inviteCurrency') {
+            //     let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency'));
+            //     if(rc>= this.musicBuyDatas[index].price) {
+            //         panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+            //         panel.getChildByName("purchaseBtn").opacity = 255;
+            //     } else {
+            //         panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
+            //         panel.getChildByName("purchaseBtn").opacity = 100;
+            //     }
+            // }
         }
     },
+
 
 
     // called every frame
