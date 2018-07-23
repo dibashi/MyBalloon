@@ -57,13 +57,12 @@ cc.Class({
             { buyType: 'diamond', price: 60},
 
             { buyType: 'diamond', price: 60},
-            { buyType: 'diamond', price: 60},
 
-            { buyType: 'diamond', price: 60},
-            { buyType: 'inviteCurrency', price: 2},//如果将来改数值 只需与界面的lable同步
-
+            { buyType: 'inviteCurrency', price: 2},
             { buyType: 'inviteCurrency', price: 3},
-            { buyType: 'inviteCurrency', price: 5},
+            { buyType: 'inviteCurrency', price: 5},//如果将来改数值 只需与界面的lable同步
+
+            
         ];
         this.refreshBtnState();
     },
@@ -71,7 +70,7 @@ cc.Class({
     refreshBtnState: function () {
         
         let currentQQID = cc.sys.localStorage.getItem('currentSkinID');
-
+        console.log(this.panels);
         let panelCount = this.panels.children.length;
         for (let i = 0; i < panelCount; i++) {
             let suffix = "0";
