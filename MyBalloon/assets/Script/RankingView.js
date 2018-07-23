@@ -42,7 +42,6 @@ cc.Class({
     },
 
     dataFetchClick:function(event) {
-        this.dataFetchBtn.interactable = false;
         if(this.isQun == 0) { //如果当前好友排行榜，则获得群排行榜数据
             this.groupFriendButtonFunc(event);
         } else {
@@ -95,6 +94,7 @@ cc.Class({
                 messageType: 1,
                 MAIN_MENU_NUM: "user_best_score"
             });
+            this.dataFetchBtn.interactable = false;
             this.uiRefresh();
         } else {
 
@@ -114,7 +114,7 @@ cc.Class({
                             MAIN_MENU_NUM: "user_best_score",
                             shareTicket: res.shareTickets[0]
                         });
-
+                        self.dataFetchBtn.interactable = false;
                         self.uiRefresh();
                     }
                 }
