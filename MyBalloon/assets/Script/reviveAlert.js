@@ -70,6 +70,7 @@ cc.Class({
         //判断广告按钮是否可以点击
         if (cc.sys.localStorage.getItem("adRevive") != "1") {
             this.AdReviveBtn.interactable = false;
+            this.AdReviveBtn.node.opacity = 50;
         }
 
         //若本局已用过，或者 今天已经不可用，或者没有复活币
@@ -77,6 +78,7 @@ cc.Class({
         let rc = parseInt(cc.sys.localStorage.getItem("recommendedCurrency"));
         if (cc.sys.localStorage.getItem("recommendedRevive") != "1" || tac <= 0 || rc <= 0) {
             this.recommendedBtn.interactable = false;
+            this.recommendedBtn.node.opacity = 50;
         }
     },
 
