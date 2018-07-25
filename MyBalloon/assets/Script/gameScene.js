@@ -184,7 +184,7 @@ cc.Class({
 
         isLoadNextCheckPoint: false,//是否已经加载下一关的标记
         //胜利彩带，这个只在关卡模式下有用
-        winRibbon:null,
+        winRibbon: null,
     },
 
 
@@ -213,7 +213,7 @@ cc.Class({
 
         this.h = 3840;
         this.bgMinY = -2880;
-        this.bgSpeed = 6;
+        this.bgSpeed = 360;//为了性能改为1秒的速度 以前是6 现在是360
         this.bgScale = 1;
 
         this.scoreNode.active = false; //先不显示得分 在无尽模式中显示
@@ -386,10 +386,10 @@ cc.Class({
         this.gameLayer.getComponent("gameLayer").currentNode = currentNode;
 
         //递归：给子节点下的所有子节点以刚体速度
-        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 75);
+        this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 1.2);
 
         //单独把 关卡模式的 胜利横幅拉出来
-        if(this.guanKa != -1) {
+        if (this.guanKa != -1) {
             this.winRibbon = currentNode.getChildByName("zhongdian");
         }
     },
@@ -481,12 +481,12 @@ cc.Class({
     // called every frame
     update: function (dt) {
         if (this.bg1.y <= this.bgMinY) {
-            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * 60 * this.bgScale;
+            this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * this.bgScale;
 
             this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
         } else {
-            this.bg1.y -= this.bgSpeed * dt * 60 * this.bgScale;
+            this.bg1.y -= this.bgSpeed * dt * this.bgScale;
         }
 
         if (this.bg2.y <= this.bgMinY) {
@@ -495,7 +495,7 @@ cc.Class({
             this.bg2ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
             this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
         } else {
-            this.bg2.y -= this.bgSpeed * dt * 60 * this.bgScale;
+            this.bg2.y -= this.bgSpeed * dt * this.bgScale;
         }
 
         if (this.yuns.y <= (-960 - 300)) { //屏幕高度的一半 再减去yun的高度的一半
@@ -522,7 +522,7 @@ cc.Class({
             // }
 
         } else {
-            this.yuns.y -= this.bgSpeed * dt * 60 * this.bgScale;
+            this.yuns.y -= this.bgSpeed * dt * this.bgScale;
             //如果未加载下一关，且云已经出现且是无尽模式
             if (this.isLoadNextCheckPoint == false && this.yuns.y < 0 && this.guanKa == -1) {
                 //判断加载哪个背景上，谁在上面就加到那个
@@ -535,15 +535,15 @@ cc.Class({
                 //云出现，3秒后刷新超越好友
                 this.scheduleOnce(this.seeNextBeyondFriend, 1);
             }
-        }   
+        }
         //胜利彩带的移动与结束判断
-        if(this.guanKa != -1 && this.winRibbon != null) {
+        if (this.guanKa != -1 && this.winRibbon != null) {
             console.log(this.winRibbon.position);
-            if(this.winRibbon.position.y <this.balloon.position.y - 100) {
+            if (this.winRibbon.position.y < this.balloon.position.y - 100) {
                 console.log("胜利！！");
                 this.checkpointWin();
             } else {
-                this.winRibbon.position.y -= this.bgSpeed*dt*60*this.bgScale;
+                this.winRibbon.position.y -= this.bgSpeed * dt * this.bgScale;
             }
             this.winRibbon = currentNode.getChildByName("zhongdian");
         }
