@@ -1,0 +1,45 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "zhezhao",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1.1666666666666667,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "props": {
+      "width": [
+        {
+          "frame": 0,
+          "value": 0
+        },
+        {
+          "frame": 0.6666666666666666,
+          "value": 800
+        }
+      ]
+    },
+    "paths": {
+      "ph_fenge2": {
+        "props": {
+          "y": [
+            {
+              "frame": 0,
+              "value": -10
+            },
+            {
+              "frame": 0.6666666666666666,
+              "value": -10
+            },
+            {
+              "frame": 1.1666666666666667,
+              "value": -150
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}
