@@ -23,6 +23,16 @@ cc.Class({
         cc.director.loadScene("gameScene");
     },
 
+    goShare: function () {
+        let query_string = cc.sys.localStorage.getItem("openid");
+        //console.log("准备发送请求的 query " + query_string);
+
+        wx.shareAppMessage({
+            title: "我在排行榜上已经无敌了！来超越我啊！",
+            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
+        });
+    },
+
     start() {
 
         //window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
