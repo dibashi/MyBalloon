@@ -41,5 +41,11 @@
       }
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 1.1666666666666667,
+      "func": "maskAniOver",
+      "params": []
+    }
+  ]
 }

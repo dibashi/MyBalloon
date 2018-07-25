@@ -2,10 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        label: {
-            default: null,
-            type: cc.Label
-        },
+        diamondLabel: cc.Label,
 
         checkPoints: {
             default: null,
@@ -29,6 +26,7 @@ cc.Class({
     onLoad: function () {
         console.log("执行到 onload  selectCheckPoint!~~");
         this.refreshCheckPoint();
+        this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
     },
 
     refreshCheckPoint: function () {
