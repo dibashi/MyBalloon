@@ -6239,7 +6239,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "60",
+    "_N$string": "2",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -6965,7 +6965,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "60",
+    "_N$string": "3",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -7691,7 +7691,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "60",
+    "_N$string": "5",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -8184,6 +8184,9 @@
     },
     "diamondLabel": {
       "__id__": 14
+    },
+    "inviteLabel": {
+      "__id__": 22
     },
     "goumaiSprite": {
       "__id__": 198

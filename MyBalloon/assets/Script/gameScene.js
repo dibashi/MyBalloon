@@ -527,6 +527,25 @@ cc.Class({
     },
 
     winProOver: function () {
+        let curCP = cc.sys.localStorage.getItem("currentCheckpoint");
+        //首先要把curCP前面的0去掉 然后+1，就代表着当前要玩的关卡
+        let sCurCP = curCP.split('');
+        for (let i = 0; i < sCurCP.length; i++) {
+            if (sCurCP[i] != '0') {
+                break;
+            }
+        }
+        let r = curCP.substring(i, curCP.length);
+        let pr = parseInt(r);
+        let cr = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
+        if(pr<cr) {//如果玩的关卡小于玩家当前的关卡，则什么也不做
+            
+        } else {
+            let result = pr + 1;
+            cc.sys.localStorage.setItem("dangQianGuanKa", result);
+        }
+        
+
         cc.director.loadScene("selectCheckpoint");
     },
 

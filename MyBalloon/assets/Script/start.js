@@ -135,6 +135,9 @@ cc.Class({
             //初始化用户的登陆日期
             cc.sys.localStorage.setItem("lastLoadDate", this.currentYMD());
             cc.sys.localStorage.setItem("todayAvailableCount", 5);
+
+            //记录玩家当前玩到的关卡  从第一关开始 1代表第一关
+            cc.sys.localStorage.setItem("dangQianGuanKa",1);
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }

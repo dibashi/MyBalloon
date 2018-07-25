@@ -16,6 +16,11 @@ cc.Class({
             type: cc.Node,
         },
 
+        inviteLabel: {
+            default: null,
+            type: cc.Node,
+        },
+
         goumaiSprite: {
             default: null,
             type: cc.Sprite,
@@ -40,13 +45,32 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        //定义数据，有的是用钻石购买，有的使用邀请币购买
+        this.skinBuyDatas =  [
+            { buyType: 'diamond', price: 60},//如果将来改数值 只需与界面的lable同步
+            { buyType: 'diamond', price: 60},
+
+            { buyType: 'diamond', price: 60},
+            { buyType: 'diamond', price: 60},
+
+            { buyType: 'diamond', price: 60},
+            { buyType: 'diamond', price: 60},
+
+            { buyType: 'diamond', price: 60},
+
+            { buyType: 'inviteCurrency', price: 2},
+            { buyType: 'inviteCurrency', price: 3},
+            { buyType: 'inviteCurrency', price: 5},//如果将来改数值 只需与界面的lable同步
+
+            
+        ];
         this.refreshBtnState();
     },
 
     refreshBtnState: function () {
         
         let currentQQID = cc.sys.localStorage.getItem('currentSkinID');
-
+        console.log(this.panels);
         let panelCount = this.panels.children.length;
         for (let i = 0; i < panelCount; i++) {
             let suffix = "0";
@@ -59,15 +83,17 @@ cc.Class({
             let panel = this.panels.getChildByName("panel" + suffix);
             let isHasQQSkin = cc.sys.localStorage.getItem('qq' + suffix) == 1 ? true : false;
 
-            this._refreshSingleBtn(panel, suffix, currentQQID, isHasQQSkin);
+            this._refreshSingleBtn(panel, suffix, currentQQID, isHasQQSkin,i);
         }
 
         //刷新钻石显示
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('diamondCount');
+        //刷新邀请币显示
+        this.inviteLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
     },
 
 
-    _refreshSingleBtn: function (panel, suffix, currentQQID, isHasQQSkin) {
+    _refreshSingleBtn: function (panel, suffix, currentQQID, isHasQQSkin,index) {
         if (isHasQQSkin) { //已拥有
             
             panel.getChildByName("priceNode").active = false;
@@ -81,13 +107,31 @@ cc.Class({
                 panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.selectSprite.spriteFrame;
                 panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
             }
-        } else {
-            
+        } else {//未拥有 要先检测 他的钻石或者邀请币是否够，不够的话，按钮设置为不可点击
             panel.getChildByName("priceNode").active = true;
-            //panel.getChildByName("useLabel").active = false;
-
+            
             panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.goumaiSprite.spriteFrame;
-            panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+            //先判断用什么购买，然后判断那个值是否够
+            if(this.skinBuyDatas[index].buyType == 'diamond') {
+                let diamondCount = parseInt(cc.sys.localStorage.getItem('diamondCount'));
+                if(diamondCount>= this.skinBuyDatas[index].price) {
+                    panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+                    panel.getChildByName("purchaseBtn").opacity = 255;
+                } else {
+                    panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
+                    panel.getChildByName("purchaseBtn").opacity = 100;
+                }
+            } else if(this.skinBuyDatas[index].buyType == 'inviteCurrency') {
+                let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency'));
+                if(rc>= this.skinBuyDatas[index].price) {
+                    panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = true;
+                    panel.getChildByName("purchaseBtn").opacity = 255;
+                } else {
+                    panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
+                    panel.getChildByName("purchaseBtn").opacity = 100;
+                }
+            }
+            
         }
     },
 
@@ -136,18 +180,25 @@ cc.Class({
                 case "07":
                     price = 60;
                     break;
-                case "08":
-                    price = 60;
-                    break;
-                case "09":
-                    price = 60;
-                    break;
-                case "10":
-                    price = 60;
-                    break;
             }
             //钻石数值修改
             cc.sys.localStorage.setItem('diamondCount', diamondCount - price);
+
+            let inviteCurrency = parseInt(cc.sys.localStorage.getItem('recommendedCurrency'));
+            switch (eventData) {
+                case "08":
+                    price = 2;
+                    break;
+                case "09":
+                    price = 3;
+                    break;
+                case "10":
+                    price = 5;
+                    break;
+            }
+
+            cc.sys.localStorage.setItem('recommendedCurrency', inviteCurrency - price);
+
             //是否拥有某气球的数值修改
             cc.sys.localStorage.setItem('qq' + eventData, 1);
             //根据修改后的数值刷新界面显示
