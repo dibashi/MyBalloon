@@ -98,7 +98,8 @@ cc.Class({
         this.fixedPositon = this.node.position;
     },
     onBeginContact: function (contact, selfCollider, otherCollider) {
-
+        console.log("与横幅发生碰撞~！");
+        console.log(otherCollider);
         //这里的处理逻辑还是比较多的
         //第1 要判断是谁击中了气球，必须是enemy才处理。
         //如何处理？1 游戏结束，跳转到弹出框，用于表示是否复活？这怎么复活？ 关卡模式可以复活吗？
@@ -110,7 +111,12 @@ cc.Class({
             this.dead();
             //先用这个，将来用上面那个
             // cc.find("Canvas").getComponent("gameScene").gameOver();
-        }
+        } 
+        // else if (otherCollider.node.group === "zhongdian" && this.isDeadFlag == false) {
+            
+        //     //首先碰到zhongdian就结束游戏，弹窗，其次标记必须是非阵亡状态（因为阵亡状态有动画，所以有一定的持续时间，必须要判断）
+        //     cc.find("Canvas").getComponent("gameScene").checkpointWin();
+        // }
     },
 
     dead: function () {

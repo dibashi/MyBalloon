@@ -126,6 +126,11 @@ cc.Class({
             type: cc.Prefab,
         },
 
+        winAlert: {
+            default: null,
+            type: cc.Prefab,
+        },
+
         gameAudio01: {
             default: null,
             url: cc.AudioClip
@@ -178,6 +183,8 @@ cc.Class({
         bg2ColorIndex: 0,//初始化两个背景的 颜色索引
 
         isLoadNextCheckPoint: false,//是否已经加载下一关的标记
+        //胜利彩带，这个只在关卡模式下有用
+        winRibbon:null,
     },
 
 
@@ -380,6 +387,11 @@ cc.Class({
 
         //递归：给子节点下的所有子节点以刚体速度
         this.giveRigidBodyVelocity(currentNode, -this.bgSpeed * 75);
+
+        //单独把 关卡模式的 胜利横幅拉出来
+        if(this.guanKa != -1) {
+            this.winRibbon = currentNode.getChildByName("zhongdian");
+        }
     },
 
     //给关卡中的所有刚体 一个速度 让其和背景一起下落
@@ -497,17 +509,17 @@ cc.Class({
                 this.yun3.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun3Color);
                 this.yun2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun2Color);
             }
-
-            if (this.guanKa != -1) {
-                //胜利，先播放胜利动画，然后去关卡选择界面
-                this.balloon.opacity = 0;
-                let aniWin = cc.instantiate(this.teXiaoWin);
-                this.armatureDisplayWinpro = aniWin.getComponent(dragonBones.ArmatureDisplay);
-                this.armatureDisplayWinpro.playAnimation("winpro");
-                this.node.addChild(aniWin);
-                aniWin.setPosition(0, 0);
-                this.scheduleOnce(this.winProOver, 3.0);
-            }
+            //需求更改 下方的代码废弃 作用是 关卡结束
+            // if (this.guanKa != -1) {
+            //     //胜利，先播放胜利动画，然后去关卡选择界面
+            //     this.balloon.opacity = 0;
+            //     let aniWin = cc.instantiate(this.teXiaoWin);
+            //     this.armatureDisplayWinpro = aniWin.getComponent(dragonBones.ArmatureDisplay);
+            //     this.armatureDisplayWinpro.playAnimation("winpro");
+            //     this.node.addChild(aniWin);
+            //     aniWin.setPosition(0, 0);
+            //     this.scheduleOnce(this.winProOver, 3.0);
+            // }
 
         } else {
             this.yuns.y -= this.bgSpeed * dt * 60 * this.bgScale;
@@ -523,10 +535,22 @@ cc.Class({
                 //云出现，3秒后刷新超越好友
                 this.scheduleOnce(this.seeNextBeyondFriend, 1);
             }
+        }   
+        //胜利彩带的移动与结束判断
+        if(this.guanKa != -1 && this.winRibbon != null) {
+            console.log(this.winRibbon.position);
+            if(this.winRibbon.position.y <this.balloon.position.y - 100) {
+                console.log("胜利！！");
+                this.checkpointWin();
+            } else {
+                this.winRibbon.position.y -= this.bgSpeed*dt*60*this.bgScale;
+            }
+            this.winRibbon = currentNode.getChildByName("zhongdian");
         }
     },
 
-    winProOver: function () {
+
+    checkpointWin: function () {
         let curCP = cc.sys.localStorage.getItem("currentCheckpoint");
         //首先要把curCP前面的0去掉 然后+1，就代表着当前要玩的关卡
         let sCurCP = curCP.split('');
@@ -538,18 +562,36 @@ cc.Class({
         let r = curCP.substring(i, curCP.length);
         let pr = parseInt(r);
         let cr = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
-        if(pr<cr) {//如果玩的关卡小于玩家当前的关卡，则什么也不做
-            
+        if (pr < cr) {//如果玩的关卡小于玩家当前的关卡，则什么也不做
+
         } else {
             let result = pr + 1;
             cc.sys.localStorage.setItem("dangQianGuanKa", result);
+
+            cc.eventManager.pauseTarget(this.node, true);
+            let ss = cc.instantiate(this.winAlert);
+            ss.setLocalZOrder(1000);
+            ss.getComponent("winAlert").onWho = this.node;
+            this.node.addChild(ss);
+
+            //给用户钻石，目前不管什么关卡，都是三颗钻石
+            let dc = parseInt(cc.sys.localStorage.getItem("diamondCount")) + 3;
+            cc.sys.localStorage.setItem("diamondCount", dc);
         }
-        
 
+        //胜利，先播放胜利动画，然后去关卡选择界面
+        this.balloon.opacity = 0;
+        let aniWin = cc.instantiate(this.teXiaoWin);
+        this.armatureDisplayWinpro = aniWin.getComponent(dragonBones.ArmatureDisplay);
+        this.armatureDisplayWinpro.playAnimation("winpro");
+        this.node.addChild(aniWin);
+        aniWin.setPosition(0, 0);
+
+        this.scheduleOnce(this.winProOver, 3.0);
+    },
+
+    winProOver: function () {
         cc.director.loadScene("selectCheckpoint");
     },
 
-    winOver: function () {
-        cc.director.loadScene("selectCheckpoint");
-    },
 });
