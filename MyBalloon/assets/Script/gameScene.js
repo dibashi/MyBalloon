@@ -539,7 +539,7 @@ cc.Class({
         }
         //胜利彩带的移动与结束判断
         if (this.guanKa != -1 && this.winRibbon != null) {
-            if (this.winRibbon.position.y < this.balloon.position.y - 100 && this.guanKaWin == false) {
+            if (this.winRibbon.position.y < this.balloon.position.y - 100 && this.guanKaWin == false && this.balloon.getComponent("ballon").isDeadFlag == false) {
                 console.log("胜利！！");
                 this.guanKaWin = true;
                 this.checkpointWin();
