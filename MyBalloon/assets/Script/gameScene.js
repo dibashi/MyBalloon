@@ -185,6 +185,7 @@ cc.Class({
         isLoadNextCheckPoint: false,//是否已经加载下一关的标记
         //胜利彩带，这个只在关卡模式下有用
         winRibbon: null,
+        guanKaWin:false,
     },
 
 
@@ -538,14 +539,18 @@ cc.Class({
         }
         //胜利彩带的移动与结束判断
         if (this.guanKa != -1 && this.winRibbon != null) {
-            console.log(this.winRibbon.position);
-            if (this.winRibbon.position.y < this.balloon.position.y - 100) {
+            
+            console.log("balloon  " + this.balloon.position.y);
+            let wry = this.winRibbon.parent.convertToWorldSpaceAR(this.winRibbon.position).y -960;
+            console.log("winRibbon  " + wry);
+            if (wry < this.balloon.position.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
                 console.log("胜利！！");
+                this.guanKaWin = true;
                 this.checkpointWin();
             } else {
                 this.winRibbon.position.y -= this.bgSpeed * dt * this.bgScale;
             }
-            this.winRibbon = this.currentNode.getChildByName("zhongdian");
+            
         }
     },
 
@@ -563,7 +568,7 @@ cc.Class({
         let pr = parseInt(r);
         let cr = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
         if (pr < cr) {//如果玩的关卡小于玩家当前的关卡，则什么也不做
-
+            this.scheduleOnce(this.winProOver, 3.0);
         } else {
             let result = pr + 1;
             cc.sys.localStorage.setItem("dangQianGuanKa", result);
@@ -587,7 +592,7 @@ cc.Class({
         this.node.addChild(aniWin);
         aniWin.setPosition(0, 0);
 
-        this.scheduleOnce(this.winProOver, 3.0);
+        
     },
 
     winProOver: function () {

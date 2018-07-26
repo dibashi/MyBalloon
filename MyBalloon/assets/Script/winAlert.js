@@ -58,6 +58,10 @@ cc.Class({
         let diamondNodeAni = this.diamondNode.getComponent(cc.Animation);
         diamondNodeAni.play();
     },
+
+    goSelectCheckPoint: function () {
+        cc.director.loadScene('selectCheckpoint');
+    },
 });
 
 
