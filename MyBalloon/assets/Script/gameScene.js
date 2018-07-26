@@ -545,7 +545,7 @@ cc.Class({
             } else {
                 this.winRibbon.position.y -= this.bgSpeed * dt * this.bgScale;
             }
-            this.winRibbon = currentNode.getChildByName("zhongdian");
+            this.winRibbon = this.currentNode.getChildByName("zhongdian");
         }
     },
 

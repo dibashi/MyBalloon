@@ -39,6 +39,15 @@ cc.Class({
             type: cc.Node,
         },
 
+        rouletteNode: {
+            default: null,
+            type: cc.Node,
+        },
+
+        countDownLabel: {
+            default: null,
+            type: cc.Label,
+        },
     },
 
     //无尽模式
@@ -55,6 +64,10 @@ cc.Class({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
             imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
         });
+    },
+
+    goRoulette: function () {
+        console.log("轮盘赌启动！！");
     },
 
     goRankingView: function () {
@@ -81,7 +94,7 @@ cc.Class({
     //     this.refreshSetting();
     // },
 
-    musicStoreClick:function() {
+    musicStoreClick: function () {
         cc.director.loadScene('music');
     },
 
@@ -90,6 +103,8 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
 
+        this.myDebugMode = false;
+
         cc.audioEngine.stopMusic();
         this.userData = null;
 
@@ -97,12 +112,14 @@ cc.Class({
         if (isloaded == 0 || isloaded == null) {
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
-
-            window.wx.postMessage({
-                messageType: 3,
-                MAIN_MENU_NUM: "user_best_score",
-                score: 0,
-            });
+            if(this.myDebugMode) {
+                window.wx.postMessage({
+                    messageType: 3,
+                    MAIN_MENU_NUM: "user_best_score",
+                    score: 0,
+                });
+            }
+           
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
@@ -137,18 +154,78 @@ cc.Class({
             cc.sys.localStorage.setItem("todayAvailableCount", 5);
 
             //记录玩家当前玩到的关卡  从第一关开始 1代表第一关
-            cc.sys.localStorage.setItem("dangQianGuanKa",1);
+            cc.sys.localStorage.setItem("dangQianGuanKa", 1);
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
         this.getUerOpenID();
-       // this.refreshSetting();
+        // this.refreshSetting();
         this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
         this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
+
+        this.rouletteInitLogic();
         this.schedule(this.refreshrecommended, 4);
+    },
+
+    //！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    //！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+    //这个函数 要在玩家轮盘赌结束后调用一次，那一次会刷新玩家的时间
+    rouletteInitLogic:function() {
+        //1读取上次登陆距离1970的毫秒数 d1
+        //2现在时间的距离1970的毫秒数   d2
+        //3 两者的差值 dx = (d2-d1)/1000>(4*60*60) 玩家可以再次领取
+        //4 差值弱小于，则剩余（4*60*60）-（d2-d1)/1000秒数 赋予一个变量
+        //5 定时器一秒调用一次，一次让这个变量减一，然后把变量的值转化为时分秒 赋予label上
+
+        //根据时间差来设置btn是否可点击
+        let d3 = parseInt(cc.sys.localStorage.getItem('ggTime'));//轮盘赌广告结束时的时间（领取过后才赋值！）
+        console.log(d3);
+        if(d3 == null || typeof d3 == undefined) {
+            d3 = Date.now();//1970 年 1 月 1日午夜与当前日期和时间之间的毫秒数。
+            cc.sys.localStorage.setItem("ggTime",d3);
+        }
+        let d4 = parseInt(Date.now());
+
+        this.dxGG = parseInt((d4 - d3) * 0.001);
+        // cc.log("aaaa  " +this.dxLQ);
+        if (this.dxGG > (30 * 60)) {//超过半个小时
+            this.rouletteNode.getComponent(cc.Button).interactable = true;
+            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
+            this.countDownLabel.node.active = false;
+        } else {
+            this.dxGG = 30 * 60 - this.dxGG;
+            this.rouletteNode.getComponent(cc.Button).interactable = false;
+            this.rouletteNode.color = cc.hexToColor("#2B3466");
+            this.countDownLabel.node.active = true;
+            this.setTimeToLabel(this.dxGG, this.countDownLabel);
+            //   this.schedule(this.countdownFUN,this,1,this.dxLQ);
+
+            this.schedule(this.countdownFUNGG, 1);
+        }
+    },
+
+    setTimeToLabel: function (dx, label) {
+        //dx-->29分54秒
+        let m = parseInt(dx / 60);
+        let s = parseInt(dx - (60 * m));
+        
+        label.string = m + "分" + s + "秒";
+    },
+
+    countdownFUNGG: function () {
+
+        this.dxGG = this.dxGG - 1;
+
+        this.setTimeToLabel(this.dxGG, this.countDownLabel);
+        if (this.dxGG <= 0) {
+            this.rouletteNode.getComponent(cc.Button).interactable = true;
+            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
+            this.countDownLabel.node.active = false;
+            this.unschedule(this.countdownFUNGG);
+        }
     },
 
     loadQQAndTail: function () {
@@ -214,25 +291,32 @@ cc.Class({
         if (openid == "0") {
             return;
         }
-        wx.request({
-            url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
-            data: {
-                userid: openid,
-            },
-            success: (obj, statusCode, header) => {
-                console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
-                console.log(obj);
-                if (obj.data.code > 0) {
-                    let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
-                    cc.sys.localStorage.setItem('recommendedCurrency', rc);
-                    self.recommendedLabel.getComponent(cc.Label).string = rc;
-                }
-            },
-        });
+        
+        if(this.myDebugMode) {
+            wx.request({
+                url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
+                data: {
+                    userid: openid,
+                },
+                success: (obj, statusCode, header) => {
+                    console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
+                    console.log(obj);
+                    if (obj.data.code > 0) {
+                        let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
+                        cc.sys.localStorage.setItem('recommendedCurrency', rc);
+                        self.recommendedLabel.getComponent(cc.Label).string = rc;
+                    }
+                },
+            });
+        }
     },
 
 
     getUerOpenID: function () {
+        if(!this.myDebugMode) {
+            return;
+        } 
+        
         // console.log("getUserOpenID!");
         let self = this;
         self.openid = cc.sys.localStorage.getItem("openid");
