@@ -100,6 +100,9 @@ cc.Class({
         if (this.wheelState !== 0) {
             return;
         }
+
+        this.AdBtn.interactable = false;
+
         this.wheelState = 1; //开始旋转 update 会自动判断   
 
         let p = Math.random();
@@ -155,8 +158,7 @@ cc.Class({
                 this.wheelSp.rotation = this.wheelSp.rotation + this.curSpeed;
             } else { //达到了更新时间
 
-                console.log(this.wheelSp.rotation);
-                console.log("wheelState = 2");
+              
                 this.wheelState = 2;//进入减速状态
             }
         }
@@ -167,11 +169,11 @@ cc.Class({
                 // this.curSpeed -= this.dV * dt/this.slowDownTime; //此数肯定为负 所以直接相加
                 //this.curSpeed -= this.dV / (60 * this.slowDownTime);
                 this.curSpeed -= this.accV;
-                console.log(this.curSpeed);
+              
                 this.wheelSp.rotation = this.wheelSp.rotation + this.curSpeed;
-                console.log("难道在一直执行");
+               
             } else {
-                console.log(this.wheelSp.rotation);
+               
                 //console.log("whell s 置为0了");
                 this.wheelState = 0;
                 this.wheelSp.rotation = this.finalAngle;
