@@ -185,6 +185,7 @@ cc.Class({
         isLoadNextCheckPoint: false,//是否已经加载下一关的标记
         //胜利彩带，这个只在关卡模式下有用
         winRibbon: null,
+        guanKaWin:false,
     },
 
 
@@ -539,13 +540,14 @@ cc.Class({
         //胜利彩带的移动与结束判断
         if (this.guanKa != -1 && this.winRibbon != null) {
             console.log(this.winRibbon.position);
-            if (this.winRibbon.position.y < this.balloon.position.y - 100) {
+            if (this.winRibbon.position.y < this.balloon.position.y - 100 && this.guanKaWin == false) {
                 console.log("胜利！！");
+                this.guanKaWin = true;
                 this.checkpointWin();
             } else {
                 this.winRibbon.position.y -= this.bgSpeed * dt * this.bgScale;
             }
-            this.winRibbon = this.currentNode.getChildByName("zhongdian");
+            
         }
     },
 
