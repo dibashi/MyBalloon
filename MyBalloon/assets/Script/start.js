@@ -103,6 +103,8 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
 
+        this.myDebugMode = false;
+
         cc.audioEngine.stopMusic();
         this.userData = null;
 
@@ -110,12 +112,14 @@ cc.Class({
         if (isloaded == 0 || isloaded == null) {
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
-
-            window.wx.postMessage({
-                messageType: 3,
-                MAIN_MENU_NUM: "user_best_score",
-                score: 0,
-            });
+            if(this.myDebugMode) {
+                window.wx.postMessage({
+                    messageType: 3,
+                    MAIN_MENU_NUM: "user_best_score",
+                    score: 0,
+                });
+            }
+           
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
@@ -287,25 +291,32 @@ cc.Class({
         if (openid == "0") {
             return;
         }
-        wx.request({
-            url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
-            data: {
-                userid: openid,
-            },
-            success: (obj, statusCode, header) => {
-                console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
-                console.log(obj);
-                if (obj.data.code > 0) {
-                    let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
-                    cc.sys.localStorage.setItem('recommendedCurrency', rc);
-                    self.recommendedLabel.getComponent(cc.Label).string = rc;
-                }
-            },
-        });
+        
+        if(this.myDebugMode) {
+            wx.request({
+                url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
+                data: {
+                    userid: openid,
+                },
+                success: (obj, statusCode, header) => {
+                    console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
+                    console.log(obj);
+                    if (obj.data.code > 0) {
+                        let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
+                        cc.sys.localStorage.setItem('recommendedCurrency', rc);
+                        self.recommendedLabel.getComponent(cc.Label).string = rc;
+                    }
+                },
+            });
+        }
     },
 
 
     getUerOpenID: function () {
+        if(!this.myDebugMode) {
+            return;
+        } 
+        
         // console.log("getUserOpenID!");
         let self = this;
         self.openid = cc.sys.localStorage.getItem("openid");
