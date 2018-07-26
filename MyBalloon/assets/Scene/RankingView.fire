@@ -21,7 +21,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "94e995cd-f890-4ddf-b5a8-b8e83b67c4ca",
+    "_id": "4968307b-ff99-4818-b9cd-6e3ec387286d",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -310,10 +310,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "5a63d5be-8d38-43b3-84ca-5547bb9264cd"
+      "__uuid__": "89fc1ce3-530a-41e6-ba14-f703b4eb3e6d"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -325,7 +325,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "a8466c17-98b1-4dba-a1a1-26b6ffbabe64"
+    }
   },
   {
     "__type__": "cc.Widget",
@@ -614,7 +616,7 @@
     "_fillStart": 0,
     "_fillRange": 0,
     "_isTrimmedMode": true,
-    "_srcBlendFactor": 1,
+    "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_atlas": {
       "__uuid__": "6c41602a-df7c-47df-b8af-e9b33ff60142"

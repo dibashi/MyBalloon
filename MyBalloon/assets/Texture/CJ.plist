@@ -4,96 +4,83 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>za00.png</key>
+            <key>changjing_shan1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,350},{104,515}}</string>
+                <string>{{2,2},{1000,479}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{104,515}}</string>
+                <string>{{0,0},{1000,479}}</string>
                 <key>sourceSize</key>
-                <string>{104,515}</string>
+                <string>{1000,479}</string>
             </dict>
-            <key>za01.png</key>
+            <key>changjing_yun1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{626,26}}</string>
+                <string>{{2,758},{1000,255}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{626,26}}</string>
+                <string>{{0,0},{1000,255}}</string>
                 <key>sourceSize</key>
-                <string>{626,26}</string>
+                <string>{1000,255}</string>
             </dict>
-            <key>za02.png</key>
+            <key>changjing_yun2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{790,133},{114,114}}</string>
+                <string>{{2,1015},{1000,220}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{114,114}}</string>
+                <string>{{0,0},{1000,220}}</string>
                 <key>sourceSize</key>
-                <string>{114,114}</string>
+                <string>{1000,220}</string>
             </dict>
-            <key>za03.png</key>
+            <key>changjing_yun3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{790,2},{141,129}}</string>
+                <string>{{2,483},{1000,273}}</string>
                 <key>offset</key>
-                <string>{0,0}</string>
+                <string>{0,1}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{141,129}}</string>
+                <string>{{0,0},{1000,273}}</string>
                 <key>sourceSize</key>
-                <string>{141,129}</string>
+                <string>{1000,275}</string>
             </dict>
-            <key>za04.png</key>
+            <key>shareImage.jpg</key>
             <dict>
                 <key>frame</key>
-                <string>{{906,133},{111,105}}</string>
+                <string>{{2,1338},{400,320}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{111,105}}</string>
+                <string>{{0,0},{400,320}}</string>
                 <key>sourceSize</key>
-                <string>{111,105}</string>
+                <string>{400,320}</string>
             </dict>
-            <key>za05.png</key>
+            <key>tubiao_victory.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{906,240},{105,108}}</string>
+                <string>{{2,1237},{1000,99}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{105,108}}</string>
+                <string>{{0,0},{1000,99}}</string>
                 <key>sourceSize</key>
-                <string>{105,108}</string>
-            </dict>
-            <key>za06.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{630,2},{158,135}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{158,135}}</string>
-                <key>sourceSize</key>
-                <string>{158,135}</string>
+                <string>{1000,99}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -101,13 +88,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>za.png</string>
+            <string>CJ.png</string>
             <key>size</key>
-            <string>{1024,1024}</string>
+            <string>{1024,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:47887b82310dece939a1422aad80a488$</string>
+            <string>$TexturePacker:SmartUpdate:8937884d77cd3222a00dc69e6a8bc25c$</string>
             <key>textureFileName</key>
-            <string>za.png</string>
+            <string>CJ.png</string>
         </dict>
     </dict>
 </plist>
