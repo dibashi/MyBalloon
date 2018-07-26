@@ -182,8 +182,9 @@ cc.Class({
 
         //根据时间差来设置btn是否可点击
         let d3 = parseInt(cc.sys.localStorage.getItem('ggTime'));//轮盘赌广告结束时的时间（领取过后才赋值！）
+        console.log(cc.sys.localStorage.getItem('ggTime'));
         console.log(d3);
-        if(d3 == null || typeof d3 == undefined) {
+        if(d3 == null || typeof d3 == undefined || isNaN(d3)) {
             d3 = Date.now();//1970 年 1 月 1日午夜与当前日期和时间之间的毫秒数。
             cc.sys.localStorage.setItem("ggTime",d3);
         }
