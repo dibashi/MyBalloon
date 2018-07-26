@@ -539,7 +539,6 @@ cc.Class({
         }
         //胜利彩带的移动与结束判断
         if (this.guanKa != -1 && this.winRibbon != null) {
-            console.log(this.winRibbon.position);
             if (this.winRibbon.position.y < this.balloon.position.y - 100 && this.guanKaWin == false) {
                 console.log("胜利！！");
                 this.guanKaWin = true;
@@ -565,7 +564,7 @@ cc.Class({
         let pr = parseInt(r);
         let cr = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
         if (pr < cr) {//如果玩的关卡小于玩家当前的关卡，则什么也不做
-
+            this.scheduleOnce(this.winProOver, 3.0);
         } else {
             let result = pr + 1;
             cc.sys.localStorage.setItem("dangQianGuanKa", result);
@@ -589,7 +588,7 @@ cc.Class({
         this.node.addChild(aniWin);
         aniWin.setPosition(0, 0);
 
-        this.scheduleOnce(this.winProOver, 3.0);
+        
     },
 
     winProOver: function () {
