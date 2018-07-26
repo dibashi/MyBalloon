@@ -2573,6 +2573,9 @@
     },
     "countDownLabel": {
       "__id__": 35
+    },
+    "roulettePre": {
+      "__uuid__": "dc3bf1be-8dca-42aa-aed1-f24e483642d3"
     }
   }
 ]
