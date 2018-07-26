@@ -189,12 +189,12 @@ cc.Class({
         // cc.log("aaaa  " +this.dxLQ);
         if (this.dxGG > (30 * 60)) {//超过半个小时
             this.rouletteNode.getComponent(cc.Button).interactable = true;
-            this.rouletteNode.color = cc.hexToColor("#2B3466");
+            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
             this.dxGG = 30 * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
-            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
+            this.rouletteNode.color = cc.hexToColor("#2B3466");
             this.countDownLabel.node.active = true;
             this.setTimeToLabel(this.dxGG, this.countDownLabel);
             //   this.schedule(this.countdownFUN,this,1,this.dxLQ);
@@ -218,7 +218,7 @@ cc.Class({
         this.setTimeToLabel(this.dxGG, this.countDownLabel);
         if (this.dxGG <= 0) {
             this.rouletteNode.getComponent(cc.Button).interactable = true;
-            this.rouletteNode.color = cc.hexToColor("#2B3466");
+            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
             this.unschedule(this.countdownFUNGG);
         }
