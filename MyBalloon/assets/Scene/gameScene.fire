@@ -2226,7 +2226,9 @@
     "reviveAlert": {
       "__uuid__": "b168c85d-7f5b-420a-acc9-1a2389031157"
     },
-    "winAlert": null,
+    "winAlert": {
+      "__uuid__": "eeba3807-738f-4367-b1f6-fa839ffef6da"
+    },
     "gameAudio01": {
       "__uuid__": "a11e722c-4509-4433-91a5-64935dd9b01d"
     },
@@ -2257,6 +2259,7 @@
     "bg1ColorIndex": 0,
     "bg2ColorIndex": 0,
     "isLoadNextCheckPoint": false,
-    "winRibbon": null
+    "winRibbon": null,
+    "guanKaWin": false
   }
 ]
