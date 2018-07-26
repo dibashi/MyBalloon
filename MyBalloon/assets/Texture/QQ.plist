@@ -7,15 +7,15 @@
             <key>qq01.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{274,510},{133,171}}</string>
+                <string>{{274,510},{133,172}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{133,171}}</string>
+                <string>{{0,0},{133,172}}</string>
                 <key>sourceSize</key>
-                <string>{133,171}</string>
+                <string>{133,172}</string>
             </dict>
             <key>qq02.png</key>
             <dict>
@@ -134,19 +134,6 @@
                 <key>sourceSize</key>
                 <string>{133,172}</string>
             </dict>
-            <key>qq_weiba.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{459,2},{9,106}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{9,106}}</string>
-                <key>sourceSize</key>
-                <string>{9,106}</string>
-            </dict>
         </dict>
         <key>metadata</key>
         <dict>
@@ -157,7 +144,7 @@
             <key>size</key>
             <string>{512,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:6613f7989f076f21864311a104d9b4c9$</string>
+            <string>$TexturePacker:SmartUpdate:b5726faf3b032718bebbbf5543524819$</string>
             <key>textureFileName</key>
             <string>QQ.png</string>
         </dict>

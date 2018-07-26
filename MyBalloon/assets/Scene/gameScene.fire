@@ -449,10 +449,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2fa9310d-469e-4877-9ba3-a3a90ccd0f5f"
+      "__uuid__": "e5478139-f890-4fed-8a59-da3680f59bdc"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -463,8 +463,10 @@
     "_fillRange": 0,
     "_isTrimmedMode": false,
     "_srcBlendFactor": 1,
-    "_dstBlendFactor": 769,
-    "_atlas": null
+    "_dstBlendFactor": 771,
+    "_atlas": {
+      "__uuid__": "a8466c17-98b1-4dba-a1a1-26b6ffbabe64"
+    }
   },
   {
     "__type__": "cc.Node",
@@ -500,7 +502,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1080,
-      "height": 237
+      "height": 238
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -527,10 +529,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "2eb522a6-d6aa-4eb2-bf43-477aaff34839"
+      "__uuid__": "a4a831dd-b562-4b84-af5b-580e94db658a"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -542,7 +544,9 @@
     "_isTrimmedMode": false,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "a8466c17-98b1-4dba-a1a1-26b6ffbabe64"
+    }
   },
   {
     "__type__": "cc.Node",
@@ -578,7 +582,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 1080,
-      "height": 295
+      "height": 297
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -605,10 +609,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "a8c43f7b-4135-4db9-8601-897761d146c3"
+      "__uuid__": "856db403-b9ca-4344-98d5-aee8fe88671b"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 1,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -620,7 +624,9 @@
     "_isTrimmedMode": false,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "a8466c17-98b1-4dba-a1a1-26b6ffbabe64"
+    }
   },
   {
     "__type__": "cc.Widget",
@@ -787,7 +793,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "c8dae492-584d-41ad-9452-4cce702bffc7"
+      "__uuid__": "8f5c4b23-10da-49e9-af30-b191fa5f42d7"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -802,7 +808,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "f4c21e07-06bc-40b1-997d-bb92095c0996"
+    }
   },
   {
     "__type__": "b2ac6qhHMdDGb8kHptSiXJ2",
@@ -1088,10 +1096,10 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "bc56b3d3-47f7-4c6a-b91a-829bc49a6e1d"
+      "__uuid__": "a9026201-30c1-43de-9cfc-ed7ca29f3fe1"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -1103,7 +1111,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "d692ad23-7666-49e8-8922-c2f2ad4cb0bc"
+    }
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -1674,7 +1684,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "54cd1556-5895-4185-8170-bd1a18abca2e"
+      "__uuid__": "e3ac85ae-d9a5-4378-89ff-b65498cb7207"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -1689,7 +1699,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 1,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "f4c21e07-06bc-40b1-997d-bb92095c0996"
+    }
   },
   {
     "__type__": "cc.Node",
@@ -2214,6 +2226,7 @@
     "reviveAlert": {
       "__uuid__": "b168c85d-7f5b-420a-acc9-1a2389031157"
     },
+    "winAlert": null,
     "gameAudio01": {
       "__uuid__": "a11e722c-4509-4433-91a5-64935dd9b01d"
     },
@@ -2243,6 +2256,7 @@
     "colorIndex": null,
     "bg1ColorIndex": 0,
     "bg2ColorIndex": 0,
-    "isLoadNextCheckPoint": false
+    "isLoadNextCheckPoint": false,
+    "winRibbon": null
   }
 ]

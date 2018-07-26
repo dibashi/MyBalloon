@@ -325,7 +325,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "5a63d5be-8d38-43b3-84ca-5547bb9264cd"
+      "__uuid__": "89fc1ce3-530a-41e6-ba14-f703b4eb3e6d"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -340,7 +340,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "a8466c17-98b1-4dba-a1a1-26b6ffbabe64"
+    }
   },
   {
     "__type__": "cc.Widget",
@@ -709,8 +711,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -350,
-      "y": -285
+      "x": -478,
+      "y": -15
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -857,7 +859,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -175,
+      "x": -250,
       "y": -285
     },
     "_skewX": 0,
@@ -1153,7 +1155,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 175,
+      "x": 250,
       "y": -285
     },
     "_skewX": 0,
@@ -1305,8 +1307,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 350,
-      "y": -285
+      "x": 478,
+      "y": -15
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1398,7 +1400,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "8bab1725-5cfc-4e96-8ab7-49623a2f9131"
+      "__uuid__": "7774589e-2ed0-4951-837d-1ba8248afbb6"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1413,7 +1415,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "f4c21e07-06bc-40b1-997d-bb92095c0996"
+    }
   },
   {
     "__type__": "cc.Button",
@@ -1919,7 +1923,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "8ed42aed-5c9c-4a22-a7df-3df79b5beed1"
+      "__uuid__": "8d552401-44ea-4c4f-a9ea-a1bb8b46d564"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -1934,7 +1938,9 @@
     "_isTrimmedMode": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_atlas": null
+    "_atlas": {
+      "__uuid__": "f4c21e07-06bc-40b1-997d-bb92095c0996"
+    }
   },
   {
     "__type__": "cc.Node",
