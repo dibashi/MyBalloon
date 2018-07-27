@@ -72,7 +72,7 @@ cc.Class({
     },
 
     goRoulette: function () {
-        console.log("轮盘赌启动！！");
+        //console.log("轮盘赌启动！！");
 
         cc.eventManager.pauseTarget(this.node, true);
         let ss = cc.instantiate(this.roulettePre);
@@ -199,8 +199,8 @@ cc.Class({
 
         //根据时间差来设置btn是否可点击
         let d3 = parseInt(cc.sys.localStorage.getItem('ggTime'));//轮盘赌广告结束时的时间（领取过后才赋值！）
-        console.log(cc.sys.localStorage.getItem('ggTime'));
-        console.log(d3);
+        //console.log(cc.sys.localStorage.getItem('ggTime'));
+        //console.log(d3);
         if (d3 == null || typeof d3 == undefined || isNaN(d3)) {
             d3 = Date.now();//1970 年 1 月 1日午夜与当前日期和时间之间的毫秒数。
             cc.sys.localStorage.setItem("ggTime", d3);
@@ -317,8 +317,8 @@ cc.Class({
                     userid: openid,
                 },
                 success: (obj, statusCode, header) => {
-                    console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
-                    console.log(obj);
+                    //console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
+                    //console.log(obj);
                     if (obj.data.code > 0) {
                         let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
                         cc.sys.localStorage.setItem('recommendedCurrency', rc);

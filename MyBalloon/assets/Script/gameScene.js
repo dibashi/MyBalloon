@@ -392,8 +392,8 @@ cc.Class({
         //单独把 关卡模式的 胜利横幅拉出来
         if (this.guanKa != -1) {
             this.winRibbon = currentNode.getChildByName("zhongdian");
-            console.log("-------");
-            console.log(this.winRibbon);
+            //console.log("-------");
+            //console.log(this.winRibbon);
         }
     },
 

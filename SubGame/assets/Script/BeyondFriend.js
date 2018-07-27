@@ -8,11 +8,11 @@ cc.Class({
     },
 
     start() {
-        console.log("运行到 好友超越！！");
+        //console.log("运行到 好友超越！！");
         this.removeChild();
         this.waitingForBeyondFriends = null;
         window.wx.onMessage(data => {
-            cc.log("接收主域发来消息：", data)
+            //cc.log("接收主域发来消息：", data)
             if (data.messageType == 6) {//用于游戏内的超越功能的数据源获取
                 this.fetchFriendDataToBeyond(data.MAIN_MENU_NUM);
             } else if (data.messageType == 7) { //用于查询给的分数是否超过当前数据源中的分数，超过谁就显示谁，然后删除掉
@@ -30,8 +30,8 @@ cc.Class({
             return;
         }
 
-        console.log("看下待超越的数据组");
-        console.log(this.waitingForBeyondFriends);
+        //console.log("看下待超越的数据组");
+        //console.log(this.waitingForBeyondFriends);
 
         let beyondIndex = -1;
         for (let i = this.waitingForBeyondFriends.length - 1; i >= 0; i--) {//这个数据源是已经排好序的，但是是倒序从大到小

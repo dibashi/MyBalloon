@@ -70,7 +70,7 @@ cc.Class({
     refreshBtnState: function () {
         
         let currentQQID = cc.sys.localStorage.getItem('currentSkinID');
-        console.log(this.panels);
+        //console.log(this.panels);
         let panelCount = this.panels.children.length;
         for (let i = 0; i < panelCount; i++) {
             let suffix = "0";
