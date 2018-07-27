@@ -543,7 +543,7 @@ cc.Class({
         if (this.guanKa != -1 && this.winRibbon != null) {
 
             if (this.winRibbon == null || this.winRibbon.parent == null) {//由于历史原因，会删除。先要判断
-                if (this.guanKaWin == false) {
+                if (this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
                     this.guanKaWin = true;
                     this.checkpointWin();
                 }
@@ -552,13 +552,13 @@ cc.Class({
             } else {
                 let wry = this.winRibbon.parent.convertToWorldSpaceAR(this.winRibbon.position).y - 960;
                 if (wry < this.balloon.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
-                    console.log("胜利！！");
+                    //console.log("胜利！！");
                     this.guanKaWin = true;
                     this.checkpointWin();
                 } else {
-                    console.log("!!!!!!!!!!!!!");
+                    //console.log("!!!!!!!!!!!!!");
                     this.winRibbon.y -= this.bgSpeed * dt * this.bgScale;
-                    console.log(this.winRibbon.y);
+                    //console.log(this.winRibbon.y);
                 }
             }
 
