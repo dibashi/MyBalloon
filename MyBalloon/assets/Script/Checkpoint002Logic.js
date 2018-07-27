@@ -116,7 +116,7 @@ cc.Class({
         let childCount = this.node.children.length;
         for (let i = 0; i < childCount; i++) {
 
-            if (children[i] != null && this.hasGivenVArray[i] == false) {
+            if (children[i] != null && children[i].getComponent(cc.RigidBody) != null&& this.hasGivenVArray[i] == false) {
 
                 let rr = children[i].getComponent(cc.RigidBody);
                 let aa = rr.getWorldPosition();
