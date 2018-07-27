@@ -61,11 +61,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 183
+        "__id__": 181
       }
     ],
     "_prefab": {
-      "__id__": 184
+      "__id__": 182
     },
     "_id": "",
     "_opacity": 255,
@@ -5363,16 +5363,10 @@
     "_components": [
       {
         "__id__": 179
-      },
-      {
-        "__id__": 180
-      },
-      {
-        "__id__": 181
       }
     ],
     "_prefab": {
-      "__id__": 182
+      "__id__": 180
     },
     "_id": "",
     "_opacity": 255,
@@ -5436,54 +5430,6 @@
     "_dstBlendFactor": 771,
     "_atlas": {
       "__uuid__": "a8466c17-98b1-4dba-a1a1-26b6ffbabe64"
-    }
-  },
-  {
-    "__type__": "cc.RigidBody",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 178
-    },
-    "_enabled": true,
-    "_type": 1,
-    "_allowSleep": true,
-    "_gravityScale": 0,
-    "_linearDamping": 0,
-    "_angularDamping": 0,
-    "_linearVelocity": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_angularVelocity": 0,
-    "_fixedRotation": true,
-    "enabledContactListener": true,
-    "bullet": false
-  },
-  {
-    "__type__": "cc.PhysicsBoxCollider",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 178
-    },
-    "_enabled": true,
-    "tag": 0,
-    "_density": 1,
-    "_sensor": true,
-    "_friction": 0,
-    "_restitution": 0,
-    "body": null,
-    "_offset": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 1080,
-      "height": 106
     }
   },
   {
