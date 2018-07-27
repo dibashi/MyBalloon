@@ -113,8 +113,8 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
-        this.myDebugMode = false;
+        //true 有微信， false 没有微信
+        this.myDebugMode = true;
 
         cc.audioEngine.stopMusic();
         this.userData = null;
