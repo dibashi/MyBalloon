@@ -172,13 +172,19 @@ cc.Class({
         this.getUerOpenID();
         // this.refreshSetting();
         this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
-        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
+        
+        this.refreshDatas();
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
-        this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
-
-
         this.rouletteInitLogic();
         this.schedule(this.refreshrecommended, 4);
+    },
+
+    //放在这里 方便更新
+    refreshDatas:function() {
+        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
+        
+        this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
+
     },
 
     //！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！

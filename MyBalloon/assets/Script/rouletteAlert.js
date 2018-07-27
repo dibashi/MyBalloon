@@ -48,8 +48,7 @@ cc.Class({
         //用时间度量由于是浮点数会存在误差，改为用次数
         this.accelerateTime = 3 * 60;
         this.slowDownTime = this.accelerateTime;
-        this.accCount = 0;
-        this.decCount = this.accCount;
+
         this.accAngle = 5 * 360;
         this.decAngle = this.accAngle;
         this.wheelState = 0; //0静止 1加速旋转，2减速旋转
@@ -57,7 +56,7 @@ cc.Class({
         this.gearNum = 6; //6个齿轮
         this.gearAngle = 360 / this.gearNum;   //每个齿轮的角度
         this.wheelSp.rotation = 0; //用户每次进来都应该是这个角度
-        this.finalAngle = 0;                   //最终结果指定的角度
+        this.finalAngle = 0;                   //最终旋转的角度
     },
 
     initDataTable: function () {
@@ -97,13 +96,19 @@ cc.Class({
 
         //观看广告 被点击 
         //没有接入广告，现在直接旋转
+        //这一行保证了健壮性
         if (this.wheelState !== 0) {
             return;
         }
 
         this.AdBtn.interactable = false;
 
+        this.accCount = 0;
+        this.decCount = this.accCount;
+
         this.wheelState = 1; //开始旋转 update 会自动判断   
+
+
 
         let p = Math.random();
         if (p <= 0.5) {
@@ -119,8 +124,19 @@ cc.Class({
         } else { //else if (p > 0.95)
             this.targetID = 5;
         }
-        this.finalAngle = (360 - this.targetID * 60) + this.accAngle + this.decAngle;
+        //console.log("最终结果应为 targetID == ", this.targetID);
+        //为了让滚轮可以再次点击滚动，需要改变几个量，注：现在没这些需求
+        //加入一个初始的角度
+        let beginAngle = this.wheelSp.rotation;
+        //console.log(beginAngle);
+        //先计算回滚原点的角度 即：-beginAngle 然后加上需要旋转到的角度
+        let resultTemp = - beginAngle + 360 - this.targetID * 60;
+        //console.log("resultTemp == ", resultTemp);
+        this.finalAngle = resultTemp + this.accAngle + this.decAngle;
+        //console.log("final angle--> " + this.finalAngle);
 
+
+        // this.finalAngle = (360 - this.targetID * 60) + this.accAngle + this.decAngle;
         //0+ a+2a+,.....+this.accelerateTime*a = this.accelerateTime*a*this.accelerateTime *0.5  = this.finalAngle/2==>
         this.accV = this.finalAngle / (this.accelerateTime * this.accelerateTime);
     },
@@ -148,17 +164,12 @@ cc.Class({
         if (this.wheelState === 0) {
             return;
         }
-
         else if (this.wheelState == 1) {
-
             if (this.accCount < this.accelerateTime) { //如果小于给定持续时间，就更新一次
                 this.accCount++;
-
                 this.curSpeed += this.accV;
                 this.wheelSp.rotation = this.wheelSp.rotation + this.curSpeed;
             } else { //达到了更新时间
-
-              
                 this.wheelState = 2;//进入减速状态
             }
         }
@@ -166,20 +177,34 @@ cc.Class({
             //根据加速计算当前速度，以及当前位置
             if (this.decCount < this.slowDownTime) {
                 this.decCount++;
-                // this.curSpeed -= this.dV * dt/this.slowDownTime; //此数肯定为负 所以直接相加
-                //this.curSpeed -= this.dV / (60 * this.slowDownTime);
                 this.curSpeed -= this.accV;
-              
                 this.wheelSp.rotation = this.wheelSp.rotation + this.curSpeed;
-               
             } else {
-               
-                //console.log("whell s 置为0了");
                 this.wheelState = 0;
-                this.wheelSp.rotation = this.finalAngle;
-
+                //console.log("修复之前--》" +this.wheelSp.rotation);
+                this.wheelSp.rotation = Math.ceil(this.wheelSp.rotation) % 360;
+                //console.log("最后转盘角度---> " + this.wheelSp.rotation);
                 //转盘停止，发放奖励。
                 //todo!!!!
+                //发放的奖励就是这个
+                if (this.prizeDatas[this.targetID].prizeName == 'skin') {
+                    cc.sys.localStorage.setItem('qq' + this.prizeDatas[this.targetID].prizeCount, 1);
+                    //console.log("获得皮肤 " + 'qq' + this.prizeDatas[this.targetID].prizeCount);
+                } else if (this.prizeDatas[this.targetID].prizeName == 'diamond') {
+                    let dc = parseInt(cc.sys.localStorage.getItem('diamondCount'));
+                    cc.sys.localStorage.setItem('diamondCount', dc + this.prizeDatas[this.targetID].prizeCount);
+
+                    //console.log("获得钻石 "  + this.prizeDatas[this.targetID].prizeCount);
+                } else if (this.prizeDatas[this.targetID].prizeName == 'recommend') {
+                    let dc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency'));
+                    cc.sys.localStorage.setItem('recommendedCurrency', dc + this.prizeDatas[this.targetID].prizeCount);
+
+                    //console.log("获得推荐币 "  + this.prizeDatas[this.targetID].prizeCount);
+                }
+                this.node.parent.getComponent("start").refreshDatas();
+                let d3 = Date.now();
+                cc.sys.localStorage.setItem("ggTime", d3);
+                this.node.parent.getComponent("start").rouletteInitLogic();
             }
         }
     },
