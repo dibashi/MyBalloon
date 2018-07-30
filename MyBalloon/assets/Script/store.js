@@ -35,6 +35,11 @@ cc.Class({
             default: null,
             type: cc.Sprite,
         },
+
+        prizeSprite: {
+            default: null,
+            type: cc.Sprite,
+        },
     },
 
 
@@ -58,8 +63,8 @@ cc.Class({
 
             { buyType: 'diamond', price: 60},
 
-            { buyType: 'inviteCurrency', price: 2},
-            { buyType: 'inviteCurrency', price: 3},
+            { buyType: 'lotteryObtain', price: -1},
+            { buyType: 'lotteryObtain', price: -1},
             { buyType: 'inviteCurrency', price: 5},//如果将来改数值 只需与界面的lable同步
 
             
@@ -130,6 +135,9 @@ cc.Class({
                     panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
                     panel.getChildByName("purchaseBtn").opacity = 100;
                 }
+            } else if(this.skinBuyDatas[index].buyType == 'lotteryObtain') {
+                panel.getChildByName("purchaseBtn").getComponent(cc.Sprite).spriteFrame = this.prizeSprite.spriteFrame;
+                panel.getChildByName("purchaseBtn").getComponent(cc.Button).interactable = false;
             }
             
         }

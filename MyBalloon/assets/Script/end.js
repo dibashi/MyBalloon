@@ -6,6 +6,11 @@ cc.Class({
         scoreLabel: cc.Label,
         loadLabel: cc.Node,//要隐藏，用node
         rankingView: cc.Sprite,//显示排行榜
+
+        inviteAlert:{
+            default:null,
+            type: cc.Prefab,
+        }
     },
     onLoad() {
         this.timer = 0;
@@ -24,13 +29,11 @@ cc.Class({
     },
 
     goShare: function () {
-        let query_string = cc.sys.localStorage.getItem("openid");
-        //console.log("准备发送请求的 query " + query_string);
-
-        wx.shareAppMessage({
-            title: "我在排行榜上已经无敌了！来超越我啊！",
-            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
-        });
+        cc.eventManager.pauseTarget(this.node, true);
+        let ss = cc.instantiate(this.inviteAlert);
+        ss.setLocalZOrder(1000);
+        ss.getComponent("inviteAlert").onWho = this.node;
+        this.node.addChild(ss);
     },
 
     start() {

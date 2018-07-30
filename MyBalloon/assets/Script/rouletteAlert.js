@@ -25,8 +25,10 @@ cc.Class({
         },
 
 
-
-
+        prizeAlert:{
+            default:null,
+            type:cc.Prefab,
+        },
 
 
 
@@ -68,7 +70,7 @@ cc.Class({
             { probability: 0.1, prizeName: 'diamond', prizeCount: 100 },//0.55<p<=0.65
             { probability: 0.1, prizeName: 'recommend', prizeCount: 1 },//0.65<p<=0.75
 
-            { probability: 0.2, prizeName: 'diamond', prizeCount: 50 },//0.75<p<=0.95
+            { probability: 0.2, prizeName: 'diamond', prizeCount: 30 },//0.75<p<=0.95
             { probability: 0.05, prizeName: 'skin', prizeCount: '09' },//0.95<p
         ]
     },
@@ -205,6 +207,13 @@ cc.Class({
                 let d3 = Date.now();
                 cc.sys.localStorage.setItem("ggTime", d3);
                 this.node.parent.getComponent("start").rouletteInitLogic();
+                //调用提示框
+                cc.eventManager.pauseTarget(this.node, true);
+                let ss = cc.instantiate(this.prizeAlert);
+                ss.setLocalZOrder(1000);
+                ss.getComponent("prizeAlert").onWho = this.node;
+                ss.getComponent("prizeAlert").setPrizeTarget(this.targetID);
+                this.node.addChild(ss);
             }
         }
     },

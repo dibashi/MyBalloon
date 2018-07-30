@@ -52,7 +52,13 @@ cc.Class({
         roulettePre: {
             default: null,
             type: cc.Prefab,
-        }
+        },
+        inviteAlert:{
+            default:null,
+            type: cc.Prefab,
+        },
+
+        lotteryTime:30,//抽奖间隔时间 单位：分钟
     },
 
     //无尽模式
@@ -62,13 +68,11 @@ cc.Class({
     },
 
     goShare: function () {
-        let query_string = cc.sys.localStorage.getItem("openid");
-        //console.log("准备发送请求的 query " + query_string);
-
-        wx.shareAppMessage({
-            title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
-        });
+        cc.eventManager.pauseTarget(this.node, true);
+        let ss = cc.instantiate(this.inviteAlert);
+        ss.setLocalZOrder(1000);
+        ss.getComponent("inviteAlert").onWho = this.node;
+        this.node.addChild(ss);
     },
 
     goRoulette: function () {
@@ -209,12 +213,12 @@ cc.Class({
 
         this.dxGG = parseInt((d4 - d3) * 0.001);
         // cc.log("aaaa  " +this.dxLQ);
-        if (this.dxGG > (1 * 60)) {//超过半个小时
+        if (this.dxGG > (this.lotteryTime * 60)) {//超过半个小时
             this.rouletteNode.getComponent(cc.Button).interactable = true;
             this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
-            this.dxGG = 1 * 60 - this.dxGG;
+            this.dxGG = this.lotteryTime * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
             this.rouletteNode.color = cc.hexToColor("#2B3466");
             this.countDownLabel.node.active = true;
@@ -230,7 +234,8 @@ cc.Class({
         let m = parseInt(dx / 60);
         let s = parseInt(dx - (60 * m));
 
-        label.string = m + "分" + s + "秒";
+       // label.string = m + "分" + s + "秒";
+       label.string = m + ":" + s;
     },
 
     countdownFUNGG: function () {
