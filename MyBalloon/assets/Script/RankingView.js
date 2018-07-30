@@ -106,8 +106,8 @@ cc.Class({
         if (CC_WECHATGAME) {
             window.wx.shareAppMessage({
                 success: (res) => {
-                    console.log("shareTickets  res ---> ");
-                    console.log(res);
+                    //console.log("shareTickets  res ---> ");
+                    //console.log(res);
                     if (res.shareTickets != undefined && res.shareTickets.length > 0) {
                         window.wx.postMessage({
                             messageType: 5,

@@ -24,7 +24,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-        console.log("执行到 onload  selectCheckPoint!~~");
+        //console.log("执行到 onload  selectCheckPoint!~~");
         this.refreshCheckPoint();
         this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
     },
@@ -33,11 +33,11 @@ cc.Class({
 
         //从1计数 第一关是1
         let dangQianGuanKa = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
-        console.log("pre dangQianGuanKa " +dangQianGuanKa);
+        //console.log("pre dangQianGuanKa " +dangQianGuanKa);
         if(dangQianGuanKa == null || typeof(dangQianGuanKa) == undefined || isNaN(dangQianGuanKa)) {
             dangQianGuanKa = 1;
         }
-        console.log("dangQianGuanKa  " +dangQianGuanKa);
+        //console.log("dangQianGuanKa  " +dangQianGuanKa);
         let cps = this.checkPoints.children;
         for (let i = 0; i < cps.length; i++) {
 

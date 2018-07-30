@@ -63,7 +63,7 @@ cc.Class({
             cc.sys.localStorage.setItem("lastLoadDate", cTime);//若不是同一天，则更新为当前时间
         }
 
-        this.remainCountLabel = cc.sys.localStorage.getItem("todayAvailableCount");
+        this.remainCountLabel.string = cc.sys.localStorage.getItem("todayAvailableCount");
 
 
 

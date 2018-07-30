@@ -185,7 +185,7 @@ cc.Class({
         isLoadNextCheckPoint: false,//是否已经加载下一关的标记
         //胜利彩带，这个只在关卡模式下有用
         winRibbon: null,
-        guanKaWin:false,
+        guanKaWin: false,
     },
 
 
@@ -392,6 +392,8 @@ cc.Class({
         //单独把 关卡模式的 胜利横幅拉出来
         if (this.guanKa != -1) {
             this.winRibbon = currentNode.getChildByName("zhongdian");
+            //console.log("-------");
+            //console.log(this.winRibbon);
         }
     },
 
@@ -539,21 +541,29 @@ cc.Class({
         }
         //胜利彩带的移动与结束判断
         if (this.guanKa != -1 && this.winRibbon != null) {
-            
-            console.log("balloon  " + this.balloon.position.y);
-            let wry = this.winRibbon.parent.convertToWorldSpaceAR(this.winRibbon.position).y -960;
-            console.log("winRibbon  " + wry);
-            if (wry < this.balloon.position.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
-                console.log("胜利！！");
-                this.guanKaWin = true;
-                this.checkpointWin();
+
+            if (this.winRibbon == null || this.winRibbon.parent == null) {//由于历史原因，会删除。先要判断
+                if (this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
+                    this.guanKaWin = true;
+                    this.checkpointWin();
+                }
+
+                
             } else {
-                this.winRibbon.position.y -= this.bgSpeed * dt * this.bgScale;
+                let wry = this.winRibbon.parent.convertToWorldSpaceAR(this.winRibbon.position).y - 960;
+                if (wry < this.balloon.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
+                    //console.log("胜利！！");
+                    this.guanKaWin = true;
+                    this.checkpointWin();
+                } else {
+                    //console.log("!!!!!!!!!!!!!");
+                    this.winRibbon.y -= this.bgSpeed * dt * this.bgScale;
+                    //console.log(this.winRibbon.y);
+                }
             }
-            
+
         }
     },
-
 
     checkpointWin: function () {
         let curCP = cc.sys.localStorage.getItem("currentCheckpoint");
@@ -591,8 +601,6 @@ cc.Class({
         this.armatureDisplayWinpro.playAnimation("winpro");
         this.node.addChild(aniWin);
         aniWin.setPosition(0, 0);
-
-        
     },
 
     winProOver: function () {

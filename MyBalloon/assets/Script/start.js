@@ -48,6 +48,11 @@ cc.Class({
             default: null,
             type: cc.Label,
         },
+
+        roulettePre: {
+            default: null,
+            type: cc.Prefab,
+        }
     },
 
     //无尽模式
@@ -67,7 +72,13 @@ cc.Class({
     },
 
     goRoulette: function () {
-        console.log("轮盘赌启动！！");
+        //console.log("轮盘赌启动！！");
+
+        cc.eventManager.pauseTarget(this.node, true);
+        let ss = cc.instantiate(this.roulettePre);
+        ss.setLocalZOrder(1000);
+        ss.getComponent("rouletteAlert").onWho = this.node;
+        this.node.addChild(ss);
     },
 
     goRankingView: function () {
@@ -102,8 +113,8 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
-
-        this.myDebugMode = false;
+        //true 有微信， false 没有微信
+        this.myDebugMode = true;
 
         cc.audioEngine.stopMusic();
         this.userData = null;
@@ -112,14 +123,14 @@ cc.Class({
         if (isloaded == 0 || isloaded == null) {
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
-            if(this.myDebugMode) {
+            if (this.myDebugMode) {
                 window.wx.postMessage({
                     messageType: 3,
                     MAIN_MENU_NUM: "user_best_score",
                     score: 0,
                 });
             }
-           
+
             cc.sys.localStorage.setItem("openid", "0");
 
             cc.sys.localStorage.setItem('gameSoundBG', 1);
@@ -161,19 +172,25 @@ cc.Class({
         this.getUerOpenID();
         // this.refreshSetting();
         this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
-        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
+        
+        this.refreshDatas();
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
-        this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
-
-
         this.rouletteInitLogic();
         this.schedule(this.refreshrecommended, 4);
+    },
+
+    //放在这里 方便更新
+    refreshDatas:function() {
+        this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
+        
+        this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
+
     },
 
     //！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     //！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
     //这个函数 要在玩家轮盘赌结束后调用一次，那一次会刷新玩家的时间
-    rouletteInitLogic:function() {
+    rouletteInitLogic: function () {
         //1读取上次登陆距离1970的毫秒数 d1
         //2现在时间的距离1970的毫秒数   d2
         //3 两者的差值 dx = (d2-d1)/1000>(4*60*60) 玩家可以再次领取
@@ -182,21 +199,22 @@ cc.Class({
 
         //根据时间差来设置btn是否可点击
         let d3 = parseInt(cc.sys.localStorage.getItem('ggTime'));//轮盘赌广告结束时的时间（领取过后才赋值！）
-        console.log(d3);
-        if(d3 == null || typeof d3 == undefined) {
+        //console.log(cc.sys.localStorage.getItem('ggTime'));
+        //console.log(d3);
+        if (d3 == null || typeof d3 == undefined || isNaN(d3)) {
             d3 = Date.now();//1970 年 1 月 1日午夜与当前日期和时间之间的毫秒数。
-            cc.sys.localStorage.setItem("ggTime",d3);
+            cc.sys.localStorage.setItem("ggTime", d3);
         }
         let d4 = parseInt(Date.now());
 
         this.dxGG = parseInt((d4 - d3) * 0.001);
         // cc.log("aaaa  " +this.dxLQ);
-        if (this.dxGG > (30 * 60)) {//超过半个小时
+        if (this.dxGG > (1 * 60)) {//超过半个小时
             this.rouletteNode.getComponent(cc.Button).interactable = true;
             this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
-            this.dxGG = 30 * 60 - this.dxGG;
+            this.dxGG = 1 * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
             this.rouletteNode.color = cc.hexToColor("#2B3466");
             this.countDownLabel.node.active = true;
@@ -211,7 +229,7 @@ cc.Class({
         //dx-->29分54秒
         let m = parseInt(dx / 60);
         let s = parseInt(dx - (60 * m));
-        
+
         label.string = m + "分" + s + "秒";
     },
 
@@ -291,16 +309,16 @@ cc.Class({
         if (openid == "0") {
             return;
         }
-        
-        if(this.myDebugMode) {
+
+        if (this.myDebugMode) {
             wx.request({
                 url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
                 data: {
                     userid: openid,
                 },
                 success: (obj, statusCode, header) => {
-                    console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
-                    console.log(obj);
+                    //console.log("成功获得服务器那边的用户奖励数据！！！！ 服务器返回的数据！！--> ");
+                    //console.log(obj);
                     if (obj.data.code > 0) {
                         let rc = parseInt(cc.sys.localStorage.getItem('recommendedCurrency')) + obj.data.code;
                         cc.sys.localStorage.setItem('recommendedCurrency', rc);
@@ -313,10 +331,10 @@ cc.Class({
 
 
     getUerOpenID: function () {
-        if(!this.myDebugMode) {
+        if (!this.myDebugMode) {
             return;
-        } 
-        
+        }
+
         // console.log("getUserOpenID!");
         let self = this;
         self.openid = cc.sys.localStorage.getItem("openid");
