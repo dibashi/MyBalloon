@@ -12,10 +12,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        prizeNode:{
-            default: null,
-            type: cc.Node,
-        },
+       
 
         onWho: null,//在哪个页面上面，当当前页面消失时使得那个页面可点击
     },
@@ -28,12 +25,7 @@ cc.Class({
      
     },
 
-    setPrizeTarget:function(target){
-        let node = this.node.getChildByName("prize" + target);
-        node.removeFromParent(false);
-        this.prizeNode.addChild(node);
-        node.setPosition(cc.v2(0,0));
-    },
+  
 
     startFadeIn: function () {
         cc.eventManager.pauseTarget(this.node, true);
@@ -54,7 +46,7 @@ cc.Class({
 
 
    
-    onConfirmClick: function () {
+    onInviteClick: function () {
 
 
         cc.eventManager.pauseTarget(this.node, true);
@@ -62,9 +54,14 @@ cc.Class({
         let actionFadeOut = cc.sequence(cc.spawn(cc.fadeTo(0.3, 0), cc.scaleTo(0.3, 2.0)), cbFadeOut);
         this.node.runAction(actionFadeOut);
 
-        if(this.onWho != null) {
-            this.onWho.getComponent("rouletteAlert").onCancelClick();
-        }
+        //邀请好友
+        let query_string = cc.sys.localStorage.getItem("openid");
+        //console.log("准备发送请求的 query " + query_string);
+
+        wx.shareAppMessage({
+            title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
+            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
+        });
     },
     
     onFadeOutFinish: function () {
@@ -72,7 +69,12 @@ cc.Class({
         this.node.destroy();
     },
 
-  
+   
+    onCancelClick: function () {
+        let cbFadeOut = cc.callFunc(this.onFadeOutFinish, this);
+        let actionFadeOut = cc.sequence(cc.spawn(cc.fadeTo(0.3, 0), cc.scaleTo(0.3, 2.0)), cbFadeOut);
+        this.node.runAction(actionFadeOut);
+    },
    
 });
 

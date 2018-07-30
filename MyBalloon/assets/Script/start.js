@@ -52,6 +52,10 @@ cc.Class({
         roulettePre: {
             default: null,
             type: cc.Prefab,
+        },
+        inviteAlert:{
+            default:null,
+            type: cc.Prefab,
         }
     },
 
@@ -62,13 +66,11 @@ cc.Class({
     },
 
     goShare: function () {
-        let query_string = cc.sys.localStorage.getItem("openid");
-        //console.log("准备发送请求的 query " + query_string);
-
-        wx.shareAppMessage({
-            title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
-        });
+        cc.eventManager.pauseTarget(this.node, true);
+        let ss = cc.instantiate(this.inviteAlert);
+        ss.setLocalZOrder(1000);
+        ss.getComponent("inviteAlert").onWho = this.node;
+        this.node.addChild(ss);
     },
 
     goRoulette: function () {

@@ -2576,6 +2576,9 @@
     },
     "roulettePre": {
       "__uuid__": "dc3bf1be-8dca-42aa-aed1-f24e483642d3"
+    },
+    "inviteAlert": {
+      "__uuid__": "20143018-054c-476b-9798-d9758c845b6b"
     }
   }
 ]
