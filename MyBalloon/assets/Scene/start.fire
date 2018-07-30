@@ -1174,7 +1174,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "50491a14-4f7d-4f14-bb2d-a94a6935cdc8"
+      "__uuid__": "671d4096-955d-4c26-b22f-5fdfec359c4d"
     },
     "_type": 1,
     "_sizeMode": 0,
@@ -2474,8 +2474,8 @@
       "__id__": 62
     },
     "_enabled": true,
-    "_armatureName": "qq1",
-    "_animationName": "qq1",
+    "_armatureName": "winpro",
+    "_animationName": "",
     "playTimes": 0,
     "_N$dragonAsset": {
       "__uuid__": "bdef6ebb-0762-43fc-8779-4e2d2550a8f0"
@@ -2483,8 +2483,8 @@
     "_N$dragonAtlasAsset": {
       "__uuid__": "d213921d-1608-4a39-9073-1db1a3f44496"
     },
-    "_N$_defaultArmatureIndex": 2,
-    "_N$_animationIndex": 1,
+    "_N$_defaultArmatureIndex": 0,
+    "_N$_animationIndex": 0,
     "_N$timeScale": 1,
     "_N$debugBones": false
   },
