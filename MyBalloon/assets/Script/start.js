@@ -116,7 +116,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //true 有微信， false 没有微信
-        this.myDebugMode = false;
+        this.myDebugMode = true;
 
         cc.audioEngine.stopMusic();
         this.userData = null;
@@ -211,12 +211,12 @@ cc.Class({
 
         this.dxGG = parseInt((d4 - d3) * 0.001);
         // cc.log("aaaa  " +this.dxLQ);
-        if (this.dxGG > (1 * 60)) {//超过半个小时
+        if (this.dxGG > (30 * 60)) {//超过半个小时
             this.rouletteNode.getComponent(cc.Button).interactable = true;
             this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
-            this.dxGG = 0.1 * 60 - this.dxGG;
+            this.dxGG = 30 * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
             this.rouletteNode.color = cc.hexToColor("#2B3466");
             this.countDownLabel.node.active = true;
