@@ -114,7 +114,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //true 有微信， false 没有微信
-        this.myDebugMode = true;
+        this.myDebugMode = false;
 
         cc.audioEngine.stopMusic();
         this.userData = null;
@@ -230,7 +230,8 @@ cc.Class({
         let m = parseInt(dx / 60);
         let s = parseInt(dx - (60 * m));
 
-        label.string = m + "分" + s + "秒";
+       // label.string = m + "分" + s + "秒";
+       label.string = m + ":" + s;
     },
 
     countdownFUNGG: function () {
