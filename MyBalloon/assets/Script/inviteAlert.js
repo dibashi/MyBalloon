@@ -49,10 +49,8 @@ cc.Class({
     onInviteClick: function () {
 
 
-        cc.eventManager.pauseTarget(this.node, true);
-        let cbFadeOut = cc.callFunc(this.onFadeOutFinish, this);
-        let actionFadeOut = cc.sequence(cc.spawn(cc.fadeTo(0.3, 0), cc.scaleTo(0.3, 2.0)), cbFadeOut);
-        this.node.runAction(actionFadeOut);
+
+        this.onFadeOutFinish();
 
         //邀请好友
         let query_string = cc.sys.localStorage.getItem("openid");
