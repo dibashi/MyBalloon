@@ -70,7 +70,7 @@ cc.Class({
             { probability: 0.1, prizeName: 'diamond', prizeCount: 100 },//0.55<p<=0.65
             { probability: 0.1, prizeName: 'recommend', prizeCount: 1 },//0.65<p<=0.75
 
-            { probability: 0.2, prizeName: 'diamond', prizeCount: 50 },//0.75<p<=0.95
+            { probability: 0.2, prizeName: 'diamond', prizeCount: 30 },//0.75<p<=0.95
             { probability: 0.05, prizeName: 'skin', prizeCount: '09' },//0.95<p
         ]
     },

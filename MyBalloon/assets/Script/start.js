@@ -216,7 +216,7 @@ cc.Class({
             this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
-            this.dxGG = 1 * 60 - this.dxGG;
+            this.dxGG = 0.1 * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
             this.rouletteNode.color = cc.hexToColor("#2B3466");
             this.countDownLabel.node.active = true;
