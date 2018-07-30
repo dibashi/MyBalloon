@@ -6,6 +6,11 @@ cc.Class({
         scoreLabel: cc.Label,
         loadLabel: cc.Node,//要隐藏，用node
         rankingView: cc.Sprite,//显示排行榜
+
+        inviteAlert:{
+            default:null,
+            type: cc.Prefab,
+        }
     },
     onLoad() {
         this.timer = 0;
