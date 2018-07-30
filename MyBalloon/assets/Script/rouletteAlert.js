@@ -25,8 +25,10 @@ cc.Class({
         },
 
 
-
-
+        prizeAlert:{
+            default:null,
+            type:cc.Prefab,
+        },
 
 
 
@@ -205,6 +207,13 @@ cc.Class({
                 let d3 = Date.now();
                 cc.sys.localStorage.setItem("ggTime", d3);
                 this.node.parent.getComponent("start").rouletteInitLogic();
+                //调用提示框
+                cc.eventManager.pauseTarget(this.node, true);
+                let ss = cc.instantiate(this.prizeAlert);
+                ss.setLocalZOrder(1000);
+                ss.getComponent("prizeAlert").onWho = this.node;
+                ss.getComponent("prizeAlert").setPrizeTarget(this.targetID);
+                this.node.addChild(ss);
             }
         }
     },
