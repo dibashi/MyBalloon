@@ -56,7 +56,9 @@ cc.Class({
         inviteAlert:{
             default:null,
             type: cc.Prefab,
-        }
+        },
+
+        lotteryTime:30,//抽奖间隔时间 单位：分钟
     },
 
     //无尽模式
@@ -211,12 +213,12 @@ cc.Class({
 
         this.dxGG = parseInt((d4 - d3) * 0.001);
         // cc.log("aaaa  " +this.dxLQ);
-        if (this.dxGG > (30 * 60)) {//超过半个小时
+        if (this.dxGG > (this.lotteryTime * 60)) {//超过半个小时
             this.rouletteNode.getComponent(cc.Button).interactable = true;
             this.rouletteNode.color = cc.hexToColor("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
-            this.dxGG = 30 * 60 - this.dxGG;
+            this.dxGG = this.lotteryTime * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
             this.rouletteNode.color = cc.hexToColor("#2B3466");
             this.countDownLabel.node.active = true;
