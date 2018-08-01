@@ -21,7 +21,7 @@
     "_active": true,
     "_components": [],
     "_prefab": null,
-    "_id": "b1ac405b-82ae-40ff-b338-3599c4302775",
+    "_id": "07082eee-f91d-428e-9be2-06499fc25d84",
     "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
@@ -2452,7 +2452,7 @@
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
+    "_scaleX": 1.3,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -2579,6 +2579,7 @@
     },
     "inviteAlert": {
       "__uuid__": "20143018-054c-476b-9798-d9758c845b6b"
-    }
+    },
+    "lotteryTime": 30
   }
 ]
