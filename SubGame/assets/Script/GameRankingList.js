@@ -76,7 +76,7 @@ cc.Class({
             }
         }
 
-        console.log("看下传到子域的当前得分！--》 " + currentScore);
+        //console.log("看下传到子域的当前得分！--》 " + currentScore);
         if (nextBeyondIndex != -1) {
             this.beyondFriendNode.active = true;
             //splice 返回的是一个数组。一定要加索引来访问
@@ -88,7 +88,7 @@ cc.Class({
             this.nameLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].nickname;
             this.scoreLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].KVDataList[0].value;
         } else {
-            console.log("执行到这里，隐藏了下个好友！");
+           // console.log("执行到这里，隐藏了下个好友！");
             this.beyondFriendNode.active = false;
         }
 
