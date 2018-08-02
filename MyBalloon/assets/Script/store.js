@@ -191,7 +191,7 @@ cc.Class({
             }
             //钻石数值修改
             cc.sys.localStorage.setItem('diamondCount', diamondCount - price);
-
+            price = 0;
             let inviteCurrency = parseInt(cc.sys.localStorage.getItem('recommendedCurrency'));
             switch (eventData) {
                 case "08":
