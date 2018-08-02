@@ -163,9 +163,9 @@ cc.Class({
                             data.splice(waitingForDelete, 1);
                             this.waitingForBeyondFriends = data;
                             //console.log("这里 这里！");
-                            for (let j = 0; j < this.waitingForBeyondFriends.length; j++) {
-                                console.log(this.waitingForBeyondFriends[j]);
-                            }
+                            // for (let j = 0; j < this.waitingForBeyondFriends.length; j++) {
+                            //     console.log(this.waitingForBeyondFriends[j]);
+                            // }
 
                         },
                         fail: res => {
