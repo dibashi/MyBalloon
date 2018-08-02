@@ -55,10 +55,19 @@ cc.Class({
         //邀请好友
         let query_string = cc.sys.localStorage.getItem("openid");
         //console.log("准备发送请求的 query " + query_string);
-
+        var str_imageUrl = null;
+        var str_index=   Math.floor(Math.random()*3);
+        if(str_index == 0) {
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.a52e5.jpg"
+        } else if(str_index == 1) {
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.59593.jpg"
+        } else {
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage2.e4dfb.jpg"
+        }
+        
         wx.shareAppMessage({
             title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-            imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage.d561d.jpg", query: "otherID=" + query_string
+            imageUrl: str_imageUrl, query: "otherID=" + query_string
         });
     },
     
