@@ -181,6 +181,16 @@ cc.Class({
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
         this.rouletteInitLogic();
         this.schedule(this.refreshrecommended, 4);
+
+    
+        //弹出轮盘赌
+        //上次领取时间，当前时间之差 小于 所需时间 即弹出
+        let d3 = parseInt(cc.sys.localStorage.getItem('ggTime'));//轮盘赌广告结束时的时间（领取过后才赋值！）
+        let d4 = parseInt(Date.now());
+        let dx =  parseInt((d4 - d3) * 0.001);
+        if (dx > (this.lotteryTime * 60)) {//超过半个小时
+            this.goRoulette();
+        }
     },
 
     //放在这里 方便更新
