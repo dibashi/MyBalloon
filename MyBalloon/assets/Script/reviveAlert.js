@@ -43,6 +43,12 @@ cc.Class({
         },
 
         onWho: null,//在哪个页面上面，当当前页面消失时使得那个页面可点击
+
+        //新需求node 审核没通过
+        hideNode:{
+            default:null,
+            type: cc.Node,
+        },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -79,6 +85,13 @@ cc.Class({
         if (cc.sys.localStorage.getItem("recommendedRevive") != "1" || tac <= 0 || rc <= 0) {
             this.recommendedBtn.interactable = false;
             this.recommendedBtn.node.opacity = 50;
+        }
+
+
+        if(cc.myballoon_isShare == 0) {
+            this.hideNode.active = false;
+        } else {
+            this.hideNode.active = true;
         }
     },
 

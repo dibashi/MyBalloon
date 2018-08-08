@@ -10,6 +10,11 @@ cc.Class({
         inviteAlert:{
             default:null,
             type: cc.Prefab,
+        },
+
+        hideNode:{
+            default:null,
+            type:cc.Node,
         }
     },
     onLoad() {
@@ -17,6 +22,12 @@ cc.Class({
 
         this.scoreLabel.string = cc.sys.localStorage.getItem("currentScore");
         this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
+
+        if(cc.myballoon_isShare == 0) {
+            this.hideNode.active = false;
+        } else {
+            this.hideNode.active = true;
+        }
     },
 
     goStart: function () {

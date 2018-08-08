@@ -53,12 +53,17 @@ cc.Class({
             default: null,
             type: cc.Prefab,
         },
-        inviteAlert:{
-            default:null,
+        inviteAlert: {
+            default: null,
             type: cc.Prefab,
         },
 
-        lotteryTime:30,//抽奖间隔时间 单位：分钟
+        shareNode: {
+            default: null,
+            type: cc.Node,
+        },
+
+        lotteryTime: 30,//抽奖间隔时间 单位：分钟
     },
 
     //无尽模式
@@ -120,6 +125,20 @@ cc.Class({
         //true 有微信， false 没有微信
         this.myDebugMode = true;
 
+
+        // var xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState == 4 && (xhr.status >= 200 && xhr.status < 400)) {
+        //         var response = xhr.responseText;
+        //         console.log(response);
+        //     }
+        // };
+        // xhr.open("GET", 'https://bpw.blyule.com/res/share.xml', true);
+        // xhr.send();
+
+
+
+
         cc.audioEngine.stopMusic();
         this.userData = null;
 
@@ -176,27 +195,29 @@ cc.Class({
         this.getUerOpenID();
         // this.refreshSetting();
         this.loadQQAndTail();//根据当前气球索引加载气球皮肤以及尾巴颜色
-        
+
         this.refreshDatas();
         this.scoreLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("bestScore");
         this.rouletteInitLogic();
         this.schedule(this.refreshrecommended, 4);
 
-    
+
         //弹出轮盘赌
         //上次领取时间，当前时间之差 小于 所需时间 即弹出
         let d3 = parseInt(cc.sys.localStorage.getItem('ggTime'));//轮盘赌广告结束时的时间（领取过后才赋值！）
         let d4 = parseInt(Date.now());
-        let dx =  parseInt((d4 - d3) * 0.001);
+        let dx = parseInt((d4 - d3) * 0.001);
         if (dx > (this.lotteryTime * 60)) {//超过半个小时
             this.goRoulette();
         }
+
+
     },
 
     //放在这里 方便更新
-    refreshDatas:function() {
+    refreshDatas: function () {
         this.recommendedLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem('recommendedCurrency');
-        
+
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
     },
@@ -244,8 +265,8 @@ cc.Class({
         let m = parseInt(dx / 60);
         let s = parseInt(dx - (60 * m));
 
-       // label.string = m + "分" + s + "秒";
-       label.string = m + ":" + s;
+        // label.string = m + "分" + s + "秒";
+        label.string = m + ":" + s;
     },
 
     countdownFUNGG: function () {
@@ -421,6 +442,39 @@ cc.Class({
 
         //     }
         // });
+        //默认分享不显示
+
+
+        cc.myballoon_isShare = 0;
+
+        this.shareNode.active = false;
+        let self = this;
+
+        if (!cc.myballoon_isShare) {
+
+            wx.request({
+                url: 'https://bpw.blyule.com/res/share.xml',
+
+                success: (obj, statusCode, header) => {
+                    console.log("是否显示分享的数据");
+                    console.log(obj);
+                    console.log(obj.data);
+                    if (obj.data == 0) {
+                        console.log("不显示");
+                        cc.myballoon_isShare = 0;
+                        self.shareNode.active = false
+                    } else {
+                        console.log("显示");
+                        cc.myballoon_isShare = 1;
+                        self.shareNode.active = true;
+                    }
+                },
+            });
+        } else {
+            this.shareNode.active = true;
+        }
+
+
     },
 
     // refreshSetting: function () {
