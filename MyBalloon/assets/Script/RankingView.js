@@ -8,15 +8,15 @@ cc.Class({
         rankingScrollView: cc.Sprite,//显示排行榜
         loadLabel: cc.Node,//显示加载中的label
 
-        isQun:0,//0标记是好友排行榜，1标记是群排行榜
+        isQun: 0,//0标记是好友排行榜，1标记是群排行榜
 
-        friendTitleImg:cc.Sprite,
-        groupTitleImg:cc.Sprite,
-        friendBtnImg:cc.Sprite,
-        groupBtnImg:cc.Sprite,
-        title:cc.Sprite, //title的sprite
-        dataFetch:cc.Sprite, //下方按钮请求数据的 sprite
-        dataFetchBtn:cc.Button,
+        friendTitleImg: cc.Sprite,
+        groupTitleImg: cc.Sprite,
+        friendBtnImg: cc.Sprite,
+        groupBtnImg: cc.Sprite,
+        title: cc.Sprite, //title的sprite
+        dataFetch: cc.Sprite, //下方按钮请求数据的 sprite
+        dataFetchBtn: cc.Button,
     },
     onLoad() {
         this.timer = 0;
@@ -29,8 +29,8 @@ cc.Class({
         cc.director.loadScene('start');
     },
 
-    friendAndGroupDatasShift:function() {
-        if(this.isQun == 0) {
+    friendAndGroupDatasShift: function () {
+        if (this.isQun == 0) {
             this.isQun = 1; //如果是好友排行，则切换到群排行
             this.title.spriteFrame = this.groupTitleImg.spriteFrame;
             this.dataFetch.spriteFrame = this.friendBtnImg.spriteFrame;
@@ -41,19 +41,19 @@ cc.Class({
         }
     },
 
-    dataFetchClick:function(event) {
-        if(this.isQun == 0) { //如果当前好友排行榜，则获得群排行榜数据
+    dataFetchClick: function (event) {
+        if (this.isQun == 0) { //如果当前好友排行榜，则获得群排行榜数据
             this.groupFriendButtonFunc(event);
         } else {
             this.friendButtonFunc(event);
         }
     },
 
-    uiRefresh:function() {
+    uiRefresh: function () {
         this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
         this.scheduleOnce(this.closeTips, 3.0);
-        this.scheduleOnce(this.friendAndGroupDatasShift,3.0);
-        this.scheduleOnce(this.openTips,1.0);
+        this.scheduleOnce(this.friendAndGroupDatasShift, 3.0);
+        this.scheduleOnce(this.openTips, 1.0);
     },
 
     start() {
@@ -78,7 +78,7 @@ cc.Class({
         }
     },
 
-    openTips:function() {
+    openTips: function () {
         this.loadLabel.active = true;
     },
 
@@ -105,6 +105,8 @@ cc.Class({
         let self = this;
         if (CC_WECHATGAME) {
             window.wx.shareAppMessage({
+                title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
+                imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.a52e5.jpg",
                 success: (res) => {
                     //console.log("shareTickets  res ---> ");
                     //console.log(res);
