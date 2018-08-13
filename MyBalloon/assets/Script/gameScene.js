@@ -321,7 +321,7 @@ cc.Class({
             window.sharedCanvas.height = 1920;
             window.wx.postMessage({
                 messageType: 6,
-                MAIN_MENU_NUM: "user_best_score"
+                MAIN_MENU_NUM: "bpwBFen"
             });
         }
     },
@@ -465,7 +465,7 @@ cc.Class({
             if (cc.myDebugMode) {
                 window.wx.postMessage({
                     messageType: 3,
-                    MAIN_MENU_NUM: "user_best_score",
+                    MAIN_MENU_NUM: "bpwBFen",
                     score: self.defen,
                 });
             }

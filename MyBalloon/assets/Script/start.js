@@ -123,7 +123,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //true 有微信， false 没有微信
-        cc.myDebugMode = false;
+        cc.myDebugMode = true;
 
 
         // var xhr = new XMLHttpRequest();
@@ -149,7 +149,7 @@ cc.Class({
             if (cc.myDebugMode) {
                 window.wx.postMessage({
                     messageType: 3,
-                    MAIN_MENU_NUM: "user_best_score",
+                    MAIN_MENU_NUM: "bpwBFen",
                     score: 0,
                 });
             }
@@ -451,7 +451,7 @@ cc.Class({
 
         cc.myballoon_isShare = 0;
 
-        this.shareNode.active = true;
+        this.shareNode.active = false;
         let self = this;
         if (cc.myDebugMode) {
             wx.request({

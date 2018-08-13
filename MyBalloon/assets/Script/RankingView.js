@@ -69,7 +69,7 @@ cc.Class({
             window.sharedCanvas.height = 1920;
             window.wx.postMessage({
                 messageType: 1,
-                MAIN_MENU_NUM: "user_best_score"
+                MAIN_MENU_NUM: "bpwBFen"
             });
 
 
@@ -92,7 +92,7 @@ cc.Class({
             // 发消息给子域
             window.wx.postMessage({
                 messageType: 1,
-                MAIN_MENU_NUM: "user_best_score"
+                MAIN_MENU_NUM: "bpwBFen"
             });
             this.dataFetchBtn.interactable = false;
             this.uiRefresh();
@@ -113,7 +113,7 @@ cc.Class({
                     if (res.shareTickets != undefined && res.shareTickets.length > 0) {
                         window.wx.postMessage({
                             messageType: 5,
-                            MAIN_MENU_NUM: "user_best_score",
+                            MAIN_MENU_NUM: "bpwBFen",
                             shareTicket: res.shareTickets[0]
                         });
                         self.dataFetchBtn.interactable = false;
@@ -130,7 +130,7 @@ cc.Class({
         if (CC_WECHATGAME) {
             window.wx.postMessage({// 发消息给子域
                 messageType: 4,
-                MAIN_MENU_NUM: "user_best_score"
+                MAIN_MENU_NUM: "bpwBFen"
             });
         } else {
 
@@ -143,7 +143,7 @@ cc.Class({
     //     if (CC_WECHATGAME) {
     //         window.wx.postMessage({
     //             messageType: 3,
-    //             MAIN_MENU_NUM: "user_best_score",
+    //             MAIN_MENU_NUM: "bpwBFen",
     //             score: score,
     //         });
     //     } else {
