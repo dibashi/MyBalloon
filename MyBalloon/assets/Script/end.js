@@ -7,14 +7,14 @@ cc.Class({
         loadLabel: cc.Node,//要隐藏，用node
         rankingView: cc.Sprite,//显示排行榜
 
-        inviteAlert:{
-            default:null,
+        inviteAlert: {
+            default: null,
             type: cc.Prefab,
         },
 
-        hideNode:{
-            default:null,
-            type:cc.Node,
+        hideNode: {
+            default: null,
+            type: cc.Node,
         }
     },
     onLoad() {
@@ -23,7 +23,7 @@ cc.Class({
         this.scoreLabel.string = cc.sys.localStorage.getItem("currentScore");
         this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
 
-        if(cc.myballoon_isShare == 0) {
+        if (cc.myballoon_isShare == 0) {
             this.hideNode.active = false;
         } else {
             this.hideNode.active = true;
@@ -35,7 +35,7 @@ cc.Class({
     },
 
     onReNewClick: function () {
-       
+
         cc.director.loadScene("gameScene");
     },
 
@@ -50,17 +50,19 @@ cc.Class({
     start() {
 
         //window.wx.showShareMenu({ withShareTicket: true });//设置分享按钮，方便获取群id展示群排行榜
-        this.tex = new cc.Texture2D();
-        window.sharedCanvas.width = 1080;
-        window.sharedCanvas.height = 1920;
-        window.wx.postMessage({
-            messageType: 4,
-            MAIN_MENU_NUM: "user_best_score"
-        });
+        if (cc.myDebugMode) {
+            this.tex = new cc.Texture2D();
+            window.sharedCanvas.width = 1080;
+            window.sharedCanvas.height = 1920;
+            window.wx.postMessage({
+                messageType: 4,
+                MAIN_MENU_NUM: "user_best_score"
+            });
 
 
-        this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
-        this.scheduleOnce(this.closeTips, 3.0);
+            this.scheduleOnce(this._updateSubDomainCanvas, 3.0);
+            this.scheduleOnce(this.closeTips, 3.0);
+        }
 
     },
 
@@ -68,7 +70,7 @@ cc.Class({
         this.loadLabel.active = false;
     },
 
-   
+
 
     groupFriendButtonFunc: function (event) {
         if (CC_WECHATGAME) {

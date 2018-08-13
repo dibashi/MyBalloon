@@ -123,7 +123,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //true 有微信， false 没有微信
-        this.myDebugMode = false;
+        cc.myDebugMode = false;
 
 
         // var xhr = new XMLHttpRequest();
@@ -146,7 +146,7 @@ cc.Class({
         if (isloaded == 0 || isloaded == null) {
             cc.sys.localStorage.setItem('isLoaded', 1);
             cc.sys.localStorage.setItem("bestScore", 0);
-            if (this.myDebugMode) {
+            if (cc.myDebugMode) {
                 window.wx.postMessage({
                     messageType: 3,
                     MAIN_MENU_NUM: "user_best_score",
@@ -350,7 +350,7 @@ cc.Class({
             return;
         }
 
-        if (this.myDebugMode) {
+        if (cc.myDebugMode) {
             wx.request({
                 url: 'https://bpw.blyule.com/public/index.php/index/index/getprise?userid=' + openid,
                 data: {
@@ -371,7 +371,7 @@ cc.Class({
 
 
     getUerOpenID: function () {
-        if (!this.myDebugMode) {
+        if (!cc.myDebugMode) {
             return;
         }
 
@@ -451,9 +451,9 @@ cc.Class({
 
         cc.myballoon_isShare = 0;
 
-        this.shareNode.active = false;
+        this.shareNode.active = true;
         let self = this;
-        if (this.myDebugMode) {
+        if (cc.myDebugMode) {
             wx.request({
                 url: 'https://bpw.blyule.com/res/share.xml',
 

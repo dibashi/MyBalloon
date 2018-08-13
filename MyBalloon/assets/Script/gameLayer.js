@@ -23,6 +23,8 @@ cc.Class({
 
         currentNode: null,//当前关卡的node
         bgSpeed: 2,
+
+        gameScene:null,//指向场景脚本的指针
     },
 
 
@@ -49,20 +51,18 @@ cc.Class({
         this.touchMovePoint = cc.v2(0.0, 0.0);
         // this.currentFingerPosition = null;
         // this.lastFingerPosition = null;
+
+        this.gameScene = this.node.parent.getComponent("gameScene");
+
     },
 
     dragStart: function (event) {
 
-        // this.touchBeginPoint = event.getLocation();
-
-        //this.currentFingerPosition = event.getLocation();
-        // cc.log("这个是原版坐标");
-        // cc.log(event.getLocation());
-        // cc.log("这个是世界坐标");
-        // cc.log(this.node.parent.convertToWorldSpaceAR(event.getLocation()));
-        //this.currentFingerPosition =  this.node.parent.convertToWorldSpaceAR(event.getLocation());
-        // this.currentFingerPosition = event.getLocation();
-        // this.lastFingerPosition = this.currentFingerPosition;
+        if(this.gameScene.gameState == 0) {
+            this.gameScene.gameState = 1;
+            this.gameScene.teachingNode.active = false;
+            this.gameScene.gameStart();
+        }
 
         this.originFingerPosition = event.getLocation();
         this.originGuardPosition = this.node.convertToWorldSpaceAR(this.guard.position);

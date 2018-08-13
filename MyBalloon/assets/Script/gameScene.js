@@ -167,6 +167,11 @@ cc.Class({
             type: cc.Node,
         },
 
+        teachingNode: {
+            default: null,
+            type: cc.Node
+        },
+
 
         cps: null,//关卡索引数组
         h: 3840,//关卡长度
@@ -186,6 +191,8 @@ cc.Class({
         //胜利彩带，这个只在关卡模式下有用
         winRibbon: null,
         guanKaWin: false,
+
+        gameState: 0//游戏状态，0表示教学提示，1表示游戏进行
     },
 
 
@@ -264,8 +271,11 @@ cc.Class({
         cc.director.getPhysicsManager().debugDrawFlags = 0; //-设置为0则关闭调试
         cc.director.getPhysicsManager().gravity = cc.v2(0, -320);//-320像素/秒的平方，这个是默认值，为了以后调试先放在这
 
-        var self = this;
 
+
+    },
+
+    gameStart: function () {
         //1,2,3..代表关卡，-1代表无尽模式，0代表结束关卡
         this.guanKa = cc.sys.localStorage.getItem('currentCheckpoint');
         if (this.guanKa != -1) {
@@ -306,12 +316,14 @@ cc.Class({
     },
 
     sendMessageToSubdomainGetFriendDatas: function () {
-        window.sharedCanvas.width = 1080;
-        window.sharedCanvas.height = 1920;
-        window.wx.postMessage({
-            messageType: 6,
-            MAIN_MENU_NUM: "user_best_score"
-        });
+        if (cc.myDebugMode) {
+            window.sharedCanvas.width = 1080;
+            window.sharedCanvas.height = 1920;
+            window.wx.postMessage({
+                messageType: 6,
+                MAIN_MENU_NUM: "user_best_score"
+            });
+        }
     },
 
     // 刷新子域的纹理
@@ -324,12 +336,14 @@ cc.Class({
     },
 
     seeNextBeyondFriend: function () {
-        let self = this;
-        window.wx.postMessage({
-            messageType: 8,
-            currentScore: self.defen,
-        });
-        self.scheduleOnce(this._updateSubDomainCanvas, 1);
+        if (cc.myDebugMode) {
+            let self = this;
+            window.wx.postMessage({
+                messageType: 8,
+                currentScore: self.defen,
+            });
+            self.scheduleOnce(this._updateSubDomainCanvas, 1);
+        }
     },
 
     addScore: function () {
@@ -448,11 +462,13 @@ cc.Class({
             //这个是结束界面要用的本局得分
             cc.sys.localStorage.setItem("currentScore", this.defen);
             let self = this;
-            window.wx.postMessage({
-                messageType: 3,
-                MAIN_MENU_NUM: "user_best_score",
-                score: self.defen,
-            });
+            if (cc.myDebugMode) {
+                window.wx.postMessage({
+                    messageType: 3,
+                    MAIN_MENU_NUM: "user_best_score",
+                    score: self.defen,
+                });
+            }
 
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
@@ -483,6 +499,10 @@ cc.Class({
 
     // called every frame
     update: function (dt) {
+        if(this.gameState == 0) {
+            return;
+        }
+
         if (this.bg1.y <= this.bgMinY) {
             this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * this.bgScale;
 
@@ -548,7 +568,7 @@ cc.Class({
                     this.checkpointWin();
                 }
 
-                
+
             } else {
                 let wry = this.winRibbon.parent.convertToWorldSpaceAR(this.winRibbon.position).y - 960;
                 if (wry < this.balloon.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
