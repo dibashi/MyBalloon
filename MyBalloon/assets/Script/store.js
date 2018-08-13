@@ -194,12 +194,6 @@ cc.Class({
             price = 0;
             let inviteCurrency = parseInt(cc.sys.localStorage.getItem('recommendedCurrency'));
             switch (eventData) {
-                case "08":
-                    price = 2;
-                    break;
-                case "09":
-                    price = 3;
-                    break;
                 case "10":
                     price = 5;
                     break;
