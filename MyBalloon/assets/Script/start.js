@@ -123,7 +123,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //true 有微信， false 没有微信
-        this.myDebugMode = true;
+        this.myDebugMode = false;
 
 
         // var xhr = new XMLHttpRequest();
@@ -453,25 +453,26 @@ cc.Class({
 
         this.shareNode.active = false;
         let self = this;
+        if (this.myDebugMode) {
+            wx.request({
+                url: 'https://bpw.blyule.com/res/share.xml',
 
-        wx.request({
-            url: 'https://bpw.blyule.com/res/share.xml',
-
-            success: (obj, statusCode, header) => {
-                console.log("是否显示分享的数据");
-                console.log(obj);
-                console.log(obj.data);
-                if (obj.data == 0) {
-                    console.log("不显示");
-                    cc.myballoon_isShare = 0;
-                    self.shareNode.active = false;
-                } else {
-                    console.log("显示");
-                    cc.myballoon_isShare = 1;
-                    self.shareNode.active = true;
+                success: (obj, statusCode, header) => {
+                    console.log("是否显示分享的数据");
+                    console.log(obj);
+                    console.log(obj.data);
+                    if (obj.data == 0) {
+                        console.log("不显示");
+                        cc.myballoon_isShare = 0;
+                        self.shareNode.active = false;
+                    } else {
+                        console.log("显示");
+                        cc.myballoon_isShare = 1;
+                        self.shareNode.active = true;
+                    }
                 }
-            }
-        });
+            });
+        }
     },
 
     // refreshSetting: function () {
