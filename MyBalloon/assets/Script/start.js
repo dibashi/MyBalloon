@@ -189,6 +189,10 @@ cc.Class({
 
             //记录玩家当前玩到的关卡  从第一关开始 1代表第一关
             cc.sys.localStorage.setItem("dangQianGuanKa", 1);
+
+            let d3 = Date.now();
+            console.log(d3);
+            cc.sys.localStorage.setItem("ggTime", d3 - 3600000);
         } else {
             cc.sys.localStorage.setItem('isLoaded', parseInt(isloaded) + 1);
         }
@@ -450,31 +454,24 @@ cc.Class({
         this.shareNode.active = false;
         let self = this;
 
-        if (!cc.myballoon_isShare) {
+        wx.request({
+            url: 'https://bpw.blyule.com/res/share.xml',
 
-            wx.request({
-                url: 'https://bpw.blyule.com/res/share.xml',
-
-                success: (obj, statusCode, header) => {
-                    console.log("是否显示分享的数据");
-                    console.log(obj);
-                    console.log(obj.data);
-                    if (obj.data == 0) {
-                        console.log("不显示");
-                        cc.myballoon_isShare = 0;
-                        self.shareNode.active = false
-                    } else {
-                        console.log("显示");
-                        cc.myballoon_isShare = 1;
-                        self.shareNode.active = true;
-                    }
-                },
-            });
-        } else {
-            this.shareNode.active = true;
-        }
-
-
+            success: (obj, statusCode, header) => {
+                console.log("是否显示分享的数据");
+                console.log(obj);
+                console.log(obj.data);
+                if (obj.data == 0) {
+                    console.log("不显示");
+                    cc.myballoon_isShare = 0;
+                    self.shareNode.active = false;
+                } else {
+                    console.log("显示");
+                    cc.myballoon_isShare = 1;
+                    self.shareNode.active = true;
+                }
+            }
+        });
     },
 
     // refreshSetting: function () {
