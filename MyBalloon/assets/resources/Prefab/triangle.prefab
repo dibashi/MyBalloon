@@ -118,7 +118,7 @@
     "_angularVelocity": 0,
     "_fixedRotation": true,
     "enabledContactListener": true,
-    "bullet": true
+    "bullet": false
   },
   {
     "__type__": "cc.PhysicsPolygonCollider",
@@ -166,7 +166,6 @@
     },
     "_enabled": true,
     "rigidBodyOfNode": null,
-    "thresholdOfGravity": 0,
     "flag": false,
     "gravityHasBeenGiven": false,
     "gravityFlagOfThreshold": false,
