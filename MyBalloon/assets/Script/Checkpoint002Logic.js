@@ -122,7 +122,7 @@ cc.Class({
                 let aa = rr.getWorldPosition();
                 if (aa.y < this.thresholdOfGravity) {
     
-                    let vec = cc.v2((this.balloonPos.x - aa.x) * 0.6, (this.balloonPos.y - aa.y) * 0.6);
+                    let vec = cc.v2((this.balloonPos.x - aa.x) * 0.8, (this.balloonPos.y - aa.y) * 0.8);
                     rr.linearVelocity = vec;
                     this.hasGivenVArray[i] = true;//之后不再给予速度
                 }
