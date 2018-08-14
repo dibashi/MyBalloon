@@ -571,7 +571,7 @@ cc.Class({
 
             } else {
                 let wry = this.winRibbon.parent.convertToWorldSpaceAR(this.winRibbon.position).y - 960;
-                if (wry < this.balloon.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
+                if (wry < this.balloon.position.y - 100 && this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
                     //console.log("胜利！！");
                     this.guanKaWin = true;
                     this.checkpointWin();
