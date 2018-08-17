@@ -125,15 +125,15 @@ cc.Class({
                             break;
 
                         case "pentagram5":
-                        console.log("执行到5")
+                        //console.log("执行到5")
                             vec = cc.v2((this.balloonPos.x - aa.x) * ratio * 1.1, (this.balloonPos.y - aa.y) * ratio* 1.1);
                             break;
                         case "pentagram6":
-                        console.log("执行到6")
+                        //console.log("执行到6")
                             vec = cc.v2((this.balloonPos.x - aa.x) * ratio * 1.2, (this.balloonPos.y - aa.y) * ratio* 1.2);
                             break;
                         case "pentagram7":
-                            console.log("执行到7")
+                            //console.log("执行到7")
                             vec = cc.v2((this.balloonPos.x - aa.x) * ratio * 1.3, (this.balloonPos.y - aa.y) * ratio* 1.3);
                             break;
                     }
