@@ -92,13 +92,7 @@ cc.Class({
         cc.eventManager.resumeTarget(this.node, true);
     },
 
-
-    //可以点击代表其值为1
-    onGuangGaoClick: function () {
-
-        //观看广告 被点击 
-        //没有接入广告，现在直接旋转
-        //这一行保证了健壮性
+    givePrize: function () {
         if (this.wheelState !== 0) {
             return;
         }
@@ -141,6 +135,18 @@ cc.Class({
         // this.finalAngle = (360 - this.targetID * 60) + this.accAngle + this.decAngle;
         //0+ a+2a+,.....+this.accelerateTime*a = this.accelerateTime*a*this.accelerateTime *0.5  = this.finalAngle/2==>
         this.accV = this.finalAngle / (this.accelerateTime * this.accelerateTime);
+    },
+
+
+    //可以点击代表其值为1
+    onGuangGaoClick: function () {
+
+        //观看广告 被点击 
+        //没有接入广告，现在直接旋转
+        //这一行保证了健壮性
+        cc.videoAd.show();
+
+       
     },
 
 

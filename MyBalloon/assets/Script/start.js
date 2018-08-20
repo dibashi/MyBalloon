@@ -454,6 +454,50 @@ cc.Class({
         this.shareNode.active = false;
         let self = this;
         if (cc.myDebugMode) {
+
+
+            console.log("加载广告之前！！");
+            console.log(cc.videoAd);
+            console.log(!cc.videoAd);
+            if (!cc.videoAd) {
+                //先创建，可不用，由于是单例模式，所以后面再创建就快了。
+                console.log("加载广告！");
+                cc.videoAd = wx.createRewardedVideoAd({
+                    adUnitId: 'adunit-037563d6854692ab'
+                });
+                cc.videoAd.load();
+
+                cc.videoAd.onClose(res => {
+                    // 用户点击了【关闭广告】按钮
+                    // 小于 2.1.0 的基础库版本，res 是一个 undefined
+                    console.log("广告onClose~！");
+
+                    if (res && res.isEnded || res === undefined) {
+                        // 正常播放结束，可以下发游戏奖励
+                        console.log("这里给用户奖励！！");
+                        console.log(res);
+                        if (cc.find("Canvas/zhuanpan")) {
+                            console.log("转盘奖励");
+                            cc.find("Canvas/zhuanpan").getComponent("rouletteAlert").givePrize();
+                        } else if (cc.find("Canvas/revivalAlert")) {
+                            console.log("复活奖励");
+                            cc.find("Canvas/revivalAlert").getComponent("reviveAlert").givePrize();
+                        } else if(cc.find("Canvas").getComponent("store")) {
+                            cc.find("Canvas").getComponent("store").givePrize();
+                        }
+                    }
+                    else {
+                        // 播放中途退出，不下发游戏奖励
+                        console.log("中途退出，没有奖励！");
+                    }
+                });
+            }
+
+
+
+
+
+
             wx.request({
                 url: 'https://bpw.blyule.com/res/share.xml',
 
@@ -472,6 +516,9 @@ cc.Class({
                     }
                 }
             });
+
+
+           
         }
     },
 

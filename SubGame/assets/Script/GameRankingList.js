@@ -19,6 +19,12 @@ cc.Class({
         nameLabel: cc.Label,
         scoreLabel: cc.Label,
 
+
+        landscapeHeadImageNode:cc.Node,
+       // landscapeNameLabel:cc.Label,
+        landscapeScoreLabel:cc.Label,
+        landscapeBeyondFriend:cc.Node,
+
         overNode: cc.Node,
     },
 
@@ -55,6 +61,32 @@ cc.Class({
 
     },
 
+    landScapeNextBeyond:function(currentScore) {
+        if (this.waitingForBeyondFriends == null || this.waitingForBeyondFriends.length == 0) {
+            this.landScapeNextBeyond.active = false;
+            return;
+        }
+        let nextBeyondIndex = -1;
+        for (let i = this.waitingForBeyondFriends.length - 1; i >= 0; i--) {//这个数据源是已经排好序的，但是是倒序从大到小
+            let otherScore = this.waitingForBeyondFriends[i].KVDataList.length != 0 ? this.waitingForBeyondFriends[i].KVDataList[0].value : 0;
+            if (currentScore < otherScore) {
+                nextBeyondIndex = i;
+                break;
+            }
+        }
+
+        //console.log("看下传到子域的当前得分！--》 " + currentScore);
+        if (nextBeyondIndex != -1) {
+            this.landScapeNextBeyond.active = true;
+            this.initSprite(this.waitingForBeyondFriends[nextBeyondIndex],this.landscapeHeadImageNode);
+            
+            this.landscapeScoreLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].KVDataList[0].value + "分";
+        } else {
+            // console.log("执行到这里，隐藏了下个好友！");
+            this.landScapeNextBeyond.active = false;
+        }
+    },
+
     nextBeyond: function (currentScore) {
         if (this.waitingForBeyondFriends == null || this.waitingForBeyondFriends.length == 0) {
             this.beyondFriendNode.active = false;
@@ -84,29 +116,29 @@ cc.Class({
             // console.log("看下超越的玩家数据");
             // console.log(beyondData[0]);
 
-            this.initSprite(this.waitingForBeyondFriends[nextBeyondIndex]);
+            this.initSprite(this.waitingForBeyondFriends[nextBeyondIndex],this.headImageNode);
             this.nameLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].nickname;
             this.scoreLabel.string = this.waitingForBeyondFriends[nextBeyondIndex].KVDataList[0].value;
         } else {
-           // console.log("执行到这里，隐藏了下个好友！");
+            // console.log("执行到这里，隐藏了下个好友！");
             this.beyondFriendNode.active = false;
         }
 
     },
 
-    initSprite: function (beyondData) {
+    initSprite: function (beyondData,headImageNode) {
         let avatarUrl = beyondData.avatarUrl;
         //  console.log("看下 头像 URL");
         //  console.log(avatarUrl);
         //  console.log(this.headImageNode);
         //  console.log(this.headImageNode.getComponent(cc.Animation));
-        this.createImage(avatarUrl);
+        this.createImage(avatarUrl,headImageNode);
         // let anim = this.headImageNode.getComponent(cc.Animation);
         //anim.play();
         // this.headImageNode.runAction(cc.moveTo(5.0,cc.v2(200,200)));
     },
 
-    createImage(avatarUrl) {
+    createImage(avatarUrl,headImageNode) {
         try {
             let image = wx.createImage();
             image.onload = () => {
@@ -114,16 +146,16 @@ cc.Class({
                     let texture = new cc.Texture2D();
                     texture.initWithElement(image);
                     texture.handleLoadedTexture();
-                    this.headImageNode.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
+                    headImageNode.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
                 } catch (e) {
                     // cc.log(e);
-                    this.headImageNode.active = false;
+                    headImageNode.active = false;
                 }
             };
             image.src = avatarUrl;
         } catch (e) {
             // cc.log(e);
-            this.headImageNode.active = false;
+            headImageNode.active = false;
         }
     },
 
@@ -216,13 +248,18 @@ cc.Class({
                 this.fetchFriendDataToBeyond(data.MAIN_MENU_NUM);
             } else if (data.messageType == 7) { //用于查询给的分数是否超过当前数据源中的分数，超过谁就显示谁，然后删除掉
                 this.isBeyond(data.currentScore);
-            } else if (data.messageType == 8) { //显示下个即将超越的好友
+            } else if (data.messageType == 8) { //显示下个即将超越的好友  游戏内
                 this.beyondFriendNode.active = true;
                 this.nextBeyond(data.currentScore);
+            } else if (data.messageType == 9) { //显示下个即将超越的好友  横向
+                this.landscapeBeyondFriend.active = true;
+                this.landScapeNextBeyond(data.currentScore);
             }
         });
 
     },
+
+
     submitScore(MAIN_MENU_NUM, score) { //提交得分
         if (CC_WECHATGAME) {
             window.wx.getUserCloudStorage({
@@ -270,6 +307,7 @@ cc.Class({
         this.loadingLabel.active = false;
 
         this.beyondFriendNode.active = false;
+        this.landscapeBeyondFriend.active = false;
     },
     fetchFriendData(MAIN_MENU_NUM) {
         this.removeChild();

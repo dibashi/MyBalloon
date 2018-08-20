@@ -25,7 +25,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //console.log("执行到 onload  selectCheckPoint!~~");
-        this.refreshCheckPoint();
+        //this.refreshCheckPoint();
         this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
     },
 

@@ -103,10 +103,23 @@ cc.Class({
 
     groupFriendButtonFunc: function (event) {
         let self = this;
+
+        var str_imageUrl = null;
+        var str_index=   Math.floor(Math.random()*2);
+        var str_title = null;
+        if(str_index == 0) {
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
+            str_title = "走开，别碰我！萌哭了";
+        } else {
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
+            str_title = "萌翻全场，好想都抱回家!";
+        } 
+
+
         if (CC_WECHATGAME) {
             window.wx.shareAppMessage({
-                title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
-                imageUrl: "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.a52e5.jpg",
+                title: str_title,
+                imageUrl: str_imageUrl,
                 success: (res) => {
                     //console.log("shareTickets  res ---> ");
                     //console.log(res);

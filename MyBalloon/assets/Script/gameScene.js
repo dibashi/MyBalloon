@@ -291,10 +291,13 @@ cc.Class({
 
             if (goNewBalloonFlag != "1") {
                 this.defen = 0;
-                //本局广告复活可用一次，复活币复活可用一次
-                cc.sys.localStorage.setItem("adRevive", "1");
-                cc.sys.localStorage.setItem("recommendedRevive", "1");
+                //本局广告复活可用一次，复活币复活可用一次  //需求改了：广告复活在上面按钮第三次，复活币复活局次数不限
+                // cc.sys.localStorage.setItem("adRevive", "1");
+                // cc.sys.localStorage.setItem("recommendedRevive", "1");
+                cc.sys.localStorage.setItem("reviveState", 0); //0代表未复活过，0就是 邀请好友复活，1还是邀请好友复活，2，则是广告复活
             } else {
+                let tempState = parseInt(cc.sys.localStorage.getItem("reviveState"));
+                cc.sys.localStorage.setItem("reviveState", tempState + 1);
 
                 this.defen = parseInt(cc.sys.localStorage.getItem("goNewBalloon-defen"));
                 cc.sys.localStorage.setItem("goNewBalloon-flag", "0");
@@ -472,18 +475,23 @@ cc.Class({
 
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
-            //本局的所有复活已经用完，就直接跳转结束页面
-            if (cc.sys.localStorage.getItem("adRevive") != "1" && cc.sys.localStorage.getItem("recommendedRevive") != "1") {
-                cc.director.loadScene("end");
-            } else { //还有复活可用，则跳转的复活界面
-                //“弹出”结束界面
-                cc.eventManager.pauseTarget(this.node, true);
-                let ss = cc.instantiate(this.reviveAlert);
-                ss.setLocalZOrder(1000);
-                ss.getComponent("reviveAlert").onWho = this.node;
-                this.node.addChild(ss);
-            }
+            //本局的所有复活已经用完，就直接跳转结束页面 //需求更改
+            // if (cc.sys.localStorage.getItem("adRevive") != "1" && cc.sys.localStorage.getItem("recommendedRevive") != "1") {
+            //     cc.director.loadScene("end");
+            // } else { //还有复活可用，则跳转的复活界面
+            //     //“弹出”结束界面
+            //     cc.eventManager.pauseTarget(this.node, true);
+            //     let ss = cc.instantiate(this.reviveAlert);
+            //     ss.setLocalZOrder(1000);
+            //     ss.getComponent("reviveAlert").onWho = this.node;
+            //     this.node.addChild(ss);
+            // }
 
+            cc.eventManager.pauseTarget(this.node, true);
+            let ss = cc.instantiate(this.reviveAlert);
+            ss.setLocalZOrder(1000);
+            ss.getComponent("reviveAlert").onWho = this.node;
+            this.node.addChild(ss);
 
         } else {
             cc.director.loadScene('selectCheckpoint');

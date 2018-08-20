@@ -56,17 +56,18 @@ cc.Class({
         let query_string = cc.sys.localStorage.getItem("openid");
         //console.log("准备发送请求的 query " + query_string);
         var str_imageUrl = null;
-        var str_index=   Math.floor(Math.random()*3);
+        var str_index=   Math.floor(Math.random()*2);
+        var str_title = null;
         if(str_index == 0) {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.a52e5.jpg"
-        } else if(str_index == 1) {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.59593.jpg"
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
+            str_title = "走开，别碰我！萌哭了";
         } else {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage2.e4dfb.jpg"
-        }
+            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
+            str_title = "萌翻全场，好想都抱回家!";
+        } 
         
         wx.shareAppMessage({
-            title: "我邀请了8个好友一起PK，就差你了，赶紧来！",
+            title: str_title,
             imageUrl: str_imageUrl, query: "otherID=" + query_string
         });
     },
