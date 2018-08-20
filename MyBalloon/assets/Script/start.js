@@ -465,7 +465,7 @@ cc.Class({
                 cc.videoAd = wx.createRewardedVideoAd({
                     adUnitId: 'adunit-037563d6854692ab'
                 });
-                cc.videoAd.load();
+               
 
                 cc.videoAd.onClose(res => {
                     // 用户点击了【关闭广告】按钮
