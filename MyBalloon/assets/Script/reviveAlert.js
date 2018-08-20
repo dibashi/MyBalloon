@@ -239,6 +239,7 @@ cc.Class({
             this.shareRevive();
         } else if (reviveState == 2) {
             cc.videoAd.show();
+            cc.director.getScheduler().pauseTarget(this);
         }
     },
 

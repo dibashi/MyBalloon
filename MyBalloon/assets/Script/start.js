@@ -63,7 +63,7 @@ cc.Class({
             type: cc.Node,
         },
 
-        lotteryTime: 30,//抽奖间隔时间 单位：分钟
+        lotteryTime: 5,//抽奖间隔时间 单位：分钟
     },
 
     //无尽模式
@@ -92,6 +92,15 @@ cc.Class({
 
     goRankingView: function () {
         cc.director.loadScene('RankingView');
+    },
+
+    propagandaClick:function() {
+        console.log("宣传按钮点击");
+        var  str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/propaganda.6b9b9.jpg";
+        wx.previewImage({
+            current: str_imageUrl, // 当前显示图片的http链接
+            urls: [str_imageUrl] // 需要预览的图片http链接列表
+          });
     },
 
     //进入关卡选择界面
@@ -481,6 +490,7 @@ cc.Class({
                             cc.find("Canvas/zhuanpan").getComponent("rouletteAlert").givePrize();
                         } else if (cc.find("Canvas/revivalAlert")) {
                             console.log("复活奖励");
+                            cc.director.getScheduler().pauseTarget(cc.find("Canvas/revivalAlert").getComponent("reviveAlert"));
                             cc.find("Canvas/revivalAlert").getComponent("reviveAlert").givePrize();
                         } else if(cc.find("Canvas").getComponent("store")) {
                             cc.find("Canvas").getComponent("store").givePrize();
@@ -489,6 +499,11 @@ cc.Class({
                     else {
                         // 播放中途退出，不下发游戏奖励
                         console.log("中途退出，没有奖励！");
+
+                        if (cc.find("Canvas/revivalAlert")) {
+                            console.log("复活没有奖励");
+                            cc.director.getScheduler().pauseTarget(cc.find("Canvas/revivalAlert").getComponent("reviveAlert"));
+                        }
                     }
                 });
             }
