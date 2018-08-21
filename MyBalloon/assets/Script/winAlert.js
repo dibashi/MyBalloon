@@ -62,6 +62,20 @@ cc.Class({
     goSelectCheckPoint: function () {
         cc.director.loadScene('selectCheckpoint');
     },
+
+    nextClick:function() {
+
+        let dqgk = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
+        let temp = null;
+        if(dqgk<10) {
+            temp = '00' + dqgk;
+        } else if(dqgk <100) {
+            temp = '0' +dqgk;
+        }
+
+        cc.sys.localStorage.setItem('currentCheckpoint', temp);
+        cc.director.loadScene('gameScene');
+    },
 });
 
 
