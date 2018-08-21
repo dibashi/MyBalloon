@@ -63,7 +63,7 @@ cc.Class({
             type: cc.Node,
         },
 
-        lotteryTime: 5,//抽奖间隔时间 单位：分钟
+        lotteryTime: 30,//抽奖间隔时间 单位：分钟
     },
 
     //无尽模式
