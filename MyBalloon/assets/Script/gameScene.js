@@ -131,6 +131,11 @@ cc.Class({
             type: cc.Prefab,
         },
 
+        failAlert:{
+            default: null,
+            type: cc.Prefab,
+        },
+
         gameAudio01: {
             default: null,
             url: cc.AudioClip
@@ -494,7 +499,12 @@ cc.Class({
             this.node.addChild(ss);
 
         } else {
-            cc.director.loadScene('selectCheckpoint');
+           // cc.director.loadScene('selectCheckpoint');
+           cc.eventManager.pauseTarget(this.node, true);
+            let ss = cc.instantiate(this.failAlert);
+            ss.setLocalZOrder(1000);
+            ss.getComponent("failAlert").onWho = this.node;
+            this.node.addChild(ss);
         }
     },
 

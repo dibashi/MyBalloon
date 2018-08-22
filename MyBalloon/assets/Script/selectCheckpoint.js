@@ -25,6 +25,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //console.log("执行到 onload  selectCheckPoint!~~");
+        //cc.sys.localStorage.setItem("dangQianGuanKa",99); //测试用
         this.refreshCheckPoint();
         this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
     },
@@ -40,7 +41,7 @@ cc.Class({
         //console.log("dangQianGuanKa  " +dangQianGuanKa);
         let cps = this.checkPoints.children;
         for (let i = 0; i < cps.length; i++) {
-
+            //console.log(cps[i].name);
             if (i < (dangQianGuanKa - 1)) {
                 cps[i].opacity = 255;
                 cps[i].getComponent(cc.Button).interactable = true;

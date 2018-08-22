@@ -1196,6 +1196,9 @@
       "__id__": 6
     },
     "diamondNode": null,
+    "nextNode": {
+      "__id__": 33
+    },
     "onWho": null
   },
   {

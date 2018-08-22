@@ -338,18 +338,18 @@ cc.Class({
                                 return b.KVDataList[0].value - a.KVDataList[0].value;
                             });
                             for (let i = 0; i < data.length; i++) {
-                                if (i <= 8) {//先最多显示9条吧。以后再说
+                               // if (i <= 8) {//先最多显示9条吧。以后再说
                                     var playerInfo = data[i];
                                     var item = cc.instantiate(this.prefabRankItem);
                                     item.getComponent('RankItem').init(i, playerInfo);
                                     this.scrollViewContent.addChild(item);//其实这里已经加过玩家自己的item了
-                                }
-                                if (data[i].avatarUrl == userData.avatarUrl) {//在下方继续再加一遍。。
-                                    let userItem = cc.instantiate(this.prefabRankItem);
-                                    userItem.getComponent('RankItem').init(i, playerInfo);
-                                    userItem.y = -215;
-                                    this.node.addChild(userItem, 1, 1000);
-                                }
+                               // }
+                                // if (data[i].avatarUrl == userData.avatarUrl) {//在下方继续再加一遍。。
+                                //     let userItem = cc.instantiate(this.prefabRankItem);
+                                //     userItem.getComponent('RankItem').init(i, playerInfo);
+                                //     userItem.y = -215;
+                                //     this.node.addChild(userItem, 1, 1000);
+                                // }
                             }
                         },
                         fail: res => {

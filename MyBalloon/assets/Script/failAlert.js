@@ -13,20 +13,10 @@ cc.Class({
 
     properties: {
         
-        maskNode: {
-            default: null,
-            type: cc.Node
-        },
+       
 
-        diamondNode: {
-            default: null,
-            type: cc.Node
-        },
-
-        nextNode:{
-            default:null,
-            type:cc.Node,
-        },
+        
+     
 
         //本页面用不到
         onWho: null,//在哪个页面上面，当当前页面消失时使得那个页面可点击
@@ -38,10 +28,7 @@ cc.Class({
         this.startFadeIn();
 
 
-        let dqgk = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
-        if(dqgk>=99) {
-            this.nextNode.active = false;
-        }
+       
     },
 
     
@@ -60,33 +47,21 @@ cc.Class({
     onFadeInFinish: function () {
         cc.eventManager.resumeTarget(this.node, true);
 
-        let maskNodeAni = this.maskNode.getComponent(cc.Animation);
-        maskNodeAni.play();
+       
 
     },
 
-    maskAniOver:function() {
-        let diamondNodeAni = this.diamondNode.getComponent(cc.Animation);
-        diamondNodeAni.play();
-    },
+   
 
     goSelectCheckPoint: function () {
         cc.director.loadScene('selectCheckpoint');
     },
 
-    nextClick:function() {
-
-        let dqgk = parseInt(cc.sys.localStorage.getItem("dangQianGuanKa"));
-        let temp = null;
-        if(dqgk<10) {
-            temp = '00' + dqgk;
-        } else if(dqgk <100) {
-            temp = '0' +dqgk;
-        }
-
-        cc.sys.localStorage.setItem('currentCheckpoint', temp);
+    failClick:function() {
         cc.director.loadScene('gameScene');
     },
+
+   
 });
 
 
