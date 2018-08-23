@@ -480,23 +480,14 @@ cc.Class({
 
             cc.sys.localStorage.setItem("diamondCount", this.diamondCount);
 
-            //本局的所有复活已经用完，就直接跳转结束页面 //需求更改
-            // if (cc.sys.localStorage.getItem("adRevive") != "1" && cc.sys.localStorage.getItem("recommendedRevive") != "1") {
-            //     cc.director.loadScene("end");
-            // } else { //还有复活可用，则跳转的复活界面
-            //     //“弹出”结束界面
-            //     cc.eventManager.pauseTarget(this.node, true);
-            //     let ss = cc.instantiate(this.reviveAlert);
-            //     ss.setLocalZOrder(1000);
-            //     ss.getComponent("reviveAlert").onWho = this.node;
-            //     this.node.addChild(ss);
-            // }
+            
+            cc.director.loadScene("end");
 
-            cc.eventManager.pauseTarget(this.node, true);
-            let ss = cc.instantiate(this.reviveAlert);
-            ss.setLocalZOrder(1000);
-            ss.getComponent("reviveAlert").onWho = this.node;
-            this.node.addChild(ss);
+            // cc.eventManager.pauseTarget(this.node, true);
+            // let ss = cc.instantiate(this.reviveAlert);
+            // ss.setLocalZOrder(1000);
+            // ss.getComponent("reviveAlert").onWho = this.node;
+            // this.node.addChild(ss);
 
         } else {
            // cc.director.loadScene('selectCheckpoint');
