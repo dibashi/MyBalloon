@@ -94,13 +94,13 @@ cc.Class({
         cc.director.loadScene('RankingView');
     },
 
-    propagandaClick:function() {
+    propagandaClick: function () {
         console.log("宣传按钮点击");
-        var  str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/propaganda.6b9b9.jpg";
+        var str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/propaganda.6b9b9.jpg";
         wx.previewImage({
             current: str_imageUrl, // 当前显示图片的http链接
             urls: [str_imageUrl] // 需要预览的图片http链接列表
-          });
+        });
     },
 
     //进入关卡选择界面
@@ -132,7 +132,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //true 有微信， false 没有微信
-        cc.myDebugMode = true;
+        cc.myDebugMode = false;
 
 
         // var xhr = new XMLHttpRequest();
@@ -446,38 +446,31 @@ cc.Class({
 
     start() {
         //这个有问题 因为没有openid 所以。。
-         wx.showShareMenu();
-
-        var str_imageUrl = null;
-        var str_index=   Math.floor(Math.random()*2);
-        var str_title = null;
-        if(str_index == 0) {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
-            str_title = "走开，别碰我！萌哭了";
-        } else {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
-            str_title = "萌翻全场，好想都抱回家!";
-        } 
-        
-
-        wx.onShareAppMessage(function () {
-            // 用户点击了“转发”按钮
-            return {
-                title: str_title,
-                imageUrl: str_imageUrl,
-
-            }
-        });
-        //默认分享不显示
-
-
-        cc.myballoon_isShare = 0;
-
-        this.shareNode.active = false;
-        let self = this;
         if (cc.myDebugMode) {
+            wx.showShareMenu();
+            var str_imageUrl = null;
+            var str_index = Math.floor(Math.random() * 2);
+            var str_title = null;
+            if (str_index == 0) {
+                str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
+                str_title = "走开，别碰我！萌哭了";
+            } else {
+                str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
+                str_title = "萌翻全场，好想都抱回家!";
+            }
+            wx.onShareAppMessage(function () {
+                // 用户点击了“转发”按钮
+                return {
+                    title: str_title,
+                    imageUrl: str_imageUrl,
 
+                }
+            });
+            //默认分享不显示
+            cc.myballoon_isShare = 0;
 
+            this.shareNode.active = false;
+            let self = this;
             console.log("加载广告之前！！");
             console.log(cc.videoAd);
             console.log(!cc.videoAd);
@@ -505,7 +498,7 @@ cc.Class({
                             console.log("复活奖励");
                             cc.director.getScheduler().pauseTarget(cc.find("Canvas/revivalAlert").getComponent("reviveAlert"));
                             cc.find("Canvas/revivalAlert").getComponent("reviveAlert").givePrize();
-                        } else if(cc.find("Canvas").getComponent("store")) {
+                        } else if (cc.find("Canvas").getComponent("store")) {
                             cc.find("Canvas").getComponent("store").givePrize();
                         }
                     }
@@ -520,12 +513,6 @@ cc.Class({
                     }
                 });
             }
-
-
-
-
-
-
             wx.request({
                 url: 'https://bpw.blyule.com/res/share.xml',
 
@@ -544,10 +531,15 @@ cc.Class({
                     }
                 }
             });
-
-
-           
         }
+
+        
+
+
+
+
+
+
     },
 
     // refreshSetting: function () {
