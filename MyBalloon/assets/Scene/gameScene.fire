@@ -2461,6 +2461,9 @@
       "__uuid__": "b168c85d-7f5b-420a-acc9-1a2389031157"
     },
     "winAlert": {
+      "__uuid__": "4d73b82b-3f25-45e3-9245-e6b14e0f89f6"
+    },
+    "failAlert": {
       "__uuid__": "eeba3807-738f-4367-b1f6-fa839ffef6da"
     },
     "gameAudio01": {

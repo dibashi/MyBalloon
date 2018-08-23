@@ -336,7 +336,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "winAlert",
+    "component": "failAlert",
     "handler": "goSelectCheckPoint",
     "customEventData": ""
   },
@@ -495,8 +495,8 @@
     "target": {
       "__id__": 1
     },
-    "component": "winAlert",
-    "handler": "nextClick",
+    "component": "failAlert",
+    "handler": "failClick",
     "customEventData": ""
   },
   {

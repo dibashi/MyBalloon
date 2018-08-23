@@ -25,7 +25,7 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         //console.log("执行到 onload  selectCheckPoint!~~");
-        //cc.sys.localStorage.setItem("dangQianGuanKa",99); //测试用
+        //cc.sys.localStorage.setItem("dangQianGuanKa",1); //测试用
         this.refreshCheckPoint();
         this.diamondLabel.string = cc.sys.localStorage.getItem("diamondCount");
     },
