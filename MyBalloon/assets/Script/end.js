@@ -42,7 +42,7 @@ cc.Class({
     goShare: function () {
         cc.eventManager.pauseTarget(this.node, true);
         let ss = cc.instantiate(this.inviteAlert);
-        ss.setLocalZOrder(1000);
+        ss.zIndex = 1000;
         ss.getComponent("inviteAlert").onWho = this.node;
         this.node.addChild(ss);
     },

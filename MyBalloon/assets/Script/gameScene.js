@@ -204,6 +204,7 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+        this.color = cc.Color.BLACK;
         //这个功能已经废除了，但这里先不删，防止以后又加上， 注：标记用户是否关闭背景音乐
         let gameSoundBG = cc.sys.localStorage.getItem('gameSoundBG');
         if (gameSoundBG == 1) {
@@ -369,11 +370,11 @@ cc.Class({
             this.bg2ColorIndex = this.bg1ColorIndex + 1;
         }
 
-        this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
-        this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
+        this.bg1.color = this.color.fromHEX(this.colorIndex[this.bg1ColorIndex].bgColor);
+        this.bg2.color = this.color.fromHEX(this.colorIndex[this.bg2ColorIndex].bgColor);
 
-        this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
-        this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
+        this.yun3.color = this.color.fromHEX(this.colorIndex[this.bg1ColorIndex].yun3Color);
+        this.yun2.color = this.color.fromHEX(this.colorIndex[this.bg1ColorIndex].yun2Color);
     },
 
     getGuanKa: function () {
@@ -485,7 +486,7 @@ cc.Class({
 
             // cc.eventManager.pauseTarget(this.node, true);
             // let ss = cc.instantiate(this.reviveAlert);
-            // ss.setLocalZOrder(1000);
+            // ss.zIndex = 1000;
             // ss.getComponent("reviveAlert").onWho = this.node;
             // this.node.addChild(ss);
 
@@ -493,7 +494,7 @@ cc.Class({
            // cc.director.loadScene('selectCheckpoint');
            cc.eventManager.pauseTarget(this.node, true);
             let ss = cc.instantiate(this.failAlert);
-            ss.setLocalZOrder(1000);
+            ss.zIndex = 1000;
             ss.getComponent("failAlert").onWho = this.node;
             this.node.addChild(ss);
         }
@@ -511,12 +512,12 @@ cc.Class({
         if(this.gameState == 0) {
             return;
         }
-
+        
         if (this.bg1.y <= this.bgMinY) {
             this.bg1.y = this.bg2.y + this.h - this.bgSpeed * dt * this.bgScale;
 
             this.bg1ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
-            this.bg1.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].bgColor);
+            this.bg1.color = this.color.fromHEX(this.colorIndex[this.bg1ColorIndex].bgColor);
         } else {
             this.bg1.y -= this.bgSpeed * dt * this.bgScale;
         }
@@ -525,7 +526,7 @@ cc.Class({
             this.bg2.y = this.bg1.y + this.h;
 
             this.bg2ColorIndex = Math.floor(Math.random() * this.colorIndex.length);
-            this.bg2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].bgColor);
+            this.bg2.color = this.color.fromHEX(this.colorIndex[this.bg2ColorIndex].bgColor);
         } else {
             this.bg2.y -= this.bgSpeed * dt * this.bgScale;
         }
@@ -535,11 +536,11 @@ cc.Class({
             this.isLoadNextCheckPoint = false;//未加载下一关
             //云2 云3的颜色 则根据下方的bg来设置
             if (this.bg1.y < this.bg2.y) {
-                this.yun3.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun3Color);
-                this.yun2.color = cc.hexToColor(this.colorIndex[this.bg1ColorIndex].yun2Color);
+                this.yun3.color = this.color.fromHEX(this.colorIndex[this.bg1ColorIndex].yun3Color);
+                this.yun2.color = this.color.fromHEX(this.colorIndex[this.bg1ColorIndex].yun2Color);
             } else {
-                this.yun3.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun3Color);
-                this.yun2.color = cc.hexToColor(this.colorIndex[this.bg2ColorIndex].yun2Color);
+                this.yun3.color = this.color.fromHEX(this.colorIndex[this.bg2ColorIndex].yun3Color);
+                this.yun2.color = this.color.fromHEX(this.colorIndex[this.bg2ColorIndex].yun2Color);
             }
             //需求更改 下方的代码废弃 作用是 关卡结束
             // if (this.guanKa != -1) {
@@ -614,7 +615,7 @@ cc.Class({
 
             cc.eventManager.pauseTarget(this.node, true);
             let ss = cc.instantiate(this.winAlert);
-            ss.setLocalZOrder(1000);
+            ss.zIndex = 1000;
             ss.getComponent("winAlert").onWho = this.node;
             this.node.addChild(ss);
 

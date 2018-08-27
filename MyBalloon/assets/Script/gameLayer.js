@@ -43,8 +43,8 @@ cc.Class({
         this.node.on('touchmove', this.dragMove, this);
         this.node.on('touchend', this.drageEnd, this);
 
-        this.guard.setLocalZOrder(100);
-        this.balloon.setLocalZOrder(100);
+        this.guard.zIndex = 100;
+        this.balloon.zIndex = 100;
 
         this.guardRigidBody = this.guard.getComponent(cc.RigidBody);
         this.touchBeginPoint = cc.v2(0.0, 0.0);

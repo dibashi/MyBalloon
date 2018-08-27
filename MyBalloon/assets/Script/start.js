@@ -75,7 +75,7 @@ cc.Class({
     goShare: function () {
         cc.eventManager.pauseTarget(this.node, true);
         let ss = cc.instantiate(this.inviteAlert);
-        ss.setLocalZOrder(1000);
+        ss.zIndex = 1000;
         ss.getComponent("inviteAlert").onWho = this.node;
         this.node.addChild(ss);
     },
@@ -85,7 +85,7 @@ cc.Class({
 
         cc.eventManager.pauseTarget(this.node, true);
         let ss = cc.instantiate(this.roulettePre);
-        ss.setLocalZOrder(1000);
+        ss.zIndex = 1000;
         ss.getComponent("rouletteAlert").onWho = this.node;
         this.node.addChild(ss);
     },
@@ -145,7 +145,7 @@ cc.Class({
         // xhr.open("GET", 'https://bpw.blyule.com/res/share.xml', true);
         // xhr.send();
 
-
+        this.color = cc.Color.BLACK;
 
 
         cc.audioEngine.stopMusic();
@@ -259,12 +259,12 @@ cc.Class({
         // cc.log("aaaa  " +this.dxLQ);
         if (this.dxGG > (this.lotteryTime * 60)) {//超过半个小时
             this.rouletteNode.getComponent(cc.Button).interactable = true;
-            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
+            this.rouletteNode.color = this.color.fromHEX("#FFFFFF");
             this.countDownLabel.node.active = false;
         } else {
             this.dxGG = this.lotteryTime * 60 - this.dxGG;
             this.rouletteNode.getComponent(cc.Button).interactable = false;
-            this.rouletteNode.color = cc.hexToColor("#2B3466");
+            this.rouletteNode.color = this.color.fromHEX("#2B3466");
             this.countDownLabel.node.active = true;
             this.setTimeToLabel(this.dxGG, this.countDownLabel);
             //   this.schedule(this.countdownFUN,this,1,this.dxLQ);
@@ -289,7 +289,7 @@ cc.Class({
         this.setTimeToLabel(this.dxGG, this.countDownLabel);
         if (this.dxGG <= 0) {
             this.rouletteNode.getComponent(cc.Button).interactable = true;
-            this.rouletteNode.color = cc.hexToColor("#FFFFFF");
+            this.rouletteNode.color = this.color.fromHEX("#FFFFFF");
             this.countDownLabel.node.active = false;
             this.unschedule(this.countdownFUNGG);
         }
@@ -301,34 +301,34 @@ cc.Class({
         //预留， 这里根据索引修改尾巴颜色！！！！！
         switch (qqCurrentID) {
             case "01":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFFFFF");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#FFFFFF");
                 break;
             case "02":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#B9B9B9");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#B9B9B9");
                 break;
             case "03":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FFEC0C");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#FFEC0C");
                 break;
             case "04":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#92FF88");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#92FF88");
                 break;
             case "05":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF9C9C");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#FF9C9C");
                 break;
             case "06":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#77D3FF");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#77D3FF");
                 break;
             case "07":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#F577FF");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#F577FF");
                 break;
             case "08":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF7575");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#FF7575");
                 break;
             case "09":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FF8C6E");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#FF8C6E");
                 break;
             case "10":
-                this.qqNode.getChildByName("tail").color = cc.hexToColor("#FAFDAB");
+                this.qqNode.getChildByName("tail").color = this.color.fromHEX("#FAFDAB");
                 break;
         }
 

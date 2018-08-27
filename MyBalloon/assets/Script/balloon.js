@@ -56,36 +56,38 @@ cc.Class({
         let qqCurrentID = cc.sys.localStorage.getItem("currentSkinID");//获得当前气球索引，然后加载他的图片，设置相应的尾巴颜色
         let addres = "qqTex/QQ";
         //预留， 这里根据索引修改尾巴颜色！！！！！
+        var color = cc.Color.BLACK;
+
         switch (qqCurrentID) {
             case "01":
-                this.tail.color = cc.hexToColor("#FFFFFF");
+                this.tail.color = color.fromHEX("#FFFFFF");
                 break;
             case "02":
-                this.tail.color = cc.hexToColor("#B9B9B9");
+                this.tail.color = color.fromHEX("#B9B9B9");
                 break;
             case "03":
-                this.tail.color = cc.hexToColor("#FFEC0C");
+                this.tail.color = color.fromHEX("#FFEC0C");
                 break;
             case "04":
-                this.tail.color = cc.hexToColor("#92FF88");
+                this.tail.color = color.fromHEX("#92FF88");
                 break;
             case "05":
-                this.tail.color = cc.hexToColor("#FF9C9C");
+                this.tail.color = color.fromHEX("#FF9C9C");
                 break;
             case "06":
-                this.tail.color = cc.hexToColor("#77D3FF");
+                this.tail.color = color.fromHEX("#77D3FF");
                 break;
             case "07":
-                this.tail.color = cc.hexToColor("#F577FF");
+                this.tail.color = color.fromHEX("#F577FF");
                 break;
             case "08":
-                this.tail.color = cc.hexToColor("#FF7575");
+                this.tail.color = color.fromHEX("#FF7575");
                 break;
             case "09":
-                this.tail.color = cc.hexToColor("#FF8C6E");
+                this.tail.color = color.fromHEX("#FF8C6E");
                 break;
             case "10":
-                this.tail.color = cc.hexToColor("#FAFDAB");
+                this.tail.color = color.fromHEX("#FAFDAB");
                 break;
         }
         let self = this;

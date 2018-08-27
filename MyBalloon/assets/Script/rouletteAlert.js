@@ -216,7 +216,7 @@ cc.Class({
                 //调用提示框
                 cc.eventManager.pauseTarget(this.node, true);
                 let ss = cc.instantiate(this.prizeAlert);
-                ss.setLocalZOrder(1000);
+                ss.zIndex = 1000;
                 ss.getComponent("prizeAlert").onWho = this.node;
                 ss.getComponent("prizeAlert").setPrizeTarget(this.targetID);
                 this.node.addChild(ss);
