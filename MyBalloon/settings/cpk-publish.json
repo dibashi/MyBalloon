@@ -1,0 +1,12 @@
+{
+  "deviceOrientation": "portrait",
+  "icon": "/assets/Texture/logo.jpg",
+  "logLevel": "log",
+  "minPlatformVersion": "1000",
+  "name": "别碰我",
+  "npmPath": "g:\\nodejs\\node_modules\\npm",
+  "package": "com.berlin.bpw.vivo",
+  "runRelease": true,
+  "versionCode": "1",
+  "versionName": "1.0.0"
+}
