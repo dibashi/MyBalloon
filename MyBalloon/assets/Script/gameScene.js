@@ -570,7 +570,8 @@ cc.Class({
             }
         }
         //胜利彩带的移动与结束判断
-        if (this.guanKa != -1 && this.winRibbon != null) {
+        //console.log(this.balloon);
+        if (this.guanKa != -1 && this.winRibbon != null && this.balloon.name!="") {
 
             if (this.winRibbon == null || this.winRibbon.parent == null) {//由于历史原因，会删除。先要判断
                 if (this.guanKaWin == false && this.balloon.getComponent("balloon").isDeadFlag == false) {
@@ -599,7 +600,8 @@ cc.Class({
         let curCP = cc.sys.localStorage.getItem("currentCheckpoint");
         //首先要把curCP前面的0去掉 然后+1，就代表着当前要玩的关卡
         let sCurCP = curCP.split('');
-        for (let i = 0; i < sCurCP.length; i++) {
+        let i = 0;
+        for (i = 0; i < sCurCP.length; i++) {
             if (sCurCP[i] != '0') {
                 break;
             }

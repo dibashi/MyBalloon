@@ -144,8 +144,9 @@ cc.Class({
         //观看广告 被点击 
         //没有接入广告，现在直接旋转
         //这一行保证了健壮性
-        cc.videoAd.show();
+        //cc.videoAd.show();
 
+        this.givePrize();
        
     },
 
