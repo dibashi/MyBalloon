@@ -63,6 +63,11 @@ cc.Class({
             type: cc.Node,
         },
 
+        qqGame: {
+            default: null,
+            type: cc.Node,
+        },
+
         lotteryTime: 30,//抽奖间隔时间 单位：分钟
     },
 
@@ -103,7 +108,7 @@ cc.Class({
         //   });
 
         wx.navigateToMiniProgram({
-            appId: 'wxc2cd6f55732dc1f2',
+            appId: 'wx93fc27bed64ce802',
             path: '',
             extraData: '',
             success(res) {
@@ -111,11 +116,7 @@ cc.Class({
                 console.log(res);
             },
             fail() {
-                let str_imageUrl = cc.dataMgr.imageUrl.urlMore
-                wx.previewImage({
-                    current: str_imageUrl, // 当前显示图片的http链接
-                    urls: [str_imageUrl] // 需要预览的图片http链接列表
-                });
+
             }
         });
 
@@ -242,6 +243,7 @@ cc.Class({
             this.goRoulette();
         }
 
+        this.qqGame.runAction(cc.repeatForever(cc.sequence(cc.spawn(cc.moveBy(0.6, cc.v2(0, 30)), cc.fadeIn(0.6)), cc.delayTime(0.4), cc.spawn(cc.moveBy(0.6, cc.v2(0, -30)), cc.fadeOut(0.6)))));
 
     },
 
@@ -251,6 +253,20 @@ cc.Class({
 
         this.diamondLabel.getComponent(cc.Label).string = cc.sys.localStorage.getItem("diamondCount");
 
+    },
+
+    qqGameClick: function () {
+
+        wx.navigateToMiniProgram({
+            appId: 'wxc2cd6f55732dc1f2',
+            path: '',
+            extraData: '',
+            success(res) {
+                console.log("--- 跳转成功 ---");
+                console.log(res);
+            },
+            fail() { }
+        });
     },
 
     //！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
@@ -464,28 +480,31 @@ cc.Class({
 
     start() {
         //这个有问题 因为没有openid 所以。。
-        wx.showShareMenu();
+        if (cc.myDebugMode) {
+            wx.showShareMenu();
 
-        var str_imageUrl = null;
-        var str_index = Math.floor(Math.random() * 2);
-        var str_title = null;
-        if (str_index == 0) {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
-            str_title = "走开，别碰我！萌哭了";
-        } else {
-            str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
-            str_title = "萌翻全场，好想都抱回家!";
+            var str_imageUrl = null;
+            var str_index = Math.floor(Math.random() * 2);
+            var str_title = null;
+            if (str_index == 0) {
+                str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
+                str_title = "走开，别碰我！萌哭了";
+            } else {
+                str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
+                str_title = "萌翻全场，好想都抱回家!";
+            }
+
+
+            wx.onShareAppMessage(function () {
+                // 用户点击了“转发”按钮
+                return {
+                    title: str_title,
+                    imageUrl: str_imageUrl,
+
+                }
+            });
         }
 
-
-        wx.onShareAppMessage(function () {
-            // 用户点击了“转发”按钮
-            return {
-                title: str_title,
-                imageUrl: str_imageUrl,
-
-            }
-        });
         //默认分享不显示
 
 
@@ -545,7 +564,7 @@ cc.Class({
 
 
             wx.request({
-                url: 'https://bpw.blyule.com/res/share.xml',
+                url: 'https://bpw.blyule.com/bpwTest/res/share.xml',
 
                 success: (obj, statusCode, header) => {
                     console.log("是否显示分享的数据");
