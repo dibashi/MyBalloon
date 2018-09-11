@@ -94,13 +94,31 @@ cc.Class({
         cc.director.loadScene('RankingView');
     },
 
-    propagandaClick:function() {
+    propagandaClick: function () {
         console.log("宣传按钮点击");
-        var  str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/propaganda.6b9b9.jpg";
-        wx.previewImage({
-            current: str_imageUrl, // 当前显示图片的http链接
-            urls: [str_imageUrl] // 需要预览的图片http链接列表
-          });
+        // var  str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/propaganda.6b9b9.jpg";
+        // wx.previewImage({
+        //     current: str_imageUrl, // 当前显示图片的http链接
+        //     urls: [str_imageUrl] // 需要预览的图片http链接列表
+        //   });
+
+        wx.navigateToMiniProgram({
+            appId: 'wxc2cd6f55732dc1f2',
+            path: '',
+            extraData: '',
+            success(res) {
+                console.log("--- 跳转成功 ---");
+                console.log(res);
+            },
+            fail() {
+                let str_imageUrl = cc.dataMgr.imageUrl.urlMore
+                wx.previewImage({
+                    current: str_imageUrl, // 当前显示图片的http链接
+                    urls: [str_imageUrl] // 需要预览的图片http链接列表
+                });
+            }
+        });
+
     },
 
     //进入关卡选择界面
@@ -446,19 +464,19 @@ cc.Class({
 
     start() {
         //这个有问题 因为没有openid 所以。。
-         wx.showShareMenu();
+        wx.showShareMenu();
 
         var str_imageUrl = null;
-        var str_index=   Math.floor(Math.random()*2);
+        var str_index = Math.floor(Math.random() * 2);
         var str_title = null;
-        if(str_index == 0) {
+        if (str_index == 0) {
             str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage0.5f075.jpg";
             str_title = "走开，别碰我！萌哭了";
         } else {
             str_imageUrl = "https://bpw.blyule.com/res/raw-assets/Texture/shareImage1.678a4.jpg";
             str_title = "萌翻全场，好想都抱回家!";
-        } 
-        
+        }
+
 
         wx.onShareAppMessage(function () {
             // 用户点击了“转发”按钮
@@ -505,7 +523,7 @@ cc.Class({
                             console.log("复活奖励");
                             cc.director.getScheduler().pauseTarget(cc.find("Canvas/revivalAlert").getComponent("reviveAlert"));
                             cc.find("Canvas/revivalAlert").getComponent("reviveAlert").givePrize();
-                        } else if(cc.find("Canvas").getComponent("store")) {
+                        } else if (cc.find("Canvas").getComponent("store")) {
                             cc.find("Canvas").getComponent("store").givePrize();
                         }
                     }
@@ -546,7 +564,7 @@ cc.Class({
             });
 
 
-           
+
         }
     },
 
