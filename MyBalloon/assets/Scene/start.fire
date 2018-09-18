@@ -1252,8 +1252,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -100,
-      "y": -285
+      "x": 478,
+      "y": -15
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -1698,8 +1698,8 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 478,
-      "y": -15
+      "x": -100,
+      "y": -285
     },
     "_skewX": 0,
     "_skewY": 0,
@@ -3275,6 +3275,9 @@
     },
     "shareNode": {
       "__id__": 23
+    },
+    "moreGameNode": {
+      "__id__": 31
     },
     "qqGame": {
       "__id__": 80

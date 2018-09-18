@@ -63,6 +63,11 @@ cc.Class({
             type: cc.Node,
         },
 
+        moreGameNode: {
+            default: null,
+            type: cc.Node,
+        },
+
         qqGame: {
             default: null,
             type: cc.Node,
@@ -511,6 +516,7 @@ cc.Class({
         cc.myballoon_isShare = 0;
 
         this.shareNode.active = false;
+        this.moreGameNode.active = false;
         let self = this;
         if (cc.myDebugMode) {
 
@@ -574,10 +580,12 @@ cc.Class({
                         console.log("不显示");
                         cc.myballoon_isShare = 0;
                         self.shareNode.active = false;
+                        self.moreGameNode.active = false;
                     } else {
                         console.log("显示");
                         cc.myballoon_isShare = 1;
                         self.shareNode.active = true;
+                        self.moreGameNode.active = true;
                     }
                 }
             });
