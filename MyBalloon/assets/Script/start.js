@@ -608,11 +608,6 @@ cc.Class({
                     }
                 }
             });
-
-
-
-
-            cc.dataMgr.createUserInfoButton();
         }
     },
 
