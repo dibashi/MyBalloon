@@ -589,23 +589,38 @@ cc.Class({
 
 
             wx.request({
-                url: 'https://bpw.blyule.com/bpwTest/res/share.xml',
+                url: 'https://bpw.blyule.com/bpwTest1/res/jump.json',
 
                 success: (obj, statusCode, header) => {
                     console.log("是否显示分享的数据");
                     console.log(obj);
                     console.log(obj.data);
-                    if (obj.data == 0) {
-                        console.log("不显示");
-                        cc.myballoon_isShare = 0;
-                        self.shareNode.active = false;
-                        self.moreGameNode.active = false;
-                    } else {
-                        console.log("显示");
+                    if (obj.data.showShare ) {
+                        console.log("显示分享");
                         cc.myballoon_isShare = 1;
                         self.shareNode.active = true;
+                       
+                    } 
+
+                    if(obj.data.showMoreGame) {
+                        console.log("显示更多游戏");
+                       
                         self.moreGameNode.active = true;
                     }
+                    
+                 
+
+                    // if (obj.data == 0) {
+                    //     console.log("不显示");
+                    //     cc.myballoon_isShare = 0;
+                    //     self.shareNode.active = false;
+                    //     self.moreGameNode.active = false;
+                    // } else {
+                    //     console.log("显示");
+                    //     cc.myballoon_isShare = 1;
+                    //     self.shareNode.active = true;
+                    //     self.moreGameNode.active = true;
+                    // }
                 }
             });
         }
