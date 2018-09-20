@@ -1,4 +1,4 @@
-﻿
+const adversion ="1.0.1";
 // 固定参数值
 const adtype = 1;
 var ver = '1.0.0';
@@ -7,6 +7,7 @@ const consturl2 = "https://mpa.blyule.com/adcenter/tpwxmngame";
 
 
 var adInfo = '';//获取到的广告信息
+var adUserInfo = '';//获取到的用户信息保存
 
 /**
  * 获取系统类型数据参数值   字符串
@@ -53,7 +54,7 @@ const requestLogUrl = url => {
 
 
 /**
- * 开发者 通用参数 整合参数值到url中    ver,adtype,adUserInfo,系统信息 (用于开发者日志)
+ *  通用参数 整合参数值到url中    ver,adtype,adUserInfo,系统信息 (用于日志)
  */
 const UrlString = (adUserInfo, callback) => {
   var placeid = adUserInfo.placeid;
@@ -85,27 +86,29 @@ const UrlString = (adUserInfo, callback) => {
 // 
 
 /**
- * 开发者 发送日志 2,4,10   evt + adinfo.appendInfo + UrlString
+ *  发送日志 2,4,10   evt + adinfo.appendInfo + UrlString
  */
 const sendLog = (evt, adUserInfo, adinfo) => {
-  UrlString(adUserInfo,function(urlpara){
+  UrlString(adUserInfo, function (urlpara) {
     var url = consturl;
     url += "?evt=" + evt;
-    console.log("sendLog", url)    
+    console.log("sendLog", url)
     if (adinfo && adinfo.appendInfo) {
       url += adinfo.appendInfo;
     }
     url += urlpara;
     requestLogUrl(url);
   });
-  
+
 }
 
 /**
- *开发者 获取广告信息
+ * 获取广告信息
  *传入参数adUserInfo{} 以及回调函数 evt 1
  */
-const creatAdInfo = (adUserInfo, callback) => {
+const creatAdInfo = (adUserInfopara, callback) => {
+  // 创建广告时保存用户传递的信息
+  adUserInfo = adUserInfopara;
   // 发送请求日志 
   UrlString(adUserInfo, function (urlpara) {
     var url = consturl;
@@ -119,23 +122,14 @@ const creatAdInfo = (adUserInfo, callback) => {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log("--- asSdk createAdInfo ---");
-        console.log(res);
-        console.log(adUserInfo);
         // sdk成功展现
-        if (res.data && res.data.datas && res.data.datas.length > 0) {
-          adInfo = res.data.datas[0];
-          callback(adInfo);
-        }
-        else {
-          sendLog(2, adUserInfo);
-          console.log("--- error ---");
+        adInfo = res.data.datas[0];
+        if (!adInfo){
           return;
         }
-
+        callback(adInfo)
       }, fail: function () {
         // sdk请求广告 失败
-        console.log("--- fail ---");
         sendLog(2, adUserInfo);
       }
     })
@@ -143,10 +137,12 @@ const creatAdInfo = (adUserInfo, callback) => {
 }
 
 /**
- *开发者 展示日志 4
- *传入参数adUserInfo{}以及adinfo{}
+ * 展示日志 4
+ *传入参数adinfo{}
  */
-const adshowlog = (adUserInfo, adInfo) => {
+const adshowlog = (adInfo) => {
+  console.log('zhanshi')
+  console.log(adUserInfo)
   var placeid = adUserInfo.placeid;
   var appid = adUserInfo.appid;
   var appwxuserid = adUserInfo.appwxuserid;
@@ -161,23 +157,25 @@ const adshowlog = (adUserInfo, adInfo) => {
 }
 
 /** 
- *开发者 跳转到其它小程序
- *传入参数adUserInfo{}以及adinfo{}
+ * 跳转到其它小程序
+ *传入参数adinfo{}
  */
-const adjump = (adUserInfo, adInfo) => {
+const adjump = (adInfo) => {
   console.log("跳转")
   console.log(adUserInfo)
   console.log(adInfo)
- 
+
   var targetWXMGAppid = adInfo.targetWXMGAppid;
   var targetWXMGPath = adInfo.targetWXMGPath;
   var skipWXMPAppid = adInfo.skipWXMPAppid;
   var skipWXMPPath = adInfo.skipWXMPPath;
-  console.log(adInfo.shipWXMPAppid, adInfo.shipWXMPPath)
   console.log(skipWXMPAppid, skipWXMPPath)
-  // if (!skipWXMPAppid || !skipWXMPPath) {
-  //   return;
-  // }
+  // 没有的中间跳转小程序设置默认的小程序
+  if (!skipWXMPAppid || !skipWXMPPath) {
+    // return;
+    skipWXMPAppid = "wx7f442f6a3f87b842";
+    skipWXMPPath = "/pages/index/index";
+  }
   if (adInfo && adInfo.appendInfo) {
     sendLog(10, adUserInfo, adInfo);
   } else {
@@ -188,35 +186,32 @@ const adjump = (adUserInfo, adInfo) => {
   getPathUrlString(adUserInfo, adInfo, function (url) {
     var logurl = base64encode(url);
     console.log("跳转前去的logurl")
-    // path中缺少evt,time以及openid     添加跳转的目标游戏，添加一个adSdkTag识别（广告主可以进行判断开发者是否接入SDK）
-    // if (skipWXMPPath.indexOf('?') > -1) {
-    //   skipWXMPPath += "&adSdkTag=" + "adSdkTag" + "&targetWXMGAppid=" + targetWXMGAppid + "&targetWXMGPath=" + targetWXMGPath + "&logurl=" + logur;
-    // } else {
-    //   skipWXMPPath += "?adSdkTag=" + "adSdkTag" + "&targetWXMGAppid=" + targetWXMGAppid + "&targetWXMGPath=" + targetWXMGPath + "&logurl=" + logurl ;
-    // }
-    if (targetWXMGPath.indexOf('?') > -1) {
-      targetWXMGPath += "&adSdkTag=" + "adSdkTag" + "&logurl=" + logur;
+    // path中缺少evt,time以及openid     添加跳转的目标游戏，添加一个adSdkTag识别（可以进行判断是否接入SDK）
+    if (skipWXMPPath.indexOf('?') > -1) {
+      skipWXMPPath += "&adSdkTag=" + "adSdkTag" + "&targetWXMGAppid=" + targetWXMGAppid + "&targetWXMGPath=" + targetWXMGPath + "&logurl=" + logur;
     } else {
-      targetWXMGPath += "?adSdkTag=" + "adSdkTag" + "&logurl=" + logurl ;
+      skipWXMPPath += "?adSdkTag=" + "adSdkTag" + "&targetWXMGAppid=" + targetWXMGAppid + "&targetWXMGPath=" + targetWXMGPath + "&logurl=" + logurl;
     }
+    // if (targetWXMGPath.indexOf('?') > -1) {
+    //   targetWXMGPath += "&adSdkTag=" + "adSdkTag" + "&logurl=" + logur;
+    // } else {
+    //   targetWXMGPath += "?adSdkTag=" + "adSdkTag" + "&logurl=" + logurl ;
+    // }
     console.log("-----------")
-    console.log(targetWXMGPath)
+    console.log(skipWXMPPath)
     wx.navigateToMiniProgram({
-      appId: targetWXMGAppid,
-      path: targetWXMGPath,
+      appId: skipWXMPAppid,
+      path: skipWXMPPath,
       extraData: {
         open: 'happy'
       },
-      //envVersion: 'release',
-      envVersion: 'trial',
+      envVersion: 'release',
       success(res) {
         // 打开成功  
         // sdk广告点击
         console.log('跳转其它小程序成功');
-        adSdk.adshowlog(cc.dataMgr.adUserInfo, cc.dataMgr.adInfo);
-        console.log('-- 跳转其它小程序成功 --');
       }, fail: function (err) {
-        console.log('-- 跳转失败 --');
+        console.log('跳转失败');
         console.log(err);
       }
     })
@@ -226,9 +221,9 @@ const adjump = (adUserInfo, adInfo) => {
 
 }
 
-// 广告主 获取跳转到的小程序里面携带的logurl   adUserInfo，adinfo 系统信息
+//  获取跳转到的小程序里面携带的logurl   adUserInfo，adinfo 系统信息
 const getPathUrlString = (adUserInfo, adinfo, callback) => {
-  // 开发者中传递 参数
+  // 中传递 参数
   var placeid = adUserInfo.placeid;
   var appid = adUserInfo.appid;
   var appwxuserid = adUserInfo.appwxuserid;
@@ -260,13 +255,13 @@ const getPathUrlString = (adUserInfo, adinfo, callback) => {
 }
 
 /**
- *广告主 到达广告主日志  logurl,adwxuserid,sourcewxappid
+ * 到达日志  logurl,adwxuserid,sourcewxappid
  *
  */
 const adarrivelog = (pathPara, adwxuserid, sourcewxappid) => {
-  // 从接入SDK的广告主跳转过来
+  // 从接入SDK的跳转过来
   const time = new Date().getTime();
-  if (!pathPara.sourcewxappid){
+  if (!pathPara.sourcewxappid) {
     pathPara.sourcewxappid = sourcewxappid;
   }
   var usrePara = "evt=100" + "&adwxuserid=" + adwxuserid + '&time=' + time;
@@ -279,7 +274,7 @@ const adarrivelog = (pathPara, adwxuserid, sourcewxappid) => {
     requestLogUrl(url);
     return url;
   } else if (pathPara && pathPara.adSdkTag == "putLink") {
-    //从没有接SDK仅有链接的开发者跳转过来,获取路径里面携带的参数，拼接发送日志。
+    //从没有接SDK仅有链接的跳转过来,获取路径里面携带的参数，拼接发送日志。
     // appid  adcampaignid
     var url = consturl2;
     url += "?" + usrePara + "&sourcewxappid=" + sourcewxappid;
@@ -301,11 +296,11 @@ const adarrivelog = (pathPara, adwxuserid, sourcewxappid) => {
 }
 
 /**
- *广告主 获取用户信息成功，日志logurl,adwxuserid,adwxusername,sourcewxappid
+ * 获取用户信息成功，日志logurl,adwxuserid,adwxusername,sourcewxappid
  *
  */
 const adgivelog = (pathPara, adwxuserid, adwxusername, sourcewxappid) => {
-  // 从接入SDK的广告主跳转过来
+  // 从接入SDK的跳转过来
   const time = new Date().getTime();
   var usrePara = "evt=101" + "&adwxuserid=" + adwxuserid + "&adwxusername=" + adwxusername + '&time=' + time;
   if (pathPara && pathPara.adSdkTag && pathPara.adSdkTag == "adSdkTag" && adwxuserid) {
@@ -317,7 +312,7 @@ const adgivelog = (pathPara, adwxuserid, adwxusername, sourcewxappid) => {
     requestLogUrl(url);
     return url;
   } else if (pathPara && pathPara.adSdkTag == "putLink") {
-    //从没有接SDK仅有链接的开发者跳转过来,获取路径里面携带的参数，拼接发送日志。
+    //从没有接SDK仅有链接的跳转过来,获取路径里面携带的参数，拼接发送日志。
     // appid  adcampaignid
     var url = consturl2;
     const time = new Date().getTime();
@@ -355,16 +350,27 @@ module.exports = {
 
 
 /**
-  1.creatAdInfo调用传入参数adUserInfo，callback
+  1.adarrivelog （页面展示时进行判断从其它小程序跳转过来并且有options.adSdkTag。调用下面函数）
+    传入参数pathPara(路径里面的参数options), adwxuserid（微信用户id),sourcewxappid（来源小程序appid）
+    demo<
+      adSdk.adarrivelog(pathPara, adwxuserid, sourcewxappid);
+    >
+  2.adgivelog （页面展示时进行判断从其它小程序跳转过来并且有options.adSdkTag；授权激活用户）
+    传入参数pathPara(路径里面的参数options), adwxuserid, 微信用户昵称,sourcewxappid（来源小程序appid）
+    demo<
+      adSdk.adgivelog(pathPara, adwxuserid, adwxusername, sourcewxappid);
+    >
+  3.creatAdInfo调用 创建广告
+    传入参数adUserInfo，callback
     adUserInfo对象
-      placeid=xxxx#开发者传，广告位id
-      appid=xxxx#开发者传，应用id
-      appwxuserid=xxxx#开发者传，微信用户id
-      appwxusername=xxxx#开发者传，微信用户昵称
+      placeid=xxxx#传，广告位id
+      appid=xxxx#传，应用id
+      appwxuserid=xxxx#传，微信用户id
+      appwxusername=xxxx#传，微信用户昵称
       callback(adInfo)调用回调函数，传递adinfo
       {
         "adType": "1",#广告类型固定为1
-        "payType": "1",#该广告是否免费(1免费/2付费)
+        "payType": "1",
         "appendInfo": "",#此信息为展示点击上报拼接参数，直接将此信息拼接到展示，点击上报后即可
         "skipWXMPAppid": "",#中转小程序的app id
         "skipWXMPPath": "",#中转小程序的路径
@@ -387,44 +393,42 @@ module.exports = {
         // 代码部分
       })
     >
-  2.adshowlog （成功展示后调用）传入参数adUserInfo，adinfo
+  4.adshowlog （成功展示后调用）
+    传入参数adinfo
     demo<
-      adSdk.adshowlog(adUserInfo, adInfo);
+      adSdk.adshowlog(adInfo);
     >
-  3.adjump （点击跳转）传入参数adUserInfo，adinfo
+  5.adjump （点击广告跳转）
+    传入参数adinfo
     demo<
-      adSdk.adjump(adUserInfo, adInfo);
+      adSdk.adjump(adInfo);
     >
-  4.adarrivelog （到达广告主页面发送日志）传入参数pathPara(路径里面的参数options), adwxuserid（微信用户id),sourcewxappid（来源小程序appid）
-    demo<
-      adSdk.adarrivelog(pathPara, adwxuserid, sourcewxappid);
-    >
-  5.adgivelog （授权激活用户发送日志）传入参数pathPara(路径里面的参数options), adwxuserid, 微信用户昵称,sourcewxappid（来源小程序appid）
-    demo<
-      adSdk.adgivelog(pathPara, adwxuserid, adwxusername, sourcewxappid);
-    >
-  开发者：
-  首先用户调用展示广告
+  
+  
+  1.页面展示时调用（发送到达日志）(可以先进行判断是否从其它小程序跳转过来，再进行判断是否有options.adSdkTag)；
+    参数options，用户id，来源小程序id
+    adSdk.adarrivelog(pathPara, adwxuserid, sourcewxappid);
+
+  2.获得激活用户（激活用户）(从其它小程序跳转过来并且有options.adSdkTag)；
+    参数options，用户id，用户名称，来源小程序id
+    adSdk.adgivelog(pathPara, adwxuserid, adwxusername, sourcewxappid);
+
+
+  3.首先用户调用展示广告
       adSdk.creatAdInfo(adUserInfo, function (adInfo) {
         // 代码部分此部分返回广告信息（如上），已供展示
 	
 	      //一般在此展示后可调用adSdk.adshowlog(adUserInfo, adInfo);
       })
 	
-  用户成功展示广告后调用
-    adSdk.adshowlog(adUserInfo, adInfo);
+  4.用户成功展示广告后调用
+    adSdk.adshowlog(adInfo);
 
 
-  用户点击广告时进行小程序跳转（点击）
-    adSdk.adjump(adUserInfo, adInfo);
+  5.用户点击广告时进行小程序跳转（点击）
+    adSdk.adjump(adInfo);
 
-  广告主：
-  页面展示时调用（发送到达日志）(进行判断是否有options.adSdkTag)；参数options，用户id，来源小程序id
-    adSdk.adarrivelog(pathPara, adwxuserid, sourcewxappid);
-
-  获得激活用户（激活用户）(进行判断是否有options.adSdkTag)；参数options，用户id，用户名称，来源小程序id
-    adSdk.adgivelog(pathPara, adwxuserid, adwxusername, sourcewxappid);
-
+  
  */
 
 

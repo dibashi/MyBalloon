@@ -1,3 +1,4 @@
+import DataMgr from 'DataMgr';
 cc.Class({
     extends: cc.Component,
 
@@ -112,18 +113,20 @@ cc.Class({
         //     urls: [str_imageUrl] // 需要预览的图片http链接列表
         //   });
 
-        wx.navigateToMiniProgram({
-            appId: 'wx93fc27bed64ce802',
-            path: '',
-            extraData: '',
-            success(res) {
-                console.log("--- 跳转成功 ---");
-                console.log(res);
-            },
-            fail() {
+        // wx.navigateToMiniProgram({
+        //     appId: 'wx93fc27bed64ce802',
+        //     path: '',
+        //     extraData: '',
+        //     success(res) {
+        //         console.log("--- 跳转成功 ---");
+        //         console.log(res);
+        //     },
+        //     fail() {
 
-            }
-        });
+        //     }
+        // });
+
+        cc.dataMgr.adJump();
 
     },
 
@@ -155,8 +158,21 @@ cc.Class({
 
     // use this for initialization
     onLoad: function () {
+
+
+
         //true 有微信， false 没有微信
         cc.myDebugMode = true;
+
+
+        if (!cc.dataMgr) {
+            //let DataMgr = require("DataMgr");
+            cc.dataMgr = new DataMgr();
+            cc.dataMgr.initData();
+
+            //延迟一秒多,加载初始化广告
+            // this.scheduleOnce(cc.dataMgr.initAD, 1.8);
+        }
 
 
         // var xhr = new XMLHttpRequest();
@@ -471,13 +487,16 @@ cc.Class({
                                     },
                                 });
 
-
+                                cc.dataMgr.createUserInfoButton();
                             },
                         });
                     }
                 }
             });
-        }//end if
+        }
+        else
+            cc.dataMgr.createUserInfoButton();
+        //end if
 
 
 
@@ -592,6 +611,8 @@ cc.Class({
 
 
 
+
+            cc.dataMgr.createUserInfoButton();
         }
     },
 
@@ -610,4 +631,5 @@ cc.Class({
     update: function (dt) {
 
     },
+
 });
