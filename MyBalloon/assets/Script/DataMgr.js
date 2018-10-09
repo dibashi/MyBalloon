@@ -30,14 +30,14 @@ export default class DataMgr extends cc.Component {
         console.log(obj);
         let query = obj.query;
         console.log("--- 重要信息 游戏 query --" + query);
-        if (!query)
+        if (query)
             this.query = query;
         if (obj.referrerInfo && obj.referrerInfo.appId)
             this.scoreAppId = obj.referrerInfo.appId;
     }
 
     createAdInfo(createPos) {
-        this.openid = cc.sys.localStorage.getItem("openid")
+        this.openid = cc.sys.localStorage.getItem("openid");
         console.log("-- createAdInfo --" + createPos);
         if (true) {
             console.log("-- 第三方sdk C check --");
@@ -48,6 +48,17 @@ export default class DataMgr extends cc.Component {
                 console.log("--- 第三方 back ---");
                 console.log(adInfo);
                 cc.dataMgr.adInfo = adInfo;
+
+
+
+                let nodeStart = cc.find("Canvas");
+                if (nodeStart && nodeStart.active) {
+                    let startJs = nodeStart.getComponent("start");
+                    if (startJs) {
+                        startJs.refreshMore();
+                    }
+                }
+
             });
         }
     }
@@ -64,14 +75,22 @@ export default class DataMgr extends cc.Component {
 
     adshowlog() {
         console.log("-- adshowlog --");
-        console.log(this.adInfo);
-        if (this.adInfo)
+
+        if (!this.isShowLog) {
+            this.isShowLog = true;
+            console.log("-- adshowlog 展示成功 --");
+            console.log(this.adInfo);
+            if (!this.adInfo)
+                this.adInfo = {};
             adSdk.adshowlog(this.adUserInfo, this.adInfo);
+        }
+
     }
 
     adarrivelog() {
         console.log("-- adarrivelog -- " + this.scoreAppId);
         console.log(this.query);
+        console.log("this.openid--> " + this.openid);
         if (this.query && this.query.adSdkTag)
             adSdk.adarrivelog(this.query, this.openid, this.scoreAppId);
     }
@@ -79,14 +98,15 @@ export default class DataMgr extends cc.Component {
     adgivelog() {
         console.log("-- adgivelog -- " + this.scoreAppId);
         console.log(this.query);
+        console.log("this.openid--> " + this.openid);
         if (this.query && this.query.adSdkTag)
             adSdk.adgivelog(this.query, this.openid, this.nickName, this.scoreAppId);
     }
 
     //------ 账号奖励等相关 ------
 
-   
- 
+
+
     // //判断登陆请求是否过期
 
     //>_< 微信大大该接口了 getUserInfo 不能直接用了
