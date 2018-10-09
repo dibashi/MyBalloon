@@ -206,7 +206,6 @@ const adjump = (adUserInfo, adInfo) => {
         // 打开成功  
         // sdk广告点击
         console.log('跳转其它小程序成功');
-        cc.dataMgr.adshowlog();
       }, fail: function (err) {
         console.log('跳转失败');
         console.log(err);
