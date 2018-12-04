@@ -55,9 +55,7 @@ export default class DataMgr extends cc.Component {
     adJump() {
         if (!this.adInfo) {
             console.log(this.adInfo);
-            //return;
-
-            this.adInfo = {};
+            return;
         }
         adSdk.adjump(this.adUserInfo, this.adInfo);
     }

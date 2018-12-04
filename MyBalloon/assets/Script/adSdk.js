@@ -1,6 +1,4 @@
-﻿const adversion = "1.0.3";
-// 与上一个版本相比修改了部分安卓链接参数问题。
-
+﻿const adversion = "1.0.2";
 // 固定参数值
 const adtype = 1;
 var ver = '1.0.0';
@@ -8,14 +6,13 @@ const consturl = "https://mpa.blyule.com/adcenter/wxmngame";
 const consturl2 = "https://mpa.blyule.com/adcenter/tpwxmngame";
 
 
-var adInfo = '';      //获取到的广告信息
-var adUserInfo = '';  //获取到的用户信息保存
+var adInfo = '';//获取到的广告信息
+var adUserInfo = '';//获取到的用户信息保存
 
 /**
  * 获取系统类型数据参数值   字符串
  */
-var sysinfo = "";     //设备信息相关的拼接字符串
-
+var sysinfo = ""; //设备信息相关的拼接字符串
 const getSysInfoStr = (calback) => {
   wx.getSystemInfo({
     success: function (res) {
@@ -33,7 +30,7 @@ const getSysInfoStr = (calback) => {
         + "&srw=" + srw
         + "&srh=" + srh
         + "&model=" + model;
-      calback(sysinfo);     //获取成功后的回调函数
+      calback(sysinfo); //获取成功后的回调函数
     }
   })
 }
@@ -44,12 +41,11 @@ const getSysInfoStr = (calback) => {
 const requestLogUrl = url => {
   console.log("请求url")
   console.log(url)
-  url = url.replace(/ /g, "%20");
   wx.request({
-    url: url,  
+    url: url, //仅为示例，并非真实的接口地址
     data: {},
     header: {
-      'content-type': 'application/json' 
+      'content-type': 'application/json' // 默认值
     },
     success: function (res) {
     }
@@ -73,20 +69,21 @@ const UrlString = (adUserInfo, callback) => {
   url += paraStr;
   url += "&time=" + time;
   console.log(sysinfo)
-  if (!sysinfo || sysinfo == '') {        //是否以及获取到设备信息
+  if (!sysinfo || sysinfo == '') { //是否以及获取到设备信息
     getSysInfoStr(function (sysinfopara) {
       sysinfo = sysinfopara;
       url += sysinfopara;
       callback(url);
       return url;
     })
-  } else {            //获取到，直接调用回调函数返回
+  } else {  //获取到，直接调用回调函数返回
     url += sysinfo;
     callback(url);
     return url;
   }
 
 }
+// 
 
 /**
  *  发送日志 2,4,10   evt + adinfo.appendInfo + UrlString
@@ -117,7 +114,6 @@ const creatAdInfo = (adUserInfopara, callback) => {
     var url = consturl;
     url += "?evt=" + 1;
     url += urlpara;
-    url = url.replace(/ /g, "%20");
     console.log(url)
     wx.request({
       url: url, //仅为示例，并非真实的接口地址
@@ -144,7 +140,7 @@ const creatAdInfo = (adUserInfopara, callback) => {
  * 展示日志 4
  *传入参数adinfo{}
  */
-const adshowlog = (adUserInfo, adInfo) => {
+const adshowlog = (adUserInfo,adInfo) => {
   var placeid = adUserInfo.placeid;
   var appid = adUserInfo.appid;
   var appwxuserid = adUserInfo.appwxuserid;
@@ -161,7 +157,7 @@ const adshowlog = (adUserInfo, adInfo) => {
  * 跳转到其它小程序
  *传入参数adinfo{}
  */
-const adjump = (adUserInfo, adInfo) => {
+const adjump = (adUserInfo,adInfo) => {
   console.log("跳转")
   console.log(adUserInfo)
   console.log(adInfo)
@@ -341,6 +337,94 @@ module.exports = {
   adarrivelog: adarrivelog,
   adgivelog: adgivelog
 }
+/**
+*creatAdInfo
+*/
+
+
+/**
+  1.adarrivelog （页面展示时进行判断从其它小程序跳转过来并且有options.adSdkTag。调用下面函数）
+    传入参数pathPara(路径里面的参数options), adwxuserid（微信用户id),sourcewxappid（来源小程序appid）
+    demo<
+      adSdk.adarrivelog(pathPara, adwxuserid, sourcewxappid);
+    >
+  2.adgivelog （页面展示时进行判断从其它小程序跳转过来并且有options.adSdkTag；授权激活用户）
+    传入参数pathPara(路径里面的参数options), adwxuserid, 微信用户昵称,sourcewxappid（来源小程序appid）
+    demo<
+      adSdk.adgivelog(pathPara, adwxuserid, adwxusername, sourcewxappid);
+    >
+  3.creatAdInfo调用 创建广告
+    传入参数adUserInfo，callback
+    adUserInfo对象
+      placeid=xxxx#传，广告位id
+      appid=xxxx#传，应用id
+      appwxuserid=xxxx#传，微信用户id
+      appwxusername=xxxx#传，微信用户昵称
+      callback(adInfo)调用回调函数，传递adinfo
+      {
+        "adType": "1",#广告类型固定为1
+        "payType": "1",
+        "appendInfo": "",#此信息为展示点击上报拼接参数，直接将此信息拼接到展示，点击上报后即可
+        "skipWXMPAppid": "",#中转小程序的app id
+        "skipWXMPPath": "",#中转小程序的路径
+        "targetWXMGAppid": "",#目标小游戏的app id
+        "targetWXMGPath": "",#目标小游戏的路径
+        "title": "",#小游戏的标题
+        "description": "",#小游戏的描述
+        "imageUrl": "",#广告图片
+        "impmonUrlList": ["https://www.hao123.com/zhanshi","https://www.hao123.com/zhanshi"],#第三方展示url，当前无用
+        "clkmonUrlList": ["https://www.hao123.com/dianji","https://www.hao123.com/zhanshi"]#第三方点击url，当前无用
+      }
+    demo<
+      let adUserInfo = {
+        placeid: 1,
+        appid: 1,
+        appwxuserid: 3,
+        appwxusername: 'aaa'
+      }
+      adSdk.creatAdInfo(adUserInfo, function (adInfo) {
+        // 代码部分
+      })
+    >
+  4.adshowlog （成功展示后调用）
+    传入参数adUserInfo,adinfo
+    demo<
+      adSdk.adshowlog(adUserInfo,adInfo);
+    >
+  5.adjump （点击广告跳转）
+    传入参数adUserInfo,adinfo
+    demo<
+      adSdk.adjump(adUserInfo,adInfo);
+    >
+  
+  
+  1.页面展示时调用（发送到达日志）(可以先进行判断是否从其它小程序跳转过来，再进行判断是否有options.adSdkTag)；
+    参数options，用户id，来源小程序id
+    adSdk.adarrivelog(pathPara, adwxuserid, sourcewxappid);
+
+  2.获得激活用户（激活用户）(从其它小程序跳转过来并且有options.adSdkTag)；
+    参数options，用户id，用户名称，来源小程序id
+    adSdk.adgivelog(pathPara, adwxuserid, adwxusername, sourcewxappid);
+
+
+  3.首先用户调用展示广告
+      adSdk.creatAdInfo(adUserInfo, function (adInfo) {
+        // 代码部分此部分返回广告信息（如上），已供展示
+	
+	      //一般在此展示后可调用adSdk.adshowlog(adUserInfo, adInfo);
+      })
+	
+  4.用户成功展示广告后调用
+    adSdk.adshowlog(adUserInfo,adInfo);
+
+
+  5.用户点击广告时进行小程序跳转（点击）
+    adSdk.adjump(adUserInfo,adInfo);
+
+  
+ */
+
+
 
 // 转码base64
 const base64_decode = input => { // 解码，配合decodeURIComponent使用
