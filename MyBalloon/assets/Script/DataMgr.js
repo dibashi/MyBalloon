@@ -8,8 +8,8 @@ export default class DataMgr extends cc.Component {
    
     //第三方sdk 用到的东西
     adUserInfo = {
-        placeid: "1006",
-        appid: "wx53cdc20078b402a5",
+        placeid: "1003",
+        appid: "1006",
         appwxuserid: 3,
         appwxusername: 'aaa'
     };

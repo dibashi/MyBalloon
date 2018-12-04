@@ -3235,7 +3235,7 @@
       }
     ],
     "_tag": -1,
-    "_active": false,
+    "_active": true,
     "_components": [],
     "_prefab": null,
     "_id": "a68CFSqKNNIJ6YxyI9qRe+",
@@ -3469,7 +3469,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 800,
+      "width": 384,
       "height": 144
     },
     "_rotationX": 0,
@@ -3508,7 +3508,7 @@
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "SimHei",
-    "_N$overflow": 3
+    "_N$overflow": 1
   },
   {
     "__type__": "cc.Canvas",
