@@ -30,7 +30,7 @@
   "title": "BPW",
   "webOrientation": "auto",
   "wechatgame": {
-    "REMOTE_SERVER_ROOT": "https://bpw.blyule.com/bpwTest1",
+    "REMOTE_SERVER_ROOT": "https://bpw.blyule.com/bpwTest",
     "appid": "wx53cdc20078b402a5",
     "isSubdomain": false,
     "orientation": "portrait",
