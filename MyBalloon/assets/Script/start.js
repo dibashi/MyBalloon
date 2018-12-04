@@ -486,9 +486,7 @@ cc.Class({
                                         //  console.log(self.openid);
                                     },
                                 });
-                                //调用 SDK 登陆成功
-                                cc.dataMgr.adgivelog();
-                                cc.dataMgr.adarrivelog();
+
                                 cc.dataMgr.createUserInfoButton();
                             },
                         });
@@ -496,11 +494,8 @@ cc.Class({
                 }
             });
         }
-        else {
-            cc.dataMgr.adarrivelog();
+        else
             cc.dataMgr.createUserInfoButton();
-        }
-           
         //end if
 
 
@@ -600,20 +595,20 @@ cc.Class({
                     console.log("是否显示分享的数据");
                     console.log(obj);
                     console.log(obj.data);
-                    if (obj.data.showShare) {
+                    if (obj.data.showShare ) {
                         console.log("显示分享");
                         cc.myballoon_isShare = 1;
                         self.shareNode.active = true;
+                       
+                    } 
 
-                    }
-
-                    if (obj.data.showMoreGame) {
+                    if(obj.data.showMoreGame) {
                         console.log("显示更多游戏");
-
+                       
                         self.moreGameNode.active = true;
                     }
-
-
+                    
+                 
 
                     // if (obj.data == 0) {
                     //     console.log("不显示");

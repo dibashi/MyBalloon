@@ -5,7 +5,7 @@ const {
 } = cc._decorator;
 @ccclass
 export default class DataMgr extends cc.Component {
-
+   
     //第三方sdk 用到的东西
     adUserInfo = {
         placeid: "1006",
@@ -24,16 +24,6 @@ export default class DataMgr extends cc.Component {
         cc.dataMgr.nickName = cc.sys.localStorage.getItem("nickName");
         if (!cc.dataMgr.nickName)
             cc.dataMgr.nickName = "***";
-
-        console.log("--- DataMgr 获取启动参数 并对参数进行存储 ---");
-        let obj = wx.getLaunchOptionsSync();
-        console.log(obj);
-        let query = obj.query;
-        console.log("--- 重要信息 游戏 query --" + query);
-        if (!query)
-            this.query = query;
-        if (obj.referrerInfo && obj.referrerInfo.appId)
-            this.scoreAppId = obj.referrerInfo.appId;
     }
 
     createAdInfo(createPos) {
@@ -60,33 +50,72 @@ export default class DataMgr extends cc.Component {
         adSdk.adjump(this.adUserInfo, this.adInfo);
     }
 
-    adshowlog() {
-        console.log("-- adshowlog --");
-        console.log(this.adInfo);
-        if (this.adInfo)
-            adSdk.adshowlog(this.adUserInfo, this.adInfo);
+    adarrivelog(pathPara) {
+        console.log("-- adarrivelog -- " + pathPara);
+        adSdk.adarrivelog(pathPara, this.openid);
     }
 
-    adarrivelog() {
-        console.log("-- adarrivelog -- " + this.scoreAppId);
-        console.log(this.query);
-        if (this.query && this.query.adSdkTag)
-            adSdk.adarrivelog(this.query, this.openid, this.scoreAppId);
-    }
-
-    adgivelog() {
-        console.log("-- adgivelog -- " + this.scoreAppId);
-        console.log(this.query);
-        if (this.query && this.query.adSdkTag)
-            adSdk.adgivelog(this.query, this.openid, this.nickName, this.scoreAppId);
+    adgivelog(pathPara) {
+        console.log("-- adgivelog -- " + pathPara);
+        adSdk.adgivelog(pathPara, this.openid, this.nickName);
     }
 
     //------ 账号奖励等相关 ------
 
-   
- 
-    // //判断登陆请求是否过期
+    getUerOpenID(reset) {
+        if (CC_WECHATGAME) {
+            let openid = cc.sys.localStorage.getItem("openid");
+            if (!openid || openid - 1 == -1 || openid == "0" || reset) { //保证用户是第一次进游戏
+                console.log("发送wx.login请求!");
+                wx.login({
+                    success: (res) => {
+                        console.log("-- wx.login success --");
+                        console.log(res);
+                        if (res.code) {
+                            //发起网络请求
+                            wx.request({
+                                url: 'https://bpw.blyule.com/game_2/public/index.php/index/index/getopenid?code=' + res.code,
+                                data: {
+                                    code: res.code,
+                                },
+                                success: (obj, statusCode, header) => {
+                                    console.log("请求openid,服务器返回的数据！！--> ");
+                                    console.log(obj);
 
+                                    cc.dataMgr.openid = obj.data.openid;
+                                    cc.dataMgr.adUserInfo.appwxuserid = cc.dataMgr.openid;
+                                    cc.sys.localStorage.setItem("openid", obj.data.openid); //之所以要存，是在分享的时候放入query中
+
+                                    //微信官方文档那里写的调用函数是getLaunchInfoSync，但是根本搜不到这个API，应该是下面这个。
+                                    let launchOption = wx.getLaunchOptionsSync();
+                                    console.log(launchOption);
+                                    if (launchOption.query.otherID == null || launchOption.query.otherID == undefined) {
+                                        launchOption.query.otherID = 0;
+                                    }
+                                    console.log("看下 自己的openid 和 推荐方的openid");
+                                    console.log(cc.dataMgr.openid);
+                                    console.log(launchOption.query.otherID);
+                                    wx.request({
+                                        url: 'https://bpw.blyule.com/game_2/public/index.php/index/index/add?userid=' + cc.dataMgr.openid + "&" + "cuid=" + launchOption.query.otherID,
+                                        data: {
+                                            userid: cc.dataMgr.openid,
+                                            cuid: launchOption.query.otherID,
+                                        },
+                                        success: (data, statusCode, header) => {
+                                            console.log("添加用户成功！ 服务器返回的数据！！--> ");
+                                            console.log(data);
+                                        },
+                                    });
+                                },
+                            });
+                        }
+                    }
+                });
+            }
+        }
+    }
+            // //判断登陆请求是否过期
+         
     //>_< 微信大大该接口了 getUserInfo 不能直接用了
     createUserInfoButton() {
         console.log("-- 微信昵称 --" + cc.dataMgr.nickName + " -- " + this.nickName);
@@ -96,9 +125,9 @@ export default class DataMgr extends cc.Component {
                 let nodeN = cc.find("Canvas/node_userInfo");
                 if (nodeN) {
                     nodeN.active = true;
-                    nodeN.zIndex = 10000;
+                    nodeN.zIndex =10000;
                 }
-
+                    
                 console.log("-- 开始创建 --");
                 let button = wx.createUserInfoButton({
                     type: 'text',
@@ -155,8 +184,8 @@ export default class DataMgr extends cc.Component {
             cc.dataMgr.createAdInfo("getUerOpenID");
     }
 
-
-
-
-
+  
+    
+   
+  
 }

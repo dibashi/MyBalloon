@@ -1,4 +1,4 @@
-﻿const adversion = "1.0.2";
+const adversion ="1.0.1";
 // 固定参数值
 const adtype = 1;
 var ver = '1.0.0';
@@ -124,7 +124,7 @@ const creatAdInfo = (adUserInfopara, callback) => {
       success: function (res) {
         // sdk成功展现
         adInfo = res.data.datas[0];
-        if (!adInfo) {
+        if (!adInfo){
           return;
         }
         callback(adInfo)
@@ -140,12 +140,15 @@ const creatAdInfo = (adUserInfopara, callback) => {
  * 展示日志 4
  *传入参数adinfo{}
  */
-const adshowlog = (adUserInfo,adInfo) => {
+const adshowlog = (adInfo) => {
+  console.log('zhanshi')
+  console.log(adUserInfo)
   var placeid = adUserInfo.placeid;
   var appid = adUserInfo.appid;
   var appwxuserid = adUserInfo.appwxuserid;
   var appwxusername = adUserInfo.appwxusername;
   // 成功展示图片时发送日志
+  console.log(adInfo)
   if (adInfo && adInfo.appendInfo) {
     sendLog(4, adUserInfo, adInfo);
   } else {
@@ -157,7 +160,7 @@ const adshowlog = (adUserInfo,adInfo) => {
  * 跳转到其它小程序
  *传入参数adinfo{}
  */
-const adjump = (adUserInfo,adInfo) => {
+const adjump = (adInfo) => {
   console.log("跳转")
   console.log(adUserInfo)
   console.log(adInfo)
@@ -189,6 +192,11 @@ const adjump = (adUserInfo,adInfo) => {
     } else {
       skipWXMPPath += "?adSdkTag=" + "adSdkTag" + "&targetWXMGAppid=" + targetWXMGAppid + "&targetWXMGPath=" + targetWXMGPath + "&logurl=" + logurl;
     }
+    // if (targetWXMGPath.indexOf('?') > -1) {
+    //   targetWXMGPath += "&adSdkTag=" + "adSdkTag" + "&logurl=" + logur;
+    // } else {
+    //   targetWXMGPath += "?adSdkTag=" + "adSdkTag" + "&logurl=" + logurl ;
+    // }
     console.log("-----------")
     console.log(skipWXMPPath)
     wx.navigateToMiniProgram({
@@ -202,7 +210,6 @@ const adjump = (adUserInfo,adInfo) => {
         // 打开成功  
         // sdk广告点击
         console.log('跳转其它小程序成功');
-        cc.dataMgr.adshowlog();
       }, fail: function (err) {
         console.log('跳转失败');
         console.log(err);
@@ -387,14 +394,14 @@ module.exports = {
       })
     >
   4.adshowlog （成功展示后调用）
-    传入参数adUserInfo,adinfo
+    传入参数adinfo
     demo<
-      adSdk.adshowlog(adUserInfo,adInfo);
+      adSdk.adshowlog(adInfo);
     >
   5.adjump （点击广告跳转）
-    传入参数adUserInfo,adinfo
+    传入参数adinfo
     demo<
-      adSdk.adjump(adUserInfo,adInfo);
+      adSdk.adjump(adInfo);
     >
   
   
@@ -415,11 +422,11 @@ module.exports = {
       })
 	
   4.用户成功展示广告后调用
-    adSdk.adshowlog(adUserInfo,adInfo);
+    adSdk.adshowlog(adInfo);
 
 
   5.用户点击广告时进行小程序跳转（点击）
-    adSdk.adjump(adUserInfo,adInfo);
+    adSdk.adjump(adInfo);
 
   
  */
