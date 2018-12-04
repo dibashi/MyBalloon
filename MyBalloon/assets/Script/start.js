@@ -221,7 +221,7 @@ cc.Class({
         let d4 = parseInt(Date.now());
         let dx = parseInt((d4 - d3) * 0.001);
         if (dx > (this.lotteryTime * 60)) {//超过半个小时
-            this.goRoulette();
+            // this.goRoulette();
         }
 
 
