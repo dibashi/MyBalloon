@@ -123,11 +123,8 @@ export default class DataMgr extends cc.Component {
             console.log("-- 开始 userInfoButton --");
             if (CC_WECHATGAME) {
                 let nodeN = cc.find("Canvas/node_userInfo");
-                if (nodeN) {
+                if (nodeN)
                     nodeN.active = true;
-                    nodeN.zIndex =10000;
-                }
-                    
                 console.log("-- 开始创建 --");
                 let button = wx.createUserInfoButton({
                     type: 'text',
