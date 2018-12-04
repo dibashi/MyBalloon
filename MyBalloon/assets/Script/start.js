@@ -442,7 +442,6 @@ cc.Class({
         // console.log("getUserOpenID!");
         let self = this;
         self.openid = cc.sys.localStorage.getItem("openid");
-        cc.dataMgr.openid = self.openid;
         if (self.openid == "0") {//保证用户是第一次进游戏
             // console.log("发送wx.login请求!");
             wx.login({
@@ -461,7 +460,6 @@ cc.Class({
                                 // console.log(obj.data.openid);
 
                                 self.openid = obj.data.openid;
-                                cc.dataMgr.openid = obj.data.openid;
                                 cc.sys.localStorage.setItem("openid", obj.data.openid);//之所以要存，是在分享的时候放入query中
                                 //微信官方文档那里写的调用函数是getLaunchInfoSync，但是根本搜不到这个API，应该是下面这个。
                                 var launchOption = wx.getLaunchOptionsSync();
@@ -499,11 +497,10 @@ cc.Class({
             });
         }
         else {
-        
             cc.dataMgr.adarrivelog();
             cc.dataMgr.createUserInfoButton();
         }
-
+           
         //end if
 
 
@@ -649,27 +646,5 @@ cc.Class({
     update: function (dt) {
 
     },
-
-
-    refreshMore() {
-        let imageUrl = null;
-        if (cc.dataMgr.adInfo && cc.dataMgr.adInfo.imageUrl) {
-            imageUrl = cc.dataMgr.adInfo.imageUrl;
-            console.log("-- 开始换图 -- " + imageUrl);
-            //更改图片
-            var nodeIcon = this.node.getChildByName("moreGame").getChildByName("node_mask").getChildByName("spr_icon");
-            if (nodeIcon) {
-                cc.loader.load(imageUrl, function (err, texture) {
-                    console.log("-- 加载图片返回了 !!! --")
-                    console.log(err);
-                    if (texture && nodeIcon) {
-                        nodeIcon.getComponent(cc.Sprite).spriteFrame = new cc.SpriteFrame(texture);
-                    }
-                    cc.dataMgr.adshowlog();
-                });
-            }
-        }
-    },
-
 
 });
